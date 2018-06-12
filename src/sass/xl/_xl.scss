@@ -82,6 +82,7 @@ $banner-height: 128px;
 .site-header-nav li {
   margin-right: $scale1;
 }
+
 .site-header-nav li:last-of-type {
   margin-right: 0;
 }
@@ -94,7 +95,30 @@ $banner-height: 128px;
 
 .site-footer {
   background-color: $grey-light;
+  height: $footer-height-large;
   grid-area: sitefooter;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.site-footer-logo {}
+
+.site-footer-nav {
+  @extend .list-plain-horizontal;
+  justify-self: center;
+}
+
+.site-footer-nav li {
+  margin-right: $scale6;
+}
+
+.site-footer-nav li:last-of-type {
+  margin-right: 0;
+}
+
+.site-footer-copyright {
+  justify-self: end;
 }
 
 .site-hero {
@@ -116,7 +140,7 @@ $banner-height: 128px;
   font-size: $scale2;
   padding-bottom: $scale1;
   border-bottom: 1px solid #fff;
-  margin-bottom: $scale6;
+  margin: $scale6 0;
 }
 
 .site-hero-nav li {
@@ -131,10 +155,36 @@ $banner-height: 128px;
   height: 128px;
   line-height: 128px;
   background-color: rgba(255,255,255,.25);
-  padding: 15px;
   border-radius: $radius-base;
   margin-bottom: $scale2;
   color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr 125px;
+  align-items: center;
+  grid-gap: 15px;
+}
+
+.site-hero-icon {
+  margin: 0 15px;
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,.5);
+  border-radius: $radius-base;
+  line-height: 64px;
+  text-align: center;
+}
+.site-hero-message {}
+.site-hero-message h1 {
+  @extend .h6;
+  margin: 0;
+  line-height: 1.2rem
+}
+.site-hero-message p {
+  margin: 0;
+}
+.site-hero-cta {
+  justify-self: end;
+  padding-right: 15px;
 }
 
 .site-hero-display {}
@@ -157,7 +207,6 @@ $banner-height: 128px;
   justify-self: stretch;
   align-self: center;
 }
-
 
 .card {
   position: relative;

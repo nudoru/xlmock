@@ -186,7 +186,7 @@ body {
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6, .site-hero-message h1 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -211,7 +211,7 @@ h5, .h5 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .h6 {
+h6, .h6, .site-hero-message h1 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -282,15 +282,15 @@ svg:not(:root) {
 img {
   vertical-align: middle; }
 
-.list-plain, .list-plain-horizontal, .site-header-nav, .site-hero-nav {
+.list-plain, .list-plain-horizontal, .site-header-nav, .site-footer-nav, .site-hero-nav {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .site-hero-nav li {
+  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .site-footer-nav li, .site-hero-nav li {
     margin-left: 0;
     padding-left: 0; }
 
-.list-plain-horizontal li, .site-header-nav li, .site-hero-nav li {
+.list-plain-horizontal li, .site-header-nav li, .site-footer-nav li, .site-hero-nav li {
   display: inline; }
 
 .site-container {
@@ -351,7 +351,25 @@ img {
 
 .site-footer {
   background-color: gainsboro;
-  grid-area: sitefooter; }
+  height: 161px;
+  grid-area: sitefooter;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.site-footer-nav {
+  justify-self: center; }
+
+.site-footer-nav li {
+  margin-right: 3rem; }
+
+.site-footer-nav li:last-of-type {
+  margin-right: 0; }
+
+.site-footer-copyright {
+  justify-self: end; }
 
 .site-hero {
   padding: 2rem 0;
@@ -369,7 +387,7 @@ img {
   font-size: 1.3125rem;
   padding-bottom: 1.1875rem;
   border-bottom: 1px solid #fff;
-  margin-bottom: 3rem; }
+  margin: 3rem 0; }
 
 .site-hero-nav li {
   margin-right: 3rem; }
@@ -382,10 +400,35 @@ img {
   height: 128px;
   line-height: 128px;
   background-color: rgba(255, 255, 255, 0.25);
-  padding: 15px;
   border-radius: 0.3125rem;
   margin-bottom: 1.3125rem;
-  color: #fff; }
+  color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr 125px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 15px; }
+
+.site-hero-icon {
+  margin: 0 15px;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 0.3125rem;
+  line-height: 64px;
+  text-align: center; }
+
+.site-hero-message h1 {
+  margin: 0;
+  line-height: 1.2rem; }
+
+.site-hero-message p {
+  margin: 0; }
+
+.site-hero-cta {
+  justify-self: end;
+  padding-right: 15px; }
 
 .item-grid {
   display: grid;
