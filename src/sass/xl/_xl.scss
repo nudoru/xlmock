@@ -30,7 +30,7 @@ $banner-height: 128px;
 
 .site-container {
   background-color: $grey-light;
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template: "siteheader siteheader siteheader" auto
@@ -40,16 +40,54 @@ $banner-height: 128px;
 }
 
 .site-header {
-  background-color: $blue-dark;
+  background-color: $blue-dark-3;
   grid-area: siteheader;
+  display: grid;
+  grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;
+  grid-template-rows: $header-height-large;
+  grid-gap: 15px;
+  color: #fff;
+  align-items: center;
 }
 
-// .site-hero {
-//   background-color: $blue-dark;
-//   grid-area: sitehero;
-// }
+.site-header-logo {
+  padding-left: 15px;
+}
+.site-header-categories {
+  height: 50px;
+  line-height: 50px;
+  background-color: rgba(0,0,0,.25);
+  border-radius: $radius-base;
+  text-align: center;
+}
+.site-header-search {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  background-color: rgba(0,0,0,.25);
+  border-radius: $radius-base;
+  padding-left: $scale1;
+}
+.site-header-secondary {
+  justify-self: end;
+  padding-right: 15px;
+}
+
+.site-header-nav {
+  @extend .list-plain-horizontal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.site-header-nav li {
+  margin-right: $scale1;
+}
+.site-header-nav li:last-of-type {
+  margin-right: 0;
+}
 
 .site-content {
+  padding: $scale5 0;
   background-color: $grey-light;
   grid-area: sitecontent;
 }
@@ -60,6 +98,7 @@ $banner-height: 128px;
 }
 
 .site-hero {
+  padding: $scale5 0;
   background-color: $blue-dark;
   grid-area: sitehero;
   display: grid;
@@ -69,4 +108,62 @@ $banner-height: 128px;
 .site-hero-content {
   background-color: $blue-dark;
   grid-area: siteherocontent;
+}
+
+.site-hero-nav {
+  @extend .list-plain-horizontal;
+  color: #fff;
+  font-size: $scale2;
+  padding-bottom: $scale1;
+  border-bottom: 1px solid #fff;
+  margin-bottom: $scale6;
+}
+
+.site-hero-nav li {
+  margin-right: $scale6;
+}
+.site-hero-nav li:last-of-type {
+  margin-right: 0;
+}
+
+.site-hero-banner {
+  position: relative;
+  height: 128px;
+  line-height: 128px;
+  background-color: rgba(255,255,255,.25);
+  padding: 15px;
+  border-radius: $radius-base;
+  margin-bottom: $scale2;
+  color: #fff;
+}
+
+.site-hero-display {}
+
+.item-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template: "itemgridtitle itemgridtitle itemgridfilter" 85px
+                ". . ." 1fr / 1fr 1fr 1fr;
+  margin-bottom: 20px;
+}
+.item-grid-title  {
+  grid-area: itemgridtitle;
+}
+.item-grid-filters {
+  grid-area: itemgridfilter;
+  justify-self: end;
+}
+.item-grid-item {
+  justify-self: stretch;
+  align-self: center;
+}
+
+
+.card {
+  position: relative;
+  width: 100%;
+  height: $card-height;
+  border-radius: $card-radius;
+  background: #fff;
+  padding: 20px;
 }
