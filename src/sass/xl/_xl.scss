@@ -1,0 +1,72 @@
+$header-height-large: 64px;
+$header-height-medium: 64px;
+$header-height-small: 64px;
+
+$footer-height-large: 161px;
+$footer-height-medium: 329px;
+$footer-height-small: 397px;
+
+$content-width-large: 1140px;
+$content-width-medium: 640px;
+$content-width-small: 311px;
+
+$dashboard-header-height-large: 95px;
+$dashboard-header-height-medium: 95px;
+$dashboard-header-height-small: 95px;
+
+$dashboard-hero-height-large: 715px;
+$dashboard-hero-height-medium: 715px;
+$dashboard-hero-height-small: 715px;
+
+$card-width: 311px;
+$card-height: 388px;
+$card-radius: $radius-base;
+
+$hero-card-width: 1140px;
+$hero-card-height: 455px;
+$hero-card-radius: $radius-base;
+
+$banner-height: 128px;
+
+.site-container {
+  background-color: $grey-light;
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template: "siteheader siteheader siteheader" auto
+                  "sitehero sitehero sitehero" auto
+                ". sitecontent ." 1fr
+                ". sitefooter ." auto / 1fr $content-width-large 1fr;
+}
+
+.site-header {
+  background-color: $blue-dark;
+  grid-area: siteheader;
+}
+
+// .site-hero {
+//   background-color: $blue-dark;
+//   grid-area: sitehero;
+// }
+
+.site-content {
+  background-color: $grey-light;
+  grid-area: sitecontent;
+}
+
+.site-footer {
+  background-color: $grey-light;
+  grid-area: sitefooter;
+}
+
+.site-hero {
+  background-color: $blue-dark;
+  grid-area: sitehero;
+  display: grid;
+  grid-template: ". siteherocontent ." auto / 1fr $content-width-large 1fr;
+}
+
+.site-hero-content {
+  background-color: $blue-dark;
+  grid-area: siteherocontent;
+}

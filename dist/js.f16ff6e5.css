@@ -292,3 +292,32 @@ img {
 
 .list-plain-horizontal li {
   display: inline; }
+
+.site-container {
+  background-color: gainsboro;
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  grid-template: "siteheader siteheader siteheader" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr 1140px 1fr; }
+
+.site-header {
+  background-color: #034152;
+  grid-area: siteheader; }
+
+.site-content {
+  background-color: gainsboro;
+  grid-area: sitecontent; }
+
+.site-footer {
+  background-color: gainsboro;
+  grid-area: sitefooter; }
+
+.site-hero {
+  background-color: #034152;
+  grid-area: sitehero;
+  display: grid;
+  grid-template: ". siteherocontent ." auto/1fr 1140px 1fr; }
+
+.site-hero-content {
+  background-color: #034152;
+  grid-area: siteherocontent; }
