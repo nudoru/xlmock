@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel ./src/index.html",
-    "build": "parcel build ./src/npm index.html"
+    "start": "parcel ./src/pug/index.pug",
+    "build": "parcel build ./src/pug/index.pug"
   },
   "keywords": [],
   "author": "Matt Perkins",
