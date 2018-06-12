@@ -169,7 +169,7 @@ module.exports = reloadCSS;
 'use strict';
 
 require('../sass/index.sass');
-},{"../sass/index.sass":29}],58:[function(require,module,exports) {
+},{"../sass/index.sass":29}],41:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -198,7 +198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '56662' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52831' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -339,5 +339,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[58,4], null)
+},{}]},{},[41,4], null)
 //# sourceMappingURL=/js.f16ff6e5.map

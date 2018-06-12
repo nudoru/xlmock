@@ -1,0 +1,30 @@
+.item-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template: "itemgridtitle itemgridtitle itemgridfilter" 85px
+                ". . ." 1fr / 1fr 1fr 1fr;
+  margin-bottom: 20px;
+}
+
+.item-grid-title  {
+  grid-area: itemgridtitle;
+}
+
+.item-grid-filters {
+  grid-area: itemgridfilter;
+  justify-self: end;
+}
+
+.item-grid-item {
+  justify-self: stretch;
+  align-self: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: $card-height;
+  border-radius: $card-radius;
+  background: #fff;
+  padding: 20px;
+}

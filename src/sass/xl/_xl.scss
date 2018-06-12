@@ -28,6 +28,12 @@ $hero-card-radius: $radius-base;
 
 $banner-height: 128px;
 
+@import 'xl_components';
+@import 'xl_header';
+@import 'xl_hero';
+@import 'xl_footer';
+@import 'xl_items';
+
 .site-container {
   background-color: $grey-light;
   width: 100%;
@@ -39,180 +45,9 @@ $banner-height: 128px;
                 ". sitefooter ." auto / 1fr $content-width-large 1fr;
 }
 
-.site-header {
-  background-color: $blue-dark-3;
-  grid-area: siteheader;
-  display: grid;
-  grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;
-  grid-template-rows: $header-height-large;
-  grid-gap: 15px;
-  color: #fff;
-  align-items: center;
-}
-
-.site-header-logo {
-  padding-left: 15px;
-}
-.site-header-categories {
-  height: 50px;
-  line-height: 50px;
-  background-color: rgba(0,0,0,.25);
-  border-radius: $radius-base;
-  text-align: center;
-}
-.site-header-search {
-  position: relative;
-  height: 50px;
-  line-height: 50px;
-  background-color: rgba(0,0,0,.25);
-  border-radius: $radius-base;
-  padding-left: $scale1;
-}
-.site-header-secondary {
-  justify-self: end;
-  padding-right: 15px;
-}
-
-.site-header-nav {
-  @extend .list-plain-horizontal;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.site-header-nav li {
-  margin-right: $scale1;
-}
-
-.site-header-nav li:last-of-type {
-  margin-right: 0;
-}
-
 .site-content {
   padding: $scale5 0;
   background-color: $grey-light;
   grid-area: sitecontent;
 }
 
-.site-footer {
-  background-color: $grey-light;
-  height: $footer-height-large;
-  grid-area: sitefooter;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-}
-
-.site-footer-logo {}
-
-.site-footer-nav {
-  @extend .list-plain-horizontal;
-  justify-self: center;
-}
-
-.site-footer-nav li {
-  margin-right: $scale6;
-}
-
-.site-footer-nav li:last-of-type {
-  margin-right: 0;
-}
-
-.site-footer-copyright {
-  justify-self: end;
-}
-
-.site-hero {
-  padding: $scale5 0;
-  background-color: $blue-dark;
-  grid-area: sitehero;
-  display: grid;
-  grid-template: ". siteherocontent ." auto / 1fr $content-width-large 1fr;
-}
-
-.site-hero-content {
-  background-color: $blue-dark;
-  grid-area: siteherocontent;
-}
-
-.site-hero-nav {
-  @extend .list-plain-horizontal;
-  color: #fff;
-  font-size: $scale2;
-  padding-bottom: $scale1;
-  border-bottom: 1px solid #fff;
-  margin: $scale6 0;
-}
-
-.site-hero-nav li {
-  margin-right: $scale6;
-}
-.site-hero-nav li:last-of-type {
-  margin-right: 0;
-}
-
-.site-hero-banner {
-  position: relative;
-  height: 128px;
-  line-height: 128px;
-  background-color: rgba(255,255,255,.25);
-  border-radius: $radius-base;
-  margin-bottom: $scale2;
-  color: #fff;
-  display: grid;
-  grid-template-columns: auto 1fr 125px;
-  align-items: center;
-  grid-gap: $scale6;
-}
-
-.site-hero-icon {
-  margin-left: $scale6;
-  width: 64px;
-  height: 64px;
-  background: rgba(255,255,255,.5);
-  border-radius: $radius-base;
-  line-height: 64px;
-  text-align: center;
-}
-.site-hero-message {}
-.site-hero-message h1 {
-  @extend .h6;
-  margin: 0;
-  line-height: 1.2rem
-}
-.site-hero-message p {
-  margin: 0;
-}
-.site-hero-cta {
-  justify-self: end;
-  margin-right: $scale6;
-}
-
-.site-hero-display {}
-
-.item-grid {
-  display: grid;
-  grid-gap: 20px;
-  grid-template: "itemgridtitle itemgridtitle itemgridfilter" 85px
-                ". . ." 1fr / 1fr 1fr 1fr;
-  margin-bottom: 20px;
-}
-.item-grid-title  {
-  grid-area: itemgridtitle;
-}
-.item-grid-filters {
-  grid-area: itemgridfilter;
-  justify-self: end;
-}
-.item-grid-item {
-  justify-self: stretch;
-  align-self: center;
-}
-
-.card {
-  position: relative;
-  width: 100%;
-  height: $card-height;
-  border-radius: $card-radius;
-  background: #fff;
-  padding: 20px;
-}

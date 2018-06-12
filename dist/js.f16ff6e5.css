@@ -282,23 +282,16 @@ svg:not(:root) {
 img {
   vertical-align: middle; }
 
-.list-plain, .list-plain-horizontal, .site-header-nav, .site-footer-nav, .site-hero-nav {
+.list-plain, .list-plain-horizontal, .site-header-nav, .site-hero-nav, .site-footer-nav {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .site-footer-nav li, .site-hero-nav li {
+  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .site-hero-nav li, .site-footer-nav li {
     margin-left: 0;
     padding-left: 0; }
 
-.list-plain-horizontal li, .site-header-nav li, .site-footer-nav li, .site-hero-nav li {
+.list-plain-horizontal li, .site-header-nav li, .site-hero-nav li, .site-footer-nav li {
   display: inline; }
-
-.site-container {
-  background-color: gainsboro;
-  width: 100%;
-  min-height: 100vh;
-  display: grid;
-  grid-template: "siteheader siteheader siteheader" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr 1140px 1fr; }
 
 .site-header {
   background-color: #1d5563;
@@ -343,33 +336,6 @@ img {
 
 .site-header-nav li:last-of-type {
   margin-right: 0; }
-
-.site-content {
-  padding: 2rem 0;
-  background-color: gainsboro;
-  grid-area: sitecontent; }
-
-.site-footer {
-  background-color: gainsboro;
-  height: 161px;
-  grid-area: sitefooter;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
-.site-footer-nav {
-  justify-self: center; }
-
-.site-footer-nav li {
-  margin-right: 3rem; }
-
-.site-footer-nav li:last-of-type {
-  margin-right: 0; }
-
-.site-footer-copyright {
-  justify-self: end; }
 
 .site-hero {
   padding: 2rem 0;
@@ -430,6 +396,28 @@ img {
   justify-self: end;
   margin-right: 3rem; }
 
+.site-footer {
+  background-color: gainsboro;
+  height: 161px;
+  grid-area: sitefooter;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.site-footer-nav {
+  justify-self: center; }
+
+.site-footer-nav li {
+  margin-right: 3rem; }
+
+.site-footer-nav li:last-of-type {
+  margin-right: 0; }
+
+.site-footer-copyright {
+  justify-self: end; }
+
 .item-grid {
   display: grid;
   grid-gap: 20px;
@@ -455,3 +443,15 @@ img {
   border-radius: 0.3125rem;
   background: #fff;
   padding: 20px; }
+
+.site-container {
+  background-color: gainsboro;
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template: "siteheader siteheader siteheader" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr 1140px 1fr; }
+
+.site-content {
+  padding: 2rem 0;
+  background-color: gainsboro;
+  grid-area: sitecontent; }

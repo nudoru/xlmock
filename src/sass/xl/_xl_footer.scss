@@ -1,0 +1,27 @@
+.site-footer {
+  background-color: $grey-light;
+  height: $footer-height-large;
+  grid-area: sitefooter;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.site-footer-logo {}
+
+.site-footer-nav {
+  @extend .list-plain-horizontal;
+  justify-self: center;
+}
+
+.site-footer-nav li {
+  margin-right: $scale6;
+}
+
+.site-footer-nav li:last-of-type {
+  margin-right: 0;
+}
+
+.site-footer-copyright {
+  justify-self: end;
+}

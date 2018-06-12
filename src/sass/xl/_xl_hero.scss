@@ -1,0 +1,71 @@
+.site-hero {
+  padding: $scale5 0;
+  background-color: $blue-dark;
+  grid-area: sitehero;
+  display: grid;
+  grid-template: ". siteherocontent ." auto / 1fr $content-width-large 1fr;
+}
+
+.site-hero-content {
+  background-color: $blue-dark;
+  grid-area: siteherocontent;
+}
+
+.site-hero-nav {
+  @extend .list-plain-horizontal;
+  color: #fff;
+  font-size: $scale2;
+  padding-bottom: $scale1;
+  border-bottom: 1px solid #fff;
+  margin: $scale6 0;
+}
+
+.site-hero-nav li {
+  margin-right: $scale6;
+}
+.site-hero-nav li:last-of-type {
+  margin-right: 0;
+}
+
+.site-hero-banner {
+  position: relative;
+  height: 128px;
+  line-height: 128px;
+  background-color: rgba(255,255,255,.25);
+  border-radius: $radius-base;
+  margin-bottom: $scale2;
+  color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr 125px;
+  align-items: center;
+  grid-gap: $scale6;
+}
+
+.site-hero-icon {
+  margin-left: $scale6;
+  width: 64px;
+  height: 64px;
+  background: rgba(255,255,255,.5);
+  border-radius: $radius-base;
+  line-height: 64px;
+  text-align: center;
+}
+
+.site-hero-message {}
+
+.site-hero-message h1 {
+  @extend .h6;
+  margin: 0;
+  line-height: 1.2rem
+}
+
+.site-hero-message p {
+  margin: 0;
+}
+
+.site-hero-cta {
+  justify-self: end;
+  margin-right: $scale6;
+}
+
+.site-hero-display {}
