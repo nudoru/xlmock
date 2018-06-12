@@ -161,11 +161,11 @@ $banner-height: 128px;
   display: grid;
   grid-template-columns: auto 1fr 125px;
   align-items: center;
-  grid-gap: 15px;
+  grid-gap: $scale6;
 }
 
 .site-hero-icon {
-  margin: 0 15px;
+  margin-left: $scale6;
   width: 64px;
   height: 64px;
   background: rgba(255,255,255,.5);
@@ -184,7 +184,7 @@ $banner-height: 128px;
 }
 .site-hero-cta {
   justify-self: end;
-  padding-right: 15px;
+  margin-right: $scale6;
 }
 
 .site-hero-display {}
