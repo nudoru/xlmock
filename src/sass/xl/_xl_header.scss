@@ -4,17 +4,17 @@
   display: grid;
   grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;
   grid-template-rows: $header-height-large;
-  grid-gap: 15px;
+  grid-gap: $scale1;
   color: #fff;
   align-items: center;
 }
 
 .site-header-logo {
-  padding-left: 15px;
+  padding-left: $scale1;
 }
 .site-header-categories {
-  height: 50px;
-  line-height: 50px;
+  height: $scale6;
+  line-height: $scale6;
   background-color: rgba(0,0,0,.25);
   border-radius: $radius-base;
   text-align: center;
@@ -27,9 +27,10 @@
   border-radius: $radius-base;
   padding-left: $scale1;
 }
+
 .site-header-secondary {
   justify-self: end;
-  padding-right: 15px;
+  padding-right: $scale1;
 }
 
 .site-header-nav {

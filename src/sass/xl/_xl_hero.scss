@@ -15,9 +15,9 @@
   @extend .list-plain-horizontal;
   color: #fff;
   font-size: $scale2;
-  padding-bottom: $scale1;
+  padding-bottom: $scale2;
   border-bottom: 1px solid #fff;
-  margin: $scale6 0;
+  margin: $scale6 0 $scale8 0;
 }
 
 .site-hero-nav li {
@@ -31,7 +31,7 @@
   position: relative;
   height: 128px;
   line-height: 128px;
-  background-color: rgba(255,255,255,.25);
+  background-color: rgba(255,255,255,.1);
   border-radius: $radius-base;
   margin-bottom: $scale2;
   color: #fff;
@@ -42,13 +42,9 @@
 }
 
 .site-hero-icon {
+  @extend .icon_square_large;
   margin-left: $scale6;
-  width: 64px;
-  height: 64px;
   background: rgba(255,255,255,.5);
-  border-radius: $radius-base;
-  line-height: 64px;
-  text-align: center;
 }
 
 .site-hero-message {}

@@ -1,0 +1,60 @@
+.card {
+  position: relative;
+  width: 100%;
+  height: $card-height;
+  border-radius: $card-radius;
+  background: #fff;
+  padding: 20px;
+}
+
+.card-program {}
+.card-event {}
+
+.icon_square_large {
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-base;
+  line-height: 64px;
+  text-align: center;
+}
+
+button {
+  height: $scale6;
+  line-height: $scale6;
+  padding: 0 $scale5;
+  border-radius: $radius-base;
+  background-color: transparent;
+  border: 2px solid $blue-dark;
+  color: $blue-dark;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: rgba(0,0,0,.1);
+  cursor: pointer;
+}
+
+button.primary {
+  background: $blue-dark;
+  color: #fff;
+}
+
+button.primary:hover {
+  background: $blue-dark-3;
+  border: 2px solid $blue-dark-3;
+}
+
+button.light {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+button.light-primary {
+  border: 2px solid #fff;
+  background: #fff;
+  color: $blue-dark;
+}
+
+button.light-primary:hover {
+  background-color: #ddd;
+}

@@ -293,24 +293,77 @@ img {
 .list-plain-horizontal li, .site-header-nav li, .site-hero-nav li, .site-footer-nav li {
   display: inline; }
 
+/*
+TODO
+- standardize spaces, large spacer at $scale6
+*/
+.card {
+  position: relative;
+  width: 100%;
+  height: 388px;
+  border-radius: 0.3125rem;
+  background: #fff;
+  padding: 20px; }
+
+.icon_square_large, .site-hero-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.3125rem;
+  line-height: 64px;
+  text-align: center; }
+
+button {
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 2rem;
+  border-radius: 0.3125rem;
+  background-color: transparent;
+  border: 2px solid #034152;
+  color: #034152;
+  font-weight: 600; }
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
+
+button.primary {
+  background: #034152;
+  color: #fff; }
+
+button.primary:hover {
+  background: #1d5563;
+  border: 2px solid #1d5563; }
+
+button.light {
+  border: 2px solid #fff;
+  color: #fff; }
+
+button.light-primary {
+  border: 2px solid #fff;
+  background: #fff;
+  color: #034152; }
+
+button.light-primary:hover {
+  background-color: #ddd; }
+
 .site-header {
   background-color: #1d5563;
   grid-area: siteheader;
   display: grid;
   grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;
   grid-template-rows: 64px;
-  grid-gap: 15px;
+  grid-gap: 1.1875rem;
   color: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
 
 .site-header-logo {
-  padding-left: 15px; }
+  padding-left: 1.1875rem; }
 
 .site-header-categories {
-  height: 50px;
-  line-height: 50px;
+  height: 3rem;
+  line-height: 3rem;
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 0.3125rem;
   text-align: center; }
@@ -325,7 +378,7 @@ img {
 
 .site-header-secondary {
   justify-self: end;
-  padding-right: 15px; }
+  padding-right: 1.1875rem; }
 
 .site-header-nav {
   font-weight: 700;
@@ -351,9 +404,9 @@ img {
 .site-hero-nav {
   color: #fff;
   font-size: 1.3125rem;
-  padding-bottom: 1.1875rem;
+  padding-bottom: 1.3125rem;
   border-bottom: 1px solid #fff;
-  margin: 3rem 0; }
+  margin: 3rem 0 5rem 0; }
 
 .site-hero-nav li {
   margin-right: 3rem; }
@@ -365,7 +418,7 @@ img {
   position: relative;
   height: 128px;
   line-height: 128px;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 0.3125rem;
   margin-bottom: 1.3125rem;
   color: #fff;
@@ -378,12 +431,7 @@ img {
 
 .site-hero-icon {
   margin-left: 3rem;
-  width: 64px;
-  height: 64px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 0.3125rem;
-  line-height: 64px;
-  text-align: center; }
+  background: rgba(255, 255, 255, 0.5); }
 
 .site-hero-message h1 {
   margin: 0;
@@ -435,14 +483,6 @@ img {
   justify-self: stretch;
   -ms-flex-item-align: center;
       align-self: center; }
-
-.card {
-  position: relative;
-  width: 100%;
-  height: 388px;
-  border-radius: 0.3125rem;
-  background: #fff;
-  padding: 20px; }
 
 .site-container {
   background-color: gainsboro;
