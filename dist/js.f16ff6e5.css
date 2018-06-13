@@ -282,22 +282,20 @@ svg:not(:root) {
 img {
   vertical-align: middle; }
 
-.list-plain, .list-plain-horizontal, .site-header-nav, .site-hero-nav, .site-footer-nav {
+.list-plain, .list-plain-horizontal, .site-header-nav, .dashboard-nav, .site-footer-nav {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .site-hero-nav li, .site-footer-nav li {
+  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .dashboard-nav li, .site-footer-nav li {
     margin-left: 0;
     padding-left: 0; }
 
-.list-plain-horizontal li, .site-header-nav li, .site-hero-nav li, .site-footer-nav li {
+.list-plain-horizontal li, .site-header-nav li, .dashboard-nav li, .site-footer-nav li {
   display: inline; }
 
 /*
 TODO
-- standardize spaces, large spacer at $scale6
-- variablize colors rather than hard code on components
-- rename "hero banner" to banner alert, and button cell needs to be auto
+- hero / dashboard nav need to be it's own row
 */
 .card {
   position: relative;
@@ -320,46 +318,46 @@ button {
   padding: 0 2rem;
   border-radius: 0.3125rem;
   background-color: transparent;
-  border: 2px solid #034152;
-  color: #034152;
+  border: 2px solid #0088ce;
+  color: #0088ce;
   font-weight: 600; }
 
 button:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 2px solid #1d5563;
-  color: #1d5563;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #0cafd7;
+  color: #0cafd7;
   cursor: pointer; }
 
 button.primary {
-  background: #034152;
+  background: #0088ce;
   color: #fff; }
 
 button.primary:hover {
-  background: #1d5563;
-  border: 2px solid #1d5563; }
+  background: #0cafd7;
+  border: 2px solid #0cafd7; }
 
 button.negative {
   border: 2px solid #fff;
   color: #fff; }
 
 button.negative:hover {
-  border: 2px solid gainsboro;
-  color: gainsboro; }
+  border: 2px solid #fff;
+  color: #fff; }
 
 button.negative-primary {
   border: 2px solid #fff;
   background: #fff; }
 
 button.negative-primary:hover {
-  background-color: gainsboro;
-  border: 2px solid gainsboro; }
+  background-color: #fff;
+  border: 2px solid #fff; }
 
 .label {
   position: relative;
   display: inline-block;
   margin-right: 0.875rem;
   padding: 0 0.875rem;
-  background-color: #034152;
+  background-color: #0088ce;
   color: #fff;
   height: 1.75rem;
   line-height: 1.75rem;
@@ -396,7 +394,7 @@ button.negative-primary:hover {
   margin-right: 3rem; }
 
 .site-header {
-  background-color: #4c4c4c;
+  background-color: #0088ce;
   grid-area: siteheader;
   display: grid;
   grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;
@@ -441,25 +439,38 @@ button.negative-primary:hover {
 
 .site-hero {
   padding: 2rem 0;
-  background-color: #4c4c4c;
+  background-color: #0088ce;
   grid-area: sitehero;
   display: grid;
   grid-template: ". siteherocontent ." auto/1fr 1140px 1fr; }
 
 .site-hero-content {
+  background-color: #0088ce;
   grid-area: siteherocontent; }
 
-.site-hero-nav {
+.site-hero-display {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1.3125rem;
+  border-radius: 0.3125rem; }
+
+.site-dashboard-nav {
+  background-color: #0088ce;
+  grid-area: sitedashboardnav;
+  display: grid;
+  grid-template: ". dashboardnavcontent ." auto/1fr 1140px 1fr;
+  padding-top: 2rem; }
+
+.dashboard-nav {
+  grid-area: dashboardnavcontent;
   color: #fff;
   font-size: 1.3125rem;
   padding-bottom: 1.3125rem;
-  border-bottom: 1px solid #fff;
-  margin: 3rem 0 5rem 0; }
+  border-bottom: 1px solid #fff; }
 
-.site-hero-nav li {
+.dashboard-nav li {
   margin-right: 3rem; }
 
-.site-hero-nav li:last-of-type {
+.dashboard-nav li:last-of-type {
   margin-right: 0; }
 
 .site-footer {
@@ -517,7 +528,7 @@ button.negative-primary:hover {
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template: "siteheader siteheader siteheader" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr 1140px 1fr; }
+  grid-template: "siteheader siteheader siteheader" auto "sitedashboardnav sitedashboardnav sitedashboardnav" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr 1140px 1fr; }
 
 .site-content {
   padding: 2rem 0;

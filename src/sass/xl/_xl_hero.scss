@@ -7,25 +7,37 @@
 }
 
 .site-hero-content {
+  background-color: $hero-color-background;
   grid-area: siteherocontent;
 }
 
-.site-hero-nav {
+.site-hero-display {
+  background-color: rgba(0,0,0,.1);
+  padding: $scale2;
+  border-radius: $radius-base;
+}
+
+.site-dashboard-nav {
+  background-color: $hero-color-background;
+  grid-area: sitedashboardnav;
+  display: grid;
+  grid-template: ". dashboardnavcontent ." auto / 1fr $content-width-large 1fr;
+  padding-top: $scale5;  
+}
+
+.dashboard-nav {
   @extend .list-plain-horizontal;
+  grid-area: dashboardnavcontent;
   color: #fff;
   font-size: $scale2;
   padding-bottom: $scale2;
   border-bottom: 1px solid #fff;
-  margin: $scale6 0 $scale8 0;
 }
 
-.site-hero-nav li {
+.dashboard-nav li {
   margin-right: $scale6;
 }
-.site-hero-nav li:last-of-type {
+.dashboard-nav li:last-of-type {
   margin-right: 0;
 }
 
-
-
-.site-hero-display {}

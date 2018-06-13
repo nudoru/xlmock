@@ -30,7 +30,7 @@ button {
 }
 
 button:hover {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(255,255,255,.1);
   border: 2px solid $button-primary-color-over;
   color: $button-primary-color-over;
   cursor: pointer;

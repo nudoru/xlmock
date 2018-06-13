@@ -1,8 +1,6 @@
 /*
 TODO
-- standardize spaces, large spacer at $scale6
-- variablize colors rather than hard code on components
-- rename "hero banner" to banner alert, and button cell needs to be auto
+- hero / dashboard nav need to be it's own row
 */
 
 $header-height-large: 64px;
@@ -35,16 +33,16 @@ $hero-card-radius: $radius-base;
 
 $banner-height: 128px;
 
-$header-color-background: $grey-dark;
-$hero-color-background: $grey-dark;
+$header-color-background: $blue-9;
+$hero-color-background: $blue-9;
 $content-color-background: $grey-light;
 $card-course-color-background: #fff;
 $card-path-color-background: $grey-dark;
 $card-event-color-background: #fff;
-$button-primary-color: $blue-dark;
-$button-primary-color-over: $blue-dark-3;
+$button-primary-color: $blue-9;
+$button-primary-color-over: $blue-7;
 $button-primary-color-negative: #fff;
-$button-primary-color-negative-over: $grey-light;
+$button-primary-color-negative-over: #fff;
 
 @import 'xl_components';
 @import 'xl_header';
@@ -58,6 +56,7 @@ $button-primary-color-negative-over: $grey-light;
   min-height: 100vh;
   display: grid;
   grid-template: "siteheader siteheader siteheader" auto
+                  "sitedashboardnav sitedashboardnav sitedashboardnav" auto
                   "sitehero sitehero sitehero" auto
                 ". sitecontent ." 1fr
                 ". sitefooter ." auto / 1fr $content-width-large 1fr;
