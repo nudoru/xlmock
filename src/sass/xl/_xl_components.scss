@@ -1,20 +1,98 @@
 .card {
-  position: relative;
-  width: 100%;
+  @extend .dropshadow-xs;
   height: $card-height;
   border-radius: $card-radius;
   background: #fff;
-  padding: $scale2;
+  padding: $scale4;
+  display: grid;
+  grid-template: "cardicon cardduration" 50px
+                  "cardcontent cardcontent" minmax(auto, 200px)
+                  "cardcta cardsubicon" 50px / 2fr 1fr;
+  grid-gap: $scale1;
 }
 
-.card-program {}
+.card-path {
+  background: $blue-dark-3;
+  .card-duration {
+    color: #fff;
+  }
+  .card-content {
+    h1, h2 {
+      color: #fff;
+    }
+    p {
+      color: rgba(255,255,255, .75);
+    }
+  }
+  .card-cta button {
+    @extend .negative-primary;
+  }
+}
 .card-event {}
+
+.card-icon {
+  grid-area: cardicon;
+  align-self: center;
+}
+
+.card-duration {
+  grid-area: cardduration;
+  justify-self: end;
+  align-self: center;
+}
+
+.card-content {
+  grid-area: cardcontent;
+  align-self: end;
+  h1 {
+    @extend .h5;
+    margin-bottom: $scale4;
+    line-height: $scale4;
+    font-weight: 600;
+  }
+  h2 {
+    @extend .h6;
+    margin-bottom: $scale1;
+    line-height: 1rem;
+    font-weight: 600;
+  }
+  p {
+    margin-bottom: 0;
+    color: $grey-dark;
+  }
+}
+
+.card-cta {
+  grid-area: cardcta;
+}
+
+.card-subicon {
+  grid-area: cardsubicon;
+  justify-self: end;
+  align-self: center;
+}
+
+/*
+.card
+  .card-icon []
+  .card-duration 4 hours left
+  .card-content
+    h2 Learning Path
+    h1 This is a long title
+    p This is the description
+  .card-cta
+    button.primary Resume Path
+  .card-subicon <>
+*/
+
 
 .icon_square_large {
   width: 64px;
   height: 64px;
   border-radius: $radius-base;
   line-height: 64px;
+  font-size: 2rem;
+  font-weight: 700;
   text-align: center;
 }
 
@@ -59,6 +137,7 @@ button.negative:hover {
 button.negative-primary {
   border: 2px solid $button-primary-color-negative;
   background: $button-primary-color-negative;
+  color: $grey-dark;
 }
 
 button.negative-primary:hover {
@@ -67,35 +146,36 @@ button.negative-primary:hover {
 }
 
 .label {
-  @extend .small;
   position: relative;
   display: inline-block;
   margin-right: $scale-1;
-  padding: 0 $scale-1;
   background-color: $button-primary-color;
   color: #fff;
+  padding: 0 10px;
   height: $scale4;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
   line-height: $scale4;
+  min-width: $scale4;
   border-radius: $scale4;
 }
 
 .banner-message {
+  @extend .dropshadow-sm;
   position: relative;
-  height: 128px;
-  line-height: 128px;
   background-color: rgba(255,255,255,.1);
   border-radius: $radius-base;
   margin-bottom: $scale2;
-  color: #fff;
+  padding: $scale4;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  grid-gap: $scale6;
+  grid-gap: $scale4;
 }
 
 .banner-message-icon {
   @extend .icon_square_large;
-  margin-left: $scale6;
   background: rgba(255,255,255,.5);
 }
 
@@ -113,5 +193,4 @@ button.negative-primary:hover {
 
 .banner-message-cta {
   justify-self: end;
-  margin-right: $scale6;
 }

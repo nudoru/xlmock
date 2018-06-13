@@ -109,12 +109,10 @@
           transform-origin: 50% 50% 0; }
 
 .shadow-text-light {
-  -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.75);
-          box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.75); }
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.75); }
 
 .shadow-text-dark {
-  -webkit-box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25); }
 
 .shadow-text-dark-small {
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
@@ -124,11 +122,11 @@
   -webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1); }
 
-.dropshadow-xs {
+.dropshadow-xs, .card {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
-.dropshadow-sm {
+.dropshadow-sm, .banner-message {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15); }
 
@@ -186,7 +184,7 @@ body {
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .item-grid-title h1, .h6, .banner-message-message h1 {
+.h1, .h2, .h3, .h4, .h5, .card-content h1, .item-grid-title h1, .h6, .card-content h2, .banner-message-message h1 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -207,11 +205,11 @@ h4, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .h5, .item-grid-title h1 {
+h5, .h5, .card-content h1, .item-grid-title h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .h6, .banner-message-message h1 {
+h6, .h6, .card-content h2, .banner-message-message h1 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -240,7 +238,7 @@ strong {
 em {
   font-style: italic; }
 
-small, .small, .label {
+small, .small {
   font-size: 0.875rem;
   line-height: 1.8rem; }
 
@@ -298,18 +296,78 @@ TODO
 - hero / dashboard nav need to be it's own row
 */
 .card {
-  position: relative;
-  width: 100%;
   height: 388px;
   border-radius: 0.3125rem;
   background: #fff;
-  padding: 1.3125rem; }
+  padding: 1.75rem;
+  display: grid;
+  grid-template: "cardicon cardduration" 50px "cardcontent cardcontent" minmax(auto, 200px) "cardcta cardsubicon" 50px/2fr 1fr;
+  grid-gap: 1.1875rem; }
 
+.card-path {
+  background: #1d5563; }
+  .card-path .card-duration {
+    color: #fff; }
+  .card-path .card-content h1, .card-path .card-content h2 {
+    color: #fff; }
+  .card-path .card-content p {
+    color: rgba(255, 255, 255, 0.75); }
+
+.card-icon {
+  grid-area: cardicon;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.card-duration {
+  grid-area: cardduration;
+  justify-self: end;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.card-content {
+  grid-area: cardcontent;
+  -ms-flex-item-align: end;
+      align-self: end; }
+  .card-content h1 {
+    margin-bottom: 1.75rem;
+    line-height: 1.75rem;
+    font-weight: 600; }
+  .card-content h2 {
+    margin-bottom: 1.1875rem;
+    line-height: 1rem;
+    font-weight: 600; }
+  .card-content p {
+    margin-bottom: 0;
+    color: #4c4c4c; }
+
+.card-cta {
+  grid-area: cardcta; }
+
+.card-subicon {
+  grid-area: cardsubicon;
+  justify-self: end;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+/*
+.card
+  .card-icon []
+  .card-duration 4 hours left
+  .card-content
+    h2 Learning Path
+    h1 This is a long title
+    p This is the description
+  .card-cta
+    button.primary Resume Path
+  .card-subicon <>
+*/
 .icon_square_large, .banner-message-icon {
   width: 64px;
   height: 64px;
   border-radius: 0.3125rem;
   line-height: 64px;
+  font-size: 2rem;
+  font-weight: 700;
   text-align: center; }
 
 button {
@@ -344,11 +402,12 @@ button.negative:hover {
   border: 2px solid #fff;
   color: #fff; }
 
-button.negative-primary {
+button.negative-primary, .card-path .card-cta button {
   border: 2px solid #fff;
-  background: #fff; }
+  background: #fff;
+  color: #4c4c4c; }
 
-button.negative-primary:hover {
+button.negative-primary:hover, .card-path .card-cta button:hover {
   background-color: #fff;
   border: 2px solid #fff; }
 
@@ -356,30 +415,31 @@ button.negative-primary:hover {
   position: relative;
   display: inline-block;
   margin-right: 0.875rem;
-  padding: 0 0.875rem;
   background-color: #0088ce;
   color: #fff;
+  padding: 0 10px;
   height: 1.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
   line-height: 1.75rem;
+  min-width: 1.75rem;
   border-radius: 1.75rem; }
 
 .banner-message {
   position: relative;
-  height: 128px;
-  line-height: 128px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 0.3125rem;
   margin-bottom: 1.3125rem;
-  color: #fff;
+  padding: 1.75rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-gap: 3rem; }
+  grid-gap: 1.75rem; }
 
 .banner-message-icon {
-  margin-left: 3rem;
   background: rgba(255, 255, 255, 0.5); }
 
 .banner-message-message h1 {
@@ -390,8 +450,7 @@ button.negative-primary:hover {
   margin: 0; }
 
 .banner-message-cta {
-  justify-self: end;
-  margin-right: 3rem; }
+  justify-self: end; }
 
 .site-header {
   background-color: #0088ce;
@@ -437,22 +496,6 @@ button.negative-primary:hover {
 .site-header-nav li:last-of-type {
   margin-right: 0; }
 
-.site-hero {
-  padding: 2rem 0;
-  background-color: #0088ce;
-  grid-area: sitehero;
-  display: grid;
-  grid-template: ". siteherocontent ." auto/1fr 1140px 1fr; }
-
-.site-hero-content {
-  background-color: #0088ce;
-  grid-area: siteherocontent; }
-
-.site-hero-display {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 1.3125rem;
-  border-radius: 0.3125rem; }
-
 .site-dashboard-nav {
   background-color: #0088ce;
   grid-area: sitedashboardnav;
@@ -472,6 +515,22 @@ button.negative-primary:hover {
 
 .dashboard-nav li:last-of-type {
   margin-right: 0; }
+
+.site-hero {
+  padding: 2rem 0;
+  background-color: #0088ce;
+  grid-area: sitehero;
+  display: grid;
+  grid-template: ". siteherocontent ." auto/1fr 1140px 1fr; }
+
+.site-hero-content {
+  background-color: #0088ce;
+  grid-area: siteherocontent; }
+
+.site-hero-display {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1.3125rem;
+  border-radius: 0.3125rem; }
 
 .site-footer {
   height: 161px;

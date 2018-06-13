@@ -46,3 +46,27 @@
 .site-header-nav li:last-of-type {
   margin-right: 0;
 }
+
+.site-dashboard-nav {
+  background-color: $hero-color-background;
+  grid-area: sitedashboardnav;
+  display: grid;
+  grid-template: ". dashboardnavcontent ." auto / 1fr $content-width-large 1fr;
+  padding-top: $scale5;  
+}
+
+.dashboard-nav {
+  @extend .list-plain-horizontal;
+  grid-area: dashboardnavcontent;
+  color: #fff;
+  font-size: $scale2;
+  padding-bottom: $scale2;
+  border-bottom: 1px solid #fff;
+}
+
+.dashboard-nav li {
+  margin-right: $scale6;
+}
+.dashboard-nav li:last-of-type {
+  margin-right: 0;
+}
