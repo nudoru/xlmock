@@ -1,5 +1,5 @@
 .site-header {
-  background-color: $blue-dark-3;
+  background-color: $header-color-background;
   grid-area: siteheader;
   display: grid;
   grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;

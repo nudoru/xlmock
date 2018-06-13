@@ -186,7 +186,7 @@ body {
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6, .site-hero-message h1 {
+.h1, .h2, .h3, .h4, .h5, .item-grid-title h1, .h6, .banner-message-message h1 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -207,11 +207,11 @@ h4, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .h5 {
+h5, .h5, .item-grid-title h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .h6, .site-hero-message h1 {
+h6, .h6, .banner-message-message h1 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -240,7 +240,7 @@ strong {
 em {
   font-style: italic; }
 
-small, .small {
+small, .small, .label {
   font-size: 0.875rem;
   line-height: 1.8rem; }
 
@@ -296,6 +296,8 @@ img {
 /*
 TODO
 - standardize spaces, large spacer at $scale6
+- variablize colors rather than hard code on components
+- rename "hero banner" to banner alert, and button cell needs to be auto
 */
 .card {
   position: relative;
@@ -303,9 +305,9 @@ TODO
   height: 388px;
   border-radius: 0.3125rem;
   background: #fff;
-  padding: 20px; }
+  padding: 1.3125rem; }
 
-.icon_square_large, .site-hero-icon {
+.icon_square_large, .banner-message-icon {
   width: 64px;
   height: 64px;
   border-radius: 0.3125rem;
@@ -324,6 +326,8 @@ button {
 
 button:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid #1d5563;
+  color: #1d5563;
   cursor: pointer; }
 
 button.primary {
@@ -334,20 +338,65 @@ button.primary:hover {
   background: #1d5563;
   border: 2px solid #1d5563; }
 
-button.light {
+button.negative {
   border: 2px solid #fff;
   color: #fff; }
 
-button.light-primary {
-  border: 2px solid #fff;
-  background: #fff;
-  color: #034152; }
+button.negative:hover {
+  border: 2px solid gainsboro;
+  color: gainsboro; }
 
-button.light-primary:hover {
-  background-color: #ddd; }
+button.negative-primary {
+  border: 2px solid #fff;
+  background: #fff; }
+
+button.negative-primary:hover {
+  background-color: gainsboro;
+  border: 2px solid gainsboro; }
+
+.label {
+  position: relative;
+  display: inline-block;
+  margin-right: 0.875rem;
+  padding: 0 0.875rem;
+  background-color: #034152;
+  color: #fff;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  border-radius: 1.75rem; }
+
+.banner-message {
+  position: relative;
+  height: 128px;
+  line-height: 128px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.3125rem;
+  margin-bottom: 1.3125rem;
+  color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 3rem; }
+
+.banner-message-icon {
+  margin-left: 3rem;
+  background: rgba(255, 255, 255, 0.5); }
+
+.banner-message-message h1 {
+  margin: 0;
+  line-height: 1.2rem; }
+
+.banner-message-message p {
+  margin: 0; }
+
+.banner-message-cta {
+  justify-self: end;
+  margin-right: 3rem; }
 
 .site-header {
-  background-color: #1d5563;
+  background-color: #4c4c4c;
   grid-area: siteheader;
   display: grid;
   grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;
@@ -392,13 +441,12 @@ button.light-primary:hover {
 
 .site-hero {
   padding: 2rem 0;
-  background-color: #034152;
+  background-color: #4c4c4c;
   grid-area: sitehero;
   display: grid;
   grid-template: ". siteherocontent ." auto/1fr 1140px 1fr; }
 
 .site-hero-content {
-  background-color: #034152;
   grid-area: siteherocontent; }
 
 .site-hero-nav {
@@ -414,38 +462,7 @@ button.light-primary:hover {
 .site-hero-nav li:last-of-type {
   margin-right: 0; }
 
-.site-hero-banner {
-  position: relative;
-  height: 128px;
-  line-height: 128px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 0.3125rem;
-  margin-bottom: 1.3125rem;
-  color: #fff;
-  display: grid;
-  grid-template-columns: auto 1fr 125px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  grid-gap: 3rem; }
-
-.site-hero-icon {
-  margin-left: 3rem;
-  background: rgba(255, 255, 255, 0.5); }
-
-.site-hero-message h1 {
-  margin: 0;
-  line-height: 1.2rem; }
-
-.site-hero-message p {
-  margin: 0; }
-
-.site-hero-cta {
-  justify-self: end;
-  margin-right: 3rem; }
-
 .site-footer {
-  background-color: gainsboro;
   height: 161px;
   grid-area: sitefooter;
   display: grid;
@@ -468,12 +485,23 @@ button.light-primary:hover {
 
 .item-grid {
   display: grid;
-  grid-gap: 20px;
-  grid-template: "itemgridtitle itemgridtitle itemgridfilter" 85px ". . ." 1fr / 1fr 1fr 1fr;
-  margin-bottom: 20px; }
+  grid-gap: 1.3125rem;
+  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto ". . ." 1fr / 1fr 1fr 1fr;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  margin-bottom: 1.3125rem; }
 
 .item-grid-title {
-  grid-area: itemgridtitle; }
+  grid-area: itemgridtitle;
+  -ms-flex-item-align: end;
+      align-self: end; }
+
+.item-grid-title h1 {
+  margin: 0;
+  line-height: 1rem;
+  display: inline;
+  font-weight: 600;
+  margin-right: 1.1875rem; }
 
 .item-grid-filters {
   grid-area: itemgridfilter;
@@ -493,5 +521,4 @@ button.light-primary:hover {
 
 .site-content {
   padding: 2rem 0;
-  background-color: gainsboro;
   grid-area: sitecontent; }

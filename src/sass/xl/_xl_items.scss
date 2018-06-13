@@ -1,13 +1,24 @@
 .item-grid {
   display: grid;
-  grid-gap: 20px;
-  grid-template: "itemgridtitle itemgridtitle itemgridfilter" 85px
+  grid-gap: $scale2;
+  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto
                 ". . ." 1fr / 1fr 1fr 1fr;
-  margin-bottom: 20px;
+  align-content: center;
+  margin-bottom: $scale2;
 }
 
 .item-grid-title  {
   grid-area: itemgridtitle;
+  align-self: end;
+}
+
+.item-grid-title h1 {
+  @extend .h5;
+  margin: 0;
+  line-height: 1rem;
+  display: inline;
+  font-weight: 600;
+  margin-right: $scale1;
 }
 
 .item-grid-filters {

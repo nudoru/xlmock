@@ -4,7 +4,7 @@
   height: $card-height;
   border-radius: $card-radius;
   background: #fff;
-  padding: 20px;
+  padding: $scale2;
 }
 
 .card-program {}
@@ -24,37 +24,94 @@ button {
   padding: 0 $scale5;
   border-radius: $radius-base;
   background-color: transparent;
-  border: 2px solid $blue-dark;
-  color: $blue-dark;
+  border: 2px solid $button-primary-color;
+  color: $button-primary-color;
   font-weight: 600;
 }
 
 button:hover {
   background-color: rgba(0,0,0,.1);
+  border: 2px solid $button-primary-color-over;
+  color: $button-primary-color-over;
   cursor: pointer;
 }
 
 button.primary {
-  background: $blue-dark;
+  background: $button-primary-color;
   color: #fff;
 }
 
 button.primary:hover {
-  background: $blue-dark-3;
-  border: 2px solid $blue-dark-3;
+  background: $button-primary-color-over;
+  border: 2px solid $button-primary-color-over;
 }
 
-button.light {
-  border: 2px solid #fff;
+button.negative {
+  border: 2px solid $button-primary-color-negative;
+  color: $button-primary-color-negative;
+}
+
+button.negative:hover {
+  border: 2px solid $button-primary-color-negative-over;
+  color: $button-primary-color-negative-over;
+}
+
+button.negative-primary {
+  border: 2px solid $button-primary-color-negative;
+  background: $button-primary-color-negative;
+}
+
+button.negative-primary:hover {
+  background-color: $button-primary-color-negative-over;
+  border: 2px solid $button-primary-color-negative-over;
+}
+
+.label {
+  @extend .small;
+  position: relative;
+  display: inline-block;
+  margin-right: $scale-1;
+  padding: 0 $scale-1;
+  background-color: $button-primary-color;
   color: #fff;
+  height: $scale4;
+  line-height: $scale4;
+  border-radius: $scale4;
 }
 
-button.light-primary {
-  border: 2px solid #fff;
-  background: #fff;
-  color: $blue-dark;
+.banner-message {
+  position: relative;
+  height: 128px;
+  line-height: 128px;
+  background-color: rgba(255,255,255,.1);
+  border-radius: $radius-base;
+  margin-bottom: $scale2;
+  color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  grid-gap: $scale6;
 }
 
-button.light-primary:hover {
-  background-color: #ddd;
+.banner-message-icon {
+  @extend .icon_square_large;
+  margin-left: $scale6;
+  background: rgba(255,255,255,.5);
+}
+
+.banner-message-message {}
+
+.banner-message-message h1 {
+  @extend .h6;
+  margin: 0;
+  line-height: 1.2rem
+}
+
+.banner-message-message p {
+  margin: 0;
+}
+
+.banner-message-cta {
+  justify-self: end;
+  margin-right: $scale6;
 }
