@@ -25,7 +25,7 @@
   @extend .dropshadow-xs;
   height: $card-height;
   border-radius: $card-radius;
-  background: #fff;
+  background: $card-course-color;
   padding: $scale4;
   display: grid;
   grid-template: "cardicon cardduration" 50px
@@ -35,7 +35,7 @@
 }
 
 .card-path {
-  background: $blue-dark-3;
+  background: $card-path-color;
   .card-duration {
     color: #fff;
   }
@@ -51,7 +51,9 @@
     @extend .negative-primary;
   }
 }
-.card-event {}
+.card-event {
+  background: $card-event-color;
+}
 
 .card-icon {
   grid-area: cardicon;

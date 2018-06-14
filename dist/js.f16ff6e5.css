@@ -183,7 +183,7 @@ body {
   font-size: 1rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3, h4, h5, .site-hero-display .next-steps .details .title, h6,
 .h1, .h2, .h3, .h4, .h5, .card-content h1, .item-grid-title h1, .h6, .card-content h2, .banner-message-message h1, .site-hero-display .current-path h2, .site-hero-display .next-steps h1 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
@@ -205,7 +205,7 @@ h4, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .h5, .card-content h1, .item-grid-title h1 {
+h5, .site-hero-display .next-steps .details .title, .h5, .card-content h1, .item-grid-title h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
@@ -323,13 +323,16 @@ TODO
   grid-gap: 1.1875rem; }
 
 .card-path {
-  background: #1d5563; }
+  background: #0088ce; }
   .card-path .card-duration {
     color: #fff; }
   .card-path .card-content h1, .card-path .card-content h2 {
     color: #fff; }
   .card-path .card-content p {
-    color: rgba(255, 255, 255, 0.75); }
+    color: rgba(255, 255, 255, 0.65); }
+
+.card-event {
+  background: #fff; }
 
 .card-icon {
   grid-area: cardicon;
@@ -356,7 +359,7 @@ TODO
     font-weight: 600; }
   .card-content p {
     margin-bottom: 0;
-    color: rgba(0, 0, 0, 0.75); }
+    color: rgba(0, 0, 0, 0.65); }
 
 .card-cta {
   grid-area: cardcta; }
@@ -576,20 +579,38 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     height: 5px;
     background: #fff; }
   .site-hero-display .current-path p {
-    color: rgba(255, 255, 255, 0.75); }
+    color: rgba(255, 255, 255, 0.65); }
     .site-hero-display .current-path p em {
       color: #fff;
       font-weight: 600;
       font-style: normal; }
   .site-hero-display .next-steps {
+    align-self: start;
     display: grid;
-    grid-template: ". title" 1fr "item item" auto/3rem 1fr;
+    grid-template: ". title" 1fr "step step" auto/3rem 1fr;
     grid-gap: 1.1875rem; }
     .site-hero-display .next-steps h1 {
       grid-area: title;
       margin-bottom: 0; }
     .site-hero-display .next-steps ul {
-      grid-area: item; }
+      grid-area: step; }
+    .site-hero-display .next-steps li {
+      display: grid;
+      grid-template: "icon details" auto/3rem 1fr;
+      grid-gap: 1.1875rem;
+      -ms-flex-line-pack: start;
+          align-content: start;
+      margin-bottom: 1.1875rem; }
+    .site-hero-display .next-steps .icon {
+      grid-area: icon;
+      justify-self: center; }
+    .site-hero-display .next-steps .details {
+      grid-area: details; }
+      .site-hero-display .next-steps .details .title {
+        margin-bottom: none; }
+      .site-hero-display .next-steps .details .metadata {
+        display: block;
+        color: rgba(255, 255, 255, 0.65); }
 
 .site-footer {
   height: 161px;

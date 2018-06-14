@@ -61,9 +61,10 @@
   }
 
   .next-steps {
+    align-self: start;
     display: grid;
     grid-template: ". title" 1fr
-                    "item item" auto / $scale6 1fr;
+                    "step step" auto / $scale6 1fr;
     grid-gap: $scale1;
 
     h1 {
@@ -73,10 +74,29 @@
     }
     ul {
       @extend .list-plain;
-      grid-area: item;
+      grid-area: step;
     }
     li {
-      
+      display: grid;
+      grid-template: "icon details" auto / $scale6 1fr;
+      grid-gap: $scale1;
+      align-content: start;
+      margin-bottom: $scale1;
+    }
+    .icon {
+      grid-area: icon;
+      justify-self: center;
+    }
+    .details {
+      grid-area: details;
+      .title {
+        @extend h5;
+        margin-bottom: none;
+      }
+      .metadata {
+        display: block;
+        color: $text-dim-color-negative;
+      }
     }
 
   }
