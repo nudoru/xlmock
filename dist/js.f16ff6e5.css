@@ -479,7 +479,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   background-color: #0088ce;
   grid-area: siteheader;
   display: grid;
-  grid-template-columns: auto minmax(auto, 150px) 2fr 1fr;
+  grid-template-columns: auto minmax(auto, 150px) 1fr 1fr;
   grid-template-rows: 64px;
   grid-gap: 1.1875rem;
   color: #fff;
