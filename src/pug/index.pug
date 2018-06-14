@@ -1,3 +1,5 @@
+include _mixins.pug
+
 doctype html
 head
   meta(charset='utf-8')
@@ -13,13 +15,18 @@ body
   .site-header
     .site-header-logo Experience Layer
     .site-header-categories Catalog
-    .site-header-search What do you want to learn?
+      +icon-chevron-down("icon-button-right")
+    .site-header-search 
+      +icon-search("icon-button-left")
+      | What do you want to learn?
     .site-header-secondary 
       ul.site-header-nav
         li Feedback
         li Help
-        li Alerts
-        li Profile
+        li 
+          +icon-bell("negative")
+        li 
+          +icon-user("negative")
   .site-dashboard-nav
       ul.dashboard-nav
         li Dashboard
@@ -27,8 +34,9 @@ body
         li Team
   .site-hero
     .site-hero-content
-      .banner-message
-        .banner-message-icon !
+      .banner-message.negative
+        .banner-message-icon 
+          +icon-flag
         .banner-message-message
           h1 Don't forget your appointment
           p You have something important at 8am today.
@@ -42,25 +50,29 @@ body
           p Integer sodales lorem ac lectus efficitur, eu tincidunt dolor auctor. Nulla ut felis vitae mauris lobortis euismod quis sodales enim. Maecenas odio massa, ultricies et porttitor eu, maximus eget purus. In hac habitasse platea dictumst. Etiam hendrerit gravida efficitur. 
           .path-progress
             .bar
+              .bar-fill
             .status
               p
-                strong 35% Complete
-                | - 36 hours left
+                em 35% Complete
+                | &nbsp;- 36 hours left
           button.negative-primary Resume Path
           button.negative View Path
         .next-steps
           h1 Up Next:
           ul
             li 
-              span.icon []
+              span.icon
+                +icon-package
               span.title Control task and play behavior
               span.metadata Reading - 10 min
             li 
-              span.icon []
+              span.icon
+                +icon-package
               span.title Code driven deployments and ...
               span.metadata Reading - 10 min
             li 
-              span.icon []
+              span.icon
+                +icon-package
               span.title Infrastructure management
               span.metadata Reading - 10 min
   .site-content
@@ -71,9 +83,13 @@ body
         .label Really long
       .item-grid-filters
         button Recent
+          +icon-chevron-down("icon-button-right")
+        +icon-grid
+        +icon-list
       .item-grid-item
         .card.card-path
-          .card-icon []
+          .card-icon 
+            +icon-box("negative")
           .card-duration 4 hours left
           .card-content
             h2 Learning Path
@@ -81,10 +97,12 @@ body
             p Aliquam vulputate vestibulum eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur a rhoncus leo.
           .card-cta
             button.primary Resume Path
-          .card-subicon <>
+          .card-subicon 
+            +icon-mobile("negative")
       .item-grid-item
         .card
-          .card-icon []
+          .card-icon
+            +icon-box("negative")
           .card-duration 4 hours left
           .card-content
             h2 Course
@@ -92,10 +110,12 @@ body
             p Aliquam vulputate vestibulum eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur a rhoncus leo.
           .card-cta
             button.primary Resume Path
-          .card-subicon <>
+          .card-subicon 
+            +icon-mobile
       .item-grid-item
         .card.card-event
-          .card-icon []
+          .card-icon
+            +icon-box("negative")
           .card-duration 4 hours left
           .card-content
             h2 Event
@@ -103,7 +123,8 @@ body
             p Aliquam vulputate vestibulum eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur a rhoncus leo.
           .card-cta
             button.primary Resume Path
-          .card-subicon <>
+          .card-subicon 
+            +icon-mobile
 
   .site-footer
     .site-footer-logo LOGO

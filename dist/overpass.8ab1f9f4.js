@@ -70,6 +70,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   newRequire.modules = modules;
   newRequire.cache = cache;
   newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [function (require, module) {
+      module.exports = exports;
+    }, {}];
+  };
 
   for (var i = 0; i < entry.length; i++) {
     newRequire(entry[i]);
@@ -98,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({31:[function(require,module,exports) {
+})({129:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -128,7 +133,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],30:[function(require,module,exports) {
+},{}],103:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -159,13 +164,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":31}],3:[function(require,module,exports) {
+},{"./bundle-url":129}],11:[function(require,module,exports) {
 
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"./Overpass-Bold.eot":5,"./Overpass-Bold.woff":6,"./Overpass-Bold.ttf":7,"./Overpass-Bold-Italic.eot":8,"./Overpass-Bold-Italic.woff":9,"./Overpass-Bold-Italic.ttf":10,"./Overpass-Regular.eot":11,"./Overpass-Regular.woff":12,"./Overpass-Regular.ttf":13,"./Overpass-Italic.eot":14,"./Overpass-Italic.woff":15,"./Overpass-Italic.ttf":16,"./Overpass-Light.eot":17,"./Overpass-Light.woff":18,"./Overpass-Light.ttf":19,"./Overpass-Light-Italic.eot":20,"./Overpass-Light-Italic.woff":21,"./Overpass-Light-Italic.ttf":22,"./Overpass-ExtraLight.eot":23,"./Overpass-ExtraLight.woff":24,"./Overpass-ExtraLight.ttf":25,"./Overpass-ExtraLight-Italic.eot":26,"./Overpass-ExtraLight-Italic.woff":27,"./Overpass-ExtraLight-Italic.ttf":28,"_css_loader":30}],32:[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./Overpass-Bold.eot":55,"./Overpass-Bold.woff":56,"./Overpass-Bold.ttf":57,"./Overpass-Bold-Italic.eot":58,"./Overpass-Bold-Italic.woff":59,"./Overpass-Bold-Italic.ttf":60,"./Overpass-Regular.eot":61,"./Overpass-Regular.woff":62,"./Overpass-Regular.ttf":63,"./Overpass-Italic.eot":64,"./Overpass-Italic.woff":65,"./Overpass-Italic.ttf":66,"./Overpass-Light.eot":67,"./Overpass-Light.woff":68,"./Overpass-Light.ttf":69,"./Overpass-Light-Italic.eot":70,"./Overpass-Light-Italic.woff":71,"./Overpass-Light-Italic.ttf":72,"./Overpass-ExtraLight.eot":73,"./Overpass-ExtraLight.woff":74,"./Overpass-ExtraLight.ttf":75,"./Overpass-ExtraLight-Italic.eot":76,"./Overpass-ExtraLight-Italic.woff":77,"./Overpass-ExtraLight-Italic.ttf":78,"_css_loader":103}],32:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -194,11 +198,13 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52831' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64052' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
     if (data.type === 'update') {
+      console.clear();
+
       data.assets.forEach(function (asset) {
         hmrApply(global.parcelRequire, asset);
       });
@@ -208,8 +214,6 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
           hmrAccept(global.parcelRequire, asset.id);
         }
       });
-      // Clear the console after HMR
-      console.clear();
     }
 
     if (data.type === 'reload') {
@@ -335,7 +339,7 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}],34:[function(require,module,exports) {
+},{}],135:[function(require,module,exports) {
 var getBundleURL = require('./bundle-url').getBundleURL;
 
 function loadBundlesLazy(bundles) {
@@ -350,7 +354,9 @@ function loadBundlesLazy(bundles) {
   } catch (err) {
     if (err.code === 'MODULE_NOT_FOUND') {
       return new LazyPromise(function (resolve, reject) {
-        loadBundles(bundles).then(resolve, reject);
+        loadBundles(bundles.slice(0, -1)).then(function () {
+          return require(id);
+        }).then(resolve, reject);
       });
     }
 
@@ -359,11 +365,7 @@ function loadBundlesLazy(bundles) {
 }
 
 function loadBundles(bundles) {
-  var id = bundles[bundles.length - 1];
-
-  return Promise.all(bundles.slice(0, -1).map(loadBundle)).then(function () {
-    return require(id);
-  });
+  return Promise.all(bundles.map(loadBundle));
 }
 
 var bundleLoaders = {};
@@ -392,9 +394,7 @@ function loadBundle(bundle) {
   if (bundleLoader) {
     return bundles[bundle] = bundleLoader(getBundleURL() + bundle).then(function (resolved) {
       if (resolved) {
-        module.bundle.modules[id] = [function (require, module) {
-          module.exports = resolved;
-        }, {}];
+        module.bundle.register(id, resolved);
       }
 
       return resolved;
@@ -416,6 +416,6 @@ LazyPromise.prototype.catch = function (onError) {
   if (this.promise === null) this.promise = new Promise(this.executor);
   return this.promise.catch(onError);
 };
-},{"./bundle-url":31}],0:[function(require,module,exports) {
-var b=require(34);b.load([["Overpass-Bold.b9a37ea2.eot",5],["Overpass-Bold.c2597e0a.woff",6],["Overpass-Bold.7005298f.ttf",7],["Overpass-Bold-Italic.cfe8db44.eot",8],["Overpass-Bold-Italic.e40bac3d.woff",9],["Overpass-Bold-Italic.cbecc46a.ttf",10],["Overpass-Regular.24956da0.eot",11],["Overpass-Regular.8124f597.woff",12],["Overpass-Regular.fd5af45a.ttf",13],["Overpass-Italic.20c13c2b.eot",14],["Overpass-Italic.d4993bf7.woff",15],["Overpass-Italic.dfd77c6e.ttf",16],["Overpass-Light.6567092d.eot",17],["Overpass-Light.217b393c.woff",18],["Overpass-Light.c3d0e872.ttf",19],["Overpass-Light-Italic.94249b4d.eot",20],["Overpass-Light-Italic.fb59d983.woff",21],["Overpass-Light-Italic.b74cf043.ttf",22],["Overpass-ExtraLight.7606a99b.eot",23],["Overpass-ExtraLight.1dc4be45.woff",24],["Overpass-ExtraLight.c57b3356.ttf",25],["Overpass-ExtraLight-Italic.15e3d2f0.eot",26],["Overpass-ExtraLight-Italic.69263803.woff",27],["Overpass-ExtraLight-Italic.054f9db8.ttf",28]]);
+},{"./bundle-url":129}],0:[function(require,module,exports) {
+var b=require(135);b.load([["Overpass-Bold.b9a37ea2.eot",55],["Overpass-Bold.c2597e0a.woff",56],["Overpass-Bold.7005298f.ttf",57],["Overpass-Bold-Italic.cfe8db44.eot",58],["Overpass-Bold-Italic.e40bac3d.woff",59],["Overpass-Bold-Italic.cbecc46a.ttf",60],["Overpass-Regular.24956da0.eot",61],["Overpass-Regular.8124f597.woff",62],["Overpass-Regular.fd5af45a.ttf",63],["Overpass-Italic.20c13c2b.eot",64],["Overpass-Italic.d4993bf7.woff",65],["Overpass-Italic.dfd77c6e.ttf",66],["Overpass-Light.6567092d.eot",67],["Overpass-Light.217b393c.woff",68],["Overpass-Light.c3d0e872.ttf",69],["Overpass-Light-Italic.94249b4d.eot",70],["Overpass-Light-Italic.fb59d983.woff",71],["Overpass-Light-Italic.b74cf043.ttf",72],["Overpass-ExtraLight.7606a99b.eot",73],["Overpass-ExtraLight.1dc4be45.woff",74],["Overpass-ExtraLight.c57b3356.ttf",75],["Overpass-ExtraLight-Italic.15e3d2f0.eot",76],["Overpass-ExtraLight-Italic.69263803.woff",77],["Overpass-ExtraLight-Italic.054f9db8.ttf",78]]);
 },{}]},{},[32,0], null)

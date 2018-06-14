@@ -33,6 +33,9 @@ $hero-card-radius: $radius-base;
 
 $banner-height: 128px;
 
+$text-dim-color: rgba(0,0,0, .75);
+$text-dim-color-negative: rgba(255,255,255, .75); 
+
 $header-color-background: $blue-9;
 $hero-color-background: $blue-9;
 $content-color-background: $grey-light;
@@ -43,6 +46,10 @@ $button-primary-color: $blue-9;
 $button-primary-color-over: $blue-7;
 $button-primary-color-negative: #fff;
 $button-primary-color-negative-over: #fff;
+
+$icon-color: $grey-dark;
+$icon-color-active: $blue;
+$icon-color-disabled: rgba(0,0,0,.25);
 
 @import 'xl_components';
 @import 'xl_header';

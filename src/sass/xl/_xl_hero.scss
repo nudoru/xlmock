@@ -12,8 +12,75 @@
 }
 
 .site-hero-display {
-  background-color: rgba(0,0,0,.1);
-  padding: $scale2;
-  border-radius: $radius-base;
+  //background-color: rgba(0,0,0,.1);
+  //padding: $scale2;
+  //border-radius: $radius-base;
+  display: grid;
+  color: #fff;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: $scale6;
+
+  .current-path {
+    h1 {
+      font-weight: 700;
+    }
+    h2 {
+      @extend .h6;
+      margin-bottom: $scale5;
+    }
+    .path-progress {
+      margin-top: $scale6;
+      margin-bottom: $scale5;
+    }
+    .bar{
+      position: relative;
+      display: block;
+      height: 5px;
+      width: 100%;
+      background-color: rgba(255,255,255,.25);
+      border-radius: 5px;
+      margin-bottom: $scale2;
+      overflow: hidden;
+    }
+    .bar-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 36%;
+      height: 5px;
+      background: #fff;
+    }
+    p {
+      color: $text-dim-color-negative;
+      em {
+        color: #fff;
+        font-weight: 600;
+        font-style: normal;
+      }
+    }
+  }
+
+  .next-steps {
+    display: grid;
+    grid-template: ". title" 1fr
+                    "item item" auto / $scale6 1fr;
+    grid-gap: $scale1;
+
+    h1 {
+      grid-area: title;
+      @extend .h6;
+      margin-bottom: 0;
+    }
+    ul {
+      @extend .list-plain;
+      grid-area: item;
+    }
+    li {
+      
+    }
+
+  }
 }
+
+
 

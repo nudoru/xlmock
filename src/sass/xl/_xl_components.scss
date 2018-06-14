@@ -1,3 +1,26 @@
+.svgicon {
+  display: inline-block;
+  color: inherit;
+  padding: $scale-1  / 2;
+  
+}
+
+.negative {
+  color: #fff !important;
+}
+
+.icon-button-left {
+  position: relative;
+  padding: 0 10px 0 0;
+  top: 7px;
+}
+
+.icon-button-right {
+  position: relative;
+  padding: 0 0 0 10px;
+  top: 7px;
+}
+
 .card {
   @extend .dropshadow-xs;
   height: $card-height;
@@ -21,7 +44,7 @@
       color: #fff;
     }
     p {
-      color: rgba(255,255,255, .75);
+      color: $text-dim-color-negative;
     }
   }
   .card-cta button {
@@ -58,7 +81,7 @@
   }
   p {
     margin-bottom: 0;
-    color: $grey-dark;
+    color: $text-dim-color;
   }
 }
 
@@ -162,7 +185,6 @@ button.negative-primary:hover {
 }
 
 .banner-message {
-  @extend .dropshadow-sm;
   position: relative;
   background-color: rgba(255,255,255,.1);
   border-radius: $radius-base;
@@ -172,11 +194,14 @@ button.negative-primary:hover {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   grid-gap: $scale4;
+  .negative {
+    color: #fff;
+  }
 }
 
 .banner-message-icon {
   @extend .icon_square_large;
-  background: rgba(255,255,255,.5);
+  background: rgba(255,255,255,.35);
 }
 
 .banner-message-message {}

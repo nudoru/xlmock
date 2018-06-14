@@ -126,7 +126,7 @@
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
-.dropshadow-sm, .banner-message {
+.dropshadow-sm {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15); }
 
@@ -184,7 +184,7 @@ body {
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .card-content h1, .item-grid-title h1, .h6, .card-content h2, .banner-message-message h1 {
+.h1, .h2, .h3, .h4, .h5, .card-content h1, .item-grid-title h1, .h6, .card-content h2, .banner-message-message h1, .site-hero-display .current-path h2, .site-hero-display .next-steps h1 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -209,7 +209,7 @@ h5, .h5, .card-content h1, .item-grid-title h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .h6, .card-content h2, .banner-message-message h1 {
+h6, .h6, .card-content h2, .banner-message-message h1, .site-hero-display .current-path h2, .site-hero-display .next-steps h1 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -280,11 +280,11 @@ svg:not(:root) {
 img {
   vertical-align: middle; }
 
-.list-plain, .list-plain-horizontal, .site-header-nav, .dashboard-nav, .site-footer-nav {
+.list-plain, .list-plain-horizontal, .site-header-nav, .dashboard-nav, .site-footer-nav, .site-hero-display .next-steps ul {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .dashboard-nav li, .site-footer-nav li {
+  .list-plain li, .list-plain-horizontal li, .site-header-nav li, .dashboard-nav li, .site-footer-nav li, .site-hero-display .next-steps ul li {
     margin-left: 0;
     padding-left: 0; }
 
@@ -295,6 +295,24 @@ img {
 TODO
 - hero / dashboard nav need to be it's own row
 */
+.svgicon {
+  display: inline-block;
+  color: inherit;
+  padding: 0.4375rem; }
+
+.negative {
+  color: #fff !important; }
+
+.icon-button-left {
+  position: relative;
+  padding: 0 10px 0 0;
+  top: 7px; }
+
+.icon-button-right {
+  position: relative;
+  padding: 0 0 0 10px;
+  top: 7px; }
+
 .card {
   height: 388px;
   border-radius: 0.3125rem;
@@ -338,7 +356,7 @@ TODO
     font-weight: 600; }
   .card-content p {
     margin-bottom: 0;
-    color: #4c4c4c; }
+    color: rgba(0, 0, 0, 0.75); }
 
 .card-cta {
   grid-area: cardcta; }
@@ -438,9 +456,11 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
       -ms-flex-align: center;
           align-items: center;
   grid-gap: 1.75rem; }
+  .banner-message .negative {
+    color: #fff; }
 
 .banner-message-icon {
-  background: rgba(255, 255, 255, 0.5); }
+  background: rgba(255, 255, 255, 0.35); }
 
 .banner-message-message h1 {
   margin: 0;
@@ -528,9 +548,48 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   grid-area: siteherocontent; }
 
 .site-hero-display {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 1.3125rem;
-  border-radius: 0.3125rem; }
+  display: grid;
+  color: #fff;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 3rem; }
+  .site-hero-display .current-path h1 {
+    font-weight: 700; }
+  .site-hero-display .current-path h2 {
+    margin-bottom: 2rem; }
+  .site-hero-display .current-path .path-progress {
+    margin-top: 3rem;
+    margin-bottom: 2rem; }
+  .site-hero-display .current-path .bar {
+    position: relative;
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 5px;
+    margin-bottom: 1.3125rem;
+    overflow: hidden; }
+  .site-hero-display .current-path .bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36%;
+    height: 5px;
+    background: #fff; }
+  .site-hero-display .current-path p {
+    color: rgba(255, 255, 255, 0.75); }
+    .site-hero-display .current-path p em {
+      color: #fff;
+      font-weight: 600;
+      font-style: normal; }
+  .site-hero-display .next-steps {
+    display: grid;
+    grid-template: ". title" 1fr "item item" auto/3rem 1fr;
+    grid-gap: 1.1875rem; }
+    .site-hero-display .next-steps h1 {
+      grid-area: title;
+      margin-bottom: 0; }
+    .site-hero-display .next-steps ul {
+      grid-area: item; }
 
 .site-footer {
   height: 161px;
