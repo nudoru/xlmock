@@ -3,57 +3,7 @@ TODO
 - hero / dashboard nav need to be it's own row
 */
 
-$header-height-large: 64px;
-$header-height-medium: 64px;
-$header-height-small: 64px;
 
-$footer-height-large: 161px;
-$footer-height-medium: 329px;
-$footer-height-small: 397px;
-
-$content-width-large: 1140px;
-$content-width-medium: 640px;
-$content-width-small: 311px;
-
-$dashboard-header-height-large: 95px;
-$dashboard-header-height-medium: 95px;
-$dashboard-header-height-small: 95px;
-
-$dashboard-hero-height-large: 715px;
-$dashboard-hero-height-medium: 715px;
-$dashboard-hero-height-small: 715px;
-
-$card-width: 311px;
-$card-height: 388px;
-$card-radius: $radius-base;
-
-$hero-card-width: 1140px;
-$hero-card-height: 455px;
-$hero-card-radius: $radius-base;
-
-$banner-height: 128px;
-
-$text-dim-color: rgba(0,0,0, .65);
-$text-dim-color-negative: rgba(255,255,255, .65); 
-
-$header-color-background: $blue-9;
-$hero-color-background: $blue-9;
-$content-color-background: $grey-light;
-$card-course-color-background: #fff;
-$card-path-color-background: $grey-dark;
-$card-event-color-background: #fff;
-$button-primary-color: $blue-9;
-$button-primary-color-over: $blue-7;
-$button-primary-color-negative: #fff;
-$button-primary-color-negative-over: #fff;
-
-$icon-color: $grey-dark;
-$icon-color-active: $blue;
-$icon-color-disabled: rgba(0,0,0,.25);
-
-$card-course-color: #fff;;
-$card-path-color: $blue-9;
-$card-event-color: #fff;
 
 @import 'xl_components';
 @import 'xl_header';
@@ -77,4 +27,3 @@ $card-event-color: #fff;
   padding: $scale5 0;
   grid-area: sitecontent;
 }
-

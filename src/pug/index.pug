@@ -16,7 +16,6 @@ body
     .site-header-logo
       +xllogo
     .site-header-categories Catalog
-      +icon-chevron-down("icon-button-right")
     .site-header-search 
       +icon-search("icon-button-left")
       | What do you want to learn?
@@ -26,6 +25,7 @@ body
         li Help
         li 
           +icon-bell("negative")
+          .label 3
         li 
           +icon-user("negative")
   .site-dashboard-nav
@@ -46,12 +46,11 @@ body
           button.negative-primary Do it ...
       .site-hero-display
         .current-path
-          h2 You're doing great Matt!
           h1 Be an Ansible Engineer
           p Integer sodales lorem ac lectus efficitur, eu tincidunt dolor auctor. Nulla ut felis vitae mauris lobortis euismod quis sodales enim. Maecenas odio massa, ultricies et porttitor eu, maximus eget purus. In hac habitasse platea dictumst. Etiam hendrerit gravida efficitur. 
           .path-progress
-            .bar
-              .bar-fill
+            .bar-negative
+              .bar-fill-negative
             .status
               p
                 em 35% Complete

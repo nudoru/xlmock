@@ -436,16 +436,16 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   position: relative;
   display: inline-block;
   margin-right: 0.875rem;
-  background-color: #0088ce;
+  background-color: #ca0612;
   color: #fff;
-  padding: 0 10px;
-  height: 1.75rem;
+  padding: 0 0.5rem;
   font-size: 0.7rem;
   font-weight: 600;
   text-align: center;
-  line-height: 1.75rem;
-  min-width: 1.75rem;
-  border-radius: 1.75rem; }
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 1.5rem;
+  border-radius: 1.5rem; }
 
 .banner-message {
   position: relative;
@@ -474,6 +474,25 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 
 .banner-message-cta {
   justify-self: end; }
+
+.bar-negative {
+  position: relative;
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  margin-bottom: 1.3125rem;
+  overflow: hidden; }
+
+.bar-fill-negative {
+  position: absolute;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+  width: 36%;
+  height: 5px;
+  background: #fff; }
 
 .site-header {
   background-color: #0088ce;
@@ -562,22 +581,6 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   .site-hero-display .current-path .path-progress {
     margin-top: 3rem;
     margin-bottom: 2rem; }
-  .site-hero-display .current-path .bar {
-    position: relative;
-    display: block;
-    height: 5px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.25);
-    border-radius: 5px;
-    margin-bottom: 1.3125rem;
-    overflow: hidden; }
-  .site-hero-display .current-path .bar-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 36%;
-    height: 5px;
-    background: #fff; }
   .site-hero-display .current-path p {
     color: rgba(255, 255, 255, 0.65); }
     .site-hero-display .current-path p em {
