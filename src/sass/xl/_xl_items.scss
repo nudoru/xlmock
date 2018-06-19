@@ -9,7 +9,7 @@
 
 .item-grid-title  {
   grid-area: itemgridtitle;
-  align-self: end;
+  align-self: center;
 }
 
 .item-grid-title h1 {
@@ -24,6 +24,9 @@
 .item-grid-filters {
   grid-area: itemgridfilter;
   justify-self: end;
+  div.svgicon {
+    top: 5px;
+  }
 }
 
 .item-grid-item {

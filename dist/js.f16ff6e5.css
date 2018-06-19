@@ -691,8 +691,8 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 
 .item-grid-title {
   grid-area: itemgridtitle;
-  -ms-flex-item-align: end;
-      align-self: end; }
+  -ms-flex-item-align: center;
+      align-self: center; }
 
 .item-grid-title h1 {
   margin: 0;
@@ -704,6 +704,8 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .item-grid-filters {
   grid-area: itemgridfilter;
   justify-self: end; }
+  .item-grid-filters div.svgicon {
+    top: 5px; }
 
 .item-grid-item {
   justify-self: stretch;

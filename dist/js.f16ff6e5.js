@@ -103,7 +103,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({32:[function(require,module,exports) {
+})({123:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -133,7 +133,7 @@ function getBaseURL(url) {
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],5:[function(require,module,exports) {
+},{}],97:[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -164,16 +164,16 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":32}],53:[function(require,module,exports) {
+},{"./bundle-url":123}],47:[function(require,module,exports) {
 
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":5}],13:[function(require,module,exports) {
+},{"_css_loader":97}],9:[function(require,module,exports) {
 'use strict';
 
 require('../sass/index.sass');
-},{"../sass/index.sass":53}],32:[function(require,module,exports) {
+},{"../sass/index.sass":47}],127:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -202,7 +202,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53883' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65056' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -343,5 +343,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[32,13], null)
+},{}]},{},[127,9], null)
 //# sourceMappingURL=/js.f16ff6e5.map
