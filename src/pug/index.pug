@@ -15,21 +15,26 @@ body
   .site-header
     .site-header-logo
       +xllogo
-    .site-header-categories Catalog
+    .site-header-nav  
+      ul
+        li Catalog
+        li Calendar
     .site-header-search 
       +icon-search("icon-button-left")
       | What do you want to learn?
-    .site-header-secondary 
-      ul.site-header-nav
-        li Feedback
-        li Help
+    .site-header-nav-secondary 
+      ul
+        li
+          +icon-message("negative")
+        li 
+          +icon-help("negative")
         li 
           +icon-bell("negative")
           .label 3
         li 
           +icon-user("negative")
   .site-dashboard-nav
-      ul.dashboard-nav
+      ul
         li Dashboard
         li Discover
         li Team
@@ -101,11 +106,11 @@ body
           .card-cta
             button.primary Resume Path
           .card-subicon 
-            +icon-mobile("negative")
+            +icon-mobile("negative card-icon-mobile")
       .item-grid-item
         .card
           .card-icon
-            +icon-box("negative")
+            +icon-box
           .card-duration 4 hours left
           .card-content
             h2 Course
@@ -114,11 +119,11 @@ body
           .card-cta
             button.primary Resume Path
           .card-subicon 
-            +icon-mobile
+            +icon-mobile("card-icon-mobile")
       .item-grid-item
         .card.card-event
           .card-icon
-            +icon-box("negative")
+            +icon-box
           .card-duration 4 hours left
           .card-content
             h2 Event
@@ -127,7 +132,7 @@ body
           .card-cta
             button.primary Resume Path
           .card-subicon 
-            +icon-mobile
+            +icon-mobile("card-icon-mobile")
 
   .site-footer
     .site-footer-logo
