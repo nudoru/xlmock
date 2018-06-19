@@ -87,18 +87,30 @@
   background-color: $hero-color-background;
   grid-area: sitedashboardnav;
   padding-top: $scale5;  
+  display: grid;
+  grid-template: ". dashboardnavcontent. " auto / 1fr $content-width-large 1fr;
   ul {
     @extend .list-plain-horizontal;
     grid-area: dashboardnavcontent;
     color: #fff;
     font-size: $scale2;
-    padding-bottom: $scale2;
-    border-bottom: 1px solid #fff;
-  
+    border-bottom: 1px solid $text-dim-color-negative;
     li {
+      display: inline-block;
       margin-right: $scale6;
+      padding-bottom: $scale2;
+      border-bottom: 1px solid transparent;
+      margin-bottom: -1px;
+      color: $text-dim-color-negative;
+      cursor: pointer;
     }
-  
+    .active {
+      color: #fff;
+      border-bottom: 1px solid #fff;
+    }
+    li:hover {
+      background-color: rgba(0,0,0,.05);
+    }
     li:last-of-type {
       margin-right: 0;
     }

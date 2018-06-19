@@ -576,15 +576,27 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .site-dashboard-nav {
   background-color: #0088ce;
   grid-area: sitedashboardnav;
-  padding-top: 2rem; }
+  padding-top: 2rem;
+  display: grid;
+  grid-template: ". dashboardnavcontent. " auto/1fr 1140px 1fr; }
   .site-dashboard-nav ul {
     grid-area: dashboardnavcontent;
     color: #fff;
     font-size: 1.3125rem;
-    padding-bottom: 1.3125rem;
-    border-bottom: 1px solid #fff; }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.65); }
     .site-dashboard-nav ul li {
-      margin-right: 3rem; }
+      display: inline-block;
+      margin-right: 3rem;
+      padding-bottom: 1.3125rem;
+      border-bottom: 1px solid transparent;
+      margin-bottom: -1px;
+      color: rgba(255, 255, 255, 0.65);
+      cursor: pointer; }
+    .site-dashboard-nav ul .active {
+      color: #fff;
+      border-bottom: 1px solid #fff; }
+    .site-dashboard-nav ul li:hover {
+      background-color: rgba(0, 0, 0, 0.05); }
     .site-dashboard-nav ul li:last-of-type {
       margin-right: 0; }
 
@@ -604,19 +616,21 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   color: #fff;
   grid-template-columns: 2fr 1fr;
   grid-gap: 3rem; }
-  .site-hero-display .current-path h1 {
-    font-weight: 700; }
-  .site-hero-display .current-path h2 {
-    margin-bottom: 2rem; }
-  .site-hero-display .current-path .path-progress {
-    margin-top: 3rem;
-    margin-bottom: 2rem; }
-  .site-hero-display .current-path p {
-    color: rgba(255, 255, 255, 0.65); }
-    .site-hero-display .current-path p em {
-      color: #fff;
-      font-weight: 600;
-      font-style: normal; }
+  .site-hero-display .current-path {
+    margin-top: 1.1875rem; }
+    .site-hero-display .current-path h1 {
+      font-weight: 700; }
+    .site-hero-display .current-path h2 {
+      margin-bottom: 2rem; }
+    .site-hero-display .current-path .path-progress {
+      margin-top: 3rem;
+      margin-bottom: 2rem; }
+    .site-hero-display .current-path p {
+      color: rgba(255, 255, 255, 0.65); }
+      .site-hero-display .current-path p em {
+        color: #fff;
+        font-weight: 600;
+        font-style: normal; }
   .site-hero-display .next-steps {
     align-self: start;
     display: grid;
@@ -640,6 +654,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     .site-hero-display .next-steps .details {
       grid-area: details; }
       .site-hero-display .next-steps .details .title {
+        line-height: 1rem;
         margin-bottom: none; }
       .site-hero-display .next-steps .details .metadata {
         display: block;

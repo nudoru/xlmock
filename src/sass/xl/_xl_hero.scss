@@ -21,6 +21,7 @@
   grid-gap: $scale6;
 
   .current-path {
+    margin-top: $scale1;
     h1 {
       font-weight: 700;
     }
@@ -74,6 +75,7 @@
       grid-area: details;
       .title {
         @extend h5;
+        line-height: 1rem;
         margin-bottom: none;
       }
       .metadata {
