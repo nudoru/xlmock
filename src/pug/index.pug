@@ -1,88 +1,18 @@
 include _mixins.pug
 
 doctype html
-head
-  meta(charset='utf-8')
-  meta(http-equiv='x-ua-compatible' content='ie=edge')
-  title Experience Layer Styles
-  meta(name='description' content='')
-  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  link(rel='stylesheet' href='../css/normalize.css')
-  link(rel='stylesheet' href='../fonts/overpass.css')
+include includes/_head
 body
 
 .site-container
-  .site-header
-    .site-header-logo
-      +xllogo
-    .site-header-nav  
-      ul
-        li Catalog
-        li Calendar
-    .site-header-search 
-      +icon-search("icon-button-left")
-      | What do you want to learn?
-    .site-header-nav-secondary 
-      ul
-        li
-          +icon-message("negative")
-        li 
-          +icon-help("negative")
-        li 
-          +icon-bell("negative")
-          .label 3
-        li 
-          +icon-user("negative")
-  .site-dashboard-nav
-      ul
-        li.active Dashboard
-        li Discover
-        li Team
+  include includes/_header
+  include includes/_dashboardnav
+  
   .site-hero
     .site-hero-content
-      .banner-message.negative
-        .banner-message-icon 
-          +icon-flag
-        .banner-message-message
-          h1 You have an upcoming class
-          p Just a reminder that you have a class scheduled for 8am tomorrow.
-        .banner-message-cta
-          button.negative Dismiss
-          button.negative-primary Do it ...
-      .site-hero-display
-        .current-path
-          h1 Be an Ansible Engineer
-          p Integer sodales lorem ac lectus efficitur, eu tincidunt dolor auctor. Nulla ut felis vitae mauris lobortis euismod quis sodales enim. Maecenas odio massa, ultricies et porttitor eu, maximus eget purus. In hac habitasse platea dictumst. Etiam hendrerit gravida efficitur. 
-          .path-progress
-            .bar-negative
-              .bar-fill-negative
-            .status
-              p
-                em 35% Complete
-                | &nbsp;- 36 hours left
-          button.negative-primary Resume Path
-          button.negative View Path
-        .next-steps
-          h1 Up Next:
-          ul
-            li 
-              .icon
-                +icon-user
-              .details
-                span.title Control task and play behavior
-                span.metadata Reading - 10 min
-            li 
-              .icon
-                +icon-package
-              .details
-                span.title Code driven deployments and ...
-                span.metadata Reading - 10 min
-            li 
-              .icon
-                +icon-list
-              .details
-                span.title Infrastructure management
-                span.metadata Reading - 10 min
+      include includes/_hero-banner
+      include includes/_hero-currentpath
+
   .site-content
     .item-grid
       .item-grid-title
@@ -134,13 +64,5 @@ body
           .card-subicon 
             +icon-mobile("card-icon-mobile")
 
-  .site-footer
-    .site-footer-logo
-      +rhlogo
-    ul.site-footer-nav 
-      li About
-      li Support
-      li Terms of Use
-      li Privacy Policy
-    .site-footer-copyright Copyright ©2018 Red Hat, Inc.
+  include includes/_footer
   script(src='../js/index.js')
