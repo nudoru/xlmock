@@ -528,16 +528,19 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   text-transform: uppercase; }
   .site-header-nav ul li {
     display: inline-block;
-    height: 3rem;
-    line-height: 3rem;
-    padding: 0 1.3125rem;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 0.3125rem;
-    text-align: center;
-    margin-right: 5px;
-    cursor: pointer; }
-  .site-header-nav ul li:hover {
-    background-color: rgba(0, 0, 0, 0.35); }
+    margin-right: 5px; }
+    .site-header-nav ul li a {
+      display: block;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 0 1.3125rem;
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 0.3125rem;
+      text-align: center;
+      color: #fff;
+      text-decoration: none; }
+    .site-header-nav ul li a:hover {
+      background-color: rgba(0, 0, 0, 0.35); }
   .site-header-nav ul li:last-of-type {
     margin-right: 0; }
 

@@ -19,18 +19,22 @@
     text-transform: uppercase;
     li {
       display: inline-block;
-      height: $scale6;
-      line-height: $scale6;
-      padding: 0 $scale2;
-      background-color: rgba(0,0,0,.25);
-      border-radius: $radius-base;
-      text-align: center;
       margin-right: 5px;
-      cursor: pointer;
-    }
-    li:hover {
-      // color: rgba(255,255,255,.75);
-      background-color: rgba(0,0,0,.35);
+      a {
+        display: block;
+        height: $scale6;
+        line-height: $scale6;
+        padding: 0 $scale2;
+        background-color: rgba(0,0,0,.25);
+        border-radius: $radius-base;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+      }
+      //a:visited, a:active
+      a:hover {
+        background-color: rgba(0,0,0,.35);
+      }
     }
     li:last-of-type {
       margin-right: 0;
