@@ -558,21 +558,22 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     font-weight: 700;
     text-transform: uppercase; }
     .site-header-nav-secondary ul li {
-      display: inline-block;
-      height: 3rem;
-      line-height: 3rem;
-      padding: 0 1.3125rem;
-      border-radius: 0.3125rem;
-      text-align: center;
-      margin-right: -5px;
-      cursor: pointer; }
+      display: inline-block; }
+      .site-header-nav-secondary ul li a {
+        display: block;
+        height: 3rem;
+        line-height: 3rem;
+        padding: 0 1.3125rem;
+        border-radius: 0.3125rem;
+        text-align: center;
+        margin-right: -5px; }
+      .site-header-nav-secondary ul li a:hover {
+        background-color: rgba(0, 0, 0, 0.35); }
       .site-header-nav-secondary ul li div.svgicon {
         top: 7px; }
       .site-header-nav-secondary ul li div.label {
         margin: 0;
         top: -1px; }
-    .site-header-nav-secondary ul li:hover {
-      background-color: rgba(0, 0, 0, 0.35); }
     .site-header-nav-secondary ul li:last-of-type {
       margin-right: 0; }
 
@@ -588,18 +589,20 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     font-size: 1.3125rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.65); }
     .site-dashboard-nav ul li {
-      display: inline-block;
-      margin-right: 3rem;
-      padding-bottom: 1.3125rem;
-      border-bottom: 1px solid transparent;
-      margin-bottom: -1px;
-      color: rgba(255, 255, 255, 0.65);
-      cursor: pointer; }
-    .site-dashboard-nav ul .active {
+      display: inline-block; }
+      .site-dashboard-nav ul li a {
+        display: block;
+        margin-right: 3rem;
+        padding-bottom: 1.3125rem;
+        border-bottom: 1px solid transparent;
+        margin-bottom: -1px;
+        color: rgba(255, 255, 255, 0.65); }
+      .site-dashboard-nav ul li a:hover {
+        text-decoration: none;
+        color: #fff; }
+    .site-dashboard-nav ul .active a {
       color: #fff;
       border-bottom: 1px solid #fff; }
-    .site-dashboard-nav ul li:hover {
-      background-color: rgba(0, 0, 0, 0.05); }
     .site-dashboard-nav ul li:last-of-type {
       margin-right: 0; }
 
@@ -677,6 +680,8 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 
 .site-footer-nav li {
   margin-right: 3rem; }
+  .site-footer-nav li a {
+    color: inherit; }
 
 .site-footer-nav li:last-of-type {
   margin-right: 0; }

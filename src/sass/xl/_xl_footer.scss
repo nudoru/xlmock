@@ -15,6 +15,9 @@
 
 .site-footer-nav li {
   margin-right: $scale6;
+  a {
+    color: inherit;
+  }
 }
 
 .site-footer-nav li:last-of-type {
