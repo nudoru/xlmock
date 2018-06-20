@@ -1,13 +1,15 @@
 .site-hero {
   padding: $scale5 0;
-  background-color: $hero-color-background;
+  // background-color: $hero-color-background;
   grid-area: sitehero;
   display: grid;
   grid-template: ". siteherocontent ." auto / 1fr $content-width-large 1fr;
+
+  background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad), url('../img/hero2.png') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .site-hero-content {
-  background-color: $hero-color-background;
   grid-area: siteherocontent;
 }
 

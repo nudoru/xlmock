@@ -534,7 +534,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
       height: 3rem;
       line-height: 3rem;
       padding: 0 1.3125rem;
-      background-color: rgba(0, 0, 0, 0.25);
+      background-color: rgba(0, 0, 0, 0.05);
       border-radius: 0.3125rem;
       text-align: center;
       color: #fff;
@@ -608,13 +608,14 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 
 .site-hero {
   padding: 2rem 0;
-  background-color: #0088ce;
   grid-area: sitehero;
   display: grid;
-  grid-template: ". siteherocontent ." auto/1fr 1140px 1fr; }
+  grid-template: ". siteherocontent ." auto/1fr 1140px 1fr;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0088ce), to(rgba(29, 85, 99, 0.75))), url("hero2.c91a713b.png") no-repeat center center fixed;
+  background: linear-gradient(#0088ce, rgba(29, 85, 99, 0.75)), url("hero2.c91a713b.png") no-repeat center center fixed;
+  background-size: cover; }
 
 .site-hero-content {
-  background-color: #0088ce;
   grid-area: siteherocontent; }
 
 .site-hero-display {
