@@ -1,9 +1,11 @@
 .site-header
     .site-header-logo
-      +xllogo
+      a(href='index.pug')
+        +xllogo
     .site-header-nav  
       ul
-        li Catalog
+        li 
+          a(href='catalog.pug') Catalog
         li Calendar
     .site-header-search 
       +icon-search("icon-button-left")

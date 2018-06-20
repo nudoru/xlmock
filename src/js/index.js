@@ -1,1 +1,1 @@
-import '../sass/index.sass'
+// Everything is awesome
