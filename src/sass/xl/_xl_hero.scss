@@ -4,9 +4,16 @@
   grid-area: sitehero;
   display: grid;
   grid-template: ". siteherocontent ." auto / 1fr $content-width-large 1fr;
+  background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
+  z-index: 2;
+}
 
-  background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad), url('../img/hero2.png') no-repeat center center fixed;
+.site-hero-image {
+  grid-area: sitehero;
+  background: url('../img/hero.png') no-repeat center center fixed;
   background-size: cover;
+  z-index: 1;
+  filter: grayscale(1);
 }
 
 .site-hero-content {
@@ -14,9 +21,6 @@
 }
 
 .site-hero-display {
-  //background-color: rgba(0,0,0,.1);
-  //padding: $scale2;
-  //border-radius: $radius-base;
   display: grid;
   color: #fff;
   grid-template-columns: 2fr 1fr;

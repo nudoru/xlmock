@@ -169,7 +169,7 @@ module.exports = reloadCSS;
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../img/hero2.png":81,"_css_loader":84}],33:[function(require,module,exports) {
+},{"./../img/hero.png":77,"_css_loader":84}],33:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -417,5 +417,5 @@ LazyPromise.prototype.catch = function (onError) {
   return this.promise.catch(onError);
 };
 },{"./bundle-url":134}],0:[function(require,module,exports) {
-var b=require(140);b.load([["hero2.c91a713b.png",81]]);
+var b=require(140);b.load([["hero.1ed484c2.png",77]]);
 },{}]},{},[33,0], null)

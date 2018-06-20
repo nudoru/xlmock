@@ -611,9 +611,17 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   grid-area: sitehero;
   display: grid;
   grid-template: ". siteherocontent ." auto/1fr 1140px 1fr;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0088ce), to(rgba(29, 85, 99, 0.75))), url("hero2.c91a713b.png") no-repeat center center fixed;
-  background: linear-gradient(#0088ce, rgba(29, 85, 99, 0.75)), url("hero2.c91a713b.png") no-repeat center center fixed;
-  background-size: cover; }
+  background: -webkit-gradient(linear, left top, left bottom, from(#0088ce), to(rgba(29, 85, 99, 0.75)));
+  background: linear-gradient(#0088ce, rgba(29, 85, 99, 0.75));
+  z-index: 2; }
+
+.site-hero-image {
+  grid-area: sitehero;
+  background: url("hero.1ed484c2.png") no-repeat center center fixed;
+  background-size: cover;
+  z-index: 1;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1); }
 
 .site-hero-content {
   grid-area: siteherocontent; }
