@@ -213,7 +213,8 @@ button.negative-primary:hover {
   margin-bottom: $scale2;
   padding: $scale4;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  // grid-template-columns: auto 1fr auto;
+  grid-template: "icon message cta" 1fr / auto 1fr auto;
   align-items: center;
   grid-gap: $scale4;
   .negative {
@@ -224,9 +225,12 @@ button.negative-primary:hover {
 .banner-message-icon {
   @extend .icon_square_large;
   background: rgba(255,255,255,.35);
+  grid-area: icon;
 }
 
-.banner-message-message {}
+.banner-message-message {
+  grid-area: message;
+}
 
 .banner-message-message h1 {
   @extend .h6;
@@ -240,6 +244,7 @@ button.negative-primary:hover {
 
 .banner-message-cta {
   justify-self: end;
+  grid-area: cta;
 }
 
 .bar-negative{
@@ -252,6 +257,7 @@ button.negative-primary:hover {
   margin-bottom: $scale2;
   overflow: hidden;
 }
+
 .bar-fill-negative {
   position: absolute;
   border-radius: 5px;
@@ -260,4 +266,14 @@ button.negative-primary:hover {
   width: 36%;
   height: 5px;
   background: #fff;
+}
+
+
+
+@include max-width($content-width-medium) {
+  .banner-message {
+    padding: $scale2;
+    grid-template: "icon message" 1fr 
+                    ". cta" auto / auto 1fr;
+  }
 }
