@@ -1,4 +1,23 @@
 .site-header
+  .site-header-mobile
+    .site-header-nav-mobile
+      ul
+          li
+            a(href='404.pug') 
+              +icon-menu("negative")
+    .site-header-logo
+      a(href='index.pug')
+        +xllogo
+    .site-header-nav-secondary 
+      ul
+        li 
+          a(href='404.pug') 
+            +icon-bell("negative")
+            .label 3
+        li 
+          a(href='404.pug') 
+            +icon-user("negative")
+  .site-header-desktop 
     .site-header-logo
       a(href='index.pug')
         +xllogo

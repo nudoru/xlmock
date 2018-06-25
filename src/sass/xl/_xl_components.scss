@@ -38,11 +38,14 @@
 // Tablet + Phone 310px
 .card {
   @extend .dropshadow-xs;
+  display: block; 
   height: $card-height;
   border-radius: $card-radius;
   background: $card-course-color;
   padding: $scale4;
   display: grid;
+  width: $card-width-max;
+  max-width: $card-width-max;
   grid-template: "cardicon cardduration" 50px
                   "cardcontent cardcontent" minmax(auto, 200px)
                   "cardcta cardsubicon" 50px / 2fr 1fr;

@@ -280,15 +280,15 @@ svg:not(:root) {
 img {
   vertical-align: middle; }
 
-.list-plain, .list-plain-horizontal, .site-header-nav ul, .site-header-nav-secondary ul, .site-dashboard-nav ul, .site-footer-nav, .site-hero-display .next-steps ul {
+.list-plain, .list-plain-horizontal, .site-header-nav ul, .site-header-nav-secondary ul, .site-header-nav-mobile ul, .site-dashboard-nav ul, .site-footer-nav, .site-hero-display .next-steps ul {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .list-plain li, .list-plain-horizontal li, .site-header-nav ul li, .site-header-nav-secondary ul li, .site-dashboard-nav ul li, .site-footer-nav li, .site-hero-display .next-steps ul li {
+  .list-plain li, .list-plain-horizontal li, .site-header-nav ul li, .site-header-nav-secondary ul li, .site-header-nav-mobile ul li, .site-dashboard-nav ul li, .site-footer-nav li, .site-hero-display .next-steps ul li {
     margin-left: 0;
     padding-left: 0; }
 
-.list-plain-horizontal li, .site-header-nav ul li, .site-header-nav-secondary ul li, .site-dashboard-nav ul li, .site-footer-nav li {
+.list-plain-horizontal li, .site-header-nav ul li, .site-header-nav-secondary ul li, .site-header-nav-mobile ul li, .site-dashboard-nav ul li, .site-footer-nav li {
   display: inline; }
 
 .svgicon {
@@ -320,11 +320,14 @@ img {
   top: 7px; }
 
 .card {
+  display: block;
   height: 388px;
   border-radius: 0.3125rem;
   background: #fff;
   padding: 1.75rem;
   display: grid;
+  width: auto;
+  max-width: auto;
   grid-template: "cardicon cardduration" 50px "cardcontent cardcontent" minmax(auto, 200px) "cardcta cardsubicon" 50px/2fr 1fr;
   grid-gap: 1.1875rem; }
 
@@ -517,14 +520,28 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .site-header {
   background-color: #0088ce;
   grid-area: siteheader;
+  color: #fff; }
+
+.site-header-desktop {
   display: grid;
   grid-template-columns: auto auto 1fr 1fr;
   grid-template-rows: 64px;
   grid-gap: 1.5rem;
-  color: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+
+.site-header-mobile {
+  display: none !important;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 64px;
+  grid-gap: 1.3125rem;
+  padding: 0 1.3125rem; }
+  .site-header-mobile .site-header-logo {
+    -ms-flex-item-align: center;
+        align-self: center;
+    justify-self: center;
+    padding: 0 !important; }
 
 .site-header-logo {
   padding-left: 1.1875rem; }
@@ -557,15 +574,15 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   border-radius: 0.3125rem;
   padding-left: 1.1875rem; }
 
-.site-header-nav-secondary {
+.site-header-nav-secondary, .site-header-nav-mobile {
   justify-self: end;
   padding-right: 1.1875rem; }
-  .site-header-nav-secondary ul {
+  .site-header-nav-secondary ul, .site-header-nav-mobile ul {
     font-weight: 700;
     text-transform: uppercase; }
-    .site-header-nav-secondary ul li {
+    .site-header-nav-secondary ul li, .site-header-nav-mobile ul li {
       display: inline-block; }
-      .site-header-nav-secondary ul li a {
+      .site-header-nav-secondary ul li a, .site-header-nav-mobile ul li a {
         display: block;
         height: 3rem;
         line-height: 3rem;
@@ -573,15 +590,18 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
         border-radius: 0.3125rem;
         text-align: center;
         margin-right: -5px; }
-      .site-header-nav-secondary ul li a:hover {
+      .site-header-nav-secondary ul li a:hover, .site-header-nav-mobile ul li a:hover {
         background-color: rgba(0, 0, 0, 0.35); }
-      .site-header-nav-secondary ul li div.svgicon {
+      .site-header-nav-secondary ul li div.svgicon, .site-header-nav-mobile ul li div.svgicon {
         top: 7px; }
-      .site-header-nav-secondary ul li div.label {
+      .site-header-nav-secondary ul li div.label, .site-header-nav-mobile ul li div.label {
         margin: 0;
         top: -1px; }
-    .site-header-nav-secondary ul li:last-of-type {
-      margin-right: 0; }
+
+.site-header-mobile .site-header-nav-secondary, .site-header-mobile .site-header-nav-mobile {
+  padding-right: 0; }
+  .site-header-mobile .site-header-nav-secondary a, .site-header-mobile .site-header-nav-mobile a {
+    padding: 0 0.4375rem !important; }
 
 .site-dashboard-nav {
   background-color: #0088ce;
@@ -613,11 +633,19 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
       margin-right: 0; }
 
 @media screen and (max-width: 1140px) {
+  .site-header-desktop {
+    display: none !important; }
+  .site-header-mobile {
+    display: grid !important; }
   .site-dashboard-nav {
     padding-left: 1.3125rem;
     padding-right: 1.3125rem; } }
 
 @media screen and (max-width: 640px) {
+  .site-header-desktop {
+    display: none !important; }
+  .site-header-mobile {
+    display: grid !important; }
   .site-dashboard-nav {
     padding-left: 1.3125rem;
     padding-right: 1.3125rem; } }
@@ -702,7 +730,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     padding-right: 1.3125rem; }
   .site-hero-display {
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto auto;
     grid-gap: 2rem; } }
 
 .site-footer {
@@ -767,6 +795,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
       .site-footer .site-footer-nav ul {
         width: 100%; }
       .site-footer .site-footer-nav li {
+        margin-right: 0;
         text-align: center; }
     .site-footer .site-footer-copyright {
       justify-self: center; } }
@@ -798,21 +827,25 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     top: 5px; }
 
 .item-grid-item {
-  justify-self: stretch;
+  justify-self: center;
   -ms-flex-item-align: center;
       align-self: center; }
 
 @media screen and (max-width: 1140px) {
   .item-grid {
     padding: 0 1.3125rem;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     grid-template: "itemgridtitle itemgridfilter" auto ". ." 1fr/minmax(310px, auto) minmax(310px, auto); } }
 
 @media screen and (max-width: 640px) {
   .item-grid {
     padding: 0 1.3125rem;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     grid-template: "itemgridtitle" auto "itemgridfilter" auto ". " 1fr/minmax(310px, auto); }
-  .item-grid-title, .item-grid-filters {
-    justify-self: center; } }
+  .item-grid-filters {
+    display: none; } }
 
 .site-container {
   background-color: gainsboro;

@@ -30,13 +30,14 @@
 }
 
 .item-grid-item {
-  justify-self: stretch;
+  justify-self: center;
   align-self: center;
 }
 
 @include max-width($content-width-large) {
   .item-grid {
     padding: 0 $scale2;
+    justify-content: space-around;
     grid-template: "itemgridtitle itemgridfilter" auto
                 ". ." 1fr / minmax($card-width-min, $card-width-max) minmax($card-width-min, $card-width-max);
   }
@@ -45,11 +46,12 @@
 @include max-width($content-width-medium) {
   .item-grid {
     padding: 0 $scale2;
+    justify-content: space-around;
     grid-template: "itemgridtitle" auto
                     "itemgridfilter" auto 
                     ". " 1fr / minmax($card-width-min, $card-width-max);
   }
-  .item-grid-title, .item-grid-filters {
-    justify-self: center;
+  .item-grid-filters {
+    display: none;
   }
 }
