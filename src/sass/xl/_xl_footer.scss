@@ -27,3 +27,17 @@
 .site-footer-copyright {
   justify-self: end;
 }
+
+@include max-width($content-width-large) {
+  .site-footer {
+    padding-left: $scale2;
+    padding-right: $scale2;
+  }
+}
+
+@include max-width($content-width-medium) {
+  .site-footer {
+    padding-left: $scale2;
+    padding-right: $scale2;
+  }
+}

@@ -2,7 +2,7 @@
   display: grid;
   grid-gap: $scale2;
   grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto
-                ". . ." 1fr / 1fr 1fr 1fr;
+                ". . ." 1fr / minmax($card-width-min, $card-width-max) minmax($card-width-min, $card-width-max) minmax($card-width-min, $card-width-max);
   align-content: center;
   margin-bottom: $scale2;
 }
@@ -34,3 +34,22 @@
   align-self: center;
 }
 
+@include max-width($content-width-large) {
+  .item-grid {
+    padding: 0 $scale2;
+    grid-template: "itemgridtitle itemgridfilter" auto
+                ". ." 1fr / minmax($card-width-min, $card-width-max) minmax($card-width-min, $card-width-max);
+  }
+}
+
+@include max-width($content-width-medium) {
+  .item-grid {
+    padding: 0 $scale2;
+    grid-template: "itemgridtitle" auto
+                    "itemgridfilter" auto 
+                    ". " 1fr / minmax($card-width-min, $card-width-max);
+  }
+  .item-grid-title, .item-grid-filters {
+    justify-self: center;
+  }
+}

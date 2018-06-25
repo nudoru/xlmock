@@ -291,10 +291,6 @@ img {
 .list-plain-horizontal li, .site-header-nav ul li, .site-header-nav-secondary ul li, .site-dashboard-nav ul li, .site-footer-nav li {
   display: inline; }
 
-/*
-TODO
-- hero / dashboard nav need to be it's own row
-*/
 .svgicon {
   position: relative;
   display: inline-block;
@@ -514,7 +510,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   display: grid;
   grid-template-columns: auto auto 1fr 1fr;
   grid-template-rows: 64px;
-  grid-gap: 1.1875rem;
+  grid-gap: 1.5rem;
   color: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -534,7 +530,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
       height: 3rem;
       line-height: 3rem;
       padding: 0 1.3125rem;
-      background-color: rgba(0, 0, 0, 0.05);
+      background-color: rgba(0, 0, 0, 0.25);
       border-radius: 0.3125rem;
       text-align: center;
       color: #fff;
@@ -606,13 +602,23 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     .site-dashboard-nav ul li:last-of-type {
       margin-right: 0; }
 
+@media screen and (max-width: 1140px) {
+  .site-dashboard-nav {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem; } }
+
+@media screen and (max-width: 640px) {
+  .site-dashboard-nav {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem; } }
+
 .site-hero {
   padding: 2rem 0;
   grid-area: sitehero;
   display: grid;
-  grid-template: ". siteherocontent ." auto/1fr 1140px 1fr;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0088ce), to(rgba(29, 85, 99, 0.75)));
-  background: linear-gradient(#0088ce, rgba(29, 85, 99, 0.75));
+  grid-template: ". siteherocontent ." auto/1fr minmax(auto, 1140px) 1fr;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0088ce), to(rgba(29, 85, 99, 0.5)));
+  background: linear-gradient(#0088ce, rgba(29, 85, 99, 0.5));
   z-index: 2; }
 
 .site-hero-image {
@@ -675,6 +681,20 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
         display: block;
         color: rgba(255, 255, 255, 0.65); }
 
+@media screen and (max-width: 1140px) {
+  .site-hero {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem; } }
+
+@media screen and (max-width: 640px) {
+  .site-hero {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem; }
+  .site-hero-display {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 2rem; } }
+
 .site-footer {
   height: 161px;
   grid-area: sitefooter;
@@ -698,10 +718,20 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .site-footer-copyright {
   justify-self: end; }
 
+@media screen and (max-width: 1140px) {
+  .site-footer {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem; } }
+
+@media screen and (max-width: 640px) {
+  .site-footer {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem; } }
+
 .item-grid {
   display: grid;
   grid-gap: 1.3125rem;
-  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto ". . ." 1fr / 1fr 1fr 1fr;
+  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto ". . ." 1fr/minmax(310px, auto) minmax(310px, auto) minmax(310px, auto);
   -ms-flex-line-pack: center;
       align-content: center;
   margin-bottom: 1.3125rem; }
@@ -729,12 +759,24 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   -ms-flex-item-align: center;
       align-self: center; }
 
+@media screen and (max-width: 1140px) {
+  .item-grid {
+    padding: 0 1.3125rem;
+    grid-template: "itemgridtitle itemgridfilter" auto ". ." 1fr/minmax(310px, auto) minmax(310px, auto); } }
+
+@media screen and (max-width: 640px) {
+  .item-grid {
+    padding: 0 1.3125rem;
+    grid-template: "itemgridtitle" auto "itemgridfilter" auto ". " 1fr/minmax(310px, auto); }
+  .item-grid-title, .item-grid-filters {
+    justify-self: center; } }
+
 .site-container {
   background-color: gainsboro;
   width: 100%;
   min-height: 100vh;
   display: grid;
-  grid-template: "siteheader siteheader siteheader" auto "sitedashboardnav sitedashboardnav sitedashboardnav" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr 1140px 1fr; }
+  grid-template: "siteheader siteheader siteheader" auto "sitedashboardnav sitedashboardnav sitedashboardnav" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr minmax(auto, 1140px) 1fr; }
 
 .site-content {
   padding: 2rem 0;

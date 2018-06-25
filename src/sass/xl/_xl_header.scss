@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: auto auto 1fr 1fr;
   grid-template-rows: $header-height-large;
-  grid-gap: $scale1;
+  grid-gap: $scale3;
   color: #fff;
   align-items: center;
 }
@@ -12,6 +12,7 @@
 .site-header-logo {
   padding-left: $scale1;
 }
+
 .site-header-nav {
   ul {
     @extend .list-plain-horizontal;
@@ -25,7 +26,7 @@
         height: $scale6;
         line-height: $scale6;
         padding: 0 $scale2;
-        background-color: rgba(0,0,0,.05);
+        background-color: rgba(0,0,0,.25);
         border-radius: $radius-base;
         text-align: center;
         color: #fff;
@@ -125,5 +126,17 @@
   }
 }
 
+@include max-width($content-width-large) {
+  .site-dashboard-nav {
+    padding-left: $scale2;
+    padding-right: $scale2;
+  }
+}
 
+@include max-width($content-width-medium) {
+  .site-dashboard-nav {
+    padding-left: $scale2;
+    padding-right: $scale2;
+  }
+}
 

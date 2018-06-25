@@ -3,10 +3,12 @@
   // background-color: $hero-color-background;
   grid-area: sitehero;
   display: grid;
-  grid-template: ". siteherocontent ." auto / 1fr $content-width-large 1fr;
+  grid-template: ". siteherocontent ." auto / 1fr minmax(auto, $content-width-large) 1fr;
   background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
   z-index: 2;
 }
+
+
 
 .site-hero-image {
   grid-area: sitehero;
@@ -93,5 +95,21 @@
   }
 }
 
+@include max-width($content-width-large) {
+  .site-hero {
+    padding-left: $scale2;
+    padding-right: $scale2;
+  }
+}
 
-
+@include max-width($content-width-medium) {
+  .site-hero {
+    padding-left: $scale2;
+    padding-right: $scale2;
+  }
+  .site-hero-display {
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: $scale5;
+  }
+}
