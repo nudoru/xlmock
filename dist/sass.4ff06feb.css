@@ -804,28 +804,37 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .item-grid {
   display: grid;
   grid-gap: 1.3125rem;
-  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto ". . ." 1fr/minmax(310px, 363px) minmax(310px, 363px) minmax(310px, 363px);
-  -ms-flex-line-pack: center;
-      align-content: center;
-  margin-bottom: 1.3125rem; }
+  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto "itemgridcontents itemgridcontents itemgridcontents" auto "itemgridcta itemgridcta itemgridcta" auto / 1fr 1fr 1fr;
+  margin-bottom: 3rem; }
 
 .item-grid-title {
   grid-area: itemgridtitle;
   -ms-flex-item-align: center;
       align-self: center; }
-
-.item-grid-title h1 {
-  margin: 0;
-  line-height: 1rem;
-  display: inline;
-  font-weight: 600;
-  margin-right: 1.1875rem; }
+  .item-grid-title h1 {
+    margin: 0;
+    line-height: 1rem;
+    display: inline;
+    font-weight: 600;
+    margin-right: 1.1875rem; }
 
 .item-grid-filters {
   grid-area: itemgridfilter;
   justify-self: end; }
   .item-grid-filters div.svgicon {
     top: 5px; }
+
+.item-grid-cta {
+  grid-area: itemgridcta;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center; }
+
+.item-grid-contents {
+  grid-area: itemgridcontents;
+  display: grid;
+  grid-gap: 1.3125rem;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); }
 
 .item-grid-item {
   justify-self: center;
@@ -834,17 +843,11 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 
 @media screen and (max-width: 1140px) {
   .item-grid {
-    padding: 0 1.3125rem;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    grid-template: "itemgridtitle itemgridfilter" auto ". ." 1fr/minmax(310px, 363px) minmax(310px, 363px); } }
+    padding: 0 1.3125rem; } }
 
 @media screen and (max-width: 640px) {
   .item-grid {
-    padding: 0 1.3125rem;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    grid-template: "itemgridtitle" auto "itemgridfilter" auto ". " 1fr/minmax(310px, 363px); }
+    padding: 0 1.3125rem; }
   .item-grid-filters {
     display: none; } }
 

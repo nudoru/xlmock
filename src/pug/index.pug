@@ -17,55 +17,110 @@ body
   .site-content
     .item-grid
       .item-grid-title
-        h1 Some items ...
-        .label 3
-        .label Really long
+        h1 Learning Paths in Progress
       .item-grid-filters
         button Recent
           +icon-chevron-down("icon-button-right")
         +icon-grid("margin-left")
         +icon-list("margin-left")
-      .item-grid-item
-        .card.card-path
-          .card-contents
-            .card-icon 
-              +icon-box("negative")
-            .card-duration 4 hours left
-            .card-content
-              h2 Learning Path
-              h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-              p Aliquam vulputate vestibulum eleifend. 
-            .card-cta
-              button.primary Resume
-            .card-subicon 
-              +icon-mobile("negative card-icon-mobile")
-      .item-grid-item
-        .card
-          .card-contents
-            .card-icon
-              +icon-box
-            .card-duration 4 hours left
-            .card-content
-              h2 Course
-              h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-              p Aliquam vulputate vestibulum eleifend. 
-            .card-cta
-              button.primary Resume
-            .card-subicon 
-              +icon-mobile("card-icon-mobile")
-      .item-grid-item
-        .card.card-event
-          .card-contents
-            .card-icon
-              +icon-box
-            .card-duration 4 hours left
-            .card-content
-              h2 Event
-              h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-              p Aliquam vulputate vestibulum eleifend. 
-            .card-cta
-              button.primary Resume
-            .card-subicon 
-              +icon-mobile("card-icon-mobile")
+      .item-grid-contents
+        .item-grid-item
+          .card.card-path
+            .card-contents
+              .card-icon 
+                +icon-box("negative")
+              .card-duration 4 hours left
+              .card-content
+                h2 Learning Path
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("negative card-icon-mobile")
+        .item-grid-item
+          .card.card-path
+            .card-contents
+              .card-icon 
+                +icon-box("negative")
+              .card-duration 4 hours left
+              .card-content
+                h2 Learning Path
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("negative card-icon-mobile")
+        .item-grid-item
+          .card.card-path
+            .card-contents
+              .card-icon 
+                +icon-box("negative")
+              .card-duration 4 hours left
+              .card-content
+                h2 Learning Path
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("negative card-icon-mobile")
+      .item-grid-cta
+        button View More
+
+    .item-grid
+      .item-grid-title
+        h1 Courses in Progress
+      .item-grid-filters
+        button Recent
+          +icon-chevron-down("icon-button-right")
+        +icon-grid("margin-left")
+        +icon-list("margin-left")
+      .item-grid-contents
+        .item-grid-item
+          .card.card-course
+            .card-contents
+              .card-icon 
+                +icon-box
+              .card-duration 4 hours left
+              .card-content
+                h2 Course
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("card-icon-mobile")
+        .item-grid-item
+          .card.card-course
+            .card-contents
+              .card-icon 
+                +icon-box
+              .card-duration 4 hours left
+              .card-content
+                h2 Course
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("card-icon-mobile")
+        .item-grid-item
+          .card.card-course
+            .card-contents
+              .card-icon 
+                +icon-box
+              .card-duration 4 hours left
+              .card-content
+                h2 Course
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("card-icon-mobile")
+      .item-grid-cta
+        button View More
 
   include includes/_footer
