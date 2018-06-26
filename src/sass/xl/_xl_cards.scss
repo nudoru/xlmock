@@ -27,8 +27,8 @@
 // Max about 363px at widest screen
 // Tablet + Phone 310px
 // Let's set the size based on the grid cell
-.card {
-  @include transition-all;
+
+.card-frame {
   @extend .dropshadow-xs;
   display: block; 
   position: relative;
@@ -36,6 +36,11 @@
   background: $card-course-color linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.05));
   padding: $scale4;
   border: 1px solid $card-course-color;
+}
+
+.card {
+  @include transition-all;
+  @extend .card-frame;
   &:hover {
     @extend .dropshadow-m;
     @include translate(0, -2px);

@@ -1,0 +1,95 @@
+.item-table {
+  display: grid;
+  grid-gap: $scale2;
+  grid-template: "itemtabletitle itemtabletitle itemtablefilter" auto
+                  "itemtablecontents itemtablecontents itemtablecontents" auto
+                  "itemtablecta itemtablecta itemtablecta" auto / 1fr 1fr 1fr;
+  margin-bottom: $scale6;
+}
+
+.item-table-title  {
+  grid-area: itemtabletitle;
+  align-self: center;
+  h1 {
+    @extend .h5;
+    margin: 0;
+    line-height: 1rem;
+    display: inline;
+    font-weight: 600;
+    margin-right: $scale1;
+  }
+}
+
+.item-table-filters {
+  grid-area: itemtablefilter;
+  justify-self: end;
+  @extend .button-bar-icons;
+  ul {
+    display: inline;
+    top: -2px; // bump it up so it's level with the filter button
+    a {
+      color: $button-primary-color;
+    }
+  }
+}
+
+.item-table-cta {
+  grid-area: itemtablecta;
+  align-self: center;
+  justify-self: center;
+}
+
+.item-table-contents {
+  @extend .card-frame;
+  grid-area: itemtablecontents;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+
+.item-table-row {
+  display: grid;
+  grid-template: "contenticon contentduration contentcta contentsubicon" auto
+                  "contenticon contentcontent contentcta contentsubicon" auto
+                  / auto 1fr auto auto;
+  grid-gap: $scale1;
+  border-bottom: 1px solid $table-border-color;
+}
+
+.content-icon {
+  grid-area: contenticon;
+}
+
+.content-duration {
+  grid-area: contentduration;
+  color: $text-dim-color;
+}
+
+.content-content {
+  grid-area: contentcontent;
+  h1 {
+    @extend .h5;
+    margin-bottom: $scale4;
+    line-height: $scale4;
+    font-weight: 600;
+  }
+  h2 {
+    @extend .h6;
+    margin-bottom: $scale1;
+    line-height: 1rem;
+    font-weight: 600;
+    color: $text-dim-color;
+  }
+  p {
+    margin-bottom: 0;
+    color: $text-dim-color;
+  }
+}
+
+.content-cta {
+  grid-area: contentcta;
+}
+
+.content-subicon {
+  grid-area: contentsubicon;
+}

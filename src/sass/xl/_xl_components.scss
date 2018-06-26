@@ -37,7 +37,7 @@
         margin-right: -5px;
       }
       a:hover {
-        background-color: rgba(0,0,0,.1);
+        background-color: $button-shaded-bg;
       }
       // Couldn't get them to vertically center
       div.svgicon {
@@ -66,7 +66,7 @@ button {
 
 button:hover {
   @extend .dropshadow-sm;
-  background-color: rgba(0,0,0,.1);
+  background-color: $button-shaded-bg;
   border: 2px solid $button-primary-color-over;
   @include translate(0, -1px);
 }

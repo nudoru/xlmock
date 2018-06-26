@@ -8,54 +8,106 @@ body
   include includes/_header
 
   .site-content
+
+    .item-table
+      .item-table-title
+        h1 Learning Paths in Progress
+      .item-table-filters
+        button Recent
+          +icon-chevron-down("icon-button-right")
+        ul
+          li
+            a(href='404.pug') 
+              +icon-grid
+          li 
+            a(href='404.pug') 
+              +icon-list
+      .item-table-contents
+
+        .item-table-row
+          .content-icon 
+            +icon-box
+          .content-duration 4 hours left
+          .content-content
+            h2 Learning Path
+            h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+            p Aliquam vulputate vestibulum eleifend. 
+          .content-cta
+            button.primary Resume
+          .content-subicon 
+            +icon-mobile
+
+        .item-table-row
+          .content-icon 
+            +icon-box
+          .content-duration 4 hours left
+          .content-content
+            h2 Learning Path
+            h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+            p Aliquam vulputate vestibulum eleifend. 
+          .content-cta
+            button.primary Resume
+          .content-subicon 
+            +icon-mobile
+    hr
+
     .item-grid
       .item-grid-title
-        h1 Some items ...
-        .label 3
-        .label Really long
+        h1 Learning Paths in Progress
       .item-grid-filters
         button Recent
           +icon-chevron-down("icon-button-right")
-        +icon-grid("margin-left")
-        +icon-list("margin-left")
-      .item-grid-item
-        .card.card-path
-          .card-icon 
-            +icon-box("negative")
-          .card-duration 4 hours left
-          .card-content
-            h2 Learning Path
-            h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-            p Aliquam vulputate vestibulum eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur a rhoncus leo.
-          .card-cta
-            button.primary Resume Path
-          .card-subicon 
-            +icon-mobile("negative card-icon-mobile")
-      .item-grid-item
-        .card
-          .card-icon
-            +icon-box
-          .card-duration 4 hours left
-          .card-content
-            h2 Course
-            h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-            p Aliquam vulputate vestibulum eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur a rhoncus leo.
-          .card-cta
-            button.primary Resume Path
-          .card-subicon 
-            +icon-mobile("card-icon-mobile")
-      .item-grid-item
-        .card.card-event
-          .card-icon
-            +icon-box
-          .card-duration 4 hours left
-          .card-content
-            h2 Event
-            h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-            p Aliquam vulputate vestibulum eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur a rhoncus leo.
-          .card-cta
-            button.primary Resume Path
-          .card-subicon 
-            +icon-mobile("card-icon-mobile")
+        ul
+          li
+            a(href='404.pug') 
+              +icon-grid
+          li 
+            a(href='404.pug') 
+              +icon-list
+      .item-grid-contents
+        .item-grid-item
+          .card.card-path
+            .card-contents
+              .card-icon 
+                +icon-box("negative")
+              .card-duration 4 hours left
+              .card-content
+                h2 Learning Path
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("negative card-icon-mobile")
+        .item-grid-item
+          .card.card-path
+            .card-contents
+              .card-icon 
+                +icon-box("negative")
+              .card-duration 4 hours left
+              .card-content
+                h2 Learning Path
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("negative card-icon-mobile")
+        .item-grid-item
+          .card.card-path
+            .card-contents
+              .card-icon 
+                +icon-box("negative")
+              .card-duration 4 hours left
+              .card-content
+                h2 Learning Path
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("negative card-icon-mobile")
+      .item-grid-cta
+        button View More
 
   include includes/_footer

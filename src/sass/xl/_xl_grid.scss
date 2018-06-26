@@ -1,6 +1,3 @@
-//  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto
-//". . ." 1fr / minmax($card-width-min, $card-width-max) minmax($card-width-min, $card-width-max) minmax($card-width-min, $card-width-max);
-
 .item-grid {
   display: grid;
   grid-gap: $scale2;
