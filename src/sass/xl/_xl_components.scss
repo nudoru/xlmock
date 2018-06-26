@@ -8,133 +8,8 @@
   }
 }
 
-// scale the SVG icon
-.card-icon-mobile {
-  width: $scale6;
-  height: auto;
-  svg:not(:root) {
-    width: 100%;
-    height: auto;
-  }
-}
 
-.negative {
-  color: #fff !important;
-}
 
-.icon-button-left {
-  position: relative;
-  padding: 0 10px 0 0;
-  top: 7px;
-}
-
-.icon-button-right {
-  position: relative;
-  padding: 0 0 0 10px;
-  top: 7px;
-}
-
-// Max about 363px at widest screen
-// Tablet + Phone 310px
-.card {
-  @extend .dropshadow-xs;
-  display: block; 
-  position: relative;
-  // width: $card-width;
-  // height: $card-height;
-  border-radius: $card-radius;
-  background: $card-course-color;
-  padding: $scale4;
-}
-
-.card-contents {
-  display: grid;
-  grid-template: "cardicon cardduration" 50px
-                  "cardcontent cardcontent" minmax(auto, 200px)
-                  "cardcta cardsubicon" 50px / 2fr 1fr;
-  grid-gap: $scale1;
-}
-
-.card-path {
-  background: $card-path-color;
-  .card-duration {
-    color: $text-dim-color-negative;
-  }
-  .card-content {
-    h1 {
-      color: #fff;
-    }
-    h2 {
-      color: $text-dim-color-negative;
-    }
-    p {
-      color: $text-dim-color-negative;
-    }
-  }
-  .card-cta button {
-    @extend .negative-primary;
-  }
-}
-.card-event {
-  background: $card-event-color;
-}
-
-.card-icon {
-  grid-area: cardicon;
-  align-self: center;
-}
-
-.card-duration {
-  grid-area: cardduration;
-  justify-self: end;
-  align-self: center;
-  color: $text-dim-color;
-}
-
-.card-content {
-  grid-area: cardcontent;
-  align-self: end;
-  h1 {
-    @extend .h5;
-    margin-bottom: $scale4;
-    line-height: $scale4;
-    font-weight: 600;
-  }
-  h2 {
-    @extend .h6;
-    margin-bottom: $scale1;
-    line-height: 1rem;
-    font-weight: 600;
-    color: $text-dim-color;
-  }
-  p {
-    margin-bottom: 0;
-    color: $text-dim-color;
-  }
-}
-
-.card-cta {
-  grid-area: cardcta;
-}
-
-.card-subicon {
-  grid-area: cardsubicon;
-  justify-self: end;
-  align-self: center;
-}
-
-/*
-.card
-  .card-icon []
-  .card-duration 4 hours left
-  .card-content
-    h2 Learning Path
-    h1 This is a long title
-    p This is the description
-  .card-cta
-    button.primary Resume Path
-  .card-subicon <>
-*/
 
 
 .icon_square_large {
@@ -148,6 +23,8 @@
 }
 
 button {
+  @include transition-all;
+  position: relative;
   height: $scale6;
   line-height: $scale6;
   padding: 0 $scale5;
@@ -159,10 +36,10 @@ button {
 }
 
 button:hover {
-  background-color: rgba(255,255,255,.1);
+  @extend .dropshadow-sm;
+  background-color: rgba(0,0,0,.1);
   border: 2px solid $button-primary-color-over;
-  color: $button-primary-color-over;
-  cursor: pointer;
+  @include translate(0, -1px);
 }
 
 button.primary {
@@ -188,7 +65,7 @@ button.negative:hover {
 button.negative-primary {
   border: 2px solid $button-primary-color-negative;
   background: $button-primary-color-negative;
-  color: $grey-dark;
+  color: $button-primary-color;
 }
 
 button.negative-primary:hover {

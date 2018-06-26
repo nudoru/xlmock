@@ -126,11 +126,11 @@
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
-.dropshadow-sm {
+.dropshadow-sm, button:hover {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15); }
 
-.dropshadow-m {
+.dropshadow-m, .card:hover {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1); }
 
@@ -184,7 +184,7 @@ body {
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 h1, h2, h3, h4, h5, .site-hero-display .next-steps .details .title, h6,
-.h1, .h2, .h3, .h4, .h5, .card-content h1, .item-grid-title h1, .h6, .card-content h2, .banner-message-message h1, .site-hero-display .current-path h2, .site-hero-display .next-steps h1 {
+.h1, .h2, .h3, .h4, .h5, .card-content h1, .item-grid-title h1, .h6, .banner-message-message h1, .card-content h2, .site-hero-display .current-path h2, .site-hero-display .next-steps h1 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -209,7 +209,7 @@ h5, .site-hero-display .next-steps .details .title, .h5, .card-content h1, .item
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .h6, .card-content h2, .banner-message-message h1, .site-hero-display .current-path h2, .site-hero-display .next-steps h1 {
+h6, .h6, .banner-message-message h1, .card-content h2, .site-hero-display .current-path h2, .site-hero-display .next-steps h1 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -299,102 +299,6 @@ img {
     margin: 0;
     display: block; }
 
-.card-icon-mobile {
-  width: 3rem;
-  height: auto; }
-  .card-icon-mobile svg:not(:root) {
-    width: 100%;
-    height: auto; }
-
-.negative {
-  color: #fff !important; }
-
-.icon-button-left {
-  position: relative;
-  padding: 0 10px 0 0;
-  top: 7px; }
-
-.icon-button-right {
-  position: relative;
-  padding: 0 0 0 10px;
-  top: 7px; }
-
-.card {
-  display: block;
-  position: relative;
-  border-radius: 0.3125rem;
-  background: #fff;
-  padding: 1.75rem; }
-
-.card-contents {
-  display: grid;
-  grid-template: "cardicon cardduration" 50px "cardcontent cardcontent" minmax(auto, 200px) "cardcta cardsubicon" 50px/2fr 1fr;
-  grid-gap: 1.1875rem; }
-
-.card-path {
-  background: #0088ce; }
-  .card-path .card-duration {
-    color: rgba(255, 255, 255, 0.65); }
-  .card-path .card-content h1 {
-    color: #fff; }
-  .card-path .card-content h2 {
-    color: rgba(255, 255, 255, 0.65); }
-  .card-path .card-content p {
-    color: rgba(255, 255, 255, 0.65); }
-
-.card-event {
-  background: #fff; }
-
-.card-icon {
-  grid-area: cardicon;
-  -ms-flex-item-align: center;
-      align-self: center; }
-
-.card-duration {
-  grid-area: cardduration;
-  justify-self: end;
-  -ms-flex-item-align: center;
-      align-self: center;
-  color: rgba(0, 0, 0, 0.65); }
-
-.card-content {
-  grid-area: cardcontent;
-  -ms-flex-item-align: end;
-      align-self: end; }
-  .card-content h1 {
-    margin-bottom: 1.75rem;
-    line-height: 1.75rem;
-    font-weight: 600; }
-  .card-content h2 {
-    margin-bottom: 1.1875rem;
-    line-height: 1rem;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.65); }
-  .card-content p {
-    margin-bottom: 0;
-    color: rgba(0, 0, 0, 0.65); }
-
-.card-cta {
-  grid-area: cardcta; }
-
-.card-subicon {
-  grid-area: cardsubicon;
-  justify-self: end;
-  -ms-flex-item-align: center;
-      align-self: center; }
-
-/*
-.card
-  .card-icon []
-  .card-duration 4 hours left
-  .card-content
-    h2 Learning Path
-    h1 This is a long title
-    p This is the description
-  .card-cta
-    button.primary Resume Path
-  .card-subicon <>
-*/
 .icon_square_large, .banner-message-icon {
   width: 64px;
   height: 64px;
@@ -405,6 +309,11 @@ img {
   text-align: center; }
 
 button {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
   height: 3rem;
   line-height: 3rem;
   padding: 0 2rem;
@@ -415,35 +324,35 @@ button {
   font-weight: 600; }
 
 button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid #0cafd7;
-  color: #0cafd7;
-  cursor: pointer; }
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid #3ec8e5;
+  -webkit-transform: translate(0, -1px);
+          transform: translate(0, -1px); }
 
 button.primary {
   background: #0088ce;
   color: #fff; }
 
 button.primary:hover {
-  background: #0cafd7;
-  border: 2px solid #0cafd7; }
+  background: #3ec8e5;
+  border: 2px solid #3ec8e5; }
 
 button.negative {
   border: 2px solid #fff;
   color: #fff; }
 
 button.negative:hover {
-  border: 2px solid #fff;
-  color: #fff; }
+  border: 2px solid #daf5fa;
+  color: #daf5fa; }
 
 button.negative-primary, .card-path .card-cta button {
   border: 2px solid #fff;
   background: #fff;
-  color: #4c4c4c; }
+  color: #0088ce; }
 
 button.negative-primary:hover, .card-path .card-cta button:hover {
-  background-color: #fff;
-  border: 2px solid #fff; }
+  background-color: #daf5fa;
+  border: 2px solid #daf5fa; }
 
 .label {
   position: relative;
@@ -516,6 +425,105 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   .banner-message {
     padding: 1.3125rem;
     grid-template: "icon message" 1fr  ". cta" auto / auto 1fr; } }
+
+.card-icon-mobile {
+  width: 3rem;
+  height: auto; }
+  .card-icon-mobile svg:not(:root) {
+    width: 100%;
+    height: auto; }
+
+.negative {
+  color: #fff !important; }
+
+.icon-button-left {
+  position: relative;
+  padding: 0 10px 0 0;
+  top: 7px; }
+
+.icon-button-right {
+  position: relative;
+  padding: 0 0 0 10px;
+  top: 7px; }
+
+.card {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: block;
+  position: relative;
+  border-radius: 0.3125rem;
+  background: #fff -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
+  background: #fff linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  padding: 1.75rem;
+  border: 1px solid #fff; }
+  .card:hover {
+    -webkit-transform: translate(0, -2px);
+            transform: translate(0, -2px);
+    border: 1px solid rgba(0, 0, 0, 0.25); }
+
+.card-sized {
+  width: 310px;
+  height: 390px; }
+
+.card-contents {
+  display: grid;
+  grid-template: "cardicon cardduration" 50px "cardcontent cardcontent" minmax(auto, 200px) "cardcta cardsubicon" 50px/2fr 1fr;
+  grid-gap: 1.1875rem; }
+
+.card-path {
+  background-color: #0088ce;
+  border: 1px solid #0088ce; }
+  .card-path .card-duration {
+    color: rgba(255, 255, 255, 0.65); }
+  .card-path .card-content h1 {
+    color: #fff; }
+  .card-path .card-content h2 {
+    color: rgba(255, 255, 255, 0.65); }
+  .card-path .card-content p {
+    color: rgba(255, 255, 255, 0.65); }
+
+.card-event {
+  background: #fff; }
+
+.card-icon {
+  grid-area: cardicon;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.card-duration {
+  grid-area: cardduration;
+  justify-self: end;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: rgba(0, 0, 0, 0.65); }
+
+.card-content {
+  grid-area: cardcontent;
+  -ms-flex-item-align: end;
+      align-self: end; }
+  .card-content h1 {
+    margin-bottom: 1.75rem;
+    line-height: 1.75rem;
+    font-weight: 600; }
+  .card-content h2 {
+    margin-bottom: 1.1875rem;
+    line-height: 1rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.65); }
+  .card-content p {
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.65); }
+
+.card-cta {
+  grid-area: cardcta; }
+
+.card-subicon {
+  grid-area: cardsubicon;
+  justify-self: end;
+  -ms-flex-item-align: center;
+      align-self: center; }
 
 .site-header {
   background-color: #0088ce;
@@ -852,7 +860,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     display: none; } }
 
 .site-container {
-  background-color: gainsboro;
+  background: gainsboro;
   width: 100%;
   min-height: 100vh;
   display: grid;

@@ -1,11 +1,12 @@
 @import 'xl_components';
+@import 'xl_cards';
 @import 'xl_header';
 @import 'xl_hero';
 @import 'xl_footer';
 @import 'xl_grid';
 
 .site-container {
-  background-color: $content-color-background;
+  background: $content-color-background;
   width: 100%;
   min-height: 100vh;
   display: grid;
