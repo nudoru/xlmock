@@ -39,6 +39,7 @@
       display: inline-block;
       margin-right: 5px;
       a {
+        @include transition-all;
         display: block;
         height: $scale6;
         line-height: $scale6;
@@ -71,34 +72,7 @@
 .site-header-nav-secondary, .site-header-nav-mobile {
   justify-self: end;
   padding-right: $scale1;
-  ul {
-    @extend .list-plain-horizontal;
-    font-weight: 700;
-    text-transform: uppercase;
-    li {
-      display: inline-block;
-      a {
-        display: block;
-        height: $scale6;
-        line-height: $scale6;
-        padding: 0 $scale2;
-        border-radius: $radius-base;
-        text-align: center;
-        margin-right: -5px;
-      }
-      a:hover {
-        background-color: rgba(0,0,0,.35);
-      }
-      // Couldn't get them to vertically center
-      div.svgicon {
-        top: 7px;
-      }
-      div.label {
-        margin: 0;
-        top: -1px;
-      }
-    }
-  }
+  @extend .button-bar-icons;
 }
 
 .site-header-mobile {
@@ -125,6 +99,8 @@
     li {
       display: inline-block;
       a{
+        @include transition-all;
+        position: relative;
         display: block;
         margin-right: $scale6;
         padding-bottom: $scale2;
@@ -133,6 +109,7 @@
         color: $text-dim-color-negative;
       }
       a:hover {
+        @include translate(0,2px);
         text-decoration: none;
         color: #fff;
       }

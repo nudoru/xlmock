@@ -26,8 +26,13 @@
 .item-grid-filters {
   grid-area: itemgridfilter;
   justify-self: end;
-  div.svgicon {
-    top: 5px;
+  @extend .button-bar-icons;
+  ul {
+    display: inline;
+    top: -2px; // bump it up so it's level with the filter button
+    a {
+      color: $button-primary-color;
+    }
   }
 }
 

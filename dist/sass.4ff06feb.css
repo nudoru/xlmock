@@ -280,15 +280,15 @@ svg:not(:root) {
 img {
   vertical-align: middle; }
 
-.list-plain, .list-plain-horizontal, .site-header-nav ul, .site-header-nav-secondary ul, .site-header-nav-mobile ul, .site-dashboard-nav ul, .site-footer-nav, .site-hero-display .next-steps ul {
+.list-plain, .list-plain-horizontal, .button-bar-icons ul, .site-header-nav-secondary ul, .site-header-nav-mobile ul, .item-grid-filters ul, .site-header-nav ul, .site-dashboard-nav ul, .site-footer-nav, .site-hero-display .next-steps ul {
   margin: 0;
   padding: 0;
   list-style: none; }
-  .list-plain li, .list-plain-horizontal li, .site-header-nav ul li, .site-header-nav-secondary ul li, .site-header-nav-mobile ul li, .site-dashboard-nav ul li, .site-footer-nav li, .site-hero-display .next-steps ul li {
+  .list-plain li, .list-plain-horizontal li, .button-bar-icons ul li, .site-header-nav-secondary ul li, .site-header-nav-mobile ul li, .item-grid-filters ul li, .site-header-nav ul li, .site-dashboard-nav ul li, .site-footer-nav li, .site-hero-display .next-steps ul li {
     margin-left: 0;
     padding-left: 0; }
 
-.list-plain-horizontal li, .site-header-nav ul li, .site-header-nav-secondary ul li, .site-header-nav-mobile ul li, .site-dashboard-nav ul li, .site-footer-nav li {
+.list-plain-horizontal li, .button-bar-icons ul li, .site-header-nav-secondary ul li, .site-header-nav-mobile ul li, .item-grid-filters ul li, .site-header-nav ul li, .site-dashboard-nav ul li, .site-footer-nav li {
   display: inline; }
 
 .svgicon {
@@ -307,6 +307,32 @@ img {
   font-size: 2rem;
   font-weight: 700;
   text-align: center; }
+
+.button-bar-icons ul, .site-header-nav-secondary ul, .site-header-nav-mobile ul, .item-grid-filters ul {
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase; }
+  .button-bar-icons ul li, .site-header-nav-secondary ul li, .site-header-nav-mobile ul li, .item-grid-filters ul li {
+    display: inline-block; }
+    .button-bar-icons ul li a, .site-header-nav-secondary ul li a, .site-header-nav-mobile ul li a, .item-grid-filters ul li a {
+      -webkit-transition: all 0.25s ease-out;
+      transition: all 0.25s ease-out;
+      -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+              transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: block;
+      height: 3rem;
+      line-height: 3rem;
+      padding: 0 1.3125rem;
+      border-radius: 0.3125rem;
+      text-align: center;
+      margin-right: -5px; }
+    .button-bar-icons ul li a:hover, .site-header-nav-secondary ul li a:hover, .site-header-nav-mobile ul li a:hover, .item-grid-filters ul li a:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
+    .button-bar-icons ul li div.svgicon, .site-header-nav-secondary ul li div.svgicon, .site-header-nav-mobile ul li div.svgicon, .item-grid-filters ul li div.svgicon {
+      top: 7px; }
+    .button-bar-icons ul li div.label, .site-header-nav-secondary ul li div.label, .site-header-nav-mobile ul li div.label, .item-grid-filters ul li div.label {
+      margin: 0;
+      top: -1px; }
 
 button {
   -webkit-transition: all 0.25s ease-out;
@@ -561,6 +587,10 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     display: inline-block;
     margin-right: 5px; }
     .site-header-nav ul li a {
+      -webkit-transition: all 0.25s ease-out;
+      transition: all 0.25s ease-out;
+      -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+              transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
       display: block;
       height: 3rem;
       line-height: 3rem;
@@ -585,26 +615,6 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .site-header-nav-secondary, .site-header-nav-mobile {
   justify-self: end;
   padding-right: 1.1875rem; }
-  .site-header-nav-secondary ul, .site-header-nav-mobile ul {
-    font-weight: 700;
-    text-transform: uppercase; }
-    .site-header-nav-secondary ul li, .site-header-nav-mobile ul li {
-      display: inline-block; }
-      .site-header-nav-secondary ul li a, .site-header-nav-mobile ul li a {
-        display: block;
-        height: 3rem;
-        line-height: 3rem;
-        padding: 0 1.3125rem;
-        border-radius: 0.3125rem;
-        text-align: center;
-        margin-right: -5px; }
-      .site-header-nav-secondary ul li a:hover, .site-header-nav-mobile ul li a:hover {
-        background-color: rgba(0, 0, 0, 0.35); }
-      .site-header-nav-secondary ul li div.svgicon, .site-header-nav-mobile ul li div.svgicon {
-        top: 7px; }
-      .site-header-nav-secondary ul li div.label, .site-header-nav-mobile ul li div.label {
-        margin: 0;
-        top: -1px; }
 
 .site-header-mobile .site-header-nav-secondary, .site-header-mobile .site-header-nav-mobile {
   padding-right: 0; }
@@ -625,6 +635,11 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     .site-dashboard-nav ul li {
       display: inline-block; }
       .site-dashboard-nav ul li a {
+        -webkit-transition: all 0.25s ease-out;
+        transition: all 0.25s ease-out;
+        -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+                transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+        position: relative;
         display: block;
         margin-right: 3rem;
         padding-bottom: 1.3125rem;
@@ -632,6 +647,8 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
         margin-bottom: -1px;
         color: rgba(255, 255, 255, 0.65); }
       .site-dashboard-nav ul li a:hover {
+        -webkit-transform: translate(0, 2px);
+                transform: translate(0, 2px);
         text-decoration: none;
         color: #fff; }
     .site-dashboard-nav ul .active a {
@@ -829,8 +846,11 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .item-grid-filters {
   grid-area: itemgridfilter;
   justify-self: end; }
-  .item-grid-filters div.svgicon {
-    top: 5px; }
+  .item-grid-filters ul {
+    display: inline;
+    top: -2px; }
+    .item-grid-filters ul a {
+      color: #0088ce; }
 
 .item-grid-cta {
   grid-area: itemgridcta;

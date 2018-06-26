@@ -8,10 +8,6 @@
   }
 }
 
-
-
-
-
 .icon_square_large {
   width: 64px;
   height: 64px;
@@ -20,6 +16,39 @@
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
+}
+
+.button-bar-icons {
+  ul {
+    @extend .list-plain-horizontal;
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+    li {
+      display: inline-block;
+      a {
+        @include transition-all;
+        display: block;
+        height: $scale6;
+        line-height: $scale6;
+        padding: 0 $scale2;
+        border-radius: $radius-base;
+        text-align: center;
+        margin-right: -5px;
+      }
+      a:hover {
+        background-color: rgba(0,0,0,.1);
+      }
+      // Couldn't get them to vertically center
+      div.svgicon {
+        top: 7px;
+      }
+      div.label {
+        margin: 0;
+        top: -1px;
+      }
+    }
+  }
 }
 
 button {
