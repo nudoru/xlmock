@@ -321,13 +321,13 @@ img {
 
 .card {
   display: block;
-  height: 388px;
+  position: relative;
   border-radius: 0.3125rem;
   background: #fff;
-  padding: 1.75rem;
+  padding: 1.75rem; }
+
+.card-contents {
   display: grid;
-  width: auto;
-  max-width: auto;
   grid-template: "cardicon cardduration" 50px "cardcontent cardcontent" minmax(auto, 200px) "cardcta cardsubicon" 50px/2fr 1fr;
   grid-gap: 1.1875rem; }
 
@@ -638,6 +638,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
   .site-header-mobile {
     display: grid !important; }
   .site-dashboard-nav {
+    grid-template: "dashboardnavcontent" auto / 1fr;
     padding-left: 1.3125rem;
     padding-right: 1.3125rem; } }
 
@@ -803,7 +804,7 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
 .item-grid {
   display: grid;
   grid-gap: 1.3125rem;
-  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto ". . ." 1fr/minmax(310px, auto) minmax(310px, auto) minmax(310px, auto);
+  grid-template: "itemgridtitle itemgridtitle itemgridfilter" auto ". . ." 1fr/minmax(310px, 363px) minmax(310px, 363px) minmax(310px, 363px);
   -ms-flex-line-pack: center;
       align-content: center;
   margin-bottom: 1.3125rem; }
@@ -836,14 +837,14 @@ button.negative-primary:hover, .card-path .card-cta button:hover {
     padding: 0 1.3125rem;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    grid-template: "itemgridtitle itemgridfilter" auto ". ." 1fr/minmax(310px, auto) minmax(310px, auto); } }
+    grid-template: "itemgridtitle itemgridfilter" auto ". ." 1fr/minmax(310px, 363px) minmax(310px, 363px); } }
 
 @media screen and (max-width: 640px) {
   .item-grid {
     padding: 0 1.3125rem;
     -ms-flex-pack: distribute;
         justify-content: space-around;
-    grid-template: "itemgridtitle" auto "itemgridfilter" auto ". " 1fr/minmax(310px, auto); }
+    grid-template: "itemgridtitle" auto "itemgridfilter" auto ". " 1fr/minmax(310px, 363px); }
   .item-grid-filters {
     display: none; } }
 

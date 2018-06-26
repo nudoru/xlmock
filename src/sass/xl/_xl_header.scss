@@ -110,8 +110,6 @@
   }
 }
 
-
-
 .site-dashboard-nav {
   background-color: $hero-color-background;
   grid-area: sitedashboardnav;
@@ -159,6 +157,7 @@
     display: grid !important;
   }
   .site-dashboard-nav {
+    grid-template: "dashboardnavcontent" auto / 1fr;
     padding-left: $scale2;
     padding-right: $scale2;
   }
