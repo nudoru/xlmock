@@ -8,6 +8,16 @@
   }
 }
 
+// scale the SVG icon
+.svgicon-large {
+  width: $scale6;
+  height: auto;
+  svg:not(:root) {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .icon_square_large {
   width: 64px;
   height: 64px;
@@ -100,6 +110,22 @@ button.negative-primary {
 button.negative-primary:hover {
   background-color: $button-primary-color-negative-over;
   border: 2px solid $button-primary-color-negative-over;
+}
+
+.tag {
+  position: relative;
+  display: inline-block;
+  margin-right: $scale-1;
+  color: $color-primary;
+  padding: 0 $tag-size / 3;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  height: $tag-size;
+  line-height: $tag-size;
+  min-width: $tag-size;
+  border: 1px solid $color-primary;
+  border-radius: $tag-size;
 }
 
 .label {

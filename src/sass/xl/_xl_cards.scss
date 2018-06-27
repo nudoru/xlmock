@@ -1,13 +1,3 @@
-// scale the SVG icon
-.card-icon-mobile {
-  width: $scale6;
-  height: auto;
-  svg:not(:root) {
-    width: 100%;
-    height: auto;
-  }
-}
-
 .negative {
   color: #fff !important;
 }

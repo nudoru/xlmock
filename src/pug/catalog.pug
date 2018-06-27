@@ -22,34 +22,36 @@ body
           li 
             a(href='404.pug') 
               +icon-list
+      - var n = 0;
       .item-table-contents
-
-        .item-table-row
-          .content-icon 
-            +icon-box
-          .content-duration 4 hours left
-          .content-content
-            h2 Learning Path
-            h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-            p Aliquam vulputate vestibulum eleifend. 
-          .content-cta
-            button.primary Resume
-          .content-subicon 
-            +icon-mobile
-
-        .item-table-row
-          .content-icon 
-            +icon-box
-          .content-duration 4 hours left
-          .content-content
-            h2 Learning Path
-            h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-            p Aliquam vulputate vestibulum eleifend. 
-          .content-cta
-            button.primary Resume
-          .content-subicon 
-            +icon-mobile
-    hr
+        while n < 10
+          .item-table-row
+            .content-content
+              h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+              ul.content-metadata
+                li
+                  span.tag Infrastructure
+                li.content-metadata-icon
+                  +icon-box("content-icon")
+                li.content-metadata-type Learning Path
+                li 4 hours left
+                li
+                  +icon-mobile
+            .content-cta
+              button.primary Resume
+          .item-table-row
+            .content-content
+              h1 Suspendisse erat sem, pulvinar vitae ullamcorper eu, faucibus non erat. Donec et feugiat sapien, et pretium tellus.
+              ul.content-metadata 
+                li
+                  span.tag Administration
+                li.content-metadata-icon
+                  +icon-box("content-icon")
+                li.content-metadata-type Learning Path
+                li 4 hours left
+            .content-cta
+              button.primary Resume
+          - n++
 
     .item-grid
       .item-grid-title
