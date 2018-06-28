@@ -71,6 +71,9 @@
   .card-cta button {
     @extend .negative-primary;
   }
+  .card-icon, .card-subicon {
+    color: #fff;
+  }
 }
 .card-event {
   background: $card-event-color;
@@ -112,6 +115,7 @@
 
 .card-cta {
   grid-area: cardcta;
+  align-self: end;
 }
 
 .card-subicon {

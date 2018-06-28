@@ -1,10 +1,15 @@
 @import 'xl_components';
+@import 'xl_tabs';
 @import 'xl_cards';
 @import 'xl_table';
 @import 'xl_header';
 @import 'xl_hero';
 @import 'xl_footer';
 @import 'xl_grid';
+
+body {
+  color: $text-color;
+}
 
 .site-container {
   background: $content-color-background;

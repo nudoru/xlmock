@@ -76,7 +76,7 @@ $content-font-weight: 400
 $content-line-height:  $scale3
 $content-color: inherit
 
-p, a, ul, ol, li, pre, td, th, dl, dd, dt
+p, a, ul, ol, li, pre, td, th, dl, dd, dt, blockquote
   font-family: $font-family-base
   font-weight: $content-font-weight
   line-height: $content-line-height
@@ -85,6 +85,12 @@ p, a, ul, ol, li, pre, td, th, dl, dd, dt
 
 p, ul, ol, blockquote, pre
   margin-bottom: $content-margin-bottom
+
+blockquote
+  margin-left: 2rem;
+  padding: 1rem;
+  background-color: rgba(0,0,0,.05)
+  border-left: 2px solid rgba(0,0,0,.05)
 
 a, a:visited
   color: $link-color
@@ -133,7 +139,7 @@ ul ul
 hr
   border: none
   border-bottom: 1px solid rgba(0,0,0,.2)
-  margin: scale0 0
+  margin: 3rem 0
   padding: 0
 
 svg:not(:root)

@@ -169,7 +169,7 @@ module.exports = reloadCSS;
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../img/hero.png":77,"_css_loader":31}],35:[function(require,module,exports) {
+},{"./../img/hero.png":77,"_css_loader":31}],36:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -198,7 +198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65085' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49472' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -418,4 +418,4 @@ LazyPromise.prototype.catch = function (onError) {
 };
 },{"./bundle-url":61}],0:[function(require,module,exports) {
 var b=require(110);b.load([["hero.1ed484c2.png",77]]);
-},{}]},{},[35,0], null)
+},{}]},{},[36,0], null)

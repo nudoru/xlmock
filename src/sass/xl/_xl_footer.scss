@@ -1,9 +1,11 @@
 .site-footer {
-  height: $footer-height-large;
+  // height: $footer-height-large;
+  padding: $scale6 0;
   grid-area: sitefooter;
   display: grid;
   grid-template: "logo nav copyright" 1fr / auto 1fr auto;
   align-items: center;
+  border-top: 1px solid rgba(0,0,0,.05);
 }
 
 .site-footer-logo {

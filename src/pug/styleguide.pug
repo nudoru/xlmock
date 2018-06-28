@@ -1,0 +1,168 @@
+include _mixins.pug
+
+doctype html
+include includes/_head
+body
+
+.site-container
+  include includes/_header
+  include includes/_dashboardnav
+  
+  .site-hero-image 
+  .site-hero
+    .site-hero-content
+      include includes/_hero-banner
+      include includes/_hero-currentpath
+
+  .site-content
+
+    .item-grid
+      .item-grid-title
+        h1 Card Grid
+      .item-grid-filters
+        button Recent
+          +icon-chevron-down("icon-button-right")
+        ul
+          li
+            a(href='404.pug') 
+              +icon-grid
+          li 
+            a(href='404.pug') 
+              +icon-list
+      .item-grid-contents
+        .item-grid-item
+          .card.card-path
+            .card-contents
+              .card-icon 
+                +icon-box
+              .card-duration # hours left
+              .card-content
+                h2 Learning Path
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("svgicon-large")
+        .item-grid-item
+          .card
+            .card-contents
+              .card-icon 
+                +icon-box
+              .card-duration # hours left
+              .card-content
+                h2 Course
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                button.primary Resume
+              .card-subicon 
+                +icon-mobile("svgicon-large")
+        .item-grid-item
+          .card
+            .card-contents
+              .card-icon 
+                +icon-package
+              .card-duration # hours left
+              .card-content
+                h2 Course
+                h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+                p Aliquam vulputate vestibulum eleifend. 
+              .card-cta
+                span.tag Administration
+      .item-grid-cta
+        button View More
+
+    .item-table
+      .item-table-title
+        h1 Rows
+      .item-table-filters
+        button Recent
+          +icon-chevron-down("icon-button-right")
+        ul
+          li
+            a(href='404.pug') 
+              +icon-grid
+          li 
+            a(href='404.pug') 
+              +icon-list
+      - var n = 0;
+      .item-table-contents
+        while n < 1
+          .item-table-row
+            .content-content
+              h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
+              ul.content-metadata
+                li
+                  span.tag Infrastructure
+                li.content-metadata-icon
+                  +icon-box("content-icon")
+                li.content-metadata-type Learning Path
+                li 4 hours left
+                li
+                  +icon-mobile
+            .content-cta
+              button.primary Resume
+          .item-table-row
+            .content-content
+              h1 Suspendisse erat sem, pulvinar vitae ullamcorper eu, faucibus non erat. Donec et feugiat sapien, et pretium tellus.
+              ul.content-metadata 
+                li
+                  span.tag Administration
+                li.content-metadata-icon
+                  +icon-box("content-icon")
+                li.content-metadata-type Learning Path
+                li 4 hours left
+            .content-cta
+              button Start
+          - n++
+      .item-table-cta
+        button View More
+
+
+    h2 Buttons
+    button.primary Primary Button
+    button Button
+    button.negative-primary Primary Button
+    button.negative Button
+    hr
+    h3 Icon Bar
+    .button-bar-icons
+      ul
+        li
+          a(href='404.pug') 
+            +icon-grid
+        li 
+          a(href='404.pug') 
+            +icon-list
+    hr
+    h2 Tabs
+    
+    ul.tabs
+      li.active 
+        a(href="#") Tab 1
+      li 
+        a(href="#") Tab 2
+      li 
+        a(href="#") Tab 3
+
+    ul.tabs-big
+      li.active 
+        a(href="#") Tab 1
+      li 
+        a(href="#") Tab 2
+      li 
+        a(href="#") Tab 3
+    hr
+    h2 Labels
+    span.label 3
+    span.label Something Important
+    hr
+    h2 Tags
+    span.tag Infrastructure
+    span.tag Red Hat Enterprise Linux (RHEL)
+    
+    hr
+    include _sg-typography
+
+  include includes/_footer
