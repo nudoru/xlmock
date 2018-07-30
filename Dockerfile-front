@@ -12,5 +12,5 @@ COPY package.json $HOME/
 RUN npm config set registry http://registry.npmjs.org/ && npm install
 
 # Run it
-EXPOSE 3000
-#CMD ["npm", "run", "start"]
+# EXPOSE 3000
+# CMD ["npm", "run", "start"]

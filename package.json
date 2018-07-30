@@ -8,7 +8,7 @@
     "prestart": "rm -rf ./dist",
     "start": "parcel ./src/pug/index.pug",
     "prebuild": "rm -rf ./dist",
-    "build": "parcel build ./src/pug/index.pug"
+    "build": "parcel build ./src/pug/index.pug --out-dir ./dist --public-url ./"
   },
   "keywords": [],
   "author": "Matt Perkins",

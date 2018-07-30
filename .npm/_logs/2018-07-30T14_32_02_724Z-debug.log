@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'build:prod' ]
+2 info using npm@6.1.0
+3 info using node@v10.7.0
+4 verbose config Skipping project config: /usr/src/app/.npmrc. (matches userconfig)
+5 verbose stack Error: missing script: build:prod
+5 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:151:19)
+5 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:61:5
+5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:115:5
+5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:418:5
+5 verbose stack     at checkBinReferences_ (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:373:45)
+5 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:416:3)
+5 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:160:5)
+5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:364:12
+5 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+5 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:53:3)
+6 verbose cwd /usr/src/app
+7 verbose Linux 4.9.93-linuxkit-aufs
+8 verbose argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "build:prod"
+9 verbose node v10.7.0
+10 verbose npm  v6.1.0
+11 error missing script: build:prod
+12 verbose exit [ 1, true ]
