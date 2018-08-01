@@ -44,7 +44,7 @@
 
 .button-bar-icons {
   ul {
-    @extend .list-plain-horizontal;
+    @extend .u-list-plain-horizontal;
     position: relative;
     font-weight: 700;
     text-transform: uppercase;
@@ -67,7 +67,7 @@
       div.svgicon {
         top: 7px;
       }
-      div.label {
+      div.c-label {
         margin: 0;
         top: -1px;
       }
@@ -126,7 +126,7 @@ button.negative-primary:hover {
   border: 2px solid $button-primary-color-negative-over;
 }
 
-.tag {
+.c-tag {
   position: relative;
   display: inline-block;
   margin-right: $scale-1;
@@ -142,7 +142,7 @@ button.negative-primary:hover {
   border-radius: $tag-size;
 }
 
-.label {
+.c-label {
   position: relative;
   display: inline-block;
   margin-right: $scale-1;
@@ -158,7 +158,7 @@ button.negative-primary:hover {
   border-radius: $label-size;
 }
 
-.banner-message {
+.c-banner-message {
   position: relative;
   background-color: rgba(255,255,255,.1);
   border-radius: $radius-base;
@@ -174,13 +174,13 @@ button.negative-primary:hover {
   }
 }
 
-.banner-message-icon {
+.c-banner-message__icon {
   @extend .icon_square_large;
   background: rgba(255,255,255,.35);
   grid-area: icon;
 }
 
-.banner-message-message {
+.c-banner-message__message {
   grid-area: message;
   h1 {
     @extend .h6;
@@ -192,12 +192,12 @@ button.negative-primary:hover {
   }
 }
 
-.banner-message-cta {
+.c-banner-message__cta {
   justify-self: end;
   grid-area: cta;
 }
 
-.bar-negative{
+.c-bar--negative{
   position: relative;
   display: block;
   height: 5px;
@@ -208,7 +208,7 @@ button.negative-primary:hover {
   overflow: hidden;
 }
 
-.bar-fill-negative {
+.c-bar__fill--negative {
   position: absolute;
   border-radius: 5px;
   top: 0;
@@ -219,7 +219,7 @@ button.negative-primary:hover {
 }
 
 @include max-width($content-width-medium) {
-  .banner-message {
+  .c-banner-message {
     padding: $scale2;
     grid-template: "icon message" 1fr 
                     ". cta" auto / auto 1fr;

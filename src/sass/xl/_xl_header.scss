@@ -1,10 +1,10 @@
-.site-header {
+.l-site-header {
   background-color: $header-color-background;
   grid-area: siteheader;
   color: #fff;
 }
 
-.site-header-desktop {
+.l-site-header--desktop {
   display: grid;
   grid-template-columns: auto auto 1fr 1fr;
   grid-template-rows: $header-height-large;
@@ -12,27 +12,27 @@
   align-items: center;
 }
 
-.site-header-mobile {
+.l-site-header--mobile {
   display: none !important;
   // display: grid;
   grid-template-columns: auto 1fr auto;
   grid-template-rows: $header-height-large;
   grid-gap: $scale2;
   padding: 0 $scale2;
-  .site-header-logo {
+  .c-site-header__logo {
     align-self: center;
     justify-self: center;
     padding: 0 !important;
   }
 }
 
-.site-header-logo {
+.c-site-header__logo {
   padding-left: $scale1;
 }
 
-.site-header-nav {
+.c-site-header__nav {
   ul {
-    @extend .list-plain-horizontal;
+    @extend .u-list-plain-horizontal;
     font-weight: 700;
     text-transform: uppercase;
     li {
@@ -61,7 +61,7 @@
   }
 }
 
-.site-header-search {
+.c-site-header__search {
   height: $scale6;
   line-height: $scale6;
   background-color: rgba(0,0,0,.25);
@@ -70,14 +70,14 @@
   color: #fff;
 }
 
-.site-header-nav-secondary, .site-header-nav-mobile {
+.c-site-header__nav--secondary, .c-site-header__nav--mobile {
   justify-self: end;
   padding-right: $scale1;
   @extend .button-bar-icons;
 }
 
-.site-header-mobile {
-  .site-header-nav-secondary, .site-header-nav-mobile {
+.l-site-header--mobile {
+  .c-site-header__nav--secondary, .c-site-header__nav--mobile {
     padding-right: 0;
     a {
       padding: 0 $scale-1 * .5 !important;
@@ -85,14 +85,14 @@
   }
 }
 
-.site-dashboard-nav {
+.c-site-dashboard__nav {
   background-color: $hero-color-background;
   grid-area: sitedashboardnav;
   padding-top: $scale5;  
   display: grid;
   grid-template: ". dashboardnavcontent. " auto / 1fr $content-width-large 1fr;
   ul {
-    @extend .list-plain-horizontal;
+    @extend .u-list-plain-horizontal;
     grid-area: dashboardnavcontent;
     color: #fff;
     font-size: $scale2;
@@ -128,13 +128,13 @@
 }
 
 @include max-width($content-width-large) {
-  .site-header-desktop {
+  .l-site-header--desktop {
     display: none !important;
   }
-  .site-header-mobile {
+  .l-site-header--mobile {
     display: grid !important;
   }
-  .site-dashboard-nav {
+  .c-site-dashboard__nav {
     grid-template: "dashboardnavcontent" auto / 1fr;
     padding-left: $scale2;
     padding-right: $scale2;
@@ -142,13 +142,13 @@
 }
 
 @include max-width($content-width-medium) {
-  .site-header-desktop {
+  .l-site-header--desktop {
     display: none !important;
   }
-  .site-header-mobile {
+  .l-site-header--mobile {
     display: grid !important;
   }
-  .site-dashboard-nav {
+  .c-site-dashboard__nav {
     padding-left: $scale2;
     padding-right: $scale2;
   }

@@ -1,4 +1,4 @@
-.item-table {
+.c-item-table {
   display: grid;
   grid-gap: $scale2;
   grid-template: "itemtabletitle itemtablefilter" auto
@@ -7,7 +7,7 @@
   margin-bottom: $scale6;
 }
 
-.item-table-title  {
+.c-item-table__title  {
   grid-area: itemtabletitle;
   align-self: center;
   h1 {
@@ -20,7 +20,7 @@
   }
 }
 
-.item-table-filters {
+.c-item-table__filters {
   grid-area: itemtablefilter;
   justify-self: end;
   @extend .button-bar-icons;
@@ -33,21 +33,21 @@
   }
 }
 
-.item-table-cta {
+.c-item-table__cta {
   grid-area: itemtablecta;
   align-self: center;
   justify-self: center;
 }
 
-.item-table-contents {
-  @extend .card-frame;
+.c-item-table__contents {
+  @extend .c-card-frame;
   grid-area: itemtablecontents;
   display: grid;
   grid-template-rows: auto;
 }
 
 
-.item-table-row {
+.c-item-table__row {
   // @include transition-all;
   position: relative;
   display: grid;
@@ -65,12 +65,8 @@
   }
 }
 
-.content-icon {
-  //color: $blue-9;
-}
-
-.content-metadata {
-  @extend .list-plain-horizontal;
+.c-content-metadata {
+  @extend .u-list-plain-horizontal;
   margin-top: $scale-1;
   color: $text-dim-color;
   .svgicon {
@@ -81,12 +77,12 @@
   }
 }
 
-.content-metadata-type, .content-metadata-icon {
+.c-content-metadata__type, .c-content-metadata__icon {
   color: $color-primary;
   font-weight: 600;
 }
 
-.content-content {
+.c-item-table__row__content {
   grid-area: contentcontent;
   h1 {
     @extend .h5;
@@ -107,25 +103,21 @@
   }
 }
 
-.content-cta {
+.c-item-table__row__cta {
   grid-area: contentcta;
 }
 
-.content-subicon {
-  grid-area: contentsubicon;
-}
-
 @include max-width($content-width-large) {
-  .item-table {
+  .c-item-table {
     padding: 0 $scale2;
   }
 }
 
 @include max-width($content-width-medium) {
-  .item-table {
+  .c-item-table {
     padding: 0 $scale2;
   }
-  .item-table-filters {
+  .c-item-table__filters {
     display: none;
   }
 }

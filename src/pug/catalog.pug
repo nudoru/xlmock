@@ -4,15 +4,15 @@ doctype html
 include includes/_head
 body
 
-.site-container
+.l-site-container
   include includes/_header
 
-  .site-content
+  .l-site-content
 
-    .item-table
-      .item-table-title
+    .c-item-table
+      .c-item-table__title
         h1 Learning Paths in Progress
-      .item-table-filters
+      .c-item-table__filters
         button Recent
           +icon-chevron-down("icon-button-right")
         ul
@@ -23,40 +23,40 @@ body
             a(href='404.pug') 
               +icon-list
       - var n = 0;
-      .item-table-contents
+      .c-item-table__contents
         while n < 10
-          .item-table-row
-            .content-content
+          .c-item-table__row
+            .c-item-table__row__content
               h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
-              ul.content-metadata
+              ul.c-content-metadata
                 li
-                  span.tag Infrastructure
-                li.content-metadata-icon
+                  span.c-tag Infrastructure
+                li.c-content-metadata__icon
                   +icon-box("content-icon")
-                li.content-metadata-type Learning Path
+                li.c-content-metadata__type Learning Path
                 li 4 hours left
                 li
                   +icon-mobile
-            .content-cta
+            .c-item-table__row__cta
               button.primary Resume
-          .item-table-row
-            .content-content
+          .c-item-table__row
+            .c-item-table__row__content
               h1 Suspendisse erat sem, pulvinar vitae ullamcorper eu, faucibus non erat. Donec et feugiat sapien, et pretium tellus.
-              ul.content-metadata 
+              ul.c-content-metadata
                 li
-                  span.tag Administration
-                li.content-metadata-icon
+                  span.c-tag Administration
+                li.c-content-metadata__icon
                   +icon-box("content-icon")
-                li.content-metadata-type Learning Path
+                li.c-content-metadata__type Learning Path
                 li 4 hours left
-            .content-cta
+            .c-item-table__row__cta
               button.primary Resume
           - n++
 
-    .item-grid
-      .item-grid-title
+    .l-card-grid
+      .c-card-grid__title
         h1 Learning Paths in Progress
-      .item-grid-filters
+      .c-card-grid__filters
         button Recent
           +icon-chevron-down("icon-button-right")
         ul
@@ -66,50 +66,50 @@ body
           li 
             a(href='404.pug') 
               +icon-list
-      .item-grid-contents
-        .item-grid-item
-          .card.card-path
-            .card-contents
-              .card-icon 
+      .c-card-grid__contents
+        .c-card-grid__cell
+          .c-card.c-card--path
+            .c-card__contents
+              .c-card__icon
                 +icon-box("negative")
-              .card-duration 4 hours left
-              .card-content
+              .c-card__duration 4 hours left
+              .c-card__content
                 h2 Learning Path
                 h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
                 p Aliquam vulputate vestibulum eleifend. 
-              .card-cta
+              .c-card__cta
                 button.primary Resume
-              .card-subicon 
+              .c-card__subicon
                 +icon-mobile("negative card-icon-mobile")
-        .item-grid-item
-          .card.card-path
-            .card-contents
-              .card-icon 
+        .c-card-grid__cell
+          .c-card.c-card--path
+            .c-card__contents
+              .c-card__icon
                 +icon-box("negative")
-              .card-duration 4 hours left
-              .card-content
+              .c-card__duration 4 hours left
+              .c-card__content
                 h2 Learning Path
                 h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
                 p Aliquam vulputate vestibulum eleifend. 
-              .card-cta
+              .c-card__cta
                 button.primary Resume
-              .card-subicon 
+              .c-card__subicon
                 +icon-mobile("negative card-icon-mobile")
-        .item-grid-item
-          .card.card-path
-            .card-contents
-              .card-icon 
+        .c-card-grid__cell
+          .c-card.c-card--path
+            .c-card__contents
+              .c-card__icon
                 +icon-box("negative")
-              .card-duration 4 hours left
-              .card-content
+              .c-card__duration 4 hours left
+              .c-card__content
                 h2 Learning Path
                 h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
                 p Aliquam vulputate vestibulum eleifend. 
-              .card-cta
+              .c-card__cta
                 button.primary Resume
-              .card-subicon 
+              .c-card__subicon
                 +icon-mobile("negative card-icon-mobile")
-      .item-grid-cta
+      .l-card-grid__cta
         button View More
 
   include includes/_footer

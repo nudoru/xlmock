@@ -1,36 +1,36 @@
-.site-header
-  .site-header-mobile
-    .site-header-nav-mobile
+.l-site-header
+  .l-site-header--mobile
+    .c-site-header__nav--mobile
       ul
           li
             a(href='404.pug') 
               +icon-menu("negative")
-    .site-header-logo
+    .c-site-header__logo
       a(href='index.pug')
         +xllogo
-    .site-header-nav-secondary 
+    .c-site-header__nav--secondary
       ul
         li 
           a(href='404.pug') 
             +icon-bell("negative")
-            .label 3
+            .c-label 3
         li 
           a(href='404.pug') 
             +icon-user("negative")
-  .site-header-desktop 
-    .site-header-logo
+  .l-site-header--desktop
+    .c-site-header__logo
       a(href='index.pug')
         +xllogo
-    .site-header-nav  
+    .c-site-header__nav
       ul
         li 
           a(href='catalog.pug') Catalog
         li 
           a(href='calendar.pug') Calendar
-    .site-header-search 
+    .c-site-header__search
       +icon-search("icon-button-left")
       | What do you want to learn?
-    .site-header-nav-secondary 
+    .c-site-header__nav--secondary
       ul
         li
           a(href='404.pug') 
@@ -41,7 +41,7 @@
         li 
           a(href='404.pug') 
             +icon-bell("negative")
-            .label 3
+            .c-label 3
         li 
           a(href='404.pug') 
             +icon-user("negative")

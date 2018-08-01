@@ -1,4 +1,4 @@
-.item-grid {
+.l-card-grid {
   display: grid;
   grid-gap: $scale2;
   grid-template: "itemgridtitle itemgridfilter" auto
@@ -7,7 +7,7 @@
   margin-bottom: $scale6;
 }
 
-.item-grid-title  {
+.c-card-grid__title  {
   grid-area: itemgridtitle;
   align-self: center;
   h1 {
@@ -20,7 +20,7 @@
   }
 }
 
-.item-grid-filters {
+.c-card-grid__filters {
   grid-area: itemgridfilter;
   justify-self: end;
   @extend .button-bar-icons;
@@ -33,35 +33,35 @@
   }
 }
 
-.item-grid-cta {
+.l-card-grid__cta {
   grid-area: itemgridcta;
   align-self: center;
   justify-self: center;
 }
 
-.item-grid-contents {
+.c-card-grid__contents {
   grid-area: itemgridcontents;
   display: grid;
   grid-gap: $scale2;
   grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
 }
 
-.item-grid-item {
+.c-card-grid__cell {
   justify-self: center;
   align-self: center;
 }
 
 @include max-width($content-width-large) {
-  .item-grid {
+  .l-card-grid {
     padding: 0 $scale2;
   }
 }
 
 @include max-width($content-width-medium) {
-  .item-grid {
+  .l-card-grid {
     padding: 0 $scale2;
   }
-  .item-grid-filters {
+  .c-card-grid__filters {
     display: none;
   }
 }

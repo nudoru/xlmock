@@ -11,7 +11,7 @@ body {
   color: $text-color;
 }
 
-.site-container {
+.l-site-container {
   background: $content-color-background;
   width: 100%;
   min-height: 100vh;
@@ -23,7 +23,7 @@ body {
                 ". sitefooter ." auto / 1fr minmax(auto, $content-width-large) 1fr;
 }
 
-.site-content {
+.l-site-content {
   padding: $scale5 0;
   grid-area: sitecontent;
 }

@@ -18,7 +18,7 @@
 // Tablet + Phone 310px
 // Let's set the size based on the grid cell
 
-.card-frame {
+.c-card-frame {
   @extend .dropshadow-xs;
   display: block; 
   position: relative;
@@ -28,9 +28,9 @@
   border: 1px solid $card-course-color;
 }
 
-.card {
+.c-card {
   @include transition-all;
-  @extend .card-frame;
+  @extend .c-card-frame;
   &:hover {
     @extend .dropshadow-m;
     @include translate(0, -2px);
@@ -38,12 +38,12 @@
   }
 }
 
-.card-sized {
+.c-card-sized {
   width: $card-width;
   height: $card-height;
 }
 
-.card-contents {
+.c-card__contents {
   display: grid;
   grid-template: "cardicon cardduration" 50px
                   "cardcontent cardcontent" minmax(auto, 200px)
@@ -51,13 +51,13 @@
   grid-gap: $scale1;
 }
 
-.card-path {
+.c-card--path {
   background-color: $card-path-color;
   border: 1px solid $card-path-color;
-  .card-duration {
+  .c-card__duration {
     color: $text-dim-color-negative;
   }
-  .card-content {
+  .c-card__content {
     h1 {
       color: #fff;
     }
@@ -68,30 +68,30 @@
       color: $text-dim-color-negative;
     }
   }
-  .card-cta button {
+  .c-card__cta button {
     @extend .negative-primary;
   }
-  .card-icon, .card-subicon {
+  .c-card__icon, .c-card__subicon {
     color: #fff;
   }
 }
-.card-event {
+.c-card-event {
   background: $card-event-color;
 }
 
-.card-icon {
+.c-card__icon {
   grid-area: cardicon;
   align-self: center;
 }
 
-.card-duration {
+.c-card__duration {
   grid-area: cardduration;
   justify-self: end;
   align-self: center;
   color: $text-dim-color;
 }
 
-.card-content {
+.c-card__content {
   grid-area: cardcontent;
   align-self: end;
   h1 {
@@ -113,12 +113,12 @@
   }
 }
 
-.card-cta {
+.c-card__cta {
   grid-area: cardcta;
   align-self: end;
 }
 
-.card-subicon {
+.c-card__subicon {
   grid-area: cardsubicon;
   justify-self: end;
   align-self: center;

@@ -33,7 +33,7 @@
   }
 
   ul.tabs-big {
-    @extend .list-plain-horizontal;
+    @extend .u-list-plain-horizontal;
     margin-top: $scale5;
     font-size: $scale2;
     border-bottom: 1px solid $text-dim-color;
