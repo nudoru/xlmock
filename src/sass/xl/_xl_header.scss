@@ -73,7 +73,7 @@
 .c-site-header__nav--secondary, .c-site-header__nav--mobile {
   justify-self: end;
   padding-right: $scale1;
-  @extend .button-bar-icons;
+  @extend .c-button-bar__icons;
 }
 
 .l-site-header--mobile {

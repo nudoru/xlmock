@@ -1,18 +1,18 @@
-.well {
+.c-well {
   background-color: rgba(0,0,0,.1);
   border-radius: $radius-base;
   padding: $scale5;
   margin: $scale5 0;
 }
 
-.well-negative {
+.c-well--negative {
   background-color: rgba(255,255,255,.25);
   border-radius: $radius-base;
   padding: $scale5;
   margin: $scale5 0;
 }
 
-.svgicon {
+.u-svgicon {
   position: relative;
   display: inline-block;
   color: inherit;
@@ -23,7 +23,7 @@
 }
 
 // scale the SVG icon
-.svgicon-large {
+.u-svgicon--large {
   width: $scale6;
   height: auto;
   svg:not(:root) {
@@ -32,7 +32,7 @@
   }
 }
 
-.icon_square_large {
+.c-icon_square--large {
   width: 64px;
   height: 64px;
   border-radius: $radius-base;
@@ -42,7 +42,7 @@
   text-align: center;
 }
 
-.button-bar-icons {
+.c-button-bar__icons {
   ul {
     @extend .u-list-plain-horizontal;
     position: relative;
@@ -64,7 +64,7 @@
         background-color: $button-shaded-bg;
       }
       // Couldn't get them to vertically center
-      div.svgicon {
+      div.u-svgicon {
         top: 7px;
       }
       div.c-label {
@@ -175,7 +175,7 @@ button.negative-primary:hover {
 }
 
 .c-banner-message__icon {
-  @extend .icon_square_large;
+  @extend .c-icon_square--large;
   background: rgba(255,255,255,.35);
   grid-area: icon;
 }

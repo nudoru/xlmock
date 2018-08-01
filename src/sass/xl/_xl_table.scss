@@ -23,7 +23,7 @@
 .c-item-table__filters {
   grid-area: itemtablefilter;
   justify-self: end;
-  @extend .button-bar-icons;
+  @extend .c-button-bar__icons;
   ul {
     display: inline;
     top: -2px; // bump it up so it's level with the filter button
@@ -69,7 +69,7 @@
   @extend .u-list-plain-horizontal;
   margin-top: $scale-1;
   color: $text-dim-color;
-  .svgicon {
+  .u-svgicon {
     top: 5px; 
   }
   li {

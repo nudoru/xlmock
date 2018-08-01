@@ -1,0 +1,90 @@
+/* Webfont: Overpass-Bold */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-Bold.d346cf70.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-Bold.d346cf70.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-Bold.54ccde84.woff') format('woff'), 
+  url('Overpass-Bold.99d35727.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-BoldItalic */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-Bold-Italic.1597c269.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-Bold-Italic.1597c269.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-Bold-Italic.cb18ba2a.woff') format('woff'), 
+  url('Overpass-Bold-Italic.03135e33.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: italic;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-Reg */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-Regular.5999dfe4.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-Regular.5999dfe4.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-Regular.012bfd29.woff') format('woff'), 
+  url('Overpass-Regular.a0f09f4d.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* Webfont: Overpass-Italic */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-Italic.83357e44.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-Italic.83357e44.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-Italic.5ca19ef5.woff') format('woff'), 
+  url('Overpass-Italic.e9720922.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: italic;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* Webfont: Overpass-Light */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-Light.202a7e05.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-Light.202a7e05.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-Light.70385238.woff') format('woff'), 
+  url('Overpass-Light.0b7fe65e.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-LightItalic */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-Light-Italic.19030694.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-Light-Italic.19030694.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-Light-Italic.4c643d03.woff') format('woff'), 
+  url('Overpass-Light-Italic.19a7f161.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: italic;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-ExtraLight */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-ExtraLight.7189814d.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-ExtraLight.7189814d.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-ExtraLight.de25bca2.woff') format('woff'), 
+  url('Overpass-ExtraLight.d566641d.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Overpass-ExtraLightItalic */@font-face {
+  font-family: 'Overpass';
+  src: url('Overpass-ExtraLight-Italic.3a0f9a02.eot'); /* IE9 Compat Modes */
+  src: url('Overpass-ExtraLight-Italic.3a0f9a02.eot?#iefix') format('embedded-opentype'), 
+  url('Overpass-ExtraLight-Italic.a7277ca9.woff') format('woff'), 
+  url('Overpass-ExtraLight-Italic.ad4851f2.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: italic;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+
