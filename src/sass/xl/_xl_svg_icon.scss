@@ -1,0 +1,31 @@
+
+
+.u-svgicon {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  svg {
+    margin: 0;
+    display: block;
+  }
+}
+
+// scale the SVG icon
+.u-svgicon--large {
+  width: $scale6;
+  height: auto;
+  svg:not(:root) {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.c-icon_square--large {
+  width: 64px;
+  height: 64px;
+  border-radius: $radius-base;
+  line-height: 64px;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}

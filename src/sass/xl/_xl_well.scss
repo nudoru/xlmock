@@ -1,0 +1,13 @@
+.c-well {
+  background-color: rgba(0,0,0,.1);
+  border-radius: $radius-base;
+  padding: $scale5;
+  margin: $scale5 0;
+}
+
+.c-well--negative {
+  background-color: rgba(255,255,255,.25);
+  border-radius: $radius-base;
+  padding: $scale5;
+  margin: $scale5 0;
+}

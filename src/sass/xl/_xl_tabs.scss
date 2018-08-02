@@ -18,7 +18,7 @@
         text-decoration: none;
       }  
     }
-    .active {
+    .is-active {
       a {
         background: $button-primary-color;
         color: #fff;
@@ -59,7 +59,7 @@
         background: $button-shaded-bg;
       }
     }
-    .active {
+    .is-active {
       a {
         color: $color-primary;
         border-bottom: 1px solid $color-primary;

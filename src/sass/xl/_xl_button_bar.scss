@@ -1,0 +1,32 @@
+.c-button-bar__icons {
+  ul {
+    @extend .u-list-plain-horizontal;
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+    li {
+      display: inline-block;
+      a {
+        @include transition-all;
+        display: block;
+        height: $scale6;
+        line-height: $scale6;
+        padding: 0 $scale2;
+        border-radius: $radius-base;
+        text-align: center;
+        margin-right: -5px;
+      }
+      a:hover {
+        background-color: $button-shaded-bg;
+      }
+      // Couldn't get them to vertically center
+      div.u-svgicon {
+        top: 7px;
+      }
+      div.c-label {
+        margin: 0;
+        top: -1px;
+      }
+    }
+  }
+}

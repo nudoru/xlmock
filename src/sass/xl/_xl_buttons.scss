@@ -1,0 +1,50 @@
+button {
+  @include transition-all;
+  position: relative;
+  height: $scale6;
+  line-height: $scale6;
+  padding: 0 $scale5;
+  border-radius: $radius-base;
+  background-color: transparent;
+  border: 2px solid $button-primary-color;
+  color: $button-primary-color;
+  font-weight: 600;
+}
+
+button:hover {
+  @extend .dropshadow-sm;
+  background-color: $button-shaded-bg;
+  border: 2px solid $button-primary-color-over;
+  @include translate(0, -1px);
+}
+
+button.primary {
+  background: $button-primary-color;
+  color: #fff;
+}
+
+button.primary:hover {
+  background: $button-primary-color-over;
+  border: 2px solid $button-primary-color-over;
+}
+
+button.negative {
+  border: 2px solid $button-primary-color-negative;
+  color: $button-primary-color-negative;
+}
+
+button.negative:hover {
+  border: 2px solid $button-primary-color-negative-over;
+  color: $button-primary-color-negative-over;
+}
+
+button.negative-primary {
+  border: 2px solid $button-primary-color-negative;
+  background: $button-primary-color-negative;
+  color: $button-primary-color;
+}
+
+button.negative-primary:hover {
+  background-color: $button-primary-color-negative-over;
+  border: 2px solid $button-primary-color-negative-over;
+}
