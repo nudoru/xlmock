@@ -1,4 +1,4 @@
-button {
+.c-button {
   @include transition-all;
   position: relative;
   height: $scale6;
@@ -11,40 +11,40 @@ button {
   font-weight: 600;
 }
 
-button:hover {
+.c-button:hover {
   @extend .dropshadow-sm;
   background-color: $button-shaded-bg;
   border: 2px solid $button-primary-color-over;
   @include translate(0, -1px);
 }
 
-button.primary {
+.c-button--primary {
   background: $button-primary-color;
   color: #fff;
 }
 
-button.primary:hover {
+.c-button--primary:hover {
   background: $button-primary-color-over;
   border: 2px solid $button-primary-color-over;
 }
 
-button.negative {
+.c-button--negative {
   border: 2px solid $button-primary-color-negative;
   color: $button-primary-color-negative;
 }
 
-button.negative:hover {
+.c-button--negative:hover {
   border: 2px solid $button-primary-color-negative-over;
   color: $button-primary-color-negative-over;
 }
 
-button.negative-primary {
+.c-button--primary-negative {
   border: 2px solid $button-primary-color-negative;
   background: $button-primary-color-negative;
   color: $button-primary-color;
 }
 
-button.negative-primary:hover {
+.c-button--primary-negative:hover {
   background-color: $button-primary-color-negative-over;
   border: 2px solid $button-primary-color-negative-over;
 }

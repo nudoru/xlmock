@@ -13,8 +13,8 @@ body
       .c-item-table__title
         h1 Learning Paths in Progress
       .c-item-table__filters
-        button Recent
-          +icon-chevron-down("icon-button-right")
+        button.c-button Recent
+          +icon-chevron-down("icon-button.c-button-right")
         ul
           li
             a(href='404.pug') 
@@ -38,7 +38,7 @@ body
                 li
                   +icon-mobile
             .c-item-table__row__cta
-              button.primary Resume
+              button.c-button.c-button.c-button--primary Resume
           .c-item-table__row
             .c-item-table__row__content
               h1 Suspendisse erat sem, pulvinar vitae ullamcorper eu, faucibus non erat. Donec et feugiat sapien, et pretium tellus.
@@ -50,15 +50,15 @@ body
                 li.c-content-metadata__type Learning Path
                 li 4 hours left
             .c-item-table__row__cta
-              button.primary Resume
+              button.c-button.c-button.c-button--primary Resume
           - n++
 
     .l-card-grid
       .c-card-grid__title
         h1 Learning Paths in Progress
       .c-card-grid__filters
-        button Recent
-          +icon-chevron-down("icon-button-right")
+        button.c-button Recent
+          +icon-chevron-down("icon-button.c-button-right")
         ul
           li
             a(href='404.pug') 
@@ -78,7 +78,7 @@ body
                 h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
                 p Aliquam vulputate vestibulum eleifend. 
               .c-card__cta
-                button.primary Resume
+                button.c-button.c-button.c-button--primary Resume
               .c-card__subicon
                 +icon-mobile("negative card-icon-mobile")
         .c-card-grid__cell
@@ -92,7 +92,7 @@ body
                 h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
                 p Aliquam vulputate vestibulum eleifend. 
               .c-card__cta
-                button.primary Resume
+                button.c-button.c-button.c-button--primary Resume
               .c-card__subicon
                 +icon-mobile("negative card-icon-mobile")
         .c-card-grid__cell
@@ -106,10 +106,10 @@ body
                 h1 Nulla ut felis vitae mauris lobortis euismod quis sodales enim
                 p Aliquam vulputate vestibulum eleifend. 
               .c-card__cta
-                button.primary Resume
+                button.c-button.c-button.c-button--primary Resume
               .c-card__subicon
                 +icon-mobile("negative card-icon-mobile")
       .l-card-grid__cta
-        button View More
+        button.c-button View More
 
   include includes/_footer
