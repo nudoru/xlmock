@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile-front
     ports:
     - "1234:1234"
+    - "40827:40827"
     volumes:
     - .:/usr/src/app/:rw
     - /usr/src/app/node_modules
