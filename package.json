@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "rm -rf ./dist",
+    "prestart": "rm -rf ./docs",
     "start": "parcel ./src/pug/index.pug --hmr-port 40827",
-    "prebuild": "rm -rf ./dist",
-    "build": "parcel build ./src/pug/index.pug --out-dir ./dist --public-url ./"
+    "prebuild": "rm -rf ./docs",
+    "build": "parcel build ./src/pug/index.pug --out-dir ./docs --public-url ./"
   },
   "keywords": [],
   "author": "Matt Perkins",
