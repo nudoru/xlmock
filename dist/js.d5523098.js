@@ -20723,7 +20723,7 @@ var Header = function (_React$Component) {
                 _react2.default.createElement(
                   'a',
                   { href: '#' },
-                  '[M]'
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'message' })
                 )
               ),
               _react2.default.createElement(
@@ -20732,7 +20732,7 @@ var Header = function (_React$Component) {
                 _react2.default.createElement(
                   'a',
                   { href: '#' },
-                  '[U]'
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
                 )
               )
             )
@@ -21726,7 +21726,97 @@ LearningCard.propTypes = {
   ctaLabel: _propTypes2.default.string
 };
 exports.default = LearningCard;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/DashboardNav.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DashboardNav = function (_React$Component) {
+  _inherits(DashboardNav, _React$Component);
+
+  function DashboardNav(props) {
+    _classCallCheck(this, DashboardNav);
+
+    var _this = _possibleConstructorReturn(this, (DashboardNav.__proto__ || Object.getPrototypeOf(DashboardNav)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(DashboardNav, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var children = this.props.children;
+
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-site-dashboard__nav' },
+        _react2.default.createElement(
+          'ul',
+          null,
+          _react2.default.createElement(
+            'li',
+            { className: 'is-active' },
+            _react2.default.createElement(
+              'a',
+              { href: '#' },
+              'Overview'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '#' },
+              'Discover'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'a',
+              { href: '#' },
+              'Team'
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return DashboardNav;
+}(_react2.default.Component);
+
+DashboardNav.defaultProps = {};
+DashboardNav.propTypes = {};
+exports.default = DashboardNav;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21779,6 +21869,10 @@ var _SVGIcon = require("./components/SVGIcon");
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
+var _DashboardNav = require("./components/DashboardNav");
+
+var _DashboardNav2 = _interopRequireDefault(_DashboardNav);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21817,6 +21911,7 @@ var App = function (_React$Component) {
             null,
             "Important message!"
           ),
+          _react2.default.createElement(_DashboardNav2.default, null),
           _react2.default.createElement(_HeroPathProgress2.default, null)
         ),
         _react2.default.createElement(
@@ -21936,7 +22031,7 @@ var App = function (_React$Component) {
 App.defaultProps = {};
 App.propTypes = {};
 exports.default = App;
-},{"react":"../../node_modules/react/index.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Header":"../js/layout/Header.js","./layout/Hero":"../js/layout/Hero.js","./layout/Content":"../js/layout/Content.js","./layout/Footer":"../js/layout/Footer.js","./components/MessageBanner":"../js/components/MessageBanner.js","./components/HeroPathProgress":"../js/components/HeroPathProgress.js","./layout/CardLayout":"../js/layout/CardLayout.js","./components/LearningCard":"../js/components/LearningCard.js","./components/SVGIcon":"../js/components/SVGIcon.js"}],"../js/index.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Header":"../js/layout/Header.js","./layout/Hero":"../js/layout/Hero.js","./layout/Content":"../js/layout/Content.js","./layout/Footer":"../js/layout/Footer.js","./components/MessageBanner":"../js/components/MessageBanner.js","./components/HeroPathProgress":"../js/components/HeroPathProgress.js","./layout/CardLayout":"../js/layout/CardLayout.js","./components/LearningCard":"../js/components/LearningCard.js","./components/SVGIcon":"../js/components/SVGIcon.js","./components/DashboardNav":"../js/components/DashboardNav.js"}],"../js/index.js":[function(require,module,exports) {
 'use strict';
 
 var _react = require('react');

@@ -108,14 +108,14 @@
 }
 
 @include max-width($content-width-large) {
-  .l-site-hero {
+  .c-site-hero__content {
     padding-left: $scale2;
     padding-right: $scale2;
   }
 }
 
 @include max-width($content-width-medium) {
-  .l-site-hero {
+  .c-site-hero__content {
     padding-left: $scale2;
     padding-right: $scale2;
   }

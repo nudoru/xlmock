@@ -28,8 +28,8 @@ class Header extends React.Component {
         </div>
         <div className='c-site-header__nav--secondary'>
           <ul>
-            <li><a href='#'>[M]</a></li>
-            <li><a href='#'>[U]</a></li>
+            <li><a href='#'><SVGIcon name='message'/></a></li>
+            <li><a href='#'><SVGIcon name='user'/></a></li>
           </ul>
         </div>
 

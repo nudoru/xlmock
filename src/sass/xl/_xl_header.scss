@@ -86,7 +86,6 @@
 }
 
 .c-site-dashboard__nav {
-  background-color: $hero-color-background;
   grid-area: sitedashboardnav;
   padding-top: $scale5;  
   display: grid;
@@ -136,8 +135,8 @@
   }
   .c-site-dashboard__nav {
     grid-template: "dashboardnavcontent" auto / 1fr;
-    padding-left: $scale2;
-    padding-right: $scale2;
+    //padding-left: $scale2;
+    //padding-right: $scale2;
   }
 }
 
@@ -148,9 +147,9 @@
   .l-site-header--mobile {
     display: grid !important;
   }
-  .c-site-dashboard__nav {
-    padding-left: $scale2;
-    padding-right: $scale2;
-  }
+  //.c-site-dashboard__nav {
+  //  padding-left: $scale2;
+  //  padding-right: $scale2;
+  //}
 }
 

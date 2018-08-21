@@ -9,6 +9,7 @@ import HeroPathProgress from "./components/HeroPathProgress";
 import CardLayout from "./layout/CardLayout";
 import LearningCard from './components/LearningCard';
 import SVGIcon from "./components/SVGIcon";
+import DashboardNav from "./components/DashboardNav";
 
 class App extends React.Component {
 
@@ -30,6 +31,7 @@ class App extends React.Component {
         <Header/>
         <Hero>
           <MessageBanner>Important message!</MessageBanner>
+          <DashboardNav/>
           <HeroPathProgress/>
         </Hero>
         <Content>
