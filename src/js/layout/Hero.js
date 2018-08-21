@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Hero extends React.Component {
 
   static defaultProps = {};
-  static propTypes = {};
+  static propTypes    = {};
 
   state = {};
 
@@ -12,10 +12,19 @@ class Hero extends React.Component {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+  }
 
   render() {
-    return (<div>Hero</div>);
+    return (
+      <div className='l-site-hero'>
+        <div className='c-site-hero__image'/>
+        <div className='c-site-hero__image--gradient'/>
+        <div className='c-site-hero__content'>
+          {this.props.children}
+        </div>
+      </div>
+    );
   }
 }
 

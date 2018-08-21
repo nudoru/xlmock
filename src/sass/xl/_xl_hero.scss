@@ -1,5 +1,4 @@
 .l-site-hero {
-  padding: $scale5 0;
   grid-area: sitehero;
   display: grid;
   grid-template: ". siteherocontent ." auto / 1fr minmax(auto, $content-width-large) 1fr;
@@ -8,15 +7,27 @@
 }
 
 .c-site-hero__image {
-  grid-area: sitehero;
+  //grid-area: siteherocontent;
+  //z-index: 1;
+  grid-row: 1;
+  grid-column: 1/-1;
+  //background-color: #f00;
   background: url('../img/hero.png') no-repeat center center fixed;
   background-size: cover;
-  z-index: 1;
   filter: grayscale(1);
+}
+
+.c-site-hero__image--gradient {
+  grid-row: 1;
+  grid-column: 1/-1;
+  background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
+  z-index: 1;
 }
 
 .c-site-hero__content {
   grid-area: siteherocontent;
+  padding: $scale5 0;
+  z-index: 2;
 }
 
 .l-site-hero__display {

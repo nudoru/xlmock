@@ -15,7 +15,21 @@ class Footer extends React.Component {
   componentDidMount() {}
 
   render() {
-    return (<div>Footer</div>);
+    return (<div className='l-site-footer'>
+      <div className='c-site-footer__logo'>
+        RED HAT LOGO SVG
+      </div>
+      <ul className='c-site-footer__nav'>
+        <li><a href='#'>Home</a></li>
+        <li><a href='#'>Catalog</a></li>
+        <li><a href='#'>Calendar</a></li>
+        <li><a href='#'>Feedback</a></li>
+        <li><a href='#'>Help + Support</a></li>
+      </ul>
+      <div className='c-site-footer__copyright'>
+        Copyright ©2018 Red Hat, Inc.
+      </div>
+    </div>);
   }
 }
 

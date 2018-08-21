@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prestart": "rm -rf ./docs",
-    "start": "parcel ./src/pug/index.pug --hmr-port 40827",
+    "start": "parcel ./src/pug/react.pug --hmr-port 40827",
     "prebuild": "rm -rf ./docs",
-    "build": "parcel build ./src/pug/index.pug --out-dir ./docs --public-url ./"
+    "build": "parcel build ./src/pug/react.pug --out-dir ./docs --public-url ./"
   },
   "keywords": [],
   "author": "Matt Perkins",

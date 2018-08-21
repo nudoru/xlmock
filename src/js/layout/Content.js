@@ -15,7 +15,7 @@ class Content extends React.Component {
   componentDidMount() {}
 
   render() {
-    return (<div>Content</div>);
+    return (<div className='l-site-content'>{this.props.children}</div>);
   }
 }
 

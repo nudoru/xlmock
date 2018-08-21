@@ -17,7 +17,9 @@ class SiteContainer extends React.Component {
   render() {
     let {children} = this.props;
 
-    return (<div>{children}</div>);
+    return (<div className='l-site-container'>
+      {children}
+      </div>);
   }
 }
 
