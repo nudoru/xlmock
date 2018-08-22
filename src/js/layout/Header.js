@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SVGIcon from "../components/SVGIcon";
+import {SiteLogo} from "../components/SiteLogo";
 
 class Header extends React.Component {
 
@@ -24,7 +25,7 @@ class Header extends React.Component {
           </ul>
         </div>
         <div className='c-site-header__logo'>
-          <a href='#'>RED HAT | XL LOGO SVG</a>
+          <a href='#'><SiteLogo/></a>
         </div>
         <div className='c-site-header__nav--secondary'>
           <ul>
@@ -36,7 +37,7 @@ class Header extends React.Component {
       </div>
       <div className='l-site-header--desktop'>
         <div className='c-site-header__logo'>
-          <a href='#'>RED HAT | XL LOGO SVG</a>
+          <a href='#'><SiteLogo/></a>
         </div>
         <div className='c-site-header__nav'>
           <ul>
@@ -45,7 +46,7 @@ class Header extends React.Component {
           </ul>
         </div>
         <div className='c-site-header__search'>
-          <SVGIcon name='search' />What do you want to learn?
+          <SVGIcon name='search' className='u-icon-button--left'/>What do you want to learn?
         </div>
         <div className='c-site-header__nav--secondary'>
           <ul>

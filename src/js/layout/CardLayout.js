@@ -30,7 +30,7 @@ class CardLayout extends React.Component {
           <h1>{title}</h1>
         </div>
         <div className='c-card-grid__filters'>
-          <Button>Recent <SVGIcon name='chevron-down'/></Button>
+          <Button>Recent <SVGIcon name='chevron-down' className='u-icon-button--right'/></Button>
           <ul>
             <li><a href='#'><SVGIcon name='grid'/></a></li>
             <li><a href='#'><SVGIcon name='list'/></a></li>

@@ -46,8 +46,7 @@ class LearningCard extends React.Component {
         <div className='c-card__cta'>
           <Button primary>Resume</Button>
         </div>
-        <div className='c-card__subicon'>{mobile ? <SVGIcon name='mobile'/> : null}</div>
-
+        <div className='c-card__subicon'>{mobile ? <SVGIcon name='mobile' className='' /> : null}</div>
       </div>
     </div>);
   }

@@ -35,6 +35,9 @@
 .c-banner-message__cta {
   justify-self: end;
   grid-area: cta;
+  button {
+    margin-left: $space-small;
+  }
 }
 
 @include max-width($content-width-medium) {

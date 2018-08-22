@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from "./Button";
+import SVGIcon from "./SVGIcon";
 
 // TODO
 // icon as prop
@@ -24,7 +25,7 @@ class MessageBanner extends React.Component {
   render() {
     return (<div className='c-banner-message negative'>
       <div className='c-banner-message__icon'>
-        [I]
+        <SVGIcon name='flag'/>
       </div>
       <div className='c-banner-message__message'>
         <h1>{this.props.children}</h1>

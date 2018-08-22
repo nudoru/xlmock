@@ -38,8 +38,7 @@ const List = () => <SVG name='list'>
 </SVG>;
 
 const ChevronDown = () => <SVG name='chevron-down'>
-  <polyline points="7 13 12 18 17 13"/>
-  <polyline points="7 6 12 11 17 6"/>
+  <polyline points="6 9 12 15 18 9"/>
 </SVG>;
 
 const Search = () => <SVG name='search'>
@@ -144,6 +143,7 @@ class SVGIcon extends React.Component {
     if (large) {
       cls.push('u-svgicon--large');
     } else if (square) {
+      // TODO remove?
       cls.push('c-icon_square--large');
     }
 

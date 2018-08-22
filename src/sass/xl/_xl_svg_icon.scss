@@ -29,3 +29,15 @@
   font-weight: 700;
   text-align: center;
 }
+
+.u-icon-button--left {
+  position: relative;
+  padding: 0 10px 0 0;
+  top: 7px;
+}
+
+.u-icon-button--right {
+  position: relative;
+  padding: 0 0 0 10px;
+  top: 7px;
+}

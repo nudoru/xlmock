@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {RedHatLogo} from "../components/RedHatLogo";
 
 class Footer extends React.Component {
 
@@ -17,7 +18,7 @@ class Footer extends React.Component {
   render() {
     return (<div className='l-site-footer'>
       <div className='c-site-footer__logo'>
-        RED HAT LOGO SVG
+        <RedHatLogo/>
       </div>
       <ul className='c-site-footer__nav'>
         <li><a href='#'>Home</a></li>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ProgressBar from "./ProgressBar";
+import SVGIcon from "./SVGIcon";
 
 
 // TODO
@@ -42,9 +43,9 @@ class HeroPathProgress extends React.Component {
       <div className='c-next-steps'>
         <h1>Up Next:</h1>
         <ul>
-          <UpnextItem icon='I' title='Control task and play behavior' metadata='Reading - 10 min'/>
-          <UpnextItem icon='I' title='Code driven deployments and ...' metadata='Reading - 10 min'/>
-          <UpnextItem icon='I' title='Infrastructure management' metadata='Reading - 10 min'/>
+          <UpnextItem icon={<SVGIcon name='package'/>} title='Control task and play behavior' metadata='Reading - 10 min'/>
+          <UpnextItem icon={<SVGIcon name='package'/>} title='Code driven deployments and ...' metadata='Reading - 10 min'/>
+          <UpnextItem icon={<SVGIcon name='package'/>} title='Infrastructure management' metadata='Reading - 10 min'/>
         </ul>
       </div>
     </div>);
