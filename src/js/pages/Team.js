@@ -1,5 +1,8 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
+import {BigTab, BigTabs} from "../components/BigTabs";
+import Hero from "../layout/Hero";
 
 class Team extends React.Component {
 
@@ -18,6 +21,13 @@ class Team extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <Hero>
+          <BigTabs>
+            <BigTab><Link to='/'>Overview</Link></BigTab>
+            <BigTab><Link to='/discover'>Discover</Link></BigTab>
+            <BigTab active><Link to='/team'>Team</Link></BigTab>
+          </BigTabs>
+        </Hero>
         <Content>
           <h1>Team</h1>
         </Content>

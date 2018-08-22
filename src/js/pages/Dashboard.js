@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Hero from "../layout/Hero";
 import Content from "../layout/Content";
 import MessageBanner from "../components/MessageBanner";
 import HeroPathProgress from "../components/HeroPathProgress";
 import CardLayout from "../layout/CardLayout";
 import LearningCard from '../components/LearningCard';
-import DashboardNav from "../components/DashboardNav";
+import {BigTabs, BigTab} from "../components/BigTabs";
 
 class Dashboard extends React.Component {
 
@@ -26,7 +27,11 @@ class Dashboard extends React.Component {
       <React.Fragment>
         <Hero>
           <MessageBanner>Important message!</MessageBanner>
-          <DashboardNav/>
+          <BigTabs>
+            <BigTab active><Link to='/'>Overview</Link></BigTab>
+            <BigTab><Link to='/discover'>Discover</Link></BigTab>
+            <BigTab><Link to='/team'>Team</Link></BigTab>
+          </BigTabs>
           <HeroPathProgress/>
         </Hero>
         <Content>

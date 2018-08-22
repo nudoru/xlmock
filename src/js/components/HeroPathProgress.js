@@ -37,7 +37,7 @@ class HeroPathProgress extends React.Component {
         <h1>Be an Ansible Engineer</h1>
         <p>Integer sodales lorem ac lectus efficitur, eu tincidunt dolor auctor. Nulla ut felis vitae mauris lobortis euismod quis sodales enim. Maecenas odio massa, ultricies et porttitor eu, maximus eget purus. In hac habitasse platea dictumst. Etiam hendrerit gravida efficitur.</p>
         <div className='c-path-progress'>
-          <ProgressBar/>
+          <ProgressBar percent='33' status=' - 20 Activities Left'/>
         </div>
       </div>
       <div className='c-next-steps'>

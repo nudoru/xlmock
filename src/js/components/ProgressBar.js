@@ -10,7 +10,10 @@ import PropTypes from 'prop-types';
 class ProgressBar extends React.Component {
 
   static defaultProps = {};
-  static propTypes = {};
+  static propTypes = {
+    percent: PropTypes.string,
+    status: PropTypes.string
+  };
 
   state = {};
 
@@ -21,12 +24,14 @@ class ProgressBar extends React.Component {
   componentDidMount() {}
 
   render() {
+    let {percent, status} = this.props;
+
     return (<div>
       <div className='c-bar--negative'>
-        <div className='c-bar__fill--negative'></div>
+        <div className='c-bar__fill--negative' style={{width: percent+'%'}}></div>
       </div>
-      <div className='status'>
-        <p><em>35% Complete</em> - 36 hours left</p>
+      <div className='c-bar__status--negative'>
+        <p><em>{percent}% Complete</em>{status}</p>
       </div>
     </div>);
   }

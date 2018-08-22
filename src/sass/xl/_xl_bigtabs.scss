@@ -1,0 +1,37 @@
+// a UL tag
+.c-big-tabs {
+  @extend .u-list-plain-horizontal;
+  color: #fff;
+  font-size: $scale2;
+  border-bottom: 1px solid $text-dim-color-negative;
+  li {
+    display: inline-block;
+    a{
+      @include transition-all;
+      position: relative;
+      display: block;
+      margin-right: $scale6;
+      padding-bottom: $scale2;
+      border-bottom: 1px solid transparent;
+      margin-bottom: -1px;
+      color: $text-dim-color-negative;
+    }
+    a:hover {
+      @include translate(0,2px);
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+  .is-active {
+    a {
+      color: #fff;
+      border-bottom: 2px solid #fff;
+    }
+    a:hover {
+      @include translate(0,0);
+    }
+  }
+  li:last-of-type {
+    margin-right: 0;
+  }
+}

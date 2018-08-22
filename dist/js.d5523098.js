@@ -25045,26 +25045,32 @@ var ProgressBar = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _props = this.props,
+          percent = _props.percent,
+          status = _props.status;
+
+
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           'div',
           { className: 'c-bar--negative' },
-          _react2.default.createElement('div', { className: 'c-bar__fill--negative' })
+          _react2.default.createElement('div', { className: 'c-bar__fill--negative', style: { width: percent + '%' } })
         ),
         _react2.default.createElement(
           'div',
-          { className: 'status' },
+          { className: 'c-bar__status--negative' },
           _react2.default.createElement(
             'p',
             null,
             _react2.default.createElement(
               'em',
               null,
-              '35% Complete'
+              percent,
+              '% Complete'
             ),
-            ' - 36 hours left'
+            status
           )
         )
       );
@@ -25075,7 +25081,10 @@ var ProgressBar = function (_React$Component) {
 }(_react2.default.Component);
 
 ProgressBar.defaultProps = {};
-ProgressBar.propTypes = {};
+ProgressBar.propTypes = {
+  percent: _propTypes2.default.string,
+  status: _propTypes2.default.string
+};
 exports.default = ProgressBar;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/HeroPathProgress.js":[function(require,module,exports) {
 'use strict';
@@ -25182,7 +25191,7 @@ var HeroPathProgress = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'c-path-progress' },
-            _react2.default.createElement(_ProgressBar2.default, null)
+            _react2.default.createElement(_ProgressBar2.default, { percent: '33', status: ' - 20 Activities Left' })
           )
         ),
         _react2.default.createElement(
@@ -25478,7 +25487,89 @@ LearningCard.propTypes = {
   ctaLabel: _propTypes2.default.string
 };
 exports.default = LearningCard;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/DashboardNav.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/BigTabs.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.BigTabs = exports.BigTab = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// TODO
+// light positive? this is negative
+
+var BigTab = exports.BigTab = function BigTab(props) {
+  var children = props.children,
+      className = props.className;
+
+  var cls = [];
+
+  if (props.active) {
+    cls.push('is-active');
+  }
+
+  cls.push(className);
+
+  return _react2.default.createElement(
+    'li',
+    { className: cls.join(' ') },
+    children
+  );
+};
+
+var BigTabs = exports.BigTabs = function (_React$Component) {
+  _inherits(BigTabs, _React$Component);
+
+  function BigTabs(props) {
+    _classCallCheck(this, BigTabs);
+
+    var _this = _possibleConstructorReturn(this, (BigTabs.__proto__ || Object.getPrototypeOf(BigTabs)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(BigTabs, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var children = this.props.children;
+
+
+      return _react2.default.createElement(
+        'ul',
+        { className: 'c-big-tabs' },
+        children
+      );
+    }
+  }]);
+
+  return BigTabs;
+}(_react2.default.Component);
+
+BigTabs.defaultProps = {};
+BigTabs.propTypes = {};
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Dashboard.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25491,125 +25582,33 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 var _reactRouterDom = require('react-router-dom');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var DashboardNav = function (_React$Component) {
-  _inherits(DashboardNav, _React$Component);
-
-  function DashboardNav(props) {
-    _classCallCheck(this, DashboardNav);
-
-    var _this = _possibleConstructorReturn(this, (DashboardNav.__proto__ || Object.getPrototypeOf(DashboardNav)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(DashboardNav, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var children = this.props.children;
-
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'c-site-dashboard__nav' },
-        _react2.default.createElement(
-          'ul',
-          null,
-          _react2.default.createElement(
-            'li',
-            { className: 'is-active' },
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/' },
-              'Overview'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/discover' },
-              'Discover'
-            )
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/team' },
-              'Team'
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return DashboardNav;
-}(_react2.default.Component);
-
-DashboardNav.defaultProps = {};
-DashboardNav.propTypes = {};
-exports.default = DashboardNav;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/Dashboard.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Hero = require("../layout/Hero");
+var _Hero = require('../layout/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
 
-var _Content = require("../layout/Content");
+var _Content = require('../layout/Content');
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _MessageBanner = require("../components/MessageBanner");
+var _MessageBanner = require('../components/MessageBanner');
 
 var _MessageBanner2 = _interopRequireDefault(_MessageBanner);
 
-var _HeroPathProgress = require("../components/HeroPathProgress");
+var _HeroPathProgress = require('../components/HeroPathProgress');
 
 var _HeroPathProgress2 = _interopRequireDefault(_HeroPathProgress);
 
-var _CardLayout = require("../layout/CardLayout");
+var _CardLayout = require('../layout/CardLayout');
 
 var _CardLayout2 = _interopRequireDefault(_CardLayout);
 
-var _LearningCard = require("../components/LearningCard");
+var _LearningCard = require('../components/LearningCard');
 
 var _LearningCard2 = _interopRequireDefault(_LearningCard);
 
-var _DashboardNav = require("../components/DashboardNav");
-
-var _DashboardNav2 = _interopRequireDefault(_DashboardNav);
+var _BigTabs = require('../components/BigTabs');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25632,10 +25631,10 @@ var Dashboard = function (_React$Component) {
   }
 
   _createClass(Dashboard, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
         _react2.default.Fragment,
@@ -25646,9 +25645,39 @@ var Dashboard = function (_React$Component) {
           _react2.default.createElement(
             _MessageBanner2.default,
             null,
-            "Important message!"
+            'Important message!'
           ),
-          _react2.default.createElement(_DashboardNav2.default, null),
+          _react2.default.createElement(
+            _BigTabs.BigTabs,
+            null,
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              { active: true },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/' },
+                'Overview'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/discover' },
+                'Discover'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/team' },
+                'Team'
+              )
+            )
+          ),
           _react2.default.createElement(_HeroPathProgress2.default, null)
         ),
         _react2.default.createElement(
@@ -25656,103 +25685,103 @@ var Dashboard = function (_React$Component) {
           null,
           _react2.default.createElement(
             _CardLayout2.default,
-            { title: "Layout title", ctaLabel: "View More" },
+            { title: 'Layout title', ctaLabel: 'View More' },
             _react2.default.createElement(
               _LearningCard2.default,
-              { type: "course", duration: "42 minutes", mobile: true },
+              { type: 'course', duration: '42 minutes', mobile: true },
               _react2.default.createElement(
-                "h1",
+                'h1',
                 null,
-                "Nulla ut felis vitae mauris lobortis euismod quis sodales enim"
+                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Aliquam vulputate vestibulum eleifend."
+                'Aliquam vulputate vestibulum eleifend.'
               )
             ),
             _react2.default.createElement(
               _LearningCard2.default,
-              { type: "course", duration: "42 minutes", mobile: true },
+              { type: 'course', duration: '42 minutes', mobile: true },
               _react2.default.createElement(
-                "h1",
+                'h1',
                 null,
-                "Nulla ut felis vitae mauris lobortis euismod quis sodales enim"
+                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Aliquam vulputate vestibulum eleifend."
+                'Aliquam vulputate vestibulum eleifend.'
               )
             ),
             _react2.default.createElement(
               _LearningCard2.default,
-              { type: "course", duration: "42 minutes", mobile: true },
+              { type: 'course', duration: '42 minutes', mobile: true },
               _react2.default.createElement(
-                "h1",
+                'h1',
                 null,
-                "Nulla ut felis vitae mauris lobortis euismod quis sodales enim"
+                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Aliquam vulputate vestibulum eleifend."
+                'Aliquam vulputate vestibulum eleifend.'
               )
             ),
             _react2.default.createElement(
               _LearningCard2.default,
-              { type: "course", duration: "42 minutes", mobile: true },
+              { type: 'course', duration: '42 minutes', mobile: true },
               _react2.default.createElement(
-                "h1",
+                'h1',
                 null,
-                "Nulla ut felis vitae mauris lobortis euismod quis sodales enim"
+                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Aliquam vulputate vestibulum eleifend."
+                'Aliquam vulputate vestibulum eleifend.'
               )
             ),
             _react2.default.createElement(
               _LearningCard2.default,
-              { type: "path", duration: "42 minutes", mobile: true },
+              { type: 'path', duration: '42 minutes', mobile: true },
               _react2.default.createElement(
-                "h1",
+                'h1',
                 null,
-                "Nulla ut felis vitae mauris lobortis euismod quis sodales enim"
+                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Aliquam vulputate vestibulum eleifend."
+                'Aliquam vulputate vestibulum eleifend.'
               )
             ),
             _react2.default.createElement(
               _LearningCard2.default,
-              { type: "path", duration: "42 minutes", mobile: true },
+              { type: 'path', duration: '42 minutes', mobile: true },
               _react2.default.createElement(
-                "h1",
+                'h1',
                 null,
-                "Nulla ut felis vitae mauris lobortis euismod quis sodales enim"
+                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Aliquam vulputate vestibulum eleifend."
+                'Aliquam vulputate vestibulum eleifend.'
               )
             ),
             _react2.default.createElement(
               _LearningCard2.default,
-              { type: "path", duration: "42 minutes", mobile: true },
+              { type: 'path', duration: '42 minutes', mobile: true },
               _react2.default.createElement(
-                "h1",
+                'h1',
                 null,
-                "Nulla ut felis vitae mauris lobortis euismod quis sodales enim"
+                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
               ),
               _react2.default.createElement(
-                "p",
+                'p',
                 null,
-                "Aliquam vulputate vestibulum eleifend."
+                'Aliquam vulputate vestibulum eleifend.'
               )
             )
           )
@@ -25767,7 +25796,7 @@ var Dashboard = function (_React$Component) {
 Dashboard.defaultProps = {};
 Dashboard.propTypes = {};
 exports.default = Dashboard;
-},{"react":"../../node_modules/react/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../layout/CardLayout":"../js/layout/CardLayout.js","../components/LearningCard":"../js/components/LearningCard.js","../components/DashboardNav":"../js/components/DashboardNav.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../layout/CardLayout":"../js/layout/CardLayout.js","../components/LearningCard":"../js/components/LearningCard.js","../components/BigTabs":"../js/components/BigTabs.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26098,7 +26127,7 @@ Help.defaultProps = {};
 Help.propTypes = {};
 exports.default = Help;
 },{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/User.js":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -26106,13 +26135,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Content = require("../layout/Content");
+var _reactRouterDom = require('react-router-dom');
+
+var _Content = require('../layout/Content');
 
 var _Content2 = _interopRequireDefault(_Content);
+
+var _BigTabs = require('../components/BigTabs');
+
+var _Hero = require('../layout/Hero');
+
+var _Hero2 = _interopRequireDefault(_Hero);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26135,21 +26172,56 @@ var User = function (_React$Component) {
   }
 
   _createClass(User, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
         _react2.default.createElement(
+          _Hero2.default,
+          null,
+          _react2.default.createElement(
+            _BigTabs.BigTabs,
+            null,
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/user' },
+                'Profile'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/user' },
+                'Learning Record'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/user' },
+                'Settings'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
           _Content2.default,
           null,
           _react2.default.createElement(
-            "h1",
+            'h1',
             null,
-            "User profile"
+            'User profile'
           )
         )
       );
@@ -26162,7 +26234,7 @@ var User = function (_React$Component) {
 User.defaultProps = {};
 User.propTypes = {};
 exports.default = User;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/CourseDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/pages/CourseDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26609,7 +26681,7 @@ Feedback.defaultProps = {};
 Feedback.propTypes = {};
 exports.default = Feedback;
 },{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Discover.js":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -26617,13 +26689,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Content = require("../layout/Content");
+var _reactRouterDom = require('react-router-dom');
+
+var _Content = require('../layout/Content');
 
 var _Content2 = _interopRequireDefault(_Content);
+
+var _BigTabs = require('../components/BigTabs');
+
+var _Hero = require('../layout/Hero');
+
+var _Hero2 = _interopRequireDefault(_Hero);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26646,21 +26726,56 @@ var Discover = function (_React$Component) {
   }
 
   _createClass(Discover, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
         _react2.default.createElement(
+          _Hero2.default,
+          null,
+          _react2.default.createElement(
+            _BigTabs.BigTabs,
+            null,
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/' },
+                'Overview'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              { active: true },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/discover' },
+                'Discover'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/team' },
+                'Team'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
           _Content2.default,
           null,
           _react2.default.createElement(
-            "h1",
+            'h1',
             null,
-            "Discover"
+            'Discover'
           )
         )
       );
@@ -26673,8 +26788,8 @@ var Discover = function (_React$Component) {
 Discover.defaultProps = {};
 Discover.propTypes = {};
 exports.default = Discover;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Team.js":[function(require,module,exports) {
-"use strict";
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/pages/Team.js":[function(require,module,exports) {
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -26682,13 +26797,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Content = require("../layout/Content");
+var _reactRouterDom = require('react-router-dom');
+
+var _Content = require('../layout/Content');
 
 var _Content2 = _interopRequireDefault(_Content);
+
+var _BigTabs = require('../components/BigTabs');
+
+var _Hero = require('../layout/Hero');
+
+var _Hero2 = _interopRequireDefault(_Hero);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26711,21 +26834,56 @@ var Team = function (_React$Component) {
   }
 
   _createClass(Team, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
         _react2.default.createElement(
+          _Hero2.default,
+          null,
+          _react2.default.createElement(
+            _BigTabs.BigTabs,
+            null,
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/' },
+                'Overview'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              null,
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/discover' },
+                'Discover'
+              )
+            ),
+            _react2.default.createElement(
+              _BigTabs.BigTab,
+              { active: true },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/team' },
+                'Team'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
           _Content2.default,
           null,
           _react2.default.createElement(
-            "h1",
+            'h1',
             null,
-            "Team"
+            'Team'
           )
         )
       );
@@ -26738,7 +26896,7 @@ var Team = function (_React$Component) {
 Team.defaultProps = {};
 Team.propTypes = {};
 exports.default = Team;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
