@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 class DashboardNav extends React.Component {
 
@@ -19,9 +20,9 @@ class DashboardNav extends React.Component {
 
     return (<div className='c-site-dashboard__nav'>
       <ul>
-        <li className='is-active'><a href='#'>Overview</a></li>
-        <li><a href='#'>Discover</a></li>
-        <li><a href='#'>Team</a></li>
+        <li className='is-active'><Link to='/'>Overview</Link></li>
+        <li><Link to='/discover'>Discover</Link></li>
+        <li><Link to='/team'>Team</Link></li>
       </ul>
     </div>);
   }

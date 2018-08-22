@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import {RedHatLogo} from "../components/RedHatLogo";
+import {SiteLogo} from "../components/SiteLogo";
 
 class Footer extends React.Component {
 
@@ -21,11 +23,11 @@ class Footer extends React.Component {
         <RedHatLogo/>
       </div>
       <ul className='c-site-footer__nav'>
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>Catalog</a></li>
-        <li><a href='#'>Calendar</a></li>
-        <li><a href='#'>Feedback</a></li>
-        <li><a href='#'>Help + Support</a></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/catalog'>Catalog</Link></li>
+        <li><Link to='/calendar'>Calendar</Link></li>
+        <li><Link to='/feedback'>Feedback</Link></li>
+        <li><Link to='/help'>Help + Support</Link></li>
       </ul>
       <div className='c-site-footer__copyright'>
         Copyright ©2018 Red Hat, Inc.

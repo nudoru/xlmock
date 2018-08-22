@@ -19,13 +19,7 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <SiteContainer>
-        <Header/>
-        <AppRouter/>
-        <Footer/>
-      </SiteContainer>
-    );
+    return <AppRouter/>;
   }
 }
 

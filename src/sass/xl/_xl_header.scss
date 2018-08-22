@@ -68,6 +68,10 @@
   border-radius: $radius-base;
   padding-left: $scale1;
   color: #fff;
+  // For the magnifying glass icon
+  a {
+    color: #fff;
+  }
 }
 
 .c-site-header__nav--secondary, .c-site-header__nav--mobile {
@@ -120,7 +124,10 @@
     .is-active {
       a {
         color: #fff;
-        border-bottom: 1px solid #fff;
+        border-bottom: 2px solid #fff;
+      }
+      a:hover {
+        @include translate(0,0);
       }
     }
     li:last-of-type {

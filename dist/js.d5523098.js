@@ -20369,533 +20369,7 @@ var SiteContainer = function (_React$Component) {
 SiteContainer.defaultProps = {};
 SiteContainer.propTypes = {};
 exports.default = SiteContainer;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/SVGIcon.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // Using Feather icons https://feathericons.com/
-
-var SVG = function SVG(_ref) {
-  var _ref$name = _ref.name,
-      name = _ref$name === undefined ? '' : _ref$name,
-      _ref$viewBox = _ref.viewBox,
-      viewBox = _ref$viewBox === undefined ? '0 0 24 24' : _ref$viewBox,
-      _ref$width = _ref.width,
-      width = _ref$width === undefined ? '24' : _ref$width,
-      _ref$height = _ref.height,
-      height = _ref$height === undefined ? '24' : _ref$height,
-      children = _ref.children;
-  return _react2.default.createElement(
-    'svg',
-    { xmlns: 'http://www.w3.org/2000/svg', width: width,
-      height: height, viewBox: viewBox, fill: 'none',
-      stroke: 'currentColor', strokeWidth: '2',
-      strokeLinecap: 'round', strokeLinejoin: 'round',
-      className: 'feather feather-' + name },
-    children
-  );
-};
-
-var Flag = function Flag() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'flag' },
-    _react2.default.createElement('path', { d: 'M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z' }),
-    _react2.default.createElement('line', { x1: '4', y1: '22', x2: '4', y2: '15' })
-  );
-};
-
-var Menu = function Menu() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'menu' },
-    _react2.default.createElement('line', { x1: '3', y1: '12', x2: '21', y2: '12' }),
-    _react2.default.createElement('line', { x1: '3', y1: '6', x2: '21', y2: '6' }),
-    _react2.default.createElement('line', { x1: '3', y1: '18', x2: '21', y2: '18' })
-  );
-};
-
-var Grid = function Grid() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'grid' },
-    _react2.default.createElement('rect', { x: '3', y: '3', width: '7', height: '7' }),
-    _react2.default.createElement('rect', { x: '14', y: '3', width: '7', height: '7' }),
-    _react2.default.createElement('rect', { x: '14', y: '14', width: '7', height: '7' }),
-    _react2.default.createElement('rect', { x: '3', y: '14', width: '7', height: '7' })
-  );
-};
-
-var List = function List() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'list' },
-    _react2.default.createElement('line', { x1: '8', y1: '6', x2: '21', y2: '6' }),
-    _react2.default.createElement('line', { x1: '8', y1: '12', x2: '21', y2: '12' }),
-    _react2.default.createElement('line', { x1: '8', y1: '18', x2: '21', y2: '18' }),
-    _react2.default.createElement('line', { x1: '3', y1: '6', x2: '3', y2: '6' }),
-    _react2.default.createElement('line', { x1: '3', y1: '12', x2: '3', y2: '12' }),
-    _react2.default.createElement('line', { x1: '3', y1: '18', x2: '3', y2: '18' })
-  );
-};
-
-var ChevronDown = function ChevronDown() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'chevron-down' },
-    _react2.default.createElement('polyline', { points: '6 9 12 15 18 9' })
-  );
-};
-
-var Search = function Search() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'search' },
-    _react2.default.createElement('circle', { cx: '11', cy: '11', r: '8' }),
-    _react2.default.createElement('line', { x1: '21', y1: '21', x2: '16.65', y2: '16.65' })
-  );
-};
-
-var Bell = function Bell() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'bell' },
-    _react2.default.createElement('path', {
-      d: 'M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0' })
-  );
-};
-
-var User = function User() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'user' },
-    _react2.default.createElement('path', { d: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' }),
-    _react2.default.createElement('circle', { cx: '12', cy: '7', r: '4' })
-  );
-};
-
-var Mobile = function Mobile() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'smartphone' },
-    _react2.default.createElement('rect', { x: '5', y: '2', width: '14', height: '20', rx: '2', ry: '2' }),
-    _react2.default.createElement('line', { x1: '12', y1: '18', x2: '12', y2: '18' })
-  );
-};
-
-var Box = function Box() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'box' },
-    _react2.default.createElement('path', {
-      d: 'M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z' }),
-    _react2.default.createElement('polyline', { points: '2.32 6.16 12 11 21.68 6.16' }),
-    _react2.default.createElement('line', { x1: '12', y1: '22.76', x2: '12', y2: '11' })
-  );
-};
-
-var Package = function Package() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'package' },
-    _react2.default.createElement('path', {
-      d: 'M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z' }),
-    _react2.default.createElement('polyline', { points: '2.32 6.16 12 11 21.68 6.16' }),
-    _react2.default.createElement('line', { x1: '12', y1: '22.76', x2: '12', y2: '11' }),
-    _react2.default.createElement('line', { x1: '7', y1: '3.5', x2: '17', y2: '8.5' })
-  );
-};
-
-var Message = function Message() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'message' },
-    _react2.default.createElement('path', {
-      d: 'M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z' })
-  );
-};
-
-var Help = function Help() {
-  return _react2.default.createElement(
-    SVG,
-    { name: 'help' },
-    _react2.default.createElement('circle', { cx: '12', cy: '12', r: '10' }),
-    _react2.default.createElement('path', { d: 'M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3' }),
-    _react2.default.createElement('line', { x1: '12', y1: '17', x2: '12', y2: '17' })
-  );
-};
-
-var Icon = function Icon(props) {
-  switch (props.name) {
-    case "flag":
-      return _react2.default.createElement(Flag, props);
-    case "menu":
-      return _react2.default.createElement(Menu, props);
-    case "grid":
-      return _react2.default.createElement(Grid, props);
-    case "list":
-      return _react2.default.createElement(List, props);
-    case "chevron-down":
-      return _react2.default.createElement(ChevronDown, props);
-    case "search":
-      return _react2.default.createElement(Search, props);
-    case "bell":
-      return _react2.default.createElement(Bell, props);
-    case "user":
-      return _react2.default.createElement(User, props);
-    case "mobile":
-      return _react2.default.createElement(Mobile, props);
-    case "box":
-      return _react2.default.createElement(Box, props);
-    case "package":
-      return _react2.default.createElement(Package, props);
-    case "message":
-      return _react2.default.createElement(Message, props);
-    case "help":
-      return _react2.default.createElement(Help, props);
-    default:
-      return _react2.default.createElement(
-        'span',
-        null,
-        'Icon?'
-      );
-  }
-};
-
-var SVGIcon = function (_React$Component) {
-  _inherits(SVGIcon, _React$Component);
-
-  function SVGIcon(props) {
-    _classCallCheck(this, SVGIcon);
-
-    return _possibleConstructorReturn(this, (SVGIcon.__proto__ || Object.getPrototypeOf(SVGIcon)).call(this, props));
-  }
-
-  _createClass(SVGIcon, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          name = _props.name,
-          _props$className = _props.className,
-          className = _props$className === undefined ? '' : _props$className,
-          large = _props.large,
-          square = _props.square;
-
-      var cls = ['u-svgicon'];
-
-      if (large) {
-        cls.push('u-svgicon--large');
-      } else if (square) {
-        // TODO remove?
-        cls.push('c-icon_square--large');
-      }
-
-      cls.push(className);
-
-      return _react2.default.createElement(
-        'div',
-        { className: cls.join(' ') },
-        _react2.default.createElement(Icon, { name: name })
-      );
-    }
-  }]);
-
-  return SVGIcon;
-}(_react2.default.Component);
-
-SVGIcon.defaultProps = {};
-SVGIcon.propTypes = {
-  name: _propTypes2.default.string,
-  large: _propTypes2.default.bool,
-  square: _propTypes2.default.bool
-};
-exports.default = SVGIcon;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/SiteLogo.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.SiteLogo = undefined;
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SiteLogo = exports.SiteLogo = function SiteLogo() {
-  return _react2.default.createElement(
-    "svg",
-    { width: "218px", height: "35px", viewBox: "0 0 218 35", version: "1.1" },
-    _react2.default.createElement(
-      "g",
-      { id: "Symbols", stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd" },
-      _react2.default.createElement(
-        "g",
-        { id: "Header-/-Laptop", transform: "translate(-32.000000, -15.000000)" },
-        _react2.default.createElement(
-          "g",
-          { id: "Stacked-Group-2", transform: "translate(32.000000, 7.000000)" },
-          _react2.default.createElement(
-            "g",
-            { transform: "translate(0.000000, 9.000000)" },
-            _react2.default.createElement(
-              "g",
-              { id: "Logo-/-Light" },
-              _react2.default.createElement("image", { id: "l_redhat-inverted", x: "0", y: "0", width: "109.538462", height: "32", xlinkHref: "data:image/png;base64,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" })
-            ),
-            _react2.default.createElement("path", { d: "M127,-3.55271368e-15 L127,32", id: "Line", stroke: "#FFFFFF", strokeLinecap: "square" }),
-            _react2.default.createElement(
-              "text",
-              { id: "Experience-Layer\u2122", fontFamily: "HelveticaNeue-Bold, Helvetica Neue, Helvetica, Arial", fontSize: "14", fontWeight: "bold", fill: "#FFFFFF" },
-              _react2.default.createElement(
-                "tspan",
-                { x: "144", y: "14" },
-                "Experience"
-              ),
-              _react2.default.createElement(
-                "tspan",
-                { x: "144", y: "31" },
-                "Layer"
-              )
-            )
-          )
-        )
-      )
-    )
-  );
-};
-},{"react":"../../node_modules/react/index.js"}],"../js/layout/Header.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _SVGIcon = require('../components/SVGIcon');
-
-var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
-var _SiteLogo = require('../components/SiteLogo');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Header = function (_React$Component) {
-  _inherits(Header, _React$Component);
-
-  function Header(props) {
-    _classCallCheck(this, Header);
-
-    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Header, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'l-site-header' },
-        _react2.default.createElement(
-          'div',
-          { className: 'l-site-header--mobile' },
-          _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__nav--mobile' },
-            _react2.default.createElement(
-              'ul',
-              null,
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__logo' },
-            _react2.default.createElement(
-              'a',
-              { href: '#' },
-              _react2.default.createElement(_SiteLogo.SiteLogo, null)
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__nav--secondary' },
-            _react2.default.createElement(
-              'ul',
-              null,
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'message' })
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
-                )
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'l-site-header--desktop' },
-          _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__logo' },
-            _react2.default.createElement(
-              'a',
-              { href: '#' },
-              _react2.default.createElement(_SiteLogo.SiteLogo, null)
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__nav' },
-            _react2.default.createElement(
-              'ul',
-              null,
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  'Catalog'
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  'Calendar'
-                )
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__search' },
-            _react2.default.createElement(_SVGIcon2.default, { name: 'search', className: 'u-icon-button--left' }),
-            'What do you want to learn?'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__nav--secondary' },
-            _react2.default.createElement(
-              'ul',
-              null,
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'message' })
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'help' })
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'bell' })
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
-                )
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return Header;
-}(_react2.default.Component);
-
-Header.defaultProps = {};
-Header.propTypes = {};
-exports.default = Header;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js"}],"../../node_modules/warning/warning.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../../node_modules/warning/warning.js":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -24690,7 +24164,539 @@ exports.Switch = _Switch3.default;
 exports.generatePath = _generatePath3.default;
 exports.matchPath = _matchPath3.default;
 exports.withRouter = _withRouter3.default;
-},{"./BrowserRouter":"../../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../../node_modules/react-router-dom/es/HashRouter.js","./Link":"../../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../../node_modules/react-router-dom/es/Redirect.js","./Route":"../../node_modules/react-router-dom/es/Route.js","./Router":"../../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../../node_modules/react-router-dom/es/Switch.js","./generatePath":"../../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../../node_modules/react-router-dom/es/withRouter.js"}],"../js/layout/Hero.js":[function(require,module,exports) {
+},{"./BrowserRouter":"../../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../../node_modules/react-router-dom/es/HashRouter.js","./Link":"../../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../../node_modules/react-router-dom/es/Redirect.js","./Route":"../../node_modules/react-router-dom/es/Route.js","./Router":"../../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../../node_modules/react-router-dom/es/Switch.js","./generatePath":"../../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../../node_modules/react-router-dom/es/withRouter.js"}],"../js/components/SVGIcon.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // Using Feather icons https://feathericons.com/
+
+var SVG = function SVG(_ref) {
+  var _ref$name = _ref.name,
+      name = _ref$name === undefined ? '' : _ref$name,
+      _ref$viewBox = _ref.viewBox,
+      viewBox = _ref$viewBox === undefined ? '0 0 24 24' : _ref$viewBox,
+      _ref$width = _ref.width,
+      width = _ref$width === undefined ? '24' : _ref$width,
+      _ref$height = _ref.height,
+      height = _ref$height === undefined ? '24' : _ref$height,
+      children = _ref.children;
+  return _react2.default.createElement(
+    'svg',
+    { xmlns: 'http://www.w3.org/2000/svg', width: width,
+      height: height, viewBox: viewBox, fill: 'none',
+      stroke: 'currentColor', strokeWidth: '2',
+      strokeLinecap: 'round', strokeLinejoin: 'round',
+      className: 'feather feather-' + name },
+    children
+  );
+};
+
+var Flag = function Flag() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'flag' },
+    _react2.default.createElement('path', { d: 'M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z' }),
+    _react2.default.createElement('line', { x1: '4', y1: '22', x2: '4', y2: '15' })
+  );
+};
+
+var Menu = function Menu() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'menu' },
+    _react2.default.createElement('line', { x1: '3', y1: '12', x2: '21', y2: '12' }),
+    _react2.default.createElement('line', { x1: '3', y1: '6', x2: '21', y2: '6' }),
+    _react2.default.createElement('line', { x1: '3', y1: '18', x2: '21', y2: '18' })
+  );
+};
+
+var Grid = function Grid() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'grid' },
+    _react2.default.createElement('rect', { x: '3', y: '3', width: '7', height: '7' }),
+    _react2.default.createElement('rect', { x: '14', y: '3', width: '7', height: '7' }),
+    _react2.default.createElement('rect', { x: '14', y: '14', width: '7', height: '7' }),
+    _react2.default.createElement('rect', { x: '3', y: '14', width: '7', height: '7' })
+  );
+};
+
+var List = function List() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'list' },
+    _react2.default.createElement('line', { x1: '8', y1: '6', x2: '21', y2: '6' }),
+    _react2.default.createElement('line', { x1: '8', y1: '12', x2: '21', y2: '12' }),
+    _react2.default.createElement('line', { x1: '8', y1: '18', x2: '21', y2: '18' }),
+    _react2.default.createElement('line', { x1: '3', y1: '6', x2: '3', y2: '6' }),
+    _react2.default.createElement('line', { x1: '3', y1: '12', x2: '3', y2: '12' }),
+    _react2.default.createElement('line', { x1: '3', y1: '18', x2: '3', y2: '18' })
+  );
+};
+
+var ChevronDown = function ChevronDown() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'chevron-down' },
+    _react2.default.createElement('polyline', { points: '6 9 12 15 18 9' })
+  );
+};
+
+var Search = function Search() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'search' },
+    _react2.default.createElement('circle', { cx: '11', cy: '11', r: '8' }),
+    _react2.default.createElement('line', { x1: '21', y1: '21', x2: '16.65', y2: '16.65' })
+  );
+};
+
+var Bell = function Bell() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'bell' },
+    _react2.default.createElement('path', {
+      d: 'M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0' })
+  );
+};
+
+var User = function User() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'user' },
+    _react2.default.createElement('path', { d: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' }),
+    _react2.default.createElement('circle', { cx: '12', cy: '7', r: '4' })
+  );
+};
+
+var Mobile = function Mobile() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'smartphone' },
+    _react2.default.createElement('rect', { x: '5', y: '2', width: '14', height: '20', rx: '2', ry: '2' }),
+    _react2.default.createElement('line', { x1: '12', y1: '18', x2: '12', y2: '18' })
+  );
+};
+
+var Box = function Box() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'box' },
+    _react2.default.createElement('path', {
+      d: 'M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z' }),
+    _react2.default.createElement('polyline', { points: '2.32 6.16 12 11 21.68 6.16' }),
+    _react2.default.createElement('line', { x1: '12', y1: '22.76', x2: '12', y2: '11' })
+  );
+};
+
+var Package = function Package() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'package' },
+    _react2.default.createElement('path', {
+      d: 'M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z' }),
+    _react2.default.createElement('polyline', { points: '2.32 6.16 12 11 21.68 6.16' }),
+    _react2.default.createElement('line', { x1: '12', y1: '22.76', x2: '12', y2: '11' }),
+    _react2.default.createElement('line', { x1: '7', y1: '3.5', x2: '17', y2: '8.5' })
+  );
+};
+
+var Message = function Message() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'message' },
+    _react2.default.createElement('path', {
+      d: 'M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z' })
+  );
+};
+
+var Help = function Help() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'help' },
+    _react2.default.createElement('circle', { cx: '12', cy: '12', r: '10' }),
+    _react2.default.createElement('path', { d: 'M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3' }),
+    _react2.default.createElement('line', { x1: '12', y1: '17', x2: '12', y2: '17' })
+  );
+};
+
+var Icon = function Icon(props) {
+  switch (props.name) {
+    case "flag":
+      return _react2.default.createElement(Flag, props);
+    case "menu":
+      return _react2.default.createElement(Menu, props);
+    case "grid":
+      return _react2.default.createElement(Grid, props);
+    case "list":
+      return _react2.default.createElement(List, props);
+    case "chevron-down":
+      return _react2.default.createElement(ChevronDown, props);
+    case "search":
+      return _react2.default.createElement(Search, props);
+    case "bell":
+      return _react2.default.createElement(Bell, props);
+    case "user":
+      return _react2.default.createElement(User, props);
+    case "mobile":
+      return _react2.default.createElement(Mobile, props);
+    case "box":
+      return _react2.default.createElement(Box, props);
+    case "package":
+      return _react2.default.createElement(Package, props);
+    case "message":
+      return _react2.default.createElement(Message, props);
+    case "help":
+      return _react2.default.createElement(Help, props);
+    default:
+      return _react2.default.createElement(
+        'span',
+        null,
+        'Icon?'
+      );
+  }
+};
+
+var SVGIcon = function (_React$Component) {
+  _inherits(SVGIcon, _React$Component);
+
+  function SVGIcon(props) {
+    _classCallCheck(this, SVGIcon);
+
+    return _possibleConstructorReturn(this, (SVGIcon.__proto__ || Object.getPrototypeOf(SVGIcon)).call(this, props));
+  }
+
+  _createClass(SVGIcon, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          name = _props.name,
+          _props$className = _props.className,
+          className = _props$className === undefined ? '' : _props$className,
+          large = _props.large,
+          square = _props.square;
+
+      var cls = ['u-svgicon'];
+
+      if (large) {
+        cls.push('u-svgicon--large');
+      } else if (square) {
+        // TODO remove?
+        cls.push('c-icon_square--large');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        { className: cls.join(' ') },
+        _react2.default.createElement(Icon, { name: name })
+      );
+    }
+  }]);
+
+  return SVGIcon;
+}(_react2.default.Component);
+
+SVGIcon.defaultProps = {};
+SVGIcon.propTypes = {
+  name: _propTypes2.default.string,
+  large: _propTypes2.default.bool,
+  square: _propTypes2.default.bool
+};
+exports.default = SVGIcon;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/SiteLogo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.SiteLogo = undefined;
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SiteLogo = exports.SiteLogo = function SiteLogo() {
+  return _react2.default.createElement(
+    "svg",
+    { width: "218px", height: "35px", viewBox: "0 0 218 35", version: "1.1" },
+    _react2.default.createElement(
+      "g",
+      { id: "Symbols", stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd" },
+      _react2.default.createElement(
+        "g",
+        { id: "Header-/-Laptop", transform: "translate(-32.000000, -15.000000)" },
+        _react2.default.createElement(
+          "g",
+          { id: "Stacked-Group-2", transform: "translate(32.000000, 7.000000)" },
+          _react2.default.createElement(
+            "g",
+            { transform: "translate(0.000000, 9.000000)" },
+            _react2.default.createElement(
+              "g",
+              { id: "Logo-/-Light" },
+              _react2.default.createElement("image", { id: "l_redhat-inverted", x: "0", y: "0", width: "109.538462", height: "32", xlinkHref: "data:image/png;base64,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" })
+            ),
+            _react2.default.createElement("path", { d: "M127,-3.55271368e-15 L127,32", id: "Line", stroke: "#FFFFFF", strokeLinecap: "square" }),
+            _react2.default.createElement(
+              "text",
+              { id: "Experience-Layer\u2122", fontFamily: "HelveticaNeue-Bold, Helvetica Neue, Helvetica, Arial", fontSize: "14", fontWeight: "bold", fill: "#FFFFFF" },
+              _react2.default.createElement(
+                "tspan",
+                { x: "144", y: "14" },
+                "Experience"
+              ),
+              _react2.default.createElement(
+                "tspan",
+                { x: "144", y: "31" },
+                "Layer"
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+};
+},{"react":"../../node_modules/react/index.js"}],"../js/layout/Header.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _SVGIcon = require('../components/SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _SiteLogo = require('../components/SiteLogo');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header(props) {
+    _classCallCheck(this, Header);
+
+    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Header, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-site-header' },
+        _react2.default.createElement(
+          'div',
+          { className: 'l-site-header--mobile' },
+          _react2.default.createElement(
+            'div',
+            { className: 'c-site-header__nav--mobile' },
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  'a',
+                  { href: '#' },
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-site-header__logo' },
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/' },
+              _react2.default.createElement(_SiteLogo.SiteLogo, null)
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-site-header__nav--secondary' },
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/alerts' },
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'bell' })
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/user' },
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'l-site-header--desktop' },
+          _react2.default.createElement(
+            'div',
+            { className: 'c-site-header__logo' },
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/' },
+              _react2.default.createElement(_SiteLogo.SiteLogo, null)
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-site-header__nav' },
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/catalog' },
+                  'Catalog'
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/calendar' },
+                  'Calendar'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-site-header__search' },
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { to: '/search' },
+              _react2.default.createElement(_SVGIcon2.default, { name: 'search', className: 'u-icon-button--left' })
+            ),
+            'What do you want to learn?'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-site-header__nav--secondary' },
+            _react2.default.createElement(
+              'ul',
+              null,
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/feedback' },
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'message' })
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/help' },
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'help' })
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/alerts' },
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'bell' })
+                )
+              ),
+              _react2.default.createElement(
+                'li',
+                null,
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/user' },
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Header;
+}(_react2.default.Component);
+
+Header.defaultProps = {};
+Header.propTypes = {};
+exports.default = Header;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js"}],"../js/layout/Hero.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25489,6 +25495,8 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _reactRouterDom = require('react-router-dom');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25528,8 +25536,8 @@ var DashboardNav = function (_React$Component) {
             'li',
             { className: 'is-active' },
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/' },
               'Overview'
             )
           ),
@@ -25537,8 +25545,8 @@ var DashboardNav = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/discover' },
               'Discover'
             )
           ),
@@ -25546,8 +25554,8 @@ var DashboardNav = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/team' },
               'Team'
             )
           )
@@ -25562,7 +25570,7 @@ var DashboardNav = function (_React$Component) {
 DashboardNav.defaultProps = {};
 DashboardNav.propTypes = {};
 exports.default = DashboardNav;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Dashboard.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/Dashboard.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25829,44 +25837,527 @@ var FourOhFour = function (_React$Component) {
 FourOhFour.defaultProps = {};
 FourOhFour.propTypes = {};
 exports.default = FourOhFour;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
-'use strict';
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Catalog.js":[function(require,module,exports) {
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.AppRouter = undefined;
 
-var _react = require('react');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterDom = require('react-router-dom');
+var _Content = require("../layout/Content");
 
-var _Dashboard = require('./Dashboard');
-
-var _Dashboard2 = _interopRequireDefault(_Dashboard);
-
-var _FourOhFour = require('./FourOhFour');
-
-var _FourOhFour2 = _interopRequireDefault(_FourOhFour);
+var _Content2 = _interopRequireDefault(_Content);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var AppRouter = exports.AppRouter = function AppRouter() {
-  return _react2.default.createElement(
-    _reactRouterDom.HashRouter,
-    null,
-    _react2.default.createElement(
-      _reactRouterDom.Switch,
-      null,
-      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Dashboard2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: '/404', component: _FourOhFour2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { component: _FourOhFour2.default })
-    )
-  );
-};
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Dashboard":"../js/pages/Dashboard.js","./FourOhFour":"../js/pages/FourOhFour.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Catalog = function (_React$Component) {
+  _inherits(Catalog, _React$Component);
+
+  function Catalog(props) {
+    _classCallCheck(this, Catalog);
+
+    var _this = _possibleConstructorReturn(this, (Catalog.__proto__ || Object.getPrototypeOf(Catalog)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Catalog, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Catalog"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Catalog;
+}(_react2.default.Component);
+
+Catalog.defaultProps = {};
+Catalog.propTypes = {};
+exports.default = Catalog;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Calendar.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Calendar = function (_React$Component) {
+  _inherits(Calendar, _React$Component);
+
+  function Calendar(props) {
+    _classCallCheck(this, Calendar);
+
+    var _this = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Calendar, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Calendar"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Calendar;
+}(_react2.default.Component);
+
+Calendar.defaultProps = {};
+Calendar.propTypes = {};
+exports.default = Calendar;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Alerts.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Alerts = function (_React$Component) {
+  _inherits(Alerts, _React$Component);
+
+  function Alerts(props) {
+    _classCallCheck(this, Alerts);
+
+    var _this = _possibleConstructorReturn(this, (Alerts.__proto__ || Object.getPrototypeOf(Alerts)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Alerts, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Alerts"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Alerts;
+}(_react2.default.Component);
+
+Alerts.defaultProps = {};
+Alerts.propTypes = {};
+exports.default = Alerts;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Help.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Help = function (_React$Component) {
+  _inherits(Help, _React$Component);
+
+  function Help(props) {
+    _classCallCheck(this, Help);
+
+    var _this = _possibleConstructorReturn(this, (Help.__proto__ || Object.getPrototypeOf(Help)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Help, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Help"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Help;
+}(_react2.default.Component);
+
+Help.defaultProps = {};
+Help.propTypes = {};
+exports.default = Help;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/User.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var User = function (_React$Component) {
+  _inherits(User, _React$Component);
+
+  function User(props) {
+    _classCallCheck(this, User);
+
+    var _this = _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(User, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "User profile"
+          )
+        )
+      );
+    }
+  }]);
+
+  return User;
+}(_react2.default.Component);
+
+User.defaultProps = {};
+User.propTypes = {};
+exports.default = User;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/CourseDetail.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CourseDetail = function (_React$Component) {
+  _inherits(CourseDetail, _React$Component);
+
+  function CourseDetail(props) {
+    _classCallCheck(this, CourseDetail);
+
+    var _this = _possibleConstructorReturn(this, (CourseDetail.__proto__ || Object.getPrototypeOf(CourseDetail)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CourseDetail, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Course detail"
+          )
+        )
+      );
+    }
+  }]);
+
+  return CourseDetail;
+}(_react2.default.Component);
+
+CourseDetail.defaultProps = {};
+CourseDetail.propTypes = {};
+exports.default = CourseDetail;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathDetail = function (_React$Component) {
+  _inherits(PathDetail, _React$Component);
+
+  function PathDetail(props) {
+    _classCallCheck(this, PathDetail);
+
+    var _this = _possibleConstructorReturn(this, (PathDetail.__proto__ || Object.getPrototypeOf(PathDetail)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathDetail, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Path detail"
+          )
+        )
+      );
+    }
+  }]);
+
+  return PathDetail;
+}(_react2.default.Component);
+
+PathDetail.defaultProps = {};
+PathDetail.propTypes = {};
+exports.default = PathDetail;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Search = function (_React$Component) {
+  _inherits(Search, _React$Component);
+
+  function Search(props) {
+    _classCallCheck(this, Search);
+
+    var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Search"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Search;
+}(_react2.default.Component);
+
+Search.defaultProps = {};
+Search.propTypes = {};
+exports.default = Search;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25948,7 +26439,11 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _reactRouterDom = require('react-router-dom');
+
 var _RedHatLogo = require('../components/RedHatLogo');
+
+var _SiteLogo = require('../components/SiteLogo');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25991,8 +26486,8 @@ var Footer = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/' },
               'Home'
             )
           ),
@@ -26000,8 +26495,8 @@ var Footer = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/catalog' },
               'Catalog'
             )
           ),
@@ -26009,8 +26504,8 @@ var Footer = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/calendar' },
               'Calendar'
             )
           ),
@@ -26018,8 +26513,8 @@ var Footer = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/feedback' },
               'Feedback'
             )
           ),
@@ -26027,8 +26522,8 @@ var Footer = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'a',
-              { href: '#' },
+              _reactRouterDom.Link,
+              { to: '/help' },
               'Help + Support'
             )
           )
@@ -26048,7 +26543,311 @@ var Footer = function (_React$Component) {
 Footer.defaultProps = {};
 Footer.propTypes = {};
 exports.default = Footer;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/RedHatLogo":"../js/components/RedHatLogo.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/RedHatLogo":"../js/components/RedHatLogo.js","../components/SiteLogo":"../js/components/SiteLogo.js"}],"../js/pages/Feedback.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Feedback = function (_React$Component) {
+  _inherits(Feedback, _React$Component);
+
+  function Feedback(props) {
+    _classCallCheck(this, Feedback);
+
+    var _this = _possibleConstructorReturn(this, (Feedback.__proto__ || Object.getPrototypeOf(Feedback)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Feedback, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Feedback"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Feedback;
+}(_react2.default.Component);
+
+Feedback.defaultProps = {};
+Feedback.propTypes = {};
+exports.default = Feedback;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Discover.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Discover = function (_React$Component) {
+  _inherits(Discover, _React$Component);
+
+  function Discover(props) {
+    _classCallCheck(this, Discover);
+
+    var _this = _possibleConstructorReturn(this, (Discover.__proto__ || Object.getPrototypeOf(Discover)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Discover, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Discover"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Discover;
+}(_react2.default.Component);
+
+Discover.defaultProps = {};
+Discover.propTypes = {};
+exports.default = Discover;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Team.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Team = function (_React$Component) {
+  _inherits(Team, _React$Component);
+
+  function Team(props) {
+    _classCallCheck(this, Team);
+
+    var _this = _possibleConstructorReturn(this, (Team.__proto__ || Object.getPrototypeOf(Team)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Team, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Team"
+          )
+        )
+      );
+    }
+  }]);
+
+  return Team;
+}(_react2.default.Component);
+
+Team.defaultProps = {};
+Team.propTypes = {};
+exports.default = Team;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AppRouter = undefined;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _Dashboard = require('./Dashboard');
+
+var _Dashboard2 = _interopRequireDefault(_Dashboard);
+
+var _FourOhFour = require('./FourOhFour');
+
+var _FourOhFour2 = _interopRequireDefault(_FourOhFour);
+
+var _Catalog = require('./Catalog');
+
+var _Catalog2 = _interopRequireDefault(_Catalog);
+
+var _Calendar = require('./Calendar');
+
+var _Calendar2 = _interopRequireDefault(_Calendar);
+
+var _Alerts = require('./Alerts');
+
+var _Alerts2 = _interopRequireDefault(_Alerts);
+
+var _Help = require('./Help');
+
+var _Help2 = _interopRequireDefault(_Help);
+
+var _User = require('./User');
+
+var _User2 = _interopRequireDefault(_User);
+
+var _CourseDetail = require('./CourseDetail');
+
+var _CourseDetail2 = _interopRequireDefault(_CourseDetail);
+
+var _PathDetail = require('./PathDetail');
+
+var _PathDetail2 = _interopRequireDefault(_PathDetail);
+
+var _Search = require('./Search');
+
+var _Search2 = _interopRequireDefault(_Search);
+
+var _Header = require('../layout/Header');
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _SiteContainer = require('../layout/SiteContainer');
+
+var _SiteContainer2 = _interopRequireDefault(_SiteContainer);
+
+var _Footer = require('../layout/Footer');
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
+var _Feedback = require('./Feedback');
+
+var _Feedback2 = _interopRequireDefault(_Feedback);
+
+var _Discover = require('./Discover');
+
+var _Discover2 = _interopRequireDefault(_Discover);
+
+var _Team = require('./Team');
+
+var _Team2 = _interopRequireDefault(_Team);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AppRouter = exports.AppRouter = function AppRouter() {
+  return _react2.default.createElement(
+    _reactRouterDom.HashRouter,
+    null,
+    _react2.default.createElement(
+      _SiteContainer2.default,
+      null,
+      _react2.default.createElement(_Header2.default, null),
+      _react2.default.createElement(
+        _reactRouterDom.Switch,
+        null,
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Dashboard2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/catalog', component: _Catalog2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/alerts', component: _Alerts2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/help', component: _Help2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _User2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/course', component: _CourseDetail2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/path', component: _PathDetail2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/search', component: _Search2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/feedback', component: _Feedback2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/discover', component: _Discover2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/team', component: _Team2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { component: _FourOhFour2.default })
+      ),
+      _react2.default.createElement(_Footer2.default, null)
+    )
+  );
+};
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Dashboard":"../js/pages/Dashboard.js","./FourOhFour":"../js/pages/FourOhFour.js","./Catalog":"../js/pages/Catalog.js","./Calendar":"../js/pages/Calendar.js","./Alerts":"../js/pages/Alerts.js","./Help":"../js/pages/Help.js","./User":"../js/pages/User.js","./CourseDetail":"../js/pages/CourseDetail.js","./PathDetail":"../js/pages/PathDetail.js","./Search":"../js/pages/Search.js","../layout/Header":"../js/layout/Header.js","../layout/SiteContainer":"../js/layout/SiteContainer.js","../layout/Footer":"../js/layout/Footer.js","./Feedback":"../js/pages/Feedback.js","./Discover":"../js/pages/Discover.js","./Team":"../js/pages/Team.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26101,13 +26900,7 @@ var App = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react2.default.createElement(
-        _SiteContainer2.default,
-        null,
-        _react2.default.createElement(_Header2.default, null),
-        _react2.default.createElement(_AppRouter.AppRouter, null),
-        _react2.default.createElement(_Footer2.default, null)
-      );
+      return _react2.default.createElement(_AppRouter.AppRouter, null);
     }
   }]);
 
