@@ -24483,7 +24483,98 @@ var SiteLogo = exports.SiteLogo = function SiteLogo() {
     )
   );
 };
-},{"react":"../../node_modules/react/index.js"}],"../js/layout/Header.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../js/components/ButtonBar.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ButtonBar = function (_React$Component) {
+  _inherits(ButtonBar, _React$Component);
+
+  function ButtonBar(props) {
+    _classCallCheck(this, ButtonBar);
+
+    var _this = _possibleConstructorReturn(this, (ButtonBar.__proto__ || Object.getPrototypeOf(ButtonBar)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(ButtonBar, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          negative = _props.negative,
+          children = _props.children,
+          _props$className = _props.className,
+          className = _props$className === undefined ? '' : _props$className,
+          rest = _objectWithoutProperties(_props, ['negative', 'children', 'className']);
+
+      var cls = ['c-button-bar__icons'];
+
+      if (negative) {
+        cls.push('c-button-bar__icons--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        { className: cls.join(' ') },
+        _react2.default.createElement(
+          'ul',
+          null,
+          children
+        )
+      );
+    }
+  }]);
+
+  return ButtonBar;
+}(_react2.default.Component);
+
+ButtonBar.Icon = function (_ref) {
+  var children = _ref.children,
+      rest = _objectWithoutProperties(_ref, ['children']);
+
+  return _react2.default.createElement(
+    'li',
+    rest,
+    children
+  );
+};
+
+ButtonBar.defaultProps = {};
+ButtonBar.propTypes = {
+  negative: _propTypes2.default.bool
+};
+exports.default = ButtonBar;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/layout/Header.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24507,6 +24598,10 @@ var _SVGIcon = require('../components/SVGIcon');
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
 var _SiteLogo = require('../components/SiteLogo');
+
+var _ButtonBar = require('../components/ButtonBar');
+
+var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24642,46 +24737,42 @@ var Header = function (_React$Component) {
             'What do you want to learn?'
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__nav--secondary' },
+            _ButtonBar2.default,
+            { negative: true, className: 'c-site-header__nav--secondary' },
             _react2.default.createElement(
-              'ul',
+              _ButtonBar2.default.Icon,
               null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/feedback' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'message' })
-                )
-              ),
+                _reactRouterDom.Link,
+                { to: '/feedback' },
+                _react2.default.createElement(_SVGIcon2.default, { name: 'message' })
+              )
+            ),
+            _react2.default.createElement(
+              _ButtonBar2.default.Icon,
+              null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/help' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'help' })
-                )
-              ),
+                _reactRouterDom.Link,
+                { to: '/help' },
+                _react2.default.createElement(_SVGIcon2.default, { name: 'help' })
+              )
+            ),
+            _react2.default.createElement(
+              _ButtonBar2.default.Icon,
+              null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/alerts' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'bell' })
-                )
-              ),
+                _reactRouterDom.Link,
+                { to: '/alerts' },
+                _react2.default.createElement(_SVGIcon2.default, { name: 'bell' })
+              )
+            ),
+            _react2.default.createElement(
+              _ButtonBar2.default.Icon,
+              null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
-                )
+                _reactRouterDom.Link,
+                { to: '/user' },
+                _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
               )
             )
           )
@@ -24696,7 +24787,7 @@ var Header = function (_React$Component) {
 Header.defaultProps = {};
 Header.propTypes = {};
 exports.default = Header;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js"}],"../js/layout/Hero.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js","../components/ButtonBar":"../js/components/ButtonBar.js"}],"../js/layout/Hero.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25245,6 +25336,10 @@ var _SVGIcon = require('../components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
+var _ButtonBar = require('../components/ButtonBar');
+
+var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25305,10 +25400,10 @@ var CardLayout = function (_React$Component) {
             _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down', className: 'u-icon-button--right' })
           ),
           _react2.default.createElement(
-            'ul',
+            _ButtonBar2.default,
             null,
             _react2.default.createElement(
-              'li',
+              _ButtonBar2.default.Icon,
               null,
               _react2.default.createElement(
                 'a',
@@ -25317,7 +25412,7 @@ var CardLayout = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              'li',
+              _ButtonBar2.default.Icon,
               null,
               _react2.default.createElement(
                 'a',
@@ -25355,7 +25450,7 @@ CardLayout.propTypes = {
   title: _propTypes2.default.string
 };
 exports.default = CardLayout;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/LearningCard.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js"}],"../js/components/LearningCard.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25493,7 +25588,7 @@ exports.default = LearningCard;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BigTabs = exports.BigTab = undefined;
+exports.BigTabs = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -25516,25 +25611,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // TODO
 // light positive? this is negative
 
-var BigTab = exports.BigTab = function BigTab(props) {
-  var children = props.children,
-      className = props.className;
-
-  var cls = [];
-
-  if (props.active) {
-    cls.push('is-active');
-  }
-
-  cls.push(className);
-
-  return _react2.default.createElement(
-    'li',
-    { className: cls.join(' ') },
-    children
-  );
-};
-
 var BigTabs = exports.BigTabs = function (_React$Component) {
   _inherits(BigTabs, _React$Component);
 
@@ -25543,7 +25619,8 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (BigTabs.__proto__ || Object.getPrototypeOf(BigTabs)).call(this, props));
 
-    _this.state = {};
+    _initialiseProps.call(_this);
+
     return _this;
   }
 
@@ -25567,8 +25644,31 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
   return BigTabs;
 }(_react2.default.Component);
 
+BigTabs.Tab = function (props) {
+  var children = props.children,
+      className = props.className;
+
+  var cls = [];
+
+  if (props.active) {
+    cls.push('is-active');
+  }
+
+  cls.push(className);
+
+  return _react2.default.createElement(
+    'li',
+    { className: cls.join(' ') },
+    children
+  );
+};
+
 BigTabs.defaultProps = {};
 BigTabs.propTypes = {};
+
+var _initialiseProps = function _initialiseProps() {
+  this.state = {};
+};
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Dashboard.js":[function(require,module,exports) {
 'use strict';
 
@@ -25651,7 +25751,7 @@ var Dashboard = function (_React$Component) {
             _BigTabs.BigTabs,
             null,
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               { active: true },
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -25660,7 +25760,7 @@ var Dashboard = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -25669,7 +25769,7 @@ var Dashboard = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26187,7 +26287,7 @@ var User = function (_React$Component) {
             _BigTabs.BigTabs,
             null,
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26196,7 +26296,7 @@ var User = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26205,7 +26305,7 @@ var User = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26741,7 +26841,7 @@ var Discover = function (_React$Component) {
             _BigTabs.BigTabs,
             null,
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26750,7 +26850,7 @@ var Discover = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               { active: true },
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26759,7 +26859,7 @@ var Discover = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26849,7 +26949,7 @@ var Team = function (_React$Component) {
             _BigTabs.BigTabs,
             null,
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26858,7 +26958,7 @@ var Team = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               null,
               _react2.default.createElement(
                 _reactRouterDom.Link,
@@ -26867,7 +26967,7 @@ var Team = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              _BigTabs.BigTab,
+              _BigTabs.BigTabs.Tab,
               { active: true },
               _react2.default.createElement(
                 _reactRouterDom.Link,

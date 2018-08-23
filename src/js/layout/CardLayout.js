@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from "../components/Button";
 import SVGIcon from "../components/SVGIcon";
+import ButtonBar from "../components/ButtonBar";
 
 class CardLayout extends React.Component {
 
@@ -31,10 +32,10 @@ class CardLayout extends React.Component {
         </div>
         <div className='c-card-grid__filters'>
           <Button>Recent <SVGIcon name='chevron-down' className='u-icon-button--right'/></Button>
-          <ul>
-            <li><a href='#'><SVGIcon name='grid'/></a></li>
-            <li><a href='#'><SVGIcon name='list'/></a></li>
-          </ul>
+          <ButtonBar>
+            <ButtonBar.Icon><a href='#'><SVGIcon name='grid'/></a></ButtonBar.Icon>
+            <ButtonBar.Icon><a href='#'><SVGIcon name='list'/></a></ButtonBar.Icon>
+          </ButtonBar>
         </div>
         <div className='c-card-grid__contents'>
           {

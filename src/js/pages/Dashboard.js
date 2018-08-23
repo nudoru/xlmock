@@ -6,7 +6,7 @@ import MessageBanner from "../components/MessageBanner";
 import HeroPathProgress from "../components/HeroPathProgress";
 import CardLayout from "../layout/CardLayout";
 import LearningCard from '../components/LearningCard';
-import {BigTabs, BigTab} from "../components/BigTabs";
+import {BigTabs} from "../components/BigTabs";
 
 class Dashboard extends React.Component {
 
@@ -28,9 +28,9 @@ class Dashboard extends React.Component {
         <Hero>
           <MessageBanner>Important message!</MessageBanner>
           <BigTabs>
-            <BigTab active><Link to='/'>Overview</Link></BigTab>
-            <BigTab><Link to='/discover'>Discover</Link></BigTab>
-            <BigTab><Link to='/team'>Team</Link></BigTab>
+            <BigTabs.Tab active><Link to='/'>Overview</Link></BigTabs.Tab>
+            <BigTabs.Tab><Link to='/discover'>Discover</Link></BigTabs.Tab>
+            <BigTabs.Tab><Link to='/team'>Team</Link></BigTabs.Tab>
           </BigTabs>
           <HeroPathProgress/>
         </Hero>

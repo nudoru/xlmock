@@ -1,9 +1,11 @@
 .c-button-bar__icons {
+  display: inline-block;
   ul {
     @extend .u-list-plain-horizontal;
     position: relative;
     font-weight: 700;
     text-transform: uppercase;
+    top: -2px; // Bump the icon button up so it's in line with the <button> element
     li {
       display: inline-block;
       a {
@@ -28,5 +30,11 @@
         top: -1px;
       }
     }
+  }
+}
+
+.c-button-bar__icons--negative {
+  a {
+    color: #fff;
   }
 }

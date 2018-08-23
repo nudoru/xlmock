@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import SVGIcon from "../components/SVGIcon";
 import {SiteLogo} from "../components/SiteLogo";
+import ButtonBar from "../components/ButtonBar";
 
 class Header extends React.Component {
 
@@ -49,14 +50,12 @@ class Header extends React.Component {
         <div className='c-site-header__search'>
           <Link to='/search'><SVGIcon name='search' className='u-icon-button--left'/></Link>What do you want to learn?
         </div>
-        <div className='c-site-header__nav--secondary'>
-          <ul>
-            <li><Link to='/feedback'><SVGIcon name='message'/></Link></li>
-            <li><Link to='/help'><SVGIcon name='help'/></Link></li>
-            <li><Link to='/alerts'><SVGIcon name='bell'/></Link></li>
-            <li><Link to='/user'><SVGIcon name='user'/></Link></li>
-          </ul>
-        </div>
+        <ButtonBar negative className='c-site-header__nav--secondary'>
+          <ButtonBar.Icon><Link to='/feedback'><SVGIcon name='message'/></Link></ButtonBar.Icon>
+          <ButtonBar.Icon><Link to='/help'><SVGIcon name='help'/></Link></ButtonBar.Icon>
+          <ButtonBar.Icon><Link to='/alerts'><SVGIcon name='bell'/></Link></ButtonBar.Icon>
+          <ButtonBar.Icon><Link to='/user'><SVGIcon name='user'/></Link></ButtonBar.Icon>
+        </ButtonBar>
       </div>
     </div>);
   }

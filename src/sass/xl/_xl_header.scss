@@ -77,10 +77,6 @@
 .c-site-header__nav--secondary, .c-site-header__nav--mobile {
   justify-self: end;
   padding-right: $scale1;
-  @extend .c-button-bar__icons;
-  a {
-    color: #fff;
-  }
 }
 
 .l-site-header--mobile {

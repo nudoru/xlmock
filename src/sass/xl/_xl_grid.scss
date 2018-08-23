@@ -23,10 +23,8 @@
 .c-card-grid__filters {
   grid-area: itemgridfilter;
   justify-self: end;
-  @extend .c-button-bar__icons;
   ul {
-    display: inline;
-    top: -2px; // bump it up so it's level with the filter button
+
     a {
       color: $button-primary-color;
     }
