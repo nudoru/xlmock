@@ -3,30 +3,34 @@
   display: grid;
   grid-template: ". siteherocontent ." auto / 1fr minmax(auto, $content-width-large) 1fr;
   background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
-  z-index: 2;
+  //z-index: 2;
 }
 
 .c-site-hero__image {
-  //grid-area: siteherocontent;
-  //z-index: 1;
   grid-row: 1;
   grid-column: 1/-1;
-  //background-color: #f00;
   background: url('../img/hero.png') no-repeat center center fixed;
   background-size: cover;
-  filter: grayscale(1);
+  &::after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
+  }
 }
 
-.c-site-hero__image--gradient {
-  grid-row: 1;
-  grid-column: 1/-1;
-  background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
-  z-index: 1;
-}
+// Pseudo element of the hero__image now
+//.c-site-hero__image--gradient {
+//  grid-row: 1;
+//  grid-column: 1/-1;
+//  background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
+//  z-index: 1;
+//}
 
 .c-site-hero__content {
   grid-area: siteherocontent;
-  padding: $scale5 0;
+  padding-top: $scale5;
   z-index: 2;
 }
 
@@ -35,6 +39,7 @@
   color: #fff;
   grid-template-columns: 2fr 1fr;
   grid-gap: $scale6;
+  padding: $scale5 0;
 
   .c-current-path {
     margin-top: $scale1;

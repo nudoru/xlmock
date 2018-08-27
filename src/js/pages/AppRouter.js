@@ -1,6 +1,6 @@
 import React from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
-import Dashboard from "./Dashboard";
+import Overview from "./Overview";
 import FourOhFour from './FourOhFour';
 import Catalog from "./Catalog";
 import Calendar from "./Calendar";
@@ -22,7 +22,7 @@ export const AppRouter = () =>
     <SiteContainer>
       <Header/>
       <Switch>
-        <Route exact path="/" component={Dashboard}/>
+        <Route exact path="/" component={Overview}/>
         <Route path="/catalog" component={Catalog}/>
         <Route path="/calendar" component={Calendar}/>
         <Route path="/alerts" component={Alerts}/>

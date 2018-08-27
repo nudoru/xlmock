@@ -24834,7 +24834,6 @@ var Hero = function (_React$Component) {
         'div',
         { className: 'l-site-hero' },
         _react2.default.createElement('div', { className: 'c-site-hero__image' }),
-        _react2.default.createElement('div', { className: 'c-site-hero__image--gradient' }),
         _react2.default.createElement(
           'div',
           { className: 'c-site-hero__content' },
@@ -25669,7 +25668,175 @@ BigTabs.propTypes = {};
 var _initialiseProps = function _initialiseProps() {
   this.state = {};
 };
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Dashboard.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/test/TestGridContent.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _LearningCard = require('../components/LearningCard');
+
+var _LearningCard2 = _interopRequireDefault(_LearningCard);
+
+var _CardLayout = require('../layout/CardLayout');
+
+var _CardLayout2 = _interopRequireDefault(_CardLayout);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * For quick mocking of pages
+ */
+
+var TestGridContent = function (_React$Component) {
+  _inherits(TestGridContent, _React$Component);
+
+  function TestGridContent(props) {
+    _classCallCheck(this, TestGridContent);
+
+    var _this = _possibleConstructorReturn(this, (TestGridContent.__proto__ || Object.getPrototypeOf(TestGridContent)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(TestGridContent, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _CardLayout2.default,
+        { title: this.props.title, ctaLabel: 'View More' },
+        _react2.default.createElement(
+          _LearningCard2.default,
+          { type: 'course', duration: '42 minutes', mobile: true },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Aliquam vulputate vestibulum eleifend.'
+          )
+        ),
+        _react2.default.createElement(
+          _LearningCard2.default,
+          { type: 'course', duration: '42 minutes', mobile: true },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Aliquam vulputate vestibulum eleifend.'
+          )
+        ),
+        _react2.default.createElement(
+          _LearningCard2.default,
+          { type: 'course', duration: '42 minutes', mobile: true },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Aliquam vulputate vestibulum eleifend.'
+          )
+        ),
+        _react2.default.createElement(
+          _LearningCard2.default,
+          { type: 'course', duration: '42 minutes', mobile: true },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Aliquam vulputate vestibulum eleifend.'
+          )
+        ),
+        _react2.default.createElement(
+          _LearningCard2.default,
+          { type: 'path', duration: '42 minutes', mobile: true },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Aliquam vulputate vestibulum eleifend.'
+          )
+        ),
+        _react2.default.createElement(
+          _LearningCard2.default,
+          { type: 'path', duration: '42 minutes', mobile: true },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Aliquam vulputate vestibulum eleifend.'
+          )
+        ),
+        _react2.default.createElement(
+          _LearningCard2.default,
+          { type: 'path', duration: '42 minutes', mobile: true },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Aliquam vulputate vestibulum eleifend.'
+          )
+        )
+      );
+    }
+  }]);
+
+  return TestGridContent;
+}(_react2.default.Component);
+
+TestGridContent.defaultProps = {};
+TestGridContent.propTypes = {
+  title: _propTypes2.default.string
+};
+exports.default = TestGridContent;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25710,6 +25877,10 @@ var _LearningCard2 = _interopRequireDefault(_LearningCard);
 
 var _BigTabs = require('../components/BigTabs');
 
+var _TestGridContent = require('../test/TestGridContent');
+
+var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25718,19 +25889,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Dashboard = function (_React$Component) {
-  _inherits(Dashboard, _React$Component);
+var Overview = function (_React$Component) {
+  _inherits(Overview, _React$Component);
 
-  function Dashboard(props) {
-    _classCallCheck(this, Dashboard);
+  function Overview(props) {
+    _classCallCheck(this, Overview);
 
-    var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Overview.__proto__ || Object.getPrototypeOf(Overview)).call(this, props));
 
     _this.state = {};
     return _this;
   }
 
-  _createClass(Dashboard, [{
+  _createClass(Overview, [{
     key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
@@ -25783,120 +25954,19 @@ var Dashboard = function (_React$Component) {
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(
-            _CardLayout2.default,
-            { title: 'Layout title', ctaLabel: 'View More' },
-            _react2.default.createElement(
-              _LearningCard2.default,
-              { type: 'course', duration: '42 minutes', mobile: true },
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Aliquam vulputate vestibulum eleifend.'
-              )
-            ),
-            _react2.default.createElement(
-              _LearningCard2.default,
-              { type: 'course', duration: '42 minutes', mobile: true },
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Aliquam vulputate vestibulum eleifend.'
-              )
-            ),
-            _react2.default.createElement(
-              _LearningCard2.default,
-              { type: 'course', duration: '42 minutes', mobile: true },
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Aliquam vulputate vestibulum eleifend.'
-              )
-            ),
-            _react2.default.createElement(
-              _LearningCard2.default,
-              { type: 'course', duration: '42 minutes', mobile: true },
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Aliquam vulputate vestibulum eleifend.'
-              )
-            ),
-            _react2.default.createElement(
-              _LearningCard2.default,
-              { type: 'path', duration: '42 minutes', mobile: true },
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Aliquam vulputate vestibulum eleifend.'
-              )
-            ),
-            _react2.default.createElement(
-              _LearningCard2.default,
-              { type: 'path', duration: '42 minutes', mobile: true },
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Aliquam vulputate vestibulum eleifend.'
-              )
-            ),
-            _react2.default.createElement(
-              _LearningCard2.default,
-              { type: 'path', duration: '42 minutes', mobile: true },
-              _react2.default.createElement(
-                'h1',
-                null,
-                'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'Aliquam vulputate vestibulum eleifend.'
-              )
-            )
-          )
+          _react2.default.createElement(_TestGridContent2.default, { title: 'Your Stuff' })
         )
       );
     }
   }]);
 
-  return Dashboard;
+  return Overview;
 }(_react2.default.Component);
 
-Dashboard.defaultProps = {};
-Dashboard.propTypes = {};
-exports.default = Dashboard;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../layout/CardLayout":"../js/layout/CardLayout.js","../components/LearningCard":"../js/components/LearningCard.js","../components/BigTabs":"../js/components/BigTabs.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
+Overview.defaultProps = {};
+Overview.propTypes = {};
+exports.default = Overview;
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../layout/CardLayout":"../js/layout/CardLayout.js","../components/LearningCard":"../js/components/LearningCard.js","../components/BigTabs":"../js/components/BigTabs.js","../test/TestGridContent":"../js/test/TestGridContent.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27010,9 +27080,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require('react-router-dom');
 
-var _Dashboard = require('./Dashboard');
+var _Overview = require('./Overview');
 
-var _Dashboard2 = _interopRequireDefault(_Dashboard);
+var _Overview2 = _interopRequireDefault(_Overview);
 
 var _FourOhFour = require('./FourOhFour');
 
@@ -27087,7 +27157,7 @@ var AppRouter = exports.AppRouter = function AppRouter() {
       _react2.default.createElement(
         _reactRouterDom.Switch,
         null,
-        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Dashboard2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Overview2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/catalog', component: _Catalog2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/alerts', component: _Alerts2.default }),
@@ -27105,7 +27175,7 @@ var AppRouter = exports.AppRouter = function AppRouter() {
     )
   );
 };
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Dashboard":"../js/pages/Dashboard.js","./FourOhFour":"../js/pages/FourOhFour.js","./Catalog":"../js/pages/Catalog.js","./Calendar":"../js/pages/Calendar.js","./Alerts":"../js/pages/Alerts.js","./Help":"../js/pages/Help.js","./User":"../js/pages/User.js","./CourseDetail":"../js/pages/CourseDetail.js","./PathDetail":"../js/pages/PathDetail.js","./Search":"../js/pages/Search.js","../layout/Header":"../js/layout/Header.js","../layout/SiteContainer":"../js/layout/SiteContainer.js","../layout/Footer":"../js/layout/Footer.js","./Feedback":"../js/pages/Feedback.js","./Discover":"../js/pages/Discover.js","./Team":"../js/pages/Team.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Overview":"../js/pages/Overview.js","./FourOhFour":"../js/pages/FourOhFour.js","./Catalog":"../js/pages/Catalog.js","./Calendar":"../js/pages/Calendar.js","./Alerts":"../js/pages/Alerts.js","./Help":"../js/pages/Help.js","./User":"../js/pages/User.js","./CourseDetail":"../js/pages/CourseDetail.js","./PathDetail":"../js/pages/PathDetail.js","./Search":"../js/pages/Search.js","../layout/Header":"../js/layout/Header.js","../layout/SiteContainer":"../js/layout/SiteContainer.js","../layout/Footer":"../js/layout/Footer.js","./Feedback":"../js/pages/Feedback.js","./Discover":"../js/pages/Discover.js","./Team":"../js/pages/Team.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

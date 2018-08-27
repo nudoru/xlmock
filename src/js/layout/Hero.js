@@ -19,7 +19,6 @@ class Hero extends React.Component {
     return (
       <div className='l-site-hero'>
         <div className='c-site-hero__image'/>
-        <div className='c-site-hero__image--gradient'/>
         <div className='c-site-hero__content'>
           {this.props.children}
         </div>
