@@ -442,6 +442,10 @@ ul.tabs {
   border: 1px solid #464646;
   border-radius: 2rem; }
 
+.c-tag--negative {
+  color: #fff;
+  border-color: #fff; }
+
 .c-label {
   position: relative;
   display: inline-block;
@@ -1127,13 +1131,33 @@ ul.tabs-big {
       align-self: center; }
   .course-detail__details--title h1 {
     font-weight: 700;
-    color: #fff; }
+    color: #fff;
+    margin-bottom: 3.875rem;
+    line-height: 3rem; }
   .course-detail__details--title h2 {
     margin-bottom: 2rem; }
+  .course-detail__details--title p {
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 3.875rem; }
+    .course-detail__details--title p em {
+      color: #fff;
+      font-weight: 600;
+      font-style: normal; }
 
 .course-detail__details--metadata {
-  -ms-flex-item-align: end;
-      align-self: end; }
+  align-self: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
+.course-detail__details--metadata--tags {
+  justify-self: start;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.course-detail__details--metadata--mobile {
+  justify-self: end;
+  -ms-flex-item-align: center;
+      align-self: center; }
 
 .course-detail__content {
   grid-area: content;

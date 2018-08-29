@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
-import ProgressBar from "../components/ProgressBar";
 import {BigTabs} from "../components/BigTabs";
+import CourseDetailDetails from "../components/CourseDetailDetails";
 
 class CourseDetail extends React.Component {
 
@@ -23,21 +23,16 @@ class CourseDetail extends React.Component {
       <React.Fragment>
         <Content full>
           <div className='course-detail'>
-            <div className='course-detail__details'>
-              <div className='course-detail__details--title'>
-                <h2>Course</h2>
-                <h1>Understanding Linux Fundamentals as Applied to Reactant Hyperfluxors</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. </p>
-                <ProgressBar percent={25} status=' - 2 of 4 activities completed'/>
-              </div>
-              <div className='course-detail__details--metadata'>Tag? / Mobile</div>
-            </div>
+            <CourseDetailDetails/>
             <div className='course-detail__content'>
               <BigTabs>
-                <BigTabs.Tab active><Link to='/user'>Overview</Link></BigTabs.Tab>
-                <BigTabs.Tab><Link to='/user'>Activities</Link></BigTabs.Tab>
-                <BigTabs.Tab><Link to='/user'>Upcoming</Link></BigTabs.Tab>
+                <BigTabs.Tab active><Link to='/course'>Overview</Link></BigTabs.Tab>
+                <BigTabs.Tab><Link to='/courseactivities'>Activities</Link></BigTabs.Tab>
+                <BigTabs.Tab><Link to='/courseupcoming'>Upcoming</Link></BigTabs.Tab>
               </BigTabs>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis porta lobortis nisl, non blandit enim. Cras eros tortor, pellentesque ut orci vitae, consectetur dictum erat. Morbi auctor risus vitae neque fringilla congue. Integer ac augue quis mi viverra commodo. Nullam ornare, purus ut sollicitudin dignissim, elit arcu sollicitudin dui, ac dictum enim dolor id diam. Integer et lobortis elit. Maecenas varius feugiat magna, eu bibendum neque blandit eu. Nunc sed faucibus ante. Pellentesque at lectus at ante tempus condimentum. Aliquam ac consequat tortor, at rutrum neque. Nam fermentum nulla eget finibus imperdiet.
+              </p>
             </div>
           </div>
         </Content>

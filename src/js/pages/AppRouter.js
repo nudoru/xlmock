@@ -16,6 +16,9 @@ import Footer from "../layout/Footer";
 import Feedback from "./Feedback";
 import Discover from "./Discover";
 import Team from "./Team";
+import CourseDetailActivities from "./CourseDetailActivities";
+import CourseDetailUpcoming from "./CourseDetailUpcoming";
+import CoursePlayer from "./CoursePlayer";
 
 export const AppRouter = () =>
   <Router>
@@ -29,6 +32,9 @@ export const AppRouter = () =>
         <Route path="/help" component={Help}/>
         <Route path="/user" component={User}/>
         <Route path="/course" component={CourseDetail}/>
+        <Route path="/courseactivities" component={CourseDetailActivities}/>
+        <Route path="/courseupcoming" component={CourseDetailUpcoming}/>
+        <Route path="/courseplayer" component={CoursePlayer}/>
         <Route path="/path" component={PathDetail}/>
         <Route path="/search" component={Search}/>
         <Route path="/feedback" component={Feedback}/>

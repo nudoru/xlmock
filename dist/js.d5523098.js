@@ -25651,7 +25651,8 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
-          className = _props.className,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
           children = _props.children;
 
 
@@ -45540,7 +45541,208 @@ var User = function (_React$Component) {
 User.defaultProps = {};
 User.propTypes = {};
 exports.default = User;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/pages/CourseDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/Tag.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tag = function (_React$Component) {
+  _inherits(Tag, _React$Component);
+
+  function Tag(props) {
+    _classCallCheck(this, Tag);
+
+    var _this = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Tag, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var cls = ['c-tag'];
+
+      if (this.props.negative) {
+        cls.push('c-tag--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Tag;
+}(_react2.default.Component);
+
+Tag.defaultProps = {};
+Tag.propTypes = {
+  negative: _propTypes2.default.bool
+};
+exports.default = Tag;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _ProgressBar = require('./ProgressBar');
+
+var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
+
+var _Button = require('./Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _Tag = require('./Tag');
+
+var _Tag2 = _interopRequireDefault(_Tag);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _reactRouterDom = require('react-router-dom');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CourseDetailDetails = function (_React$Component) {
+  _inherits(CourseDetailDetails, _React$Component);
+
+  function CourseDetailDetails(props) {
+    _classCallCheck(this, CourseDetailDetails);
+
+    var _this = _possibleConstructorReturn(this, (CourseDetailDetails.__proto__ || Object.getPrototypeOf(CourseDetailDetails)).call(this, props));
+
+    _this.state = {
+      resumeCourse: false
+    };
+
+    _this.onResumeClick = function () {
+      _this.props.history.push('/courseplayer');
+    };
+
+    return _this;
+  }
+
+  _createClass(CourseDetailDetails, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'course-detail__details' },
+        _react2.default.createElement(
+          'div',
+          { className: 'course-detail__details--title' },
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Online Course'
+          ),
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Understanding Linux Fundamentals as Applied to Reactant Hyperfluxors'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. '
+          ),
+          _react2.default.createElement(_ProgressBar2.default, { percent: '25', status: ' - 2 of 4 activities completed' }),
+          _react2.default.createElement(
+            _Button2.default,
+            { negative: true, primary: true, onClick: this.onResumeClick },
+            'Resume'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'course-detail__details--metadata' },
+          _react2.default.createElement(
+            'div',
+            { className: 'course-detail__details--metadata--tags' },
+            _react2.default.createElement(
+              _Tag2.default,
+              { negative: true },
+              'Infrastructure'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'course-detail__details--metadata--mobile' },
+            _react2.default.createElement(_SVGIcon2.default, { large: true, name: 'mobile' })
+          )
+        )
+      );
+    }
+  }]);
+
+  return CourseDetailDetails;
+}(_react2.default.Component);
+
+CourseDetailDetails.defaultProps = {};
+CourseDetailDetails.propTypes = {};
+exports.default = (0, _reactRouterDom.withRouter)(CourseDetailDetails);
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ProgressBar":"../js/components/ProgressBar.js","./Button":"../js/components/Button.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/CourseDetail.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45559,11 +45761,11 @@ var _Content = require('../layout/Content');
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _ProgressBar = require('../components/ProgressBar');
-
-var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
-
 var _BigTabs = require('../components/BigTabs');
+
+var _CourseDetailDetails = require('../components/CourseDetailDetails');
+
+var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45600,35 +45802,7 @@ var CourseDetail = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'course-detail' },
-            _react2.default.createElement(
-              'div',
-              { className: 'course-detail__details' },
-              _react2.default.createElement(
-                'div',
-                { className: 'course-detail__details--title' },
-                _react2.default.createElement(
-                  'h2',
-                  null,
-                  'Course'
-                ),
-                _react2.default.createElement(
-                  'h1',
-                  null,
-                  'Understanding Linux Fundamentals as Applied to Reactant Hyperfluxors'
-                ),
-                _react2.default.createElement(
-                  'p',
-                  null,
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. '
-                ),
-                _react2.default.createElement(_ProgressBar2.default, { percent: 25, status: ' - 2 of 4 activities completed' })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'course-detail__details--metadata' },
-                'Tag? / Mobile'
-              )
-            ),
+            _react2.default.createElement(_CourseDetailDetails2.default, null),
             _react2.default.createElement(
               'div',
               { className: 'course-detail__content' },
@@ -45640,7 +45814,7 @@ var CourseDetail = function (_React$Component) {
                   { active: true },
                   _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/user' },
+                    { to: '/course' },
                     'Overview'
                   )
                 ),
@@ -45649,7 +45823,7 @@ var CourseDetail = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/user' },
+                    { to: '/courseactivities' },
                     'Activities'
                   )
                 ),
@@ -45658,10 +45832,15 @@ var CourseDetail = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     _reactRouterDom.Link,
-                    { to: '/user' },
+                    { to: '/courseupcoming' },
                     'Upcoming'
                   )
                 )
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis porta lobortis nisl, non blandit enim. Cras eros tortor, pellentesque ut orci vitae, consectetur dictum erat. Morbi auctor risus vitae neque fringilla congue. Integer ac augue quis mi viverra commodo. Nullam ornare, purus ut sollicitudin dignissim, elit arcu sollicitudin dui, ac dictum enim dolor id diam. Integer et lobortis elit. Maecenas varius feugiat magna, eu bibendum neque blandit eu. Nunc sed faucibus ante. Pellentesque at lectus at ante tempus condimentum. Aliquam ac consequat tortor, at rutrum neque. Nam fermentum nulla eget finibus imperdiet.'
               )
             )
           )
@@ -45676,7 +45855,7 @@ var CourseDetail = function (_React$Component) {
 CourseDetail.defaultProps = {};
 CourseDetail.propTypes = {};
 exports.default = CourseDetail;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/ProgressBar":"../js/components/ProgressBar.js","../components/BigTabs":"../js/components/BigTabs.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46273,7 +46452,298 @@ var Team = function (_React$Component) {
 Team.defaultProps = {};
 Team.propTypes = {};
 exports.default = Team;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/pages/CourseDetailActivities.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _Content = require('../layout/Content');
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _BigTabs = require('../components/BigTabs');
+
+var _CourseDetailDetails = require('../components/CourseDetailDetails');
+
+var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CourseDetailActivities = function (_React$Component) {
+  _inherits(CourseDetailActivities, _React$Component);
+
+  function CourseDetailActivities(props) {
+    _classCallCheck(this, CourseDetailActivities);
+
+    var _this = _possibleConstructorReturn(this, (CourseDetailActivities.__proto__ || Object.getPrototypeOf(CourseDetailActivities)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CourseDetailActivities, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          { full: true },
+          _react2.default.createElement(
+            'div',
+            { className: 'course-detail' },
+            _react2.default.createElement(_CourseDetailDetails2.default, null),
+            _react2.default.createElement(
+              'div',
+              { className: 'course-detail__content' },
+              _react2.default.createElement(
+                _BigTabs.BigTabs,
+                null,
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/course' },
+                    'Overview'
+                  )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  { active: true },
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseactivities' },
+                    'Activities'
+                  )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseupcoming' },
+                    'Upcoming'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Course contents / topics / activities'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return CourseDetailActivities;
+}(_react2.default.Component);
+
+CourseDetailActivities.defaultProps = {};
+CourseDetailActivities.propTypes = {};
+exports.default = CourseDetailActivities;
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CourseDetailUpcoming.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _Content = require('../layout/Content');
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _BigTabs = require('../components/BigTabs');
+
+var _CourseDetailDetails = require('../components/CourseDetailDetails');
+
+var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CourseDetailUpcoming = function (_React$Component) {
+  _inherits(CourseDetailUpcoming, _React$Component);
+
+  function CourseDetailUpcoming(props) {
+    _classCallCheck(this, CourseDetailUpcoming);
+
+    var _this = _possibleConstructorReturn(this, (CourseDetailUpcoming.__proto__ || Object.getPrototypeOf(CourseDetailUpcoming)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CourseDetailUpcoming, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          { full: true },
+          _react2.default.createElement(
+            'div',
+            { className: 'course-detail' },
+            _react2.default.createElement(_CourseDetailDetails2.default, null),
+            _react2.default.createElement(
+              'div',
+              { className: 'course-detail__content' },
+              _react2.default.createElement(
+                _BigTabs.BigTabs,
+                null,
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/course' },
+                    'Overview'
+                  )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseactivities' },
+                    'Activities'
+                  )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  { active: true },
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseupcoming' },
+                    'Upcoming'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Class schedule'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return CourseDetailUpcoming;
+}(_react2.default.Component);
+
+CourseDetailUpcoming.defaultProps = {};
+CourseDetailUpcoming.propTypes = {};
+exports.default = CourseDetailUpcoming;
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CoursePlayer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CoursePlayer = function (_React$Component) {
+  _inherits(CoursePlayer, _React$Component);
+
+  function CoursePlayer(props) {
+    _classCallCheck(this, CoursePlayer);
+
+    var _this = _possibleConstructorReturn(this, (CoursePlayer.__proto__ || Object.getPrototypeOf(CoursePlayer)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CoursePlayer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Course Player"
+          )
+        )
+      );
+    }
+  }]);
+
+  return CoursePlayer;
+}(_react2.default.Component);
+
+CoursePlayer.defaultProps = {};
+CoursePlayer.propTypes = {};
+exports.default = CoursePlayer;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46351,6 +46821,18 @@ var _Team = require('./Team');
 
 var _Team2 = _interopRequireDefault(_Team);
 
+var _CourseDetailActivities = require('./CourseDetailActivities');
+
+var _CourseDetailActivities2 = _interopRequireDefault(_CourseDetailActivities);
+
+var _CourseDetailUpcoming = require('./CourseDetailUpcoming');
+
+var _CourseDetailUpcoming2 = _interopRequireDefault(_CourseDetailUpcoming);
+
+var _CoursePlayer = require('./CoursePlayer');
+
+var _CoursePlayer2 = _interopRequireDefault(_CoursePlayer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AppRouter = exports.AppRouter = function AppRouter() {
@@ -46371,6 +46853,9 @@ var AppRouter = exports.AppRouter = function AppRouter() {
         _react2.default.createElement(_reactRouterDom.Route, { path: '/help', component: _Help2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _User2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/course', component: _CourseDetail2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/courseactivities', component: _CourseDetailActivities2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/courseupcoming', component: _CourseDetailUpcoming2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/courseplayer', component: _CoursePlayer2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/path', component: _PathDetail2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/search', component: _Search2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/feedback', component: _Feedback2.default }),
@@ -46382,7 +46867,7 @@ var AppRouter = exports.AppRouter = function AppRouter() {
     )
   );
 };
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Overview":"../js/pages/Overview.js","./FourOhFour":"../js/pages/FourOhFour.js","./Catalog":"../js/pages/Catalog.js","./Calendar":"../js/pages/Calendar.js","./Alerts":"../js/pages/Alerts.js","./Help":"../js/pages/Help.js","./User":"../js/pages/User.js","./CourseDetail":"../js/pages/CourseDetail.js","./PathDetail":"../js/pages/PathDetail.js","./Search":"../js/pages/Search.js","../layout/Header":"../js/layout/Header.js","../layout/SiteContainer":"../js/layout/SiteContainer.js","../layout/Footer":"../js/layout/Footer.js","./Feedback":"../js/pages/Feedback.js","./Discover":"../js/pages/Discover.js","./Team":"../js/pages/Team.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Overview":"../js/pages/Overview.js","./FourOhFour":"../js/pages/FourOhFour.js","./Catalog":"../js/pages/Catalog.js","./Calendar":"../js/pages/Calendar.js","./Alerts":"../js/pages/Alerts.js","./Help":"../js/pages/Help.js","./User":"../js/pages/User.js","./CourseDetail":"../js/pages/CourseDetail.js","./PathDetail":"../js/pages/PathDetail.js","./Search":"../js/pages/Search.js","../layout/Header":"../js/layout/Header.js","../layout/SiteContainer":"../js/layout/SiteContainer.js","../layout/Footer":"../js/layout/Footer.js","./Feedback":"../js/pages/Feedback.js","./Discover":"../js/pages/Discover.js","./Team":"../js/pages/Team.js","./CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./CoursePlayer":"../js/pages/CoursePlayer.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

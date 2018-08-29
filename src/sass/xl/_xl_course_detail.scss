@@ -20,15 +20,38 @@
   h1 {
     font-weight: 700;
     color: #fff;
+    margin-bottom: $scale7;
+    line-height: $scale6;
   }
   h2 {
     @extend .h6;
     margin-bottom: $scale5;
   }
+  p {
+    color: $text-dim-color-negative;
+    margin-bottom: $scale7;
+    em {
+      color: #fff;
+      font-weight: 600;
+      font-style: normal;
+    }
+  }
 }
 
 .course-detail__details--metadata {
   align-self: end;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.course-detail__details--metadata--tags {
+  justify-self: start;
+  align-self: center;
+}
+
+.course-detail__details--metadata--mobile {
+  justify-self: end;
+  align-self: center;
 }
 
 .course-detail__content {

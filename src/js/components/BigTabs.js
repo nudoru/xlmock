@@ -33,7 +33,7 @@ export class BigTabs extends React.Component {
   componentDidMount() {}
 
   render() {
-    let {className, children} = this.props;
+    let {className=null, children} = this.props;
 
     let cls = ['c-big-tabs']
 
