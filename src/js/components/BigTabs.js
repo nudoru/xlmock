@@ -20,7 +20,9 @@ export class BigTabs extends React.Component {
   }
 
   static defaultProps = {};
-  static propTypes = {};
+  static propTypes = {
+    negative: PropTypes.bool
+  };
 
   state = {};
 
@@ -31,10 +33,18 @@ export class BigTabs extends React.Component {
   componentDidMount() {}
 
   render() {
-    let {children} = this.props;
+    let {className, children} = this.props;
+
+    let cls = ['c-big-tabs']
+
+    if(this.props.negative) {
+      cls.push('c-big-tabs--negative');
+    }
+
+    cls.push(className);
 
     return (
-      <ul className='c-big-tabs'>
+      <ul className={cls.join(' ')}>
         {children}
       </ul>
     );

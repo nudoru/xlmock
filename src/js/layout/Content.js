@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 class Content extends React.Component {
 
   static defaultProps = {};
-  static propTypes = {};
+  static propTypes = {
+    fullscreenElement: PropTypes.bool
+  };
 
   state = {};
 
@@ -15,7 +17,9 @@ class Content extends React.Component {
   componentDidMount() {}
 
   render() {
-    return (<div className='l-site-content'>{this.props.children}</div>);
+    let cls = this.props.full ? 'l-site-content--full' : 'l-site-content';
+
+    return (<div className={cls}>{this.props.children}</div>);
   }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {withRouter} from 'react-router-dom';
 import Button from "./Button";
 import SVGIcon from "./SVGIcon";
 
@@ -12,6 +13,7 @@ class LearningCard extends React.Component {
     duration: PropTypes.string,
     mod     : PropTypes.string,
     mobile  : PropTypes.bool,
+    asCard  : PropTypes.bool,
     tag     : PropTypes.string,
     ctaLabel: PropTypes.string
   };
@@ -25,8 +27,18 @@ class LearningCard extends React.Component {
   componentDidMount() {
   }
 
+  //https://tylermcginnis.com/react-router-programmatically-navigate/
+  onCardClick = () => {
+    if (this.props.type === 'path') {
+      this.props.history.push('/path');
+    } else {
+      this.props.history.push('/course');
+    }
+  }
+
   render() {
-    let {type, duration, mod, mobile, tag, ctaLabel, children, ...rest} = this.props;
+    // Pulling out staticContext https://github.com/ReactTraining/react-router/issues/4683
+    let {type, duration, mod, mobile, tag, ctaLabel, children, staticContext, ...rest} = this.props;
     let cls                                                             = ['c-card'];
     let typeLabel                                                       = 'Course';
 
@@ -35,7 +47,7 @@ class LearningCard extends React.Component {
       typeLabel = 'Learning Path';
     }
 
-    return (<div className={cls.join(' ')} {...rest}>
+    return (<div className={cls.join(' ')} onClick={this.onCardClick} {...rest}>
       <div className='c-card__contents'>
         <div className='c-card__icon'><SVGIcon name='box'/></div>
         <div className='c-card__duration'>{duration}</div>
@@ -52,4 +64,4 @@ class LearningCard extends React.Component {
   }
 }
 
-export default LearningCard;
+export default withRouter(LearningCard);

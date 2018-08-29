@@ -28,7 +28,7 @@ class Overview extends React.Component {
       <React.Fragment>
         <Hero>
           <MessageBanner>Important message!</MessageBanner>
-          <BigTabs>
+          <BigTabs negative>
             <BigTabs.Tab active><Link to='/'>Overview</Link></BigTabs.Tab>
             <BigTabs.Tab><Link to='/discover'>Discover</Link></BigTabs.Tab>
             <BigTabs.Tab><Link to='/team'>Team</Link></BigTabs.Tab>
@@ -36,7 +36,7 @@ class Overview extends React.Component {
           <HeroPathProgress/>
         </Hero>
         <Content>
-            <TestGridContent title='Your Stuff'/>
+            <TestGridContent title='Your Stuff'numPaths={3} numCourses={4}/>
         </Content>
       </React.Fragment>
     );

@@ -1,24 +1,50 @@
 // a UL tag
 .c-big-tabs {
   @extend .u-list-plain-horizontal;
-  color: #fff;
+  color: #000;
   font-size: $scale2;
-  border-bottom: 1px solid $text-dim-color-negative;
+  border-bottom: 1px solid $text-dim-color;
+  margin-bottom: $scale1;
   li {
     display: inline-block;
-    a{
-      @include transition-all;
-      position: relative;
-      display: block;
-      margin-right: $scale6;
-      padding-bottom: $scale2;
-      border-bottom: 1px solid transparent;
-      margin-bottom: -1px;
-      color: $text-dim-color-negative;
-    }
-    a:hover {
+  }
+  
+  a {
+    @include transition-all;
+    position: relative;
+    display: block;
+    margin-right: $scale6;
+    padding-bottom: $scale2;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+    color: $text-dim-color;
+    &:hover {
       @include translate(0,2px);
       text-decoration: none;
+      color: #000;
+    }
+  }
+
+  .is-active {
+    a {
+      color: #000;
+      border-bottom: 2px solid #000;
+      &:hover {
+        @include translate(0,0);
+      }
+    }
+  }
+  li:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.c-big-tabs--negative {
+  color: #fff;
+  border-bottom: 1px solid $text-dim-color-negative;
+  a {
+    color: $text-dim-color-negative;
+    &:hover {
       color: #fff;
     }
   }
@@ -27,11 +53,5 @@
       color: #fff;
       border-bottom: 2px solid #fff;
     }
-    a:hover {
-      @include translate(0,0);
-    }
-  }
-  li:last-of-type {
-    margin-right: 0;
   }
 }

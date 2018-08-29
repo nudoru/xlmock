@@ -12,8 +12,11 @@
 @import 'xl_bigtabs.scss';
 @import 'xl_header';
 @import 'xl_hero';
+@import 'xl_hero_path_progress';
 @import 'xl_footer';
 @import 'xl_grid';
+@import 'xl_course_detail';
+@import 'xl_path_detail';
 
 body {
   color: $text-color;
@@ -34,4 +37,9 @@ body {
 .l-site-content {
   padding: $scale5 0;
   grid-area: sitecontent;
+}
+
+.l-site-content--full {
+  grid-area: sitecontent;
+  grid-column: 1 / -1;
 }

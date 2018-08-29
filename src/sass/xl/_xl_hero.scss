@@ -39,77 +39,7 @@
   color: #fff;
   grid-template-columns: 2fr 1fr;
   grid-gap: $scale6;
-  padding: $scale5 0;
-
-  .c-current-path {
-    margin-top: $scale1;
-    h1 {
-      font-weight: 700;
-      color: #fff;
-    }
-    h2 {
-      @extend .h6;
-      margin-bottom: $scale5;
-    }
-    .c-path-progress {
-      margin-top: $scale6;
-      margin-bottom: $scale5;
-    }
-
-    p {
-      color: $text-dim-color-negative;
-      em {
-        color: #fff;
-        font-weight: 600;
-        font-style: normal;
-      }
-    }
-  }
-
-  .c-next-steps {
-    align-self: start;
-    display: grid;
-    grid-template: ". title" 1fr
-                    "step step" auto / $scale6 1fr;
-    grid-gap: $scale1;
-
-    h1 {
-      grid-area: title;
-      @extend .h6;
-      margin-bottom: 0;
-      color: #fff;
-    }
-    ul {
-      @extend .u-list-plain;
-      grid-area: step;
-    }
-    li {
-      display: grid;
-      grid-template: "icon details" auto / $scale6 1fr;
-      grid-gap: $scale1;
-      align-content: start;
-      margin-bottom: $scale1;
-    }
-    .c-next-steps__icon {
-      grid-area: icon;
-      justify-self: center;
-      color: #fff;
-    }
-    .c-next-steps__details {
-      grid-area: details;
-      .title {
-        @extend h5;
-        line-height: 1rem;
-        margin-bottom: none;
-        color: #fff !important;
-      }
-      .metadata {
-        display: block;
-        color: $text-dim-color-negative;
-      }
-    }
-
-  }
+  padding: $scale3 0 $scale5 0;
 }
 
 @include max-width($content-width-large) {

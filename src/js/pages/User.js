@@ -22,7 +22,7 @@ class User extends React.Component {
     return (
       <React.Fragment>
         <Hero>
-          <BigTabs>
+          <BigTabs negative>
             <BigTabs.Tab><Link to='/user'>Profile</Link></BigTabs.Tab>
             <BigTabs.Tab><Link to='/user'>Learning Record</Link></BigTabs.Tab>
             <BigTabs.Tab><Link to='/user'>Settings</Link></BigTabs.Tab>

@@ -22,7 +22,7 @@ class Discover extends React.Component {
     return (
       <React.Fragment>
         <Hero>
-          <BigTabs>
+          <BigTabs negative>
             <BigTabs.Tab><Link to='/'>Overview</Link></BigTabs.Tab>
             <BigTabs.Tab active><Link to='/discover'>Discover</Link></BigTabs.Tab>
             <BigTabs.Tab><Link to='/team'>Team</Link></BigTabs.Tab>
