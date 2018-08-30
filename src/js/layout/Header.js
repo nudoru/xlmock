@@ -27,7 +27,7 @@ class Header extends React.Component {
           </ul>
         </div>
         <div className='c-site-header__logo'>
-          <Link to='/'><SiteLogo/></Link>
+          <Link to='/'><img width='200px' src={require('../../img/RHLearning_tool_logo.png')}/></Link>
         </div>
         <div className='c-site-header__nav--secondary'>
           <ul>
@@ -39,7 +39,7 @@ class Header extends React.Component {
       </div>
       <div className='l-site-header--desktop'>
         <div className='c-site-header__logo'>
-          <Link to='/'><SiteLogo/></Link>
+          <Link to='/'><img width='250px' src={require('../../img/RHLearning_tool_logo.png')}/></Link>
         </div>
         <div className='c-site-header__nav'>
           <ul>

@@ -66,3 +66,34 @@
     }
   }
 }
+
+.c-path-metadata {
+  padding: $scale5 0;
+  border-top: 1px solid rgba(255,255,255, .1);
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  align-items: center;
+  color: #fff;
+  p {
+    font-weight: 600;
+    margin: 0;
+  }
+  em {
+    display: block;
+    font-weight: 400;
+    color: $text-dim-color-negative;
+    font-style: normal;
+  }
+}
+
+.c-path-metadata__tags {
+}
+.c-path-metadata__duration {
+  padding-left: $scale5;
+}
+.c-path-metadata__activities {
+  padding-left: $scale5;
+}
+.c-path-metadata__mobile {
+  justify-self: end;
+}

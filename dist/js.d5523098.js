@@ -24574,7 +24574,9 @@ ButtonBar.propTypes = {
   negative: _propTypes2.default.bool
 };
 exports.default = ButtonBar;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/layout/Header.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
+module.exports = "/RHLearning_tool_logo.30f020e9.png";
+},{}],"../js/layout/Header.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -24658,7 +24660,7 @@ var Header = function (_React$Component) {
             _react2.default.createElement(
               _reactRouterDom.Link,
               { to: '/' },
-              _react2.default.createElement(_SiteLogo.SiteLogo, null)
+              _react2.default.createElement('img', { width: '200px', src: require('../../img/RHLearning_tool_logo.png') })
             )
           ),
           _react2.default.createElement(
@@ -24697,7 +24699,7 @@ var Header = function (_React$Component) {
             _react2.default.createElement(
               _reactRouterDom.Link,
               { to: '/' },
-              _react2.default.createElement(_SiteLogo.SiteLogo, null)
+              _react2.default.createElement('img', { width: '250px', src: require('../../img/RHLearning_tool_logo.png') })
             )
           ),
           _react2.default.createElement(
@@ -24787,7 +24789,7 @@ var Header = function (_React$Component) {
 Header.defaultProps = {};
 Header.propTypes = {};
 exports.default = Header;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js","../components/ButtonBar":"../js/components/ButtonBar.js"}],"../js/layout/Hero.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js","../components/ButtonBar":"../js/components/ButtonBar.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/Hero.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45855,7 +45857,113 @@ var CourseDetail = function (_React$Component) {
 CourseDetail.defaultProps = {};
 CourseDetail.propTypes = {};
 exports.default = CourseDetail;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/components/HeroPathProgressMetadata.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Tag = require('./Tag');
+
+var _Tag2 = _interopRequireDefault(_Tag);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HeroPathProgressMetadata = function (_React$Component) {
+  _inherits(HeroPathProgressMetadata, _React$Component);
+
+  function HeroPathProgressMetadata(props) {
+    _classCallCheck(this, HeroPathProgressMetadata);
+
+    var _this = _possibleConstructorReturn(this, (HeroPathProgressMetadata.__proto__ || Object.getPrototypeOf(HeroPathProgressMetadata)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(HeroPathProgressMetadata, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-path-metadata' },
+        _react2.default.createElement(
+          'div',
+          { className: 'c-path-metadata__tags' },
+          _react2.default.createElement(
+            _Tag2.default,
+            { negative: true },
+            'Infrastructure'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'c-path-metadata__duration' },
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'em',
+              null,
+              'Duration'
+            ),
+            '3 weeks'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'c-path-metadata__activities' },
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'em',
+              null,
+              'Activities'
+            ),
+            '126 activities'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'c-path-metadata__mobile' },
+          _react2.default.createElement(_SVGIcon2.default, { large: true, name: 'mobile' })
+        )
+      );
+    }
+  }]);
+
+  return HeroPathProgressMetadata;
+}(_react2.default.Component);
+
+HeroPathProgressMetadata.defaultProps = {};
+HeroPathProgressMetadata.propTypes = {};
+exports.default = HeroPathProgressMetadata;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45871,6 +45979,18 @@ var _react2 = _interopRequireDefault(_react);
 var _Content = require("../layout/Content");
 
 var _Content2 = _interopRequireDefault(_Content);
+
+var _Hero = require("../layout/Hero");
+
+var _Hero2 = _interopRequireDefault(_Hero);
+
+var _HeroPathProgress = require("../components/HeroPathProgress");
+
+var _HeroPathProgress2 = _interopRequireDefault(_HeroPathProgress);
+
+var _HeroPathProgressMetadata = require("../components/HeroPathProgressMetadata");
+
+var _HeroPathProgressMetadata2 = _interopRequireDefault(_HeroPathProgressMetadata);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45902,6 +46022,12 @@ var PathDetail = function (_React$Component) {
         _react2.default.Fragment,
         null,
         _react2.default.createElement(
+          _Hero2.default,
+          null,
+          _react2.default.createElement(_HeroPathProgress2.default, null),
+          _react2.default.createElement(_HeroPathProgressMetadata2.default, null)
+        ),
+        _react2.default.createElement(
           _Content2.default,
           null,
           _react2.default.createElement(
@@ -45920,7 +46046,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
