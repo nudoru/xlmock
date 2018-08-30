@@ -1,0 +1,15 @@
+.c-tagcategory__group {
+  //
+}
+
+.c-tagcategory__tags {
+  .c-tag {
+    margin-right: $scale-1;
+    margin-bottom: $scale-1;
+  }
+}
+
+.c-tagcategory__title {
+  @extend h6;
+  color: $text-dim-color;
+}

@@ -446,6 +446,13 @@ ul.tabs {
   color: #fff;
   border-color: #fff; }
 
+.c-tagcategory__tags .c-tag {
+  margin-right: 0.875rem;
+  margin-bottom: 0.875rem; }
+
+.c-tagcategory__title {
+  color: rgba(0, 0, 0, 0.5); }
+
 .c-label {
   position: relative;
   display: inline-block;
@@ -1194,13 +1201,6 @@ ul.tabs-big {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 3rem; }
-
-.c-tagcategory__group .c-tag {
-  margin-right: 0.875rem;
-  margin-bottom: 0.875rem; }
-
-.c-tagcategory__title {
-  color: rgba(0, 0, 0, 0.5); }
 
 body {
   color: #464646; }

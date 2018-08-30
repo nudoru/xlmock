@@ -45963,7 +45963,82 @@ var HeroPathProgressMetadata = function (_React$Component) {
 HeroPathProgressMetadata.defaultProps = {};
 HeroPathProgressMetadata.propTypes = {};
 exports.default = HeroPathProgressMetadata;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/TagCategoryGroup.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TagCategoryGroup = function (_React$Component) {
+  _inherits(TagCategoryGroup, _React$Component);
+
+  function TagCategoryGroup(props) {
+    _classCallCheck(this, TagCategoryGroup);
+
+    var _this = _possibleConstructorReturn(this, (TagCategoryGroup.__proto__ || Object.getPrototypeOf(TagCategoryGroup)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(TagCategoryGroup, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-tagcategory__group' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return TagCategoryGroup;
+}(_react2.default.Component);
+
+TagCategoryGroup.Title = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'h2',
+    { className: 'c-tagcategory__title' },
+    children
+  );
+};
+
+TagCategoryGroup.Group = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-tagcategory__tags' },
+    children
+  );
+};
+
+TagCategoryGroup.defaultProps = {};
+TagCategoryGroup.propTypes = {};
+exports.default = TagCategoryGroup;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45995,6 +46070,10 @@ var _HeroPathProgressMetadata2 = _interopRequireDefault(_HeroPathProgressMetadat
 var _Tag = require("../components/Tag");
 
 var _Tag2 = _interopRequireDefault(_Tag);
+
+var _TagCategoryGroup = require("../components/TagCategoryGroup");
+
+var _TagCategoryGroup2 = _interopRequireDefault(_TagCategoryGroup);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46061,82 +46140,102 @@ var PathDetail = function (_React$Component) {
                 "Additional Information"
               ),
               _react2.default.createElement(
-                "div",
-                { className: "c-tagcategory__group" },
+                _TagCategoryGroup2.default,
+                null,
                 _react2.default.createElement(
-                  "h2",
-                  { className: "c-tagcategory__title" },
+                  _TagCategoryGroup2.default.Title,
+                  null,
                   "Product"
                 ),
                 _react2.default.createElement(
-                  _Tag2.default,
+                  _TagCategoryGroup2.default.Group,
                   null,
-                  "Ansible"
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Ansible"
+                  )
                 ),
                 _react2.default.createElement(
-                  "h2",
-                  { className: "c-tagcategory__title" },
+                  _TagCategoryGroup2.default.Title,
+                  null,
                   "Language"
                 ),
                 _react2.default.createElement(
-                  _Tag2.default,
+                  _TagCategoryGroup2.default.Group,
                   null,
-                  "English"
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "English"
+                  )
                 ),
                 _react2.default.createElement(
-                  "h2",
-                  { className: "c-tagcategory__title" },
+                  _TagCategoryGroup2.default.Title,
+                  null,
                   "Proficiency"
                 ),
                 _react2.default.createElement(
-                  _Tag2.default,
+                  _TagCategoryGroup2.default.Group,
                   null,
-                  "Intermediate"
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Intermediate"
+                  )
                 ),
                 _react2.default.createElement(
-                  "h2",
-                  { className: "c-tagcategory__title" },
+                  _TagCategoryGroup2.default.Title,
+                  null,
                   "Target Role"
                 ),
                 _react2.default.createElement(
-                  _Tag2.default,
+                  _TagCategoryGroup2.default.Group,
                   null,
-                  "Consultant"
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Consultant"
+                  ),
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Developer"
+                  ),
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Engineer"
+                  )
                 ),
                 _react2.default.createElement(
-                  _Tag2.default,
+                  _TagCategoryGroup2.default.Title,
                   null,
-                  "Developer"
-                ),
-                _react2.default.createElement(
-                  _Tag2.default,
-                  null,
-                  "Engineer"
-                ),
-                _react2.default.createElement(
-                  "h2",
-                  { className: "c-tagcategory__title" },
                   "Keywords"
                 ),
                 _react2.default.createElement(
-                  _Tag2.default,
+                  _TagCategoryGroup2.default.Group,
                   null,
-                  "Ansible"
-                ),
-                _react2.default.createElement(
-                  _Tag2.default,
-                  null,
-                  "Cloud"
-                ),
-                _react2.default.createElement(
-                  _Tag2.default,
-                  null,
-                  "Automation"
-                ),
-                _react2.default.createElement(
-                  _Tag2.default,
-                  null,
-                  "Administration"
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Ansible"
+                  ),
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Cloud"
+                  ),
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Automation"
+                  ),
+                  _react2.default.createElement(
+                    _Tag2.default,
+                    null,
+                    "Administration"
+                  )
                 )
               )
             )
@@ -46152,7 +46251,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

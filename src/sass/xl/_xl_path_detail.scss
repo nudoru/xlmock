@@ -17,14 +17,3 @@
   @extend h5;
 }
 
-.c-tagcategory__group {
-  .c-tag {
-    margin-right: $scale-1;
-    margin-bottom: $scale-1;
-  }
-}
-
-.c-tagcategory__title {
-  @extend h6;
-  color: $text-dim-color;
-}
