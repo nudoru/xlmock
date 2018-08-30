@@ -45992,6 +45992,10 @@ var _HeroPathProgressMetadata = require("../components/HeroPathProgressMetadata"
 
 var _HeroPathProgressMetadata2 = _interopRequireDefault(_HeroPathProgressMetadata);
 
+var _Tag = require("../components/Tag");
+
+var _Tag2 = _interopRequireDefault(_Tag);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46031,9 +46035,111 @@ var PathDetail = function (_React$Component) {
           _Content2.default,
           null,
           _react2.default.createElement(
-            "h1",
-            null,
-            "Path detail"
+            "div",
+            { className: "l-path-detail" },
+            _react2.default.createElement(
+              "div",
+              { className: "l-path-detail__activities" },
+              "asdfasdfasdf"
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "l-path-detail__metadata" },
+              _react2.default.createElement(
+                "h1",
+                { className: "l-path-detail__metadata__title" },
+                "About this path"
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+              ),
+              _react2.default.createElement(
+                "h1",
+                { className: "l-path-detail__metadata__title" },
+                "Additional Information"
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "c-tagcategory__group" },
+                _react2.default.createElement(
+                  "h2",
+                  { className: "c-tagcategory__title" },
+                  "Product"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Ansible"
+                ),
+                _react2.default.createElement(
+                  "h2",
+                  { className: "c-tagcategory__title" },
+                  "Language"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "English"
+                ),
+                _react2.default.createElement(
+                  "h2",
+                  { className: "c-tagcategory__title" },
+                  "Proficiency"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Intermediate"
+                ),
+                _react2.default.createElement(
+                  "h2",
+                  { className: "c-tagcategory__title" },
+                  "Target Role"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Consultant"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Developer"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Engineer"
+                ),
+                _react2.default.createElement(
+                  "h2",
+                  { className: "c-tagcategory__title" },
+                  "Keywords"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Ansible"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Cloud"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Automation"
+                ),
+                _react2.default.createElement(
+                  _Tag2.default,
+                  null,
+                  "Administration"
+                )
+              )
+            )
           )
         )
       );
@@ -46046,7 +46152,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

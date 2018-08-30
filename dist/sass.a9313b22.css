@@ -180,7 +180,7 @@ body {
   font-size: 1rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1, h2, h3, h4, h5, .c-next-steps .c-next-steps__details .title, h6,
+h1, h2, h3, h4, h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, h6, .c-tagcategory__title,
 .h1, .h2, .h3, .h4, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1, .h6, .c-banner-message__message h1, .c-card__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .course-detail__details--title h2 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
@@ -202,11 +202,11 @@ h4, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .c-next-steps .c-next-steps__details .title, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1 {
+h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .h6, .c-banner-message__message h1, .c-card__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .course-detail__details--title h2 {
+h6, .c-tagcategory__title, .h6, .c-banner-message__message h1, .c-card__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .course-detail__details--title h2 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -1189,6 +1189,18 @@ ul.tabs-big {
 .course-detail__content {
   grid-area: content;
   padding: 2rem; }
+
+.l-path-detail {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 3rem; }
+
+.c-tagcategory__group .c-tag {
+  margin-right: 0.875rem;
+  margin-bottom: 0.875rem; }
+
+.c-tagcategory__title {
+  color: rgba(0, 0, 0, 0.5); }
 
 body {
   color: #464646; }

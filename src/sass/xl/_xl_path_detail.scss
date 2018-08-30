@@ -1,0 +1,30 @@
+// Grid columns matches columns in the hero current path details
+.l-path-detail {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: $scale6;
+}
+
+.l-path-detail__activities {
+
+}
+
+.l-path-detail__metadata {
+
+}
+
+.l-path-detail__metadata__title {
+  @extend h5;
+}
+
+.c-tagcategory__group {
+  .c-tag {
+    margin-right: $scale-1;
+    margin-bottom: $scale-1;
+  }
+}
+
+.c-tagcategory__title {
+  @extend h6;
+  color: $text-dim-color;
+}
