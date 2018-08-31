@@ -24695,19 +24695,15 @@ var Header = function (_React$Component) {
           'div',
           { className: 'l-site-header--mobile' },
           _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__nav--mobile' },
+            _ButtonBar2.default,
+            { negative: true, className: 'c-site-header__nav--mobile' },
             _react2.default.createElement(
-              'ul',
+              _ButtonBar2.default.Icon,
               null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  'a',
-                  { href: '#' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
-                )
+                'a',
+                { href: '#' },
+                _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
               )
             )
           ),
@@ -24721,33 +24717,29 @@ var Header = function (_React$Component) {
             )
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'c-site-header__nav--secondary' },
+            _ButtonBar2.default,
+            { negative: true, className: 'c-site-header__nav--secondary' },
             _react2.default.createElement(
-              'ul',
+              _ButtonBar2.default.Icon,
               null,
               _react2.default.createElement(
-                'li',
-                null,
+                _reactRouterDom.Link,
+                { to: '/alerts' },
+                _react2.default.createElement(_SVGIcon2.default, { name: 'bell' }),
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/alerts' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'bell' }),
-                  _react2.default.createElement(
-                    _AlertBadge2.default,
-                    null,
-                    '3'
-                  )
+                  _AlertBadge2.default,
+                  null,
+                  '3'
                 )
-              ),
+              )
+            ),
+            _react2.default.createElement(
+              _ButtonBar2.default.Icon,
+              null,
               _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
-                )
+                _reactRouterDom.Link,
+                { to: '/user' },
+                _react2.default.createElement(_SVGIcon2.default, { name: 'user' })
               )
             )
           )

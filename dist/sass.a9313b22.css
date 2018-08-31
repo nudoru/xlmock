@@ -303,6 +303,14 @@ ul.tabs {
 .u-list-plain-horizontal li, .c-button-bar__icons ul li, .c-item-table__filters ul li, ul.tabs-big li, .c-content-metadata li, .c-big-tabs li, .c-site-header__nav ul li, .c-site-footer__nav li {
   display: inline; }
 
+.l-site-content {
+  padding: 2rem 0;
+  grid-area: sitecontent; }
+
+.l-site-content--full {
+  grid-area: sitecontent;
+  grid-column: 1 / -1; }
+
 .u-svgicon {
   position: relative;
   display: inline-block;
@@ -1212,11 +1220,3 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template: "siteheader siteheader siteheader" auto "sitedashboardnav sitedashboardnav sitedashboardnav" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr minmax(auto, 1140px) 1fr; }
-
-.l-site-content {
-  padding: 2rem 0;
-  grid-area: sitecontent; }
-
-.l-site-content--full {
-  grid-area: sitecontent;
-  grid-column: 1 / -1; }

@@ -1,3 +1,4 @@
+@import 'xl_content';
 @import 'xl_svg_icon';
 @import 'xl_well';
 @import 'xl_buttons';
@@ -35,12 +36,3 @@ body {
                 ". sitefooter ." auto / 1fr minmax(auto, $content-width-large) 1fr;
 }
 
-.l-site-content {
-  padding: $scale5 0;
-  grid-area: sitecontent;
-}
-
-.l-site-content--full {
-  grid-area: sitecontent;
-  grid-column: 1 / -1;
-}

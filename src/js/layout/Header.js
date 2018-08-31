@@ -22,20 +22,16 @@ class Header extends React.Component {
   render() {
     return (<div className='l-site-header'>
       <div className='l-site-header--mobile'>
-        <div className='c-site-header__nav--mobile'>
-          <ul>
-            <li><a href='#'><SVGIcon name='menu'/></a></li>
-          </ul>
-        </div>
+        <ButtonBar negative className='c-site-header__nav--mobile'>
+          <ButtonBar.Icon><a href="#"><SVGIcon name='menu'/></a></ButtonBar.Icon>
+        </ButtonBar>
         <div className='c-site-header__logo'>
           <Link to='/'><img width='200px' src={require('../../img/RHLearning_tool_logo.png')}/></Link>
         </div>
-        <div className='c-site-header__nav--secondary'>
-          <ul>
-            <li><Link to='/alerts'><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></Link></li>
-            <li><Link to='/user'><SVGIcon name='user'/></Link></li>
-          </ul>
-        </div>
+        <ButtonBar negative className='c-site-header__nav--secondary'>
+          <ButtonBar.Icon><Link to='/alerts'><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></Link></ButtonBar.Icon>
+          <ButtonBar.Icon><Link to='/user'><SVGIcon name='user'/></Link></ButtonBar.Icon>
+        </ButtonBar>
 
       </div>
       <div className='l-site-header--desktop'>
