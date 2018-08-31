@@ -453,10 +453,11 @@ ul.tabs {
 .c-tagcategory__title {
   color: rgba(0, 0, 0, 0.5); }
 
-.c-label {
+.c-alert-badge {
   position: relative;
+  top: -3px;
   display: inline-block;
-  margin-right: 0.875rem;
+  margin-left: 0.4375rem;
   background-color: #ca0612;
   color: #fff;
   padding: 0 0.5rem;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from "../components/Button";
 import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
+import AlertBadge from "../components/AlertBadge";
 
 class CardLayout extends React.Component {
 
@@ -28,7 +29,7 @@ class CardLayout extends React.Component {
     return (
       <div className='l-card-grid'>
         <div className='c-card-grid__title'>
-          <h1>{title}</h1>
+          <h1>{title}<AlertBadge>99</AlertBadge></h1>
         </div>
         <div className='c-card-grid__filters'>
           <Button>Recent <SVGIcon name='chevron-down' className='u-icon-button--right'/></Button>

@@ -24574,7 +24574,60 @@ ButtonBar.propTypes = {
   negative: _propTypes2.default.bool
 };
 exports.default = ButtonBar;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/AlertBadge.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AlertBadge = function (_React$Component) {
+  _inherits(AlertBadge, _React$Component);
+
+  function AlertBadge(props) {
+    _classCallCheck(this, AlertBadge);
+
+    var _this = _possibleConstructorReturn(this, (AlertBadge.__proto__ || Object.getPrototypeOf(AlertBadge)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(AlertBadge, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-alert-badge' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return AlertBadge;
+}(_react2.default.Component);
+
+AlertBadge.defaultProps = {};
+AlertBadge.propTypes = {};
+exports.default = AlertBadge;
+},{"react":"../../node_modules/react/index.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
 module.exports = "/RHLearning_tool_logo.30f020e9.png";
 },{}],"../js/layout/Header.js":[function(require,module,exports) {
 'use strict';
@@ -24604,6 +24657,10 @@ var _SiteLogo = require('../components/SiteLogo');
 var _ButtonBar = require('../components/ButtonBar');
 
 var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
+
+var _AlertBadge = require('../components/AlertBadge');
+
+var _AlertBadge2 = _interopRequireDefault(_AlertBadge);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24675,7 +24732,12 @@ var Header = function (_React$Component) {
                 _react2.default.createElement(
                   _reactRouterDom.Link,
                   { to: '/alerts' },
-                  _react2.default.createElement(_SVGIcon2.default, { name: 'bell' })
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'bell' }),
+                  _react2.default.createElement(
+                    _AlertBadge2.default,
+                    null,
+                    '3'
+                  )
                 )
               ),
               _react2.default.createElement(
@@ -24765,7 +24827,12 @@ var Header = function (_React$Component) {
               _react2.default.createElement(
                 _reactRouterDom.Link,
                 { to: '/alerts' },
-                _react2.default.createElement(_SVGIcon2.default, { name: 'bell' })
+                _react2.default.createElement(_SVGIcon2.default, { name: 'bell' }),
+                _react2.default.createElement(
+                  _AlertBadge2.default,
+                  null,
+                  '3'
+                )
               )
             ),
             _react2.default.createElement(
@@ -24789,7 +24856,7 @@ var Header = function (_React$Component) {
 Header.defaultProps = {};
 Header.propTypes = {};
 exports.default = Header;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js","../components/ButtonBar":"../js/components/ButtonBar.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/Hero.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/Hero.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25345,6 +25412,10 @@ var _ButtonBar = require('../components/ButtonBar');
 
 var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
 
+var _AlertBadge = require('../components/AlertBadge');
+
+var _AlertBadge2 = _interopRequireDefault(_AlertBadge);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25392,7 +25463,12 @@ var CardLayout = function (_React$Component) {
           _react2.default.createElement(
             'h1',
             null,
-            title
+            title,
+            _react2.default.createElement(
+              _AlertBadge2.default,
+              null,
+              '99'
+            )
           )
         ),
         _react2.default.createElement(
@@ -25455,7 +25531,7 @@ CardLayout.propTypes = {
   title: _propTypes2.default.string
 };
 exports.default = CardLayout;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js"}],"../js/components/LearningCard.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js"}],"../js/components/LearningCard.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

@@ -1,0 +1,16 @@
+.c-alert-badge {
+  position: relative;
+  top: -3px;
+  display: inline-block;
+  margin-left: $scale-1 / 2;
+  background-color: $alert-badge-color;
+  color: #fff;
+  padding: 0 $alert-badge-size / 3;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  height: $alert-badge-size;
+  line-height: $alert-badge-size;
+  min-width: $alert-badge-size;
+  border-radius: $alert-badge-size;
+}

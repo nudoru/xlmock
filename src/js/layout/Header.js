@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import SVGIcon from "../components/SVGIcon";
 import {SiteLogo} from "../components/SiteLogo";
 import ButtonBar from "../components/ButtonBar";
+import AlertBadge from "../components/AlertBadge";
 
 class Header extends React.Component {
 
@@ -31,7 +32,7 @@ class Header extends React.Component {
         </div>
         <div className='c-site-header__nav--secondary'>
           <ul>
-            <li><Link to='/alerts'><SVGIcon name='bell'/></Link></li>
+            <li><Link to='/alerts'><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></Link></li>
             <li><Link to='/user'><SVGIcon name='user'/></Link></li>
           </ul>
         </div>
@@ -53,7 +54,7 @@ class Header extends React.Component {
         <ButtonBar negative className='c-site-header__nav--secondary'>
           <ButtonBar.Icon><Link to='/feedback'><SVGIcon name='message'/></Link></ButtonBar.Icon>
           <ButtonBar.Icon><Link to='/help'><SVGIcon name='help'/></Link></ButtonBar.Icon>
-          <ButtonBar.Icon><Link to='/alerts'><SVGIcon name='bell'/></Link></ButtonBar.Icon>
+          <ButtonBar.Icon><Link to='/alerts'><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></Link></ButtonBar.Icon>
           <ButtonBar.Icon><Link to='/user'><SVGIcon name='user'/></Link></ButtonBar.Icon>
         </ButtonBar>
       </div>
