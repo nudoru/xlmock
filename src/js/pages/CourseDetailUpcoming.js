@@ -22,9 +22,9 @@ class CourseDetailUpcoming extends React.Component {
     return (
       <React.Fragment>
         <Content full>
-          <div className='course-detail'>
+          <div className='l-course-detail'>
             <CourseDetailDetails/>
-            <div className='course-detail__content'>
+            <div className='l-course-detail__content'>
               <BigTabs>
                 <BigTabs.Tab><Link to='/course'>Overview</Link></BigTabs.Tab>
                 <BigTabs.Tab><Link to='/courseactivities'>Activities</Link></BigTabs.Tab>

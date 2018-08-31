@@ -45690,10 +45690,10 @@ var CourseDetailDetails = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'course-detail__details' },
+        { className: 'l-course-detail__details' },
         _react2.default.createElement(
           'div',
-          { className: 'course-detail__details--title' },
+          { className: 'c-course-detail__details--title' },
           _react2.default.createElement(
             'h2',
             null,
@@ -45718,10 +45718,10 @@ var CourseDetailDetails = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          { className: 'course-detail__details--metadata' },
+          { className: 'c-course-detail__details--metadata' },
           _react2.default.createElement(
             'div',
-            { className: 'course-detail__details--metadata--tags' },
+            { className: 'c-course-detail__details--metadata--tags' },
             _react2.default.createElement(
               _Tag2.default,
               { negative: true },
@@ -45730,7 +45730,7 @@ var CourseDetailDetails = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'course-detail__details--metadata--mobile' },
+            { className: 'c-course-detail__details--metadata--mobile' },
             _react2.default.createElement(_SVGIcon2.default, { large: true, name: 'mobile' })
           )
         )
@@ -45803,11 +45803,11 @@ var CourseDetail = function (_React$Component) {
           { full: true },
           _react2.default.createElement(
             'div',
-            { className: 'course-detail' },
+            { className: 'l-course-detail' },
             _react2.default.createElement(_CourseDetailDetails2.default, null),
             _react2.default.createElement(
               'div',
-              { className: 'course-detail__content' },
+              { className: 'l-course-detail__content' },
               _react2.default.createElement(
                 _BigTabs.BigTabs,
                 null,
@@ -46842,11 +46842,11 @@ var CourseDetailActivities = function (_React$Component) {
           { full: true },
           _react2.default.createElement(
             'div',
-            { className: 'course-detail' },
+            { className: 'l-course-detail' },
             _react2.default.createElement(_CourseDetailDetails2.default, null),
             _react2.default.createElement(
               'div',
-              { className: 'course-detail__content' },
+              { className: 'l-course-detail__content' },
               _react2.default.createElement(
                 _BigTabs.BigTabs,
                 null,
@@ -46955,11 +46955,11 @@ var CourseDetailUpcoming = function (_React$Component) {
           { full: true },
           _react2.default.createElement(
             'div',
-            { className: 'course-detail' },
+            { className: 'l-course-detail' },
             _react2.default.createElement(_CourseDetailDetails2.default, null),
             _react2.default.createElement(
               'div',
-              { className: 'course-detail__content' },
+              { className: 'l-course-detail__content' },
               _react2.default.createElement(
                 _BigTabs.BigTabs,
                 null,

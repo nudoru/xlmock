@@ -1,11 +1,11 @@
-.course-detail {
+.l-course-detail {
   display: grid;
   grid-template: 'details content content' auto / 1fr 1fr 1fr;
   width: 100%;
   height: 100%;
 }
 
-.course-detail__details {
+.l-course-detail__details {
   grid-area: details;
   padding: $scale5;
   background-color: $color-primary;
@@ -15,7 +15,7 @@
   height: 100%;
 }
 
-.course-detail__details--title {
+.c-course-detail__details--title {
   align-self: center;
   h1 {
     font-weight: 700;
@@ -38,23 +38,23 @@
   }
 }
 
-.course-detail__details--metadata {
+.c-course-detail__details--metadata {
   align-self: end;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.course-detail__details--metadata--tags {
+.c-course-detail__details--metadata--tags {
   justify-self: start;
   align-self: center;
 }
 
-.course-detail__details--metadata--mobile {
+.c-course-detail__details--metadata--mobile {
   justify-self: end;
   align-self: center;
 }
 
-.course-detail__content {
+.l-course-detail__content {
   grid-area: content;
   padding: $scale5;
 }
