@@ -11,6 +11,8 @@ import {
   PathActivityRow,
   PathActivityTable
 } from "../components/PathActivityTable";
+import SVGIcon from "../components/SVGIcon";
+import * as Lorem from '../utils/Lorem';
 
 class PathDetail extends React.Component {
 
@@ -37,30 +39,33 @@ class PathDetail extends React.Component {
           <div className='l-path-detail'>
             <div className='l-path-detail__activities'>
               <PathActivitySection>
-                <PathActivitySection.Title>Week 1</PathActivitySection.Title>
+                <PathActivitySection.Title>{Lorem.title(5,10)}</PathActivitySection.Title>
                 <PathActivitySubsection>
-                  <PathActivitySubsection.Title>Introduction</PathActivitySubsection.Title>
+                  <PathActivitySubsection.Title>{Lorem.title(5,10)}</PathActivitySubsection.Title>
                   <PathActivitySubsection.Description>
-                    <p>Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry. Lorem Ipsum has been the industry's
-                      standard dummy text ever since the 1500s, when an unknown
-                      printer took a galley of type and scrambled it to make a
-                      type specimen book.</p>
+                    <p>{Lorem.sentence(10,50)}</p>
                   </PathActivitySubsection.Description>
                   <PathActivityTable>
                     <PathActivityRow>
-                      <PathActivityRow.Icon>I</PathActivityRow.Icon>
-                      <PathActivityRow.Details>Reactant Hyperfluxors and You</PathActivityRow.Details>
-                      <PathActivityRow.Completion>X</PathActivityRow.Completion>
+                      <PathActivityRow.Icon><SVGIcon name='package'/></PathActivityRow.Icon>
+                      <PathActivityRow.Details>
+                        <p className="title">{Lorem.title(5,15)}</p>
+                        <p className="metadata">2 hours 30 minutes | Video</p>
+                      </PathActivityRow.Details>
+                      <PathActivityRow.Completion><SVGIcon name='check-circle'/></PathActivityRow.Completion>
                     </PathActivityRow>
                     <PathActivityRow>
-                      <PathActivityRow.Icon>I</PathActivityRow.Icon>
-                      <PathActivityRow.Details>Reactant Hyperfluxors and You</PathActivityRow.Details>
-                      <PathActivityRow.Completion>X</PathActivityRow.Completion>
+                      <PathActivityRow.Icon><SVGIcon name='package'/></PathActivityRow.Icon>
+                      <PathActivityRow.Details>
+                        <p className="title">{Lorem.title(3,15)}</p>
+                        <p className="metadata">2 hours 30 minutes | Video</p>
+                      </PathActivityRow.Details>
+                      <PathActivityRow.Completion><SVGIcon name='circle'/></PathActivityRow.Completion>
                     </PathActivityRow>
                   </PathActivityTable>
                 </PathActivitySubsection>
               </PathActivitySection>
+
 
 
             </div>

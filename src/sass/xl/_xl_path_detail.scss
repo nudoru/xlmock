@@ -17,7 +17,26 @@
   @extend h5;
 }
 
-.l-path-detail__activities__section {}
+.l-path-detail__activities__section {
+  // For the connecting line
+  &::after {
+    display: block;
+    content: '';
+    margin-top: $scale1;
+    padding: $scale5 0;
+    text-align: center;
+    background: linear-gradient(180deg, $text-dim-color, $text-dim-color);
+    background-position: 50%;
+    background-repeat: repeat-y;
+    background-size: 1px auto;
+  }
+  &:last-of-type::after {
+    content: none;
+  }
+  &:not(:first-child) {
+    margin-top: -$scale5;
+  }
+}
 
 .l-path-detail__activities__section__title {
   @extend h2;
@@ -47,6 +66,7 @@
 .l-path-detail__activities__activity__row {
   display: grid;
   grid-template-columns: 50px auto 50px;
+  grid-column-gap: $scale1;
   align-items: center;
   justify-items: center;
   padding-top: $scale5;
@@ -54,5 +74,15 @@
 .l-path-detail__activities__activity__row__icon {}
 .l-path-detail__activities__activity__row__details {
   justify-self: start;
+  .title {
+    font-weight: 600;
+    display: block;
+    margin: 0;
+  }
+  .metadata {
+    color: $text-dim-color;
+    display: block;
+    margin: 0;
+  }
 }
 .l-path-detail__activities__activity__row__completion {}
