@@ -5,6 +5,12 @@ import HeroPathProgress from "../components/HeroPathProgress";
 import HeroPathProgressMetadata from "../components/HeroPathProgressMetadata";
 import Tag from '../components/Tag';
 import TagCategoryGroup from "../components/TagCategoryGroup";
+import PathActivitySection from "../components/PathActivitySection";
+import PathActivitySubsection from "../components/PathActivitySubsection";
+import {
+  PathActivityRow,
+  PathActivityTable
+} from "../components/PathActivityTable";
 
 class PathDetail extends React.Component {
 
@@ -29,7 +35,35 @@ class PathDetail extends React.Component {
         </Hero>
         <Content>
           <div className='l-path-detail'>
-            <div className='l-path-detail__activities'>asdfasdfasdf</div>
+            <div className='l-path-detail__activities'>
+              <PathActivitySection>
+                <PathActivitySection.Title>Week 1</PathActivitySection.Title>
+                <PathActivitySubsection>
+                  <PathActivitySubsection.Title>Introduction</PathActivitySubsection.Title>
+                  <PathActivitySubsection.Description>
+                    <p>Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum has been the industry's
+                      standard dummy text ever since the 1500s, when an unknown
+                      printer took a galley of type and scrambled it to make a
+                      type specimen book.</p>
+                  </PathActivitySubsection.Description>
+                  <PathActivityTable>
+                    <PathActivityRow>
+                      <PathActivityRow.Icon>I</PathActivityRow.Icon>
+                      <PathActivityRow.Details>Reactant Hyperfluxors and You</PathActivityRow.Details>
+                      <PathActivityRow.Completion>X</PathActivityRow.Completion>
+                    </PathActivityRow>
+                    <PathActivityRow>
+                      <PathActivityRow.Icon>I</PathActivityRow.Icon>
+                      <PathActivityRow.Details>Reactant Hyperfluxors and You</PathActivityRow.Details>
+                      <PathActivityRow.Completion>X</PathActivityRow.Completion>
+                    </PathActivityRow>
+                  </PathActivityTable>
+                </PathActivitySubsection>
+              </PathActivitySection>
+
+
+            </div>
             <div className='l-path-detail__metadata'>
               <h1 className='l-path-detail__metadata__title'>About this
                 path</h1>

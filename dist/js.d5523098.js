@@ -24339,6 +24339,77 @@ var Help = function Help() {
   );
 };
 
+var Check = function Check() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'check' },
+    _react2.default.createElement('polyline', { points: '20 6 9 17 4 12' })
+  );
+};
+
+var CheckSquare = function CheckSquare() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'check-square' },
+    _react2.default.createElement('polyline', { points: '9 11 12 14 22 4' }),
+    _react2.default.createElement('path', { d: 'M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11' })
+  );
+};
+
+var CheckCircle = function CheckCircle() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'check-circle' },
+    _react2.default.createElement('path', { d: 'M22 11.08V12a10 10 0 1 1-5.93-9.14' }),
+    _react2.default.createElement('polyline', { points: '22 4 12 14.01 9 11.01' })
+  );
+};
+
+var Circle = function Circle() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'circle' },
+    _react2.default.createElement('circle', { cx: '12', cy: '12', r: '10' })
+  );
+};
+
+var Square = function Square() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'square' },
+    _react2.default.createElement('rect', { x: '3', y: '3', width: '18', height: '18', rx: '2', ry: '2' })
+  );
+};
+
+var X = function X() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'x' },
+    _react2.default.createElement('line', { x1: '18', y1: '6', x2: '6', y2: '18' }),
+    _react2.default.createElement('line', { x1: '6', y1: '6', x2: '18', y2: '18' })
+  );
+};
+
+var XCircle = function XCircle() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'x-circle' },
+    _react2.default.createElement('circle', { cx: '12', cy: '12', r: '10' }),
+    _react2.default.createElement('line', { x1: '15', y1: '9', x2: '9', y2: '15' }),
+    _react2.default.createElement('line', { x1: '9', y1: '9', x2: '15', y2: '15' })
+  );
+};
+
+var XSquare = function XSquare() {
+  return _react2.default.createElement(
+    SVG,
+    { name: 'x-square' },
+    _react2.default.createElement('rect', { x: '3', y: '3', width: '18', height: '18', rx: '2', ry: '2' }),
+    _react2.default.createElement('line', { x1: '9', y1: '9', x2: '15', y2: '15' }),
+    _react2.default.createElement('line', { x1: '15', y1: '9', x2: '9', y2: '15' })
+  );
+};
+
 var Icon = function Icon(props) {
   switch (props.name) {
     case "flag":
@@ -24367,6 +24438,22 @@ var Icon = function Icon(props) {
       return _react2.default.createElement(Message, props);
     case "help":
       return _react2.default.createElement(Help, props);
+    case "check":
+      return _react2.default.createElement(Check, props);
+    case "check-square":
+      return _react2.default.createElement(CheckSquare, props);
+    case "check-circle":
+      return _react2.default.createElement(CheckCircle, props);
+    case "circle":
+      return _react2.default.createElement(Circle, props);
+    case "square":
+      return _react2.default.createElement(Square, props);
+    case "x":
+      return _react2.default.createElement(X, props);
+    case "x-square":
+      return _react2.default.createElement(XSquare, props);
+    case "x-circle":
+      return _react2.default.createElement(XCircle, props);
     default:
       return _react2.default.createElement(
         'span',
@@ -46106,7 +46193,305 @@ TagCategoryGroup.Group = function (_ref2) {
 TagCategoryGroup.defaultProps = {};
 TagCategoryGroup.propTypes = {};
 exports.default = TagCategoryGroup;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivitySection.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathActivitySection = function (_React$Component) {
+  _inherits(PathActivitySection, _React$Component);
+
+  function PathActivitySection(props) {
+    _classCallCheck(this, PathActivitySection);
+
+    var _this = _possibleConstructorReturn(this, (PathActivitySection.__proto__ || Object.getPrototypeOf(PathActivitySection)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathActivitySection, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['children']);
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-path-detail__activities__section' },
+        children
+      );
+    }
+  }]);
+
+  return PathActivitySection;
+}(_react2.default.Component);
+
+PathActivitySection.Title = function (_ref) {
+  var children = _ref.children,
+      rest = _objectWithoutProperties(_ref, ['children']);
+
+  return _react2.default.createElement(
+    'h1',
+    _extends({ className: 'l-path-detail__activities__section__title' }, rest),
+    children
+  );
+};
+
+PathActivitySection.defaultProps = {};
+PathActivitySection.propTypes = {};
+exports.default = PathActivitySection;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivitySubsection.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathActivitySubsection = function (_React$Component) {
+  _inherits(PathActivitySubsection, _React$Component);
+
+  function PathActivitySubsection(props) {
+    _classCallCheck(this, PathActivitySubsection);
+
+    var _this = _possibleConstructorReturn(this, (PathActivitySubsection.__proto__ || Object.getPrototypeOf(PathActivitySubsection)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathActivitySubsection, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['children']);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: 'l-path-detail__activities__subsection' }, rest),
+        children
+      );
+    }
+  }]);
+
+  return PathActivitySubsection;
+}(_react2.default.Component);
+
+PathActivitySubsection.Title = function (_ref) {
+  var children = _ref.children,
+      rest = _objectWithoutProperties(_ref, ['children']);
+
+  return _react2.default.createElement(
+    'h2',
+    _extends({ className: 'l-path-detail__activities__subsection__title' }, rest),
+    children
+  );
+};
+
+PathActivitySubsection.Description = function (_ref2) {
+  var children = _ref2.children,
+      rest = _objectWithoutProperties(_ref2, ['children']);
+
+  return _react2.default.createElement(
+    'div',
+    _extends({ className: 'l-path-detail__activities__subsection__description' }, rest),
+    children
+  );
+};
+
+PathActivitySubsection.defaultProps = {};
+PathActivitySubsection.propTypes = {};
+exports.default = PathActivitySubsection;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivityTable.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PathActivityRow = exports.PathActivityTable = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathActivityTable = exports.PathActivityTable = function (_React$Component) {
+  _inherits(PathActivityTable, _React$Component);
+
+  function PathActivityTable(props) {
+    _classCallCheck(this, PathActivityTable);
+
+    var _this = _possibleConstructorReturn(this, (PathActivityTable.__proto__ || Object.getPrototypeOf(PathActivityTable)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathActivityTable, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['children']);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({
+          className: 'l-path-detail__activities__activity__table' }, rest),
+        children
+      );
+    }
+  }]);
+
+  return PathActivityTable;
+}(_react2.default.Component);
+
+PathActivityTable.defaultProps = {};
+PathActivityTable.propTypes = {};
+
+var PathActivityRow = exports.PathActivityRow = function (_React$Component2) {
+  _inherits(PathActivityRow, _React$Component2);
+
+  function PathActivityRow(props) {
+    _classCallCheck(this, PathActivityRow);
+
+    var _this2 = _possibleConstructorReturn(this, (PathActivityRow.__proto__ || Object.getPrototypeOf(PathActivityRow)).call(this, props));
+
+    _this2.state = {};
+    return _this2;
+  }
+
+  _createClass(PathActivityRow, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props2 = this.props,
+          children = _props2.children,
+          rest = _objectWithoutProperties(_props2, ['children']);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({
+          className: 'l-path-detail__activities__activity__row' }, rest),
+        children
+      );
+    }
+  }]);
+
+  return PathActivityRow;
+}(_react2.default.Component);
+
+PathActivityRow.Icon = function (_ref) {
+  var children = _ref.children,
+      rest = _objectWithoutProperties(_ref, ['children']);
+
+  return _react2.default.createElement(
+    'div',
+    _extends({
+      className: 'l-path-detail__activities__activity__row__icon' }, rest),
+    children
+  );
+};
+
+PathActivityRow.Details = function (_ref2) {
+  var children = _ref2.children,
+      rest = _objectWithoutProperties(_ref2, ['children']);
+
+  return _react2.default.createElement(
+    'div',
+    _extends({
+      className: 'l-path-detail__activities__activity__row__details' }, rest),
+    children
+  );
+};
+
+PathActivityRow.Completion = function (_ref3) {
+  var children = _ref3.children,
+      rest = _objectWithoutProperties(_ref3, ['children']);
+
+  return _react2.default.createElement(
+    'div',
+    _extends({
+      className: 'l-path-detail__activities__activity__row__completion' }, rest),
+    children
+  );
+};
+
+PathActivityRow.defaultProps = {};
+PathActivityRow.propTypes = {};
+},{"react":"../../node_modules/react/index.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46142,6 +46527,16 @@ var _Tag2 = _interopRequireDefault(_Tag);
 var _TagCategoryGroup = require("../components/TagCategoryGroup");
 
 var _TagCategoryGroup2 = _interopRequireDefault(_TagCategoryGroup);
+
+var _PathActivitySection = require("../components/PathActivitySection");
+
+var _PathActivitySection2 = _interopRequireDefault(_PathActivitySection);
+
+var _PathActivitySubsection = require("../components/PathActivitySubsection");
+
+var _PathActivitySubsection2 = _interopRequireDefault(_PathActivitySubsection);
+
+var _PathActivityTable = require("../components/PathActivityTable");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46187,7 +46582,75 @@ var PathDetail = function (_React$Component) {
             _react2.default.createElement(
               "div",
               { className: "l-path-detail__activities" },
-              "asdfasdfasdf"
+              _react2.default.createElement(
+                _PathActivitySection2.default,
+                null,
+                _react2.default.createElement(
+                  _PathActivitySection2.default.Title,
+                  null,
+                  "Week 1"
+                ),
+                _react2.default.createElement(
+                  _PathActivitySubsection2.default,
+                  null,
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Title,
+                    null,
+                    "Introduction"
+                  ),
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Description,
+                    null,
+                    _react2.default.createElement(
+                      "p",
+                      null,
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _PathActivityTable.PathActivityTable,
+                    null,
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        "I"
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        "Reactant Hyperfluxors and You"
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        "X"
+                      )
+                    ),
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        "I"
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        "Reactant Hyperfluxors and You"
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        "X"
+                      )
+                    )
+                  )
+                )
+              )
             ),
             _react2.default.createElement(
               "div",
@@ -46319,7 +46782,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

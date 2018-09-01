@@ -7,3 +7,10 @@
   grid-area: sitecontent;
   grid-column: 1 / -1;
 }
+
+@include max-width($content-width-large) {
+  .l-site-content {
+    padding-left: $scale2;
+    padding-right: $scale2;
+  }
+}

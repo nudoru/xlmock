@@ -180,8 +180,8 @@ body {
   font-size: 1rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1, h2, h3, h4, h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, h6, .c-tagcategory__title,
-.h1, .h2, .h3, .h4, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1, .h6, .c-banner-message__message h1, .c-card__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
+h1, h2, .l-path-detail__activities__section__title, h3, h4, .l-path-detail__activities__subsection__title, h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, h6, .c-tagcategory__title,
+.h1, .h2, .h3, .h4, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1, .h6, .c-banner-message__message h1, .c-card__content h2, .c-card__content .l-path-detail__activities__section__title, .c-item-table__row__content h2, .c-item-table__row__content .l-path-detail__activities__section__title, .c-current-path h2, .c-current-path .l-path-detail__activities__section__title, .c-next-steps h1, .c-course-detail__details--title h2, .c-course-detail__details--title .l-path-detail__activities__section__title {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -192,13 +192,13 @@ h1, h2, h3, h4, h5, .c-next-steps .c-next-steps__details .title, .l-path-detail_
 h1, .h1 {
   font-size: 2.5rem; }
 
-h2, .h2 {
+h2, .l-path-detail__activities__section__title, .h2 {
   font-size: 2rem; }
 
 h3, .h3 {
   font-size: 1.75rem; }
 
-h4, .h4 {
+h4, .l-path-detail__activities__subsection__title, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
@@ -206,7 +206,7 @@ h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .c-tagcategory__title, .h6, .c-banner-message__message h1, .c-card__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
+h6, .c-tagcategory__title, .h6, .c-banner-message__message h1, .c-card__content h2, .c-card__content .l-path-detail__activities__section__title, .c-item-table__row__content h2, .c-item-table__row__content .l-path-detail__activities__section__title, .c-current-path h2, .c-current-path .l-path-detail__activities__section__title, .c-next-steps h1, .c-course-detail__details--title h2, .c-course-detail__details--title .l-path-detail__activities__section__title {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -310,6 +310,11 @@ ul.tabs {
 .l-site-content--full {
   grid-area: sitecontent;
   grid-column: 1 / -1; }
+
+@media screen and (max-width: 1140px) {
+  .l-site-content {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem; } }
 
 .u-svgicon {
   position: relative;
@@ -642,7 +647,7 @@ ul.tabs-big {
     color: rgba(255, 255, 255, 0.65); }
   .c-card--path .c-card__content h1 {
     color: #fff; }
-  .c-card--path .c-card__content h2 {
+  .c-card--path .c-card__content h2, .c-card--path .c-card__content .l-path-detail__activities__section__title {
     color: rgba(255, 255, 255, 0.65); }
   .c-card--path .c-card__content p {
     color: rgba(255, 255, 255, 0.65); }
@@ -672,7 +677,7 @@ ul.tabs-big {
     margin-bottom: 1.75rem;
     line-height: 1.75rem;
     font-weight: 600; }
-  .c-card__content h2 {
+  .c-card__content h2, .c-card__content .l-path-detail__activities__section__title {
     margin-bottom: 1.1875rem;
     line-height: 1rem;
     font-weight: 600;
@@ -763,7 +768,7 @@ ul.tabs-big {
     margin: 0;
     line-height: 1.5rem;
     font-weight: 400; }
-  .c-item-table__row__content h2 {
+  .c-item-table__row__content h2, .c-item-table__row__content .l-path-detail__activities__section__title {
     margin: 0;
     line-height: 1rem;
     font-weight: 600;
@@ -965,7 +970,7 @@ ul.tabs-big {
   .c-current-path h1 {
     font-weight: 700;
     color: #fff; }
-  .c-current-path h2 {
+  .c-current-path h2, .c-current-path .l-path-detail__activities__section__title {
     margin-bottom: 2rem; }
   .c-current-path .c-path-progress {
     margin-top: 3rem;
@@ -1177,7 +1182,7 @@ ul.tabs-big {
     color: #fff;
     margin-bottom: 3.875rem;
     line-height: 3rem; }
-  .c-course-detail__details--title h2 {
+  .c-course-detail__details--title h2, .c-course-detail__details--title .l-path-detail__activities__section__title {
     margin-bottom: 2rem; }
   .c-course-detail__details--title p {
     color: rgba(255, 255, 255, 0.65);
@@ -1210,6 +1215,30 @@ ul.tabs-big {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 3rem; }
+
+.l-path-detail__activities__subsection {
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0.3125rem; }
+
+.l-path-detail__activities__subsection__description {
+  color: rgba(0, 0, 0, 0.5); }
+
+.l-path-detail__activities__activity__table > div:not(:last-of-type) {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+
+.l-path-detail__activities__activity__row {
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  padding-top: 2rem; }
+
+.l-path-detail__activities__activity__row__details {
+  justify-self: start; }
 
 body {
   color: #464646; }

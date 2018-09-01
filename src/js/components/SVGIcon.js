@@ -87,8 +87,49 @@ const Help = () => <SVG name='help'>
   <line x1="12" y1="17" x2="12" y2="17"/>
 </SVG>;
 
+
+const Check = () => <SVG name='check'>
+  <polyline points="20 6 9 17 4 12"></polyline>
+</SVG>
+
+const CheckSquare = () => <SVG name='check-square'>
+  <polyline points="9 11 12 14 22 4"></polyline>
+  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+</SVG>
+
+const CheckCircle = () => <SVG name='check-circle'>
+  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+</SVG>
+
+const Circle = () => <SVG name='circle'>
+  <circle cx="12" cy="12" r="10"></circle>
+</SVG>
+
+const Square = () => <SVG name='square'>
+  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+</SVG>
+
+const X = () => <SVG name='x'>
+  <line x1="18" y1="6" x2="6" y2="18"></line>
+  <line x1="6" y1="6" x2="18" y2="18"></line>
+</SVG>
+
+const XCircle = () => <SVG name='x-circle'>
+  <circle cx="12" cy="12" r="10"></circle>
+  <line x1="15" y1="9" x2="9" y2="15"></line>
+  <line x1="9" y1="9" x2="15" y2="15"></line>
+</SVG>
+
+const XSquare = () => <SVG name='x-square'>
+  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+  <line x1="9" y1="9" x2="15" y2="15"></line>
+  <line x1="15" y1="9" x2="9" y2="15"></line>
+</SVG>
+
+
 const Icon = (props) => {
-  switch(props.name){
+  switch (props.name) {
     case "flag":
       return <Flag {...props}/>;
     case "menu":
@@ -115,6 +156,22 @@ const Icon = (props) => {
       return <Message {...props}/>;
     case "help":
       return <Help {...props}/>;
+    case "check":
+      return <Check {...props}/>;
+    case "check-square":
+      return <CheckSquare {...props}/>;
+    case "check-circle":
+      return <CheckCircle {...props}/>;
+    case "circle":
+      return <Circle {...props}/>;
+    case "square":
+      return <Square {...props}/>;
+    case "x":
+      return <X {...props}/>;
+    case "x-square":
+      return <XSquare {...props}/>;
+    case "x-circle":
+      return <XCircle {...props}/>;
     default:
       return <span>Icon?</span>
   }

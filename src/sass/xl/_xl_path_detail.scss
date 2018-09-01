@@ -6,14 +6,53 @@
 }
 
 .l-path-detail__activities {
-
+  //
 }
 
 .l-path-detail__metadata {
-
+  //
 }
 
 .l-path-detail__metadata__title {
   @extend h5;
 }
 
+.l-path-detail__activities__section {}
+
+.l-path-detail__activities__section__title {
+  @extend h2;
+}
+
+.l-path-detail__activities__subsection {
+  padding: $scale6;
+  background-color: rgba(0,0,0,.05);
+  border-radius: $radius-base;
+}
+
+.l-path-detail__activities__subsection__title {
+  @extend h4;
+}
+
+.l-path-detail__activities__subsection__description {
+  color: $text-dim-color;
+}
+
+.l-path-detail__activities__activity__table {
+  & > div:not(:last-of-type){
+    padding-bottom: $scale5;
+    border-bottom: 1px solid $text-dim-color;
+  }
+}
+
+.l-path-detail__activities__activity__row {
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  align-items: center;
+  justify-items: center;
+  padding-top: $scale5;
+}
+.l-path-detail__activities__activity__row__icon {}
+.l-path-detail__activities__activity__row__details {
+  justify-self: start;
+}
+.l-path-detail__activities__activity__row__completion {}
