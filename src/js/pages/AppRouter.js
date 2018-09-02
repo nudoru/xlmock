@@ -19,6 +19,7 @@ import Team from "./Team";
 import CourseDetailActivities from "./CourseDetailActivities";
 import CourseDetailUpcoming from "./CourseDetailUpcoming";
 import CoursePlayer from "./CoursePlayer";
+import CourseDetailResources from "./CourseDetailResources";
 
 export const AppRouter = () =>
   <Router>
@@ -34,6 +35,7 @@ export const AppRouter = () =>
         <Route path="/course" component={CourseDetail}/>
         <Route path="/courseactivities" component={CourseDetailActivities}/>
         <Route path="/courseupcoming" component={CourseDetailUpcoming}/>
+        <Route path="/courseresources" component={CourseDetailResources}/>
         <Route path="/courseplayer" component={CoursePlayer}/>
         <Route path="/path" component={PathDetail}/>
         <Route path="/search" component={Search}/>

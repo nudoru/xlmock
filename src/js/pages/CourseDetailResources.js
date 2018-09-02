@@ -4,7 +4,7 @@ import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
 import CourseDetailDetails from "../components/CourseDetailDetails";
 
-class CourseDetailUpcoming extends React.Component {
+class CourseDetailResources extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};
@@ -28,11 +28,11 @@ class CourseDetailUpcoming extends React.Component {
               <BigTabs>
                 <BigTabs.Tab><Link to='/course'>Overview</Link></BigTabs.Tab>
                 <BigTabs.Tab><Link to='/courseactivities'>Activities</Link></BigTabs.Tab>
-                <BigTabs.Tab active><Link to='/courseupcoming'>Upcoming</Link></BigTabs.Tab>
-                <BigTabs.Tab><Link to='/courseresources'>Resources</Link></BigTabs.Tab>
+                <BigTabs.Tab><Link to='/courseupcoming'>Upcoming</Link></BigTabs.Tab>
+                <BigTabs.Tab active><Link to='/courseresources'>Resources</Link></BigTabs.Tab>
               </BigTabs>
               <p>
-                Class schedule
+                Resources for the course ...
               </p>
             </div>
           </div>
@@ -42,4 +42,4 @@ class CourseDetailUpcoming extends React.Component {
   }
 }
 
-export default CourseDetailUpcoming;
+export default CourseDetailResources;

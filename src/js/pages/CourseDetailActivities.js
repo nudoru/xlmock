@@ -29,6 +29,7 @@ class CourseDetailActivities extends React.Component {
                 <BigTabs.Tab><Link to='/course'>Overview</Link></BigTabs.Tab>
                 <BigTabs.Tab active><Link to='/courseactivities'>Activities</Link></BigTabs.Tab>
                 <BigTabs.Tab><Link to='/courseupcoming'>Upcoming</Link></BigTabs.Tab>
+                <BigTabs.Tab><Link to='/courseresources'>Resources</Link></BigTabs.Tab>
               </BigTabs>
               <p>
                 Course contents / topics / activities

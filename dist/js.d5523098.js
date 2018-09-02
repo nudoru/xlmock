@@ -45924,7 +45924,205 @@ var CourseDetailDetails = function (_React$Component) {
 CourseDetailDetails.defaultProps = {};
 CourseDetailDetails.propTypes = {};
 exports.default = (0, _reactRouterDom.withRouter)(CourseDetailDetails);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ProgressBar":"../js/components/ProgressBar.js","./Button":"../js/components/Button.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/CourseDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ProgressBar":"../js/components/ProgressBar.js","./Button":"../js/components/Button.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/components/TagCategoryGroup.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TagCategoryGroup = function (_React$Component) {
+  _inherits(TagCategoryGroup, _React$Component);
+
+  function TagCategoryGroup(props) {
+    _classCallCheck(this, TagCategoryGroup);
+
+    var _this = _possibleConstructorReturn(this, (TagCategoryGroup.__proto__ || Object.getPrototypeOf(TagCategoryGroup)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(TagCategoryGroup, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-tagcategory__group' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return TagCategoryGroup;
+}(_react2.default.Component);
+
+TagCategoryGroup.Title = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'h2',
+    { className: 'c-tagcategory__title' },
+    children
+  );
+};
+
+TagCategoryGroup.Group = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-tagcategory__tags' },
+    children
+  );
+};
+
+TagCategoryGroup.defaultProps = {};
+TagCategoryGroup.propTypes = {};
+exports.default = TagCategoryGroup;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/test/TestTagCategories.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TestTagCategories = undefined;
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _TagCategoryGroup = require("../components/TagCategoryGroup");
+
+var _TagCategoryGroup2 = _interopRequireDefault(_TagCategoryGroup);
+
+var _Tag = require("../components/Tag");
+
+var _Tag2 = _interopRequireDefault(_Tag);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var TestTagCategories = exports.TestTagCategories = function TestTagCategories() {
+  return _react2.default.createElement(
+    _TagCategoryGroup2.default,
+    null,
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Title,
+      null,
+      "Product"
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Group,
+      null,
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Ansible"
+      )
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Title,
+      null,
+      "Language"
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Group,
+      null,
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "English"
+      )
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Title,
+      null,
+      "Proficiency"
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Group,
+      null,
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Intermediate"
+      )
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Title,
+      null,
+      "Target Role"
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Group,
+      null,
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Consultant"
+      ),
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Developer"
+      ),
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Engineer"
+      )
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Title,
+      null,
+      "Keywords"
+    ),
+    _react2.default.createElement(
+      _TagCategoryGroup2.default.Group,
+      null,
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Ansible"
+      ),
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Cloud"
+      ),
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Automation"
+      ),
+      _react2.default.createElement(
+        _Tag2.default,
+        null,
+        "Administration"
+      )
+    )
+  );
+};
+},{"react":"../../node_modules/react/index.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/Tag":"../js/components/Tag.js"}],"../js/pages/CourseDetail.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45948,6 +46146,8 @@ var _BigTabs = require('../components/BigTabs');
 var _CourseDetailDetails = require('../components/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
+
+var _TestTagCategories = require('../test/TestTagCategories');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46017,13 +46217,23 @@ var CourseDetail = function (_React$Component) {
                     { to: '/courseupcoming' },
                     'Upcoming'
                   )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseresources' },
+                    'Resources'
+                  )
                 )
               ),
               _react2.default.createElement(
                 'p',
                 null,
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis porta lobortis nisl, non blandit enim. Cras eros tortor, pellentesque ut orci vitae, consectetur dictum erat. Morbi auctor risus vitae neque fringilla congue. Integer ac augue quis mi viverra commodo. Nullam ornare, purus ut sollicitudin dignissim, elit arcu sollicitudin dui, ac dictum enim dolor id diam. Integer et lobortis elit. Maecenas varius feugiat magna, eu bibendum neque blandit eu. Nunc sed faucibus ante. Pellentesque at lectus at ante tempus condimentum. Aliquam ac consequat tortor, at rutrum neque. Nam fermentum nulla eget finibus imperdiet.'
-              )
+              ),
+              _react2.default.createElement(_TestTagCategories.TestTagCategories, null)
             )
           )
         )
@@ -46037,7 +46247,7 @@ var CourseDetail = function (_React$Component) {
 CourseDetail.defaultProps = {};
 CourseDetail.propTypes = {};
 exports.default = CourseDetail;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/components/HeroPathProgressMetadata.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/HeroPathProgressMetadata.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46143,82 +46353,7 @@ var HeroPathProgressMetadata = function (_React$Component) {
 HeroPathProgressMetadata.defaultProps = {};
 HeroPathProgressMetadata.propTypes = {};
 exports.default = HeroPathProgressMetadata;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/TagCategoryGroup.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var TagCategoryGroup = function (_React$Component) {
-  _inherits(TagCategoryGroup, _React$Component);
-
-  function TagCategoryGroup(props) {
-    _classCallCheck(this, TagCategoryGroup);
-
-    var _this = _possibleConstructorReturn(this, (TagCategoryGroup.__proto__ || Object.getPrototypeOf(TagCategoryGroup)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(TagCategoryGroup, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'c-tagcategory__group' },
-        this.props.children
-      );
-    }
-  }]);
-
-  return TagCategoryGroup;
-}(_react2.default.Component);
-
-TagCategoryGroup.Title = function (_ref) {
-  var children = _ref.children;
-  return _react2.default.createElement(
-    'h2',
-    { className: 'c-tagcategory__title' },
-    children
-  );
-};
-
-TagCategoryGroup.Group = function (_ref2) {
-  var children = _ref2.children;
-  return _react2.default.createElement(
-    'div',
-    { className: 'c-tagcategory__tags' },
-    children
-  );
-};
-
-TagCategoryGroup.defaultProps = {};
-TagCategoryGroup.propTypes = {};
-exports.default = TagCategoryGroup;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivitySection.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/PathActivitySection.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47071,7 +47206,80 @@ Label.propTypes = {
   negative: _propTypes2.default.bool
 };
 exports.default = Label;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathAchievement.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathAchievement = function (_React$Component) {
+  _inherits(PathAchievement, _React$Component);
+
+  function PathAchievement(props) {
+    _classCallCheck(this, PathAchievement);
+
+    var _this = _possibleConstructorReturn(this, (PathAchievement.__proto__ || Object.getPrototypeOf(PathAchievement)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathAchievement, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-path-detail__achievement' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return PathAchievement;
+}(_react2.default.Component);
+
+PathAchievement.Title = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'h1',
+    {
+      className: 'l-path-detail__achievement__title' },
+    children
+  );
+};
+
+PathAchievement.Icon = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'l-path-detail__achievement__icon' },
+    children
+  );
+};
+
+PathAchievement.defaultProps = {};
+PathAchievement.propTypes = {};
+exports.default = PathAchievement;
+},{"react":"../../node_modules/react/index.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47129,6 +47337,12 @@ var Lorem = _interopRequireWildcard(_Lorem);
 var _Label = require("../components/Label");
 
 var _Label2 = _interopRequireDefault(_Label);
+
+var _PathAchievement = require("../components/PathAchievement");
+
+var _PathAchievement2 = _interopRequireDefault(_PathAchievement);
+
+var _TestTagCategories = require("../test/TestTagCategories");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -47210,14 +47424,16 @@ var PathDetail = function (_React$Component) {
                       _react2.default.createElement(
                         _PathActivityTable.PathActivityRow.Icon,
                         null,
-                        _react2.default.createElement(_SVGIcon2.default, { name: "package" })
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
                       ),
                       _react2.default.createElement(
                         _PathActivityTable.PathActivityRow.Details,
                         null,
                         _react2.default.createElement(
                           "p",
-                          { className: "title" },
+                          {
+                            className: "title" },
                           Lorem.title(5, 15),
                           _react2.default.createElement(
                             _Label2.default,
@@ -47243,7 +47459,8 @@ var PathDetail = function (_React$Component) {
                       _react2.default.createElement(
                         _PathActivityTable.PathActivityRow.Icon,
                         null,
-                        _react2.default.createElement(_SVGIcon2.default, { name: "package" })
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
                       ),
                       _react2.default.createElement(
                         _PathActivityTable.PathActivityRow.Details,
@@ -47262,10 +47479,121 @@ var PathDetail = function (_React$Component) {
                       _react2.default.createElement(
                         _PathActivityTable.PathActivityRow.Completion,
                         null,
-                        _react2.default.createElement(_SVGIcon2.default, { name: "circle" })
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "circle" })
                       )
                     )
                   )
+                )
+              ),
+              _react2.default.createElement(
+                _PathActivitySection2.default,
+                null,
+                _react2.default.createElement(
+                  _PathActivitySection2.default.Title,
+                  null,
+                  Lorem.title(5, 10)
+                ),
+                _react2.default.createElement(
+                  _PathActivitySubsection2.default,
+                  null,
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Title,
+                    null,
+                    Lorem.title(5, 10)
+                  ),
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Description,
+                    null,
+                    _react2.default.createElement(
+                      "p",
+                      null,
+                      Lorem.sentence(10, 50)
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _PathActivityTable.PathActivityTable,
+                    null,
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        _react2.default.createElement(
+                          "p",
+                          {
+                            className: "title" },
+                          Lorem.title(5, 15),
+                          _react2.default.createElement(
+                            _Label2.default,
+                            null,
+                            "Optional"
+                          )
+                        ),
+                        _react2.default.createElement(
+                          "p",
+                          { className: "metadata" },
+                          "2 hours 30 minutes | Video"
+                        )
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, { name: "check-circle" })
+                      )
+                    ),
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        _react2.default.createElement(
+                          "p",
+                          { className: "title" },
+                          Lorem.title(3, 15)
+                        ),
+                        _react2.default.createElement(
+                          "p",
+                          { className: "metadata" },
+                          "2 hours 30 minutes | Video"
+                        )
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "circle" })
+                      )
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                _PathAchievement2.default,
+                null,
+                _react2.default.createElement(
+                  _PathAchievement2.default.Icon,
+                  null,
+                  _react2.default.createElement(_SVGIcon2.default, { name: "flag", width: "32", height: "32" })
+                ),
+                _react2.default.createElement(
+                  _PathAchievement2.default.Title,
+                  null,
+                  "Eternal Glory (and 500 CE credits)"
                 )
               )
             ),
@@ -47280,112 +47608,14 @@ var PathDetail = function (_React$Component) {
               _react2.default.createElement(
                 "p",
                 null,
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                Lorem.sentence(50, 300)
               ),
               _react2.default.createElement(
                 "h1",
                 { className: "l-path-detail__metadata__title" },
                 "Additional Information"
               ),
-              _react2.default.createElement(
-                _TagCategoryGroup2.default,
-                null,
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Title,
-                  null,
-                  "Product"
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Group,
-                  null,
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Ansible"
-                  )
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Title,
-                  null,
-                  "Language"
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Group,
-                  null,
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "English"
-                  )
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Title,
-                  null,
-                  "Proficiency"
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Group,
-                  null,
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Intermediate"
-                  )
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Title,
-                  null,
-                  "Target Role"
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Group,
-                  null,
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Consultant"
-                  ),
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Developer"
-                  ),
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Engineer"
-                  )
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Title,
-                  null,
-                  "Keywords"
-                ),
-                _react2.default.createElement(
-                  _TagCategoryGroup2.default.Group,
-                  null,
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Ansible"
-                  ),
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Cloud"
-                  ),
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Automation"
-                  ),
-                  _react2.default.createElement(
-                    _Tag2.default,
-                    null,
-                    "Administration"
-                  )
-                )
-              )
+              _react2.default.createElement(_TestTagCategories.TestTagCategories, null)
             )
           )
         )
@@ -47399,7 +47629,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -48024,6 +48254,15 @@ var CourseDetailActivities = function (_React$Component) {
                     { to: '/courseupcoming' },
                     'Upcoming'
                   )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseresources' },
+                    'Resources'
+                  )
                 )
               ),
               _react2.default.createElement(
@@ -48137,6 +48376,15 @@ var CourseDetailUpcoming = function (_React$Component) {
                     { to: '/courseupcoming' },
                     'Upcoming'
                   )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseresources' },
+                    'Resources'
+                  )
                 )
               ),
               _react2.default.createElement(
@@ -48222,7 +48470,129 @@ var CoursePlayer = function (_React$Component) {
 CoursePlayer.defaultProps = {};
 CoursePlayer.propTypes = {};
 exports.default = CoursePlayer;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/CourseDetailResources.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _Content = require('../layout/Content');
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _BigTabs = require('../components/BigTabs');
+
+var _CourseDetailDetails = require('../components/CourseDetailDetails');
+
+var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CourseDetailResources = function (_React$Component) {
+  _inherits(CourseDetailResources, _React$Component);
+
+  function CourseDetailResources(props) {
+    _classCallCheck(this, CourseDetailResources);
+
+    var _this = _possibleConstructorReturn(this, (CourseDetailResources.__proto__ || Object.getPrototypeOf(CourseDetailResources)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CourseDetailResources, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Content2.default,
+          { full: true },
+          _react2.default.createElement(
+            'div',
+            { className: 'l-course-detail' },
+            _react2.default.createElement(_CourseDetailDetails2.default, null),
+            _react2.default.createElement(
+              'div',
+              { className: 'l-course-detail__content' },
+              _react2.default.createElement(
+                _BigTabs.BigTabs,
+                null,
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/course' },
+                    'Overview'
+                  )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseactivities' },
+                    'Activities'
+                  )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseupcoming' },
+                    'Upcoming'
+                  )
+                ),
+                _react2.default.createElement(
+                  _BigTabs.BigTabs.Tab,
+                  { active: true },
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/courseresources' },
+                    'Resources'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'Resources for the course ...'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return CourseDetailResources;
+}(_react2.default.Component);
+
+CourseDetailResources.defaultProps = {};
+CourseDetailResources.propTypes = {};
+exports.default = CourseDetailResources;
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/AppRouter.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -48312,6 +48682,10 @@ var _CoursePlayer = require('./CoursePlayer');
 
 var _CoursePlayer2 = _interopRequireDefault(_CoursePlayer);
 
+var _CourseDetailResources = require('./CourseDetailResources');
+
+var _CourseDetailResources2 = _interopRequireDefault(_CourseDetailResources);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var AppRouter = exports.AppRouter = function AppRouter() {
@@ -48334,6 +48708,7 @@ var AppRouter = exports.AppRouter = function AppRouter() {
         _react2.default.createElement(_reactRouterDom.Route, { path: '/course', component: _CourseDetail2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/courseactivities', component: _CourseDetailActivities2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/courseupcoming', component: _CourseDetailUpcoming2.default }),
+        _react2.default.createElement(_reactRouterDom.Route, { path: '/courseresources', component: _CourseDetailResources2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/courseplayer', component: _CoursePlayer2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/path', component: _PathDetail2.default }),
         _react2.default.createElement(_reactRouterDom.Route, { path: '/search', component: _Search2.default }),
@@ -48346,7 +48721,7 @@ var AppRouter = exports.AppRouter = function AppRouter() {
     )
   );
 };
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Overview":"../js/pages/Overview.js","./FourOhFour":"../js/pages/FourOhFour.js","./Catalog":"../js/pages/Catalog.js","./Calendar":"../js/pages/Calendar.js","./Alerts":"../js/pages/Alerts.js","./Help":"../js/pages/Help.js","./User":"../js/pages/User.js","./CourseDetail":"../js/pages/CourseDetail.js","./PathDetail":"../js/pages/PathDetail.js","./Search":"../js/pages/Search.js","../layout/Header":"../js/layout/Header.js","../layout/SiteContainer":"../js/layout/SiteContainer.js","../layout/Footer":"../js/layout/Footer.js","./Feedback":"../js/pages/Feedback.js","./Discover":"../js/pages/Discover.js","./Team":"../js/pages/Team.js","./CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./CoursePlayer":"../js/pages/CoursePlayer.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Overview":"../js/pages/Overview.js","./FourOhFour":"../js/pages/FourOhFour.js","./Catalog":"../js/pages/Catalog.js","./Calendar":"../js/pages/Calendar.js","./Alerts":"../js/pages/Alerts.js","./Help":"../js/pages/Help.js","./User":"../js/pages/User.js","./CourseDetail":"../js/pages/CourseDetail.js","./PathDetail":"../js/pages/PathDetail.js","./Search":"../js/pages/Search.js","../layout/Header":"../js/layout/Header.js","../layout/SiteContainer":"../js/layout/SiteContainer.js","../layout/Footer":"../js/layout/Footer.js","./Feedback":"../js/pages/Feedback.js","./Discover":"../js/pages/Discover.js","./Team":"../js/pages/Team.js","./CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./CoursePlayer":"../js/pages/CoursePlayer.js","./CourseDetailResources":"../js/pages/CourseDetailResources.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

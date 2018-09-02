@@ -119,7 +119,7 @@
   -webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1); }
 
-.dropshadow-xs, .c-card-frame, .c-card, .c-item-table__contents {
+.dropshadow-xs, .c-card-frame, .c-card, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
@@ -127,7 +127,7 @@
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15); }
 
-.dropshadow-m, .c-card:hover {
+.dropshadow-m, .c-card:hover, .l-path-detail__achievement {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1); }
 
@@ -180,8 +180,8 @@ body {
   font-size: 1rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1, h2, .l-path-detail__activities__section__title, h3, h4, .l-path-detail__activities__subsection__title, h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, h6, .c-tagcategory__title,
-.h1, .h2, .h3, .h4, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1, .h6, .c-banner-message__message h1, .c-card__content h2, .c-card__content .l-path-detail__activities__section__title, .c-item-table__row__content h2, .c-item-table__row__content .l-path-detail__activities__section__title, .c-current-path h2, .c-current-path .l-path-detail__activities__section__title, .c-next-steps h1, .c-course-detail__details--title h2, .c-course-detail__details--title .l-path-detail__activities__section__title {
+h1, h2, h3, .l-path-detail__achievement__title, h4, .l-path-detail__activities__section__title, h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, h6, .c-tagcategory__title,
+.h1, .h2, .h3, .h4, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1, .h6, .c-banner-message__message h1, .c-card__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -192,21 +192,21 @@ h1, h2, .l-path-detail__activities__section__title, h3, h4, .l-path-detail__acti
 h1, .h1 {
   font-size: 2.5rem; }
 
-h2, .l-path-detail__activities__section__title, .h2 {
+h2, .h2 {
   font-size: 2rem; }
 
-h3, .h3 {
+h3, .l-path-detail__achievement__title, .h3 {
   font-size: 1.75rem; }
 
-h4, .l-path-detail__activities__subsection__title, .h4 {
+h4, .l-path-detail__activities__section__title, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1 {
+h5, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, .h5, .c-card__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-card-grid__title h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .c-tagcategory__title, .h6, .c-banner-message__message h1, .c-card__content h2, .c-card__content .l-path-detail__activities__section__title, .c-item-table__row__content h2, .c-item-table__row__content .l-path-detail__activities__section__title, .c-current-path h2, .c-current-path .l-path-detail__activities__section__title, .c-next-steps h1, .c-course-detail__details--title h2, .c-course-detail__details--title .l-path-detail__activities__section__title {
+h6, .c-tagcategory__title, .h6, .c-banner-message__message h1, .c-card__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -670,7 +670,7 @@ ul.tabs-big {
     color: rgba(255, 255, 255, 0.65); }
   .c-card--path .c-card__content h1 {
     color: #fff; }
-  .c-card--path .c-card__content h2, .c-card--path .c-card__content .l-path-detail__activities__section__title {
+  .c-card--path .c-card__content h2 {
     color: rgba(255, 255, 255, 0.65); }
   .c-card--path .c-card__content p {
     color: rgba(255, 255, 255, 0.65); }
@@ -700,7 +700,7 @@ ul.tabs-big {
     margin-bottom: 1.75rem;
     line-height: 1.75rem;
     font-weight: 600; }
-  .c-card__content h2, .c-card__content .l-path-detail__activities__section__title {
+  .c-card__content h2 {
     margin-bottom: 1.1875rem;
     line-height: 1rem;
     font-weight: 600;
@@ -791,7 +791,7 @@ ul.tabs-big {
     margin: 0;
     line-height: 1.5rem;
     font-weight: 400; }
-  .c-item-table__row__content h2, .c-item-table__row__content .l-path-detail__activities__section__title {
+  .c-item-table__row__content h2 {
     margin: 0;
     line-height: 1rem;
     font-weight: 600;
@@ -993,7 +993,7 @@ ul.tabs-big {
   .c-current-path h1 {
     font-weight: 700;
     color: #fff; }
-  .c-current-path h2, .c-current-path .l-path-detail__activities__section__title {
+  .c-current-path h2 {
     margin-bottom: 2rem; }
   .c-current-path .c-path-progress {
     margin-top: 3rem;
@@ -1205,7 +1205,7 @@ ul.tabs-big {
     color: #fff;
     margin-bottom: 3.875rem;
     line-height: 3rem; }
-  .c-course-detail__details--title h2, .c-course-detail__details--title .l-path-detail__activities__section__title {
+  .c-course-detail__details--title h2 {
     margin-bottom: 2rem; }
   .c-course-detail__details--title p {
     color: rgba(255, 255, 255, 0.65);
@@ -1242,11 +1242,11 @@ ul.tabs-big {
 .l-path-detail__activities__section::after {
   display: block;
   content: '';
-  margin-top: 1.1875rem;
+  margin: 1.1875rem 0;
   padding: 2rem 0;
   text-align: center;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
   background-position: 50%;
   background-repeat: repeat-y;
   background-size: 1px auto; }
@@ -1254,20 +1254,30 @@ ul.tabs-big {
 .l-path-detail__activities__section:last-of-type::after {
   content: none; }
 
-.l-path-detail__activities__section:not(:first-child) {
-  margin-top: -2rem; }
-
-.l-path-detail__activities__subsection {
+.l-path-detail__activities__subsection, .l-path-detail__achievement {
   padding: 3rem;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: #fff;
   border-radius: 0.3125rem; }
+
+.l-path-detail__achievement {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.1)));
+  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
+  background-color: #224063;
+  color: #fff;
+  text-align: center; }
+
+.l-path-detail__achievement__title {
+  margin: 0; }
+
+.l-path-detail__achievement__icon {
+  margin-bottom: 2rem; }
 
 .l-path-detail__activities__subsection__description {
   color: rgba(0, 0, 0, 0.5); }
 
 .l-path-detail__activities__activity__table > div:not(:last-of-type) {
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 .l-path-detail__activities__activity__row {
   display: grid;

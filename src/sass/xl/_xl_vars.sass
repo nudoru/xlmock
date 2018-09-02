@@ -99,8 +99,22 @@ $color-accent: $red
 
 $text-color: $grey-10
 
+$color-alpha-faint-line: 0.1
+
 $text-dim-color: rgba(0,0,0, .5)
-$text-dim-color-negative: rgba(255,255,255, .65) 
+$text-dim-color-negative: rgba(255,255,255, .65)
+
+$light-gradient: linear-gradient(to bottom, transparent, rgba(255,255,255,.1))
+$dark-gradient: linear-gradient(to bottom, transparent, rgba(0,0,0,.1))
+$barsgradient: linear-gradient(-45deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 22%,rgba(255,255,255,.1) 22.01%,rgba(255,255,255,0) 85%,rgba(255,255,255,.15) 85.01%,rgba(255,255,255,0) 100%)
+
+// From the SAML login page
+=background-greybars
+  background: linear-gradient(-45deg,#fff 0%,#eee 22%,#f6f6f6 22.01%,#fff 85%,#fafafa 85.01%,#fff 100%)
+
+=background-darkblue-bars
+  background: $blue-dark $barsgradient
+
 
 $header-color-background: $pf-blue-700
 $hero-color-background: $pf-blue-700
