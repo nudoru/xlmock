@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SVGIcon from "./SVGIcon";
 
 class Tag extends React.Component {
 
@@ -17,17 +18,17 @@ class Tag extends React.Component {
   componentDidMount() {}
 
   render() {
-    let {className=null, children, ...rest} = this.props;
+    let {className=null, children, negative, ...rest} = this.props;
 
     let cls = ['c-tag'];
 
-    if(this.props.negative) {
+    if(negative) {
       cls.push('c-tag--negative');
     }
 
     cls.push(className);
 
-    return <div className={cls.join(' ')} {...rest}>{children}</div>;
+    return <div className={cls.join(' ')} {...rest}><SVGIcon name='hash' width='12' height='12'/>{children}</div>;
   }
 }
 

@@ -24173,6 +24173,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -24182,6 +24184,8 @@ var _propTypes = require('prop-types');
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24199,6 +24203,7 @@ var SVG = function SVG(_ref) {
       _ref$height = _ref.height,
       height = _ref$height === undefined ? '24' : _ref$height,
       children = _ref.children;
+
   return _react2.default.createElement(
     'svg',
     { xmlns: 'http://www.w3.org/2000/svg', width: width,
@@ -24210,29 +24215,29 @@ var SVG = function SVG(_ref) {
   );
 };
 
-var Flag = function Flag() {
+var Flag = function Flag(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'flag' },
+    _extends({}, props, { name: 'flag' }),
     _react2.default.createElement('path', { d: 'M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z' }),
     _react2.default.createElement('line', { x1: '4', y1: '22', x2: '4', y2: '15' })
   );
 };
 
-var Menu = function Menu() {
+var Menu = function Menu(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'menu' },
+    _extends({}, props, { name: 'menu' }),
     _react2.default.createElement('line', { x1: '3', y1: '12', x2: '21', y2: '12' }),
     _react2.default.createElement('line', { x1: '3', y1: '6', x2: '21', y2: '6' }),
     _react2.default.createElement('line', { x1: '3', y1: '18', x2: '21', y2: '18' })
   );
 };
 
-var Grid = function Grid() {
+var Grid = function Grid(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'grid' },
+    _extends({}, props, { name: 'grid' }),
     _react2.default.createElement('rect', { x: '3', y: '3', width: '7', height: '7' }),
     _react2.default.createElement('rect', { x: '14', y: '3', width: '7', height: '7' }),
     _react2.default.createElement('rect', { x: '14', y: '14', width: '7', height: '7' }),
@@ -24240,10 +24245,10 @@ var Grid = function Grid() {
   );
 };
 
-var List = function List() {
+var List = function List(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'list' },
+    _extends({}, props, { name: 'list' }),
     _react2.default.createElement('line', { x1: '8', y1: '6', x2: '21', y2: '6' }),
     _react2.default.createElement('line', { x1: '8', y1: '12', x2: '21', y2: '12' }),
     _react2.default.createElement('line', { x1: '8', y1: '18', x2: '21', y2: '18' }),
@@ -24253,54 +24258,54 @@ var List = function List() {
   );
 };
 
-var ChevronDown = function ChevronDown() {
+var ChevronDown = function ChevronDown(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'chevron-down' },
+    _extends({}, props, { name: 'chevron-down' }),
     _react2.default.createElement('polyline', { points: '6 9 12 15 18 9' })
   );
 };
 
-var Search = function Search() {
+var Search = function Search(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'search' },
+    _extends({}, props, { name: 'search' }),
     _react2.default.createElement('circle', { cx: '11', cy: '11', r: '8' }),
     _react2.default.createElement('line', { x1: '21', y1: '21', x2: '16.65', y2: '16.65' })
   );
 };
 
-var Bell = function Bell() {
+var Bell = function Bell(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'bell' },
+    _extends({}, props, { name: 'bell' }),
     _react2.default.createElement('path', {
       d: 'M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0' })
   );
 };
 
-var User = function User() {
+var User = function User(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'user' },
+    _extends({}, props, { name: 'user' }),
     _react2.default.createElement('path', { d: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2' }),
     _react2.default.createElement('circle', { cx: '12', cy: '7', r: '4' })
   );
 };
 
-var Mobile = function Mobile() {
+var Mobile = function Mobile(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'smartphone' },
+    _extends({}, props, { name: 'smartphone' }),
     _react2.default.createElement('rect', { x: '5', y: '2', width: '14', height: '20', rx: '2', ry: '2' }),
     _react2.default.createElement('line', { x1: '12', y1: '18', x2: '12', y2: '18' })
   );
 };
 
-var Box = function Box() {
+var Box = function Box(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'box' },
+    _extends({}, props, { name: 'box' }),
     _react2.default.createElement('path', {
       d: 'M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z' }),
     _react2.default.createElement('polyline', { points: '2.32 6.16 12 11 21.68 6.16' }),
@@ -24308,10 +24313,10 @@ var Box = function Box() {
   );
 };
 
-var Package = function Package() {
+var Package = function Package(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'package' },
+    _extends({}, props, { name: 'package' }),
     _react2.default.createElement('path', {
       d: 'M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z' }),
     _react2.default.createElement('polyline', { points: '2.32 6.16 12 11 21.68 6.16' }),
@@ -24320,93 +24325,104 @@ var Package = function Package() {
   );
 };
 
-var Message = function Message() {
+var Message = function Message(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'message' },
+    _extends({}, props, { name: 'message' }),
     _react2.default.createElement('path', {
       d: 'M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z' })
   );
 };
 
-var Help = function Help() {
+var Help = function Help(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'help' },
+    _extends({}, props, { name: 'help' }),
     _react2.default.createElement('circle', { cx: '12', cy: '12', r: '10' }),
     _react2.default.createElement('path', { d: 'M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3' }),
     _react2.default.createElement('line', { x1: '12', y1: '17', x2: '12', y2: '17' })
   );
 };
 
-var Check = function Check() {
+var Check = function Check(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'check' },
+    _extends({}, props, { name: 'check' }),
     _react2.default.createElement('polyline', { points: '20 6 9 17 4 12' })
   );
 };
 
-var CheckSquare = function CheckSquare() {
+var CheckSquare = function CheckSquare(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'check-square' },
+    _extends({}, props, { name: 'check-square' }),
     _react2.default.createElement('polyline', { points: '9 11 12 14 22 4' }),
     _react2.default.createElement('path', { d: 'M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11' })
   );
 };
 
-var CheckCircle = function CheckCircle() {
+var CheckCircle = function CheckCircle(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'check-circle' },
+    _extends({}, props, { name: 'check-circle' }),
     _react2.default.createElement('path', { d: 'M22 11.08V12a10 10 0 1 1-5.93-9.14' }),
     _react2.default.createElement('polyline', { points: '22 4 12 14.01 9 11.01' })
   );
 };
 
-var Circle = function Circle() {
+var Circle = function Circle(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'circle' },
+    _extends({}, props, { name: 'circle' }),
     _react2.default.createElement('circle', { cx: '12', cy: '12', r: '10' })
   );
 };
 
-var Square = function Square() {
+var Square = function Square(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'square' },
+    _extends({}, props, { name: 'square' }),
     _react2.default.createElement('rect', { x: '3', y: '3', width: '18', height: '18', rx: '2', ry: '2' })
   );
 };
 
-var X = function X() {
+var X = function X(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'x' },
+    _extends({}, props, { name: 'x' }),
     _react2.default.createElement('line', { x1: '18', y1: '6', x2: '6', y2: '18' }),
     _react2.default.createElement('line', { x1: '6', y1: '6', x2: '18', y2: '18' })
   );
 };
 
-var XCircle = function XCircle() {
+var XCircle = function XCircle(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'x-circle' },
+    _extends({}, props, { name: 'x-circle' }),
     _react2.default.createElement('circle', { cx: '12', cy: '12', r: '10' }),
     _react2.default.createElement('line', { x1: '15', y1: '9', x2: '9', y2: '15' }),
     _react2.default.createElement('line', { x1: '9', y1: '9', x2: '15', y2: '15' })
   );
 };
 
-var XSquare = function XSquare() {
+var XSquare = function XSquare(props) {
   return _react2.default.createElement(
     SVG,
-    { name: 'x-square' },
+    _extends({}, props, { name: 'x-square' }),
     _react2.default.createElement('rect', { x: '3', y: '3', width: '18', height: '18', rx: '2', ry: '2' }),
     _react2.default.createElement('line', { x1: '9', y1: '9', x2: '15', y2: '15' }),
     _react2.default.createElement('line', { x1: '15', y1: '9', x2: '9', y2: '15' })
+  );
+};
+
+var Hash = function Hash(props) {
+  return _react2.default.createElement(
+    SVG,
+    _extends({}, props, { name: 'hash' }),
+    _react2.default.createElement('line', { x1: '4', y1: '9', x2: '20', y2: '9' }),
+    _react2.default.createElement('line', { x1: '4', y1: '15', x2: '20', y2: '15' }),
+    _react2.default.createElement('line', { x1: '10', y1: '3', x2: '8', y2: '21' }),
+    _react2.default.createElement('line', { x1: '16', y1: '3', x2: '14', y2: '21' })
   );
 };
 
@@ -24454,6 +24470,8 @@ var Icon = function Icon(props) {
       return _react2.default.createElement(XSquare, props);
     case "x-circle":
       return _react2.default.createElement(XCircle, props);
+    case "hash":
+      return _react2.default.createElement(Hash, props);
     default:
       return _react2.default.createElement(
         'span',
@@ -24483,7 +24501,8 @@ var SVGIcon = function (_React$Component) {
           _props$className = _props.className,
           className = _props$className === undefined ? '' : _props$className,
           large = _props.large,
-          square = _props.square;
+          square = _props.square,
+          rest = _objectWithoutProperties(_props, ['name', 'className', 'large', 'square']);
 
       var cls = ['u-svgicon'];
 
@@ -24499,7 +24518,7 @@ var SVGIcon = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: cls.join(' ') },
-        _react2.default.createElement(Icon, { name: name })
+        _react2.default.createElement(Icon, _extends({ name: name }, rest))
       );
     }
   }]);
@@ -45717,6 +45736,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -45749,11 +45772,12 @@ var Tag = function (_React$Component) {
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
           children = _props.children,
-          rest = _objectWithoutProperties(_props, ['className', 'children']);
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
 
       var cls = ['c-tag'];
 
-      if (this.props.negative) {
+      if (negative) {
         cls.push('c-tag--negative');
       }
 
@@ -45762,6 +45786,7 @@ var Tag = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         _extends({ className: cls.join(' ') }, rest),
+        _react2.default.createElement(_SVGIcon2.default, { name: 'hash', width: '12', height: '12' }),
         children
       );
     }
@@ -45775,7 +45800,7 @@ Tag.propTypes = {
   negative: _propTypes2.default.bool
 };
 exports.default = Tag;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46968,7 +46993,85 @@ module.exports = {
   date: date,
   guid: guid
 };
-},{"./Toolbox":"../js/utils/Toolbox.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
+},{"./Toolbox":"../js/utils/Toolbox.js"}],"../js/components/Label.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Label = function (_React$Component) {
+  _inherits(Label, _React$Component);
+
+  function Label(props) {
+    _classCallCheck(this, Label);
+
+    var _this = _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Label, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          negative = _props.negative,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'negative', 'children']);
+
+      var cls = ['c-label'];
+
+      if (negative) {
+        cls.push('c-label--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'span',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Label;
+}(_react2.default.Component);
+
+Label.defaultProps = {};
+Label.propTypes = {
+  negative: _propTypes2.default.bool
+};
+exports.default = Label;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/PathDetail.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47022,6 +47125,10 @@ var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 var _Lorem = require("../utils/Lorem");
 
 var Lorem = _interopRequireWildcard(_Lorem);
+
+var _Label = require("../components/Label");
+
+var _Label2 = _interopRequireDefault(_Label);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -47111,7 +47218,12 @@ var PathDetail = function (_React$Component) {
                         _react2.default.createElement(
                           "p",
                           { className: "title" },
-                          Lorem.title(5, 15)
+                          Lorem.title(5, 15),
+                          _react2.default.createElement(
+                            _Label2.default,
+                            null,
+                            "Optional"
+                          )
                         ),
                         _react2.default.createElement(
                           "p",
@@ -47287,7 +47399,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

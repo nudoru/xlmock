@@ -13,6 +13,7 @@ import {
 } from "../components/PathActivityTable";
 import SVGIcon from "../components/SVGIcon";
 import * as Lorem from '../utils/Lorem';
+import Label from "../components/Label";
 
 class PathDetail extends React.Component {
 
@@ -49,7 +50,7 @@ class PathDetail extends React.Component {
                     <PathActivityRow>
                       <PathActivityRow.Icon><SVGIcon name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
-                        <p className="title">{Lorem.title(5,15)}</p>
+                        <p className="title">{Lorem.title(5,15)}<Label>Optional</Label></p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                       </PathActivityRow.Details>
                       <PathActivityRow.Completion><SVGIcon name='check-circle'/></PathActivityRow.Completion>

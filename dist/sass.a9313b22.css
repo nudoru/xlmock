@@ -454,6 +454,9 @@ ul.tabs {
   min-width: 2rem;
   border: 1px solid #464646;
   border-radius: 2rem; }
+  .c-tag .u-svgicon {
+    top: 1px;
+    margin-right: 0.2rem; }
 
 .c-tag--negative {
   color: #fff;
@@ -481,6 +484,26 @@ ul.tabs {
   line-height: 1.5rem;
   min-width: 1.5rem;
   border-radius: 1.5rem; }
+
+.c-label {
+  position: relative;
+  top: -3px;
+  display: inline-block;
+  margin-left: 0.4375rem;
+  background-color: #366195;
+  color: #fff;
+  padding: 0 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  min-width: 1.5rem;
+  border-radius: 1.5rem; }
+
+.c-label--negative {
+  background-color: #fff;
+  color: #366195; }
 
 .c-banner-message {
   position: relative;
