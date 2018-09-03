@@ -136,6 +136,26 @@ const Hash = (props) => <SVG {...props} name='hash'>
   <line x1="16" y1="3" x2="14" y2="21"></line>
 </SVG>
 
+const Book = (props) => <SVG {...props} name='book'>
+  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+</SVG>
+
+const BookOpen = (props) => <SVG {...props} name='book-open'>
+  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+</SVG>
+
+const Bookmark = (props) => <SVG {...props} name='bookmark'>
+  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+</SVG>
+
+const Award = (props) => <SVG {...props} name='award'>
+  <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+</SVG>
+
+const Sliders = (props) => <SVG {...props} name='sliders'>
+  <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line>
+</SVG>
+
 const Icon = (props) => {
   switch (props.name) {
     case "flag":
@@ -182,8 +202,18 @@ const Icon = (props) => {
       return <XCircle {...props}/>;
     case "hash":
       return <Hash {...props}/>;
+    case "book":
+      return <Book {...props}/>;
+    case "book-open":
+      return <BookOpen {...props}/>;
+    case "bookmark":
+      return <Bookmark {...props}/>;
+    case "award":
+      return <Award {...props}/>;
+    case "sliders":
+      return <Sliders {...props}/>;
     default:
-      return <span>Icon?</span>
+      return <span>Icon: {props.name}?</span>
   }
 };
 

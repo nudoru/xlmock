@@ -107,7 +107,7 @@ class PathDetail extends React.Component {
               </PathActivitySection>
               <PathAchievement>
                 <PathAchievement.Icon>
-                  <SVGIcon name='flag' width='32' height='32'/>
+                  <SVGIcon name='award' width='32' height='32'/>
                 </PathAchievement.Icon>
                 <PathAchievement.Title>Eternal Glory (and 500 CE credits)</PathAchievement.Title>
               </PathAchievement>
