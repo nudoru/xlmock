@@ -8,7 +8,9 @@
     "prestart": "rm -rf ./docs",
     "start": "parcel ./src/pug/react.pug --hmr-port 40827",
     "prebuild": "rm -rf ./docs",
-    "build": "parcel build ./src/pug/react.pug --out-dir ./docs --public-url ./"
+    "build": "parcel build ./src/pug/react.pug --out-dir ./dist --public-url ./",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "Matt Perkins",
@@ -25,6 +27,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "gh-pages": "^1.2.0",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.0",
     "parcel-bundler": "^1.9.2",
