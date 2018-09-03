@@ -45748,7 +45748,7 @@ var ListFilters = function ListFilters() {
         null,
         _react2.default.createElement(
           'a',
-          { href: '#' },
+          null,
           _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
         )
       ),
@@ -45757,7 +45757,7 @@ var ListFilters = function ListFilters() {
         null,
         _react2.default.createElement(
           'a',
-          { href: '#' },
+          null,
           _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
         )
       )
@@ -45774,7 +45774,7 @@ var ResultsFilters = function ResultsFilters() {
       null,
       _react2.default.createElement(
         'a',
-        { href: '#' },
+        null,
         _react2.default.createElement(_SVGIcon2.default, { name: 'sliders' })
       )
     ),
@@ -45783,7 +45783,7 @@ var ResultsFilters = function ResultsFilters() {
       null,
       _react2.default.createElement(
         'a',
-        { href: '#' },
+        null,
         _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
       )
     ),
@@ -45792,7 +45792,7 @@ var ResultsFilters = function ResultsFilters() {
       null,
       _react2.default.createElement(
         'a',
-        { href: '#' },
+        null,
         _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
       )
     )
@@ -45833,6 +45833,10 @@ var TestGridContent = function (_React$Component) {
         null,
         '(Infinity scroll)'
       );
+
+      if (this.props.controls) {
+        filters = this.props.controls;
+      }
 
       return _react2.default.createElement(
         _CardLayout2.default,
@@ -45881,7 +45885,8 @@ TestGridContent.propTypes = {
   numPaths: _propTypes2.default.number,
   numCourses: _propTypes2.default.number,
   badgeCount: _propTypes2.default.number,
-  mode: _propTypes2.default.string
+  mode: _propTypes2.default.string,
+  controls: _propTypes2.default.object
 };
 exports.default = TestGridContent;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
@@ -47840,7 +47845,87 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/SlideMenu.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SlideMenu = function (_React$Component) {
+  _inherits(SlideMenu, _React$Component);
+
+  function SlideMenu(props) {
+    _classCallCheck(this, SlideMenu);
+
+    var _this = _possibleConstructorReturn(this, (SlideMenu.__proto__ || Object.getPrototypeOf(SlideMenu)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(SlideMenu, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          isOpen = _props.isOpen,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['isOpen', 'children']);
+
+      var cls = ['c-slidemenu', 'c-slidemenu--right'];
+
+      if (!isOpen) {
+        cls.push('c-slidemenu--closed');
+      } else {
+        cls.push('c-slidemenu--open');
+      }
+
+      console.log('slide menu is', isOpen);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return SlideMenu;
+}(_react2.default.Component);
+
+SlideMenu.defaultProps = {
+  isOpen: false
+};
+SlideMenu.propTypes = {
+  isOpen: _propTypes2.default.bool
+};
+exports.default = SlideMenu;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47861,6 +47946,22 @@ var _TestGridContent = require("../test/TestGridContent");
 
 var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
 
+var _Label = require("../components/Label");
+
+var _Label2 = _interopRequireDefault(_Label);
+
+var _SVGIcon = require("../components/SVGIcon");
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _ButtonBar = require("../components/ButtonBar");
+
+var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
+
+var _SlideMenu = require("../components/SlideMenu");
+
+var _SlideMenu2 = _interopRequireDefault(_SlideMenu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -47877,7 +47978,14 @@ var Search = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
 
-    _this.state = {};
+    _this.state = {
+      showFilters: true
+    };
+
+    _this.onFiltersClick = function () {
+      _this.setState({ showFilters: !_this.state.showFilters });
+    };
+
     return _this;
   }
 
@@ -47893,7 +48001,66 @@ var Search = function (_React$Component) {
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7 })
+          _react2.default.createElement(
+            "h4",
+            null,
+            "123 Results"
+          ),
+          _react2.default.createElement(
+            _Label2.default,
+            null,
+            "Ansible",
+            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14", className: "u-padding-left" })
+          ),
+          _react2.default.createElement(
+            _Label2.default,
+            null,
+            "OpenShift",
+            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14", className: "u-padding-left" })
+          ),
+          _react2.default.createElement(
+            _Label2.default,
+            null,
+            "Infrastructure",
+            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14", className: "u-padding-left" })
+          ),
+          _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7, controls: this.renderControls() })
+        ),
+        _react2.default.createElement(_SlideMenu2.default, { isOpen: this.state.showFilters })
+      );
+    }
+  }, {
+    key: "renderControls",
+    value: function renderControls() {
+      return _react2.default.createElement(
+        _ButtonBar2.default,
+        null,
+        _react2.default.createElement(
+          _ButtonBar2.default.Icon,
+          null,
+          _react2.default.createElement(
+            "a",
+            { onClick: this.onFiltersClick },
+            _react2.default.createElement(_SVGIcon2.default, { name: "sliders" })
+          )
+        ),
+        _react2.default.createElement(
+          _ButtonBar2.default.Icon,
+          null,
+          _react2.default.createElement(
+            "a",
+            null,
+            _react2.default.createElement(_SVGIcon2.default, { name: "grid" })
+          )
+        ),
+        _react2.default.createElement(
+          _ButtonBar2.default.Icon,
+          null,
+          _react2.default.createElement(
+            "a",
+            null,
+            _react2.default.createElement(_SVGIcon2.default, { name: "list" })
+          )
         )
       );
     }
@@ -47905,7 +48072,7 @@ var Search = function (_React$Component) {
 Search.defaultProps = {};
 Search.propTypes = {};
 exports.default = Search;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

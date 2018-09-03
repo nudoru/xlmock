@@ -26,16 +26,16 @@ const Course = () => <LearningCard type='course' duration='42 minutes' tag='Ansi
 const ListFilters = () => <React.Fragment>
   <Button>Recent <SVGIcon name='chevron-down' className='u-icon-button--right'/></Button>
   <ButtonBar>
-    <ButtonBar.Icon><a href='#'><SVGIcon name='grid'/></a></ButtonBar.Icon>
-    <ButtonBar.Icon><a href='#'><SVGIcon name='list'/></a></ButtonBar.Icon>
+    <ButtonBar.Icon><a><SVGIcon name='grid'/></a></ButtonBar.Icon>
+    <ButtonBar.Icon><a><SVGIcon name='list'/></a></ButtonBar.Icon>
   </ButtonBar>
 </React.Fragment>;
 
 const ResultsFilters = () =>  <ButtonBar>
-    <ButtonBar.Icon><a href='#'><SVGIcon name='sliders'/></a></ButtonBar.Icon>
-    <ButtonBar.Icon><a href='#'><SVGIcon name='grid'/></a></ButtonBar.Icon>
-    <ButtonBar.Icon><a href='#'><SVGIcon name='list'/></a></ButtonBar.Icon>
-  </ButtonBar>
+    <ButtonBar.Icon><a><SVGIcon name='sliders'/></a></ButtonBar.Icon>
+    <ButtonBar.Icon><a><SVGIcon name='grid'/></a></ButtonBar.Icon>
+    <ButtonBar.Icon><a><SVGIcon name='list'/></a></ButtonBar.Icon>
+  </ButtonBar>;
 
 class TestGridContent extends React.Component {
 
@@ -52,7 +52,8 @@ class TestGridContent extends React.Component {
     numPaths: PropTypes.number,
     numCourses: PropTypes.number,
     badgeCount: PropTypes.number,
-    mode: PropTypes.string
+    mode: PropTypes.string,
+    controls: PropTypes.object
   };
 
   state = {};
@@ -68,6 +69,10 @@ class TestGridContent extends React.Component {
         courses = this.props.numCourses ? _.range(this.props.numCourses).map(i => <Course key={i}/> ) : [],
         filters = this.props.mode === 'list' ? <ListFilters/> : <ResultsFilters/>,
         cta = this.props.mode === 'list' ? <Button>View More</Button> : <p>(Infinity scroll)</p>;
+
+    if (this.props.controls) {
+      filters = this.props.controls;
+    }
 
     return (<CardLayout title={this.props.title}>
       <CardLayout.Title>{this.props.title}{this.props.badgeCount ? <AlertBadge>{this.props.badgeCount}</AlertBadge> : null}</CardLayout.Title>

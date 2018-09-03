@@ -131,7 +131,7 @@
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1); }
 
-.dropshadow-lg {
+.dropshadow-lg, .c-slidemenu {
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.05), 4px 23px 40px -15px rgba(0, 0, 0, 0.15), 8px 30px 64px rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.05), 4px 23px 40px -15px rgba(0, 0, 0, 0.15), 8px 30px 64px rgba(0, 0, 0, 0.1); }
 
@@ -304,10 +304,12 @@ ul.tabs {
   display: inline; }
 
 .l-site-content {
+  position: relative;
   padding: 2rem 0;
   grid-area: sitecontent; }
 
 .l-site-content--full {
+  position: relative;
   grid-area: sitecontent;
   grid-column: 1 / -1; }
 
@@ -428,7 +430,8 @@ ul.tabs {
         padding: 0 1.3125rem;
         border-radius: 0.3125rem;
         text-align: center;
-        margin-right: -5px; }
+        margin-right: -5px;
+        cursor: pointer; }
       .c-button-bar__icons ul li a:hover, .c-item-table__filters ul li a:hover {
         background-color: rgba(0, 0, 0, 0.1); }
       .c-button-bar__icons ul li div.u-svgicon, .c-item-table__filters ul li div.u-svgicon {
@@ -500,6 +503,8 @@ ul.tabs {
   line-height: 1.5rem;
   min-width: 1.5rem;
   border-radius: 1.5rem; }
+  .c-label .u-svgicon {
+    top: 3px; }
 
 .c-label--negative {
   background-color: #fff;
@@ -862,7 +867,8 @@ ul.tabs-big {
 .l-site-header {
   background-color: #0f2032;
   grid-area: siteheader;
-  color: #fff; }
+  color: #fff;
+  z-index: 99; }
 
 .l-site-header--desktop {
   display: grid;
@@ -1186,6 +1192,30 @@ ul.tabs-big {
   .c-card-grid__filters {
     display: none; } }
 
+.c-slidemenu {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: absolute;
+  height: 100%;
+  width: 350px;
+  background-color: #fff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 1;
+  top: 0px; }
+
+.c-slidemenu--right {
+  right: 0px; }
+
+.c-slidemenu--open {
+  visibility: visible; }
+
+.c-slidemenu--closed {
+  right: -400px;
+  visibility: hidden; }
+
 .l-course-detail {
   display: grid;
   grid-template: 'details content content' auto / 1fr 1fr 1fr;
@@ -1305,7 +1335,8 @@ ul.tabs-big {
     margin: 0; }
 
 body {
-  color: #464646; }
+  color: #464646;
+  overflow-x: hidden; }
 
 .l-site-container {
   background: #f8f8f8;

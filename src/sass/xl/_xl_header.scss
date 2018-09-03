@@ -2,6 +2,7 @@
   background-color: $header-color-background;
   grid-area: siteheader;
   color: #fff;
+  z-index: 99;
 }
 
 .l-site-header--desktop {

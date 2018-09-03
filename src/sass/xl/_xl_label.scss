@@ -13,6 +13,9 @@
   line-height: $label-size;
   min-width: $label-size;
   border-radius: $label-size;
+  .u-svgicon {
+    top: 3px;
+  }
 }
 
 .c-label--negative {

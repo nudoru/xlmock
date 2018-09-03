@@ -17,12 +17,14 @@
 @import 'xl_hero';
 @import 'xl_hero_path_progress';
 @import 'xl_footer';
-@import 'xl_grid';
+@import 'xl_cardlayout';
+@import '_xl_slidemenu';
 @import 'xl_course_detail';
 @import 'xl_path_detail';
 
 body {
   color: $text-color;
+  overflow-x: hidden;
 }
 
 .l-site-container {

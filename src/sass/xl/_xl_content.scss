@@ -1,9 +1,11 @@
 .l-site-content {
+  position: relative;
   padding: $scale5 0;
   grid-area: sitecontent;
 }
 
 .l-site-content--full {
+  position: relative;
   grid-area: sitecontent;
   grid-column: 1 / -1;
 }
