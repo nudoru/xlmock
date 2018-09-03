@@ -674,8 +674,10 @@ ul.tabs-big {
     color: rgba(255, 255, 255, 0.65); }
   .c-card--path .c-card__content p {
     color: rgba(255, 255, 255, 0.65); }
-  .c-card--path .c-card__icon, .c-card--path .c-card__subicon {
+  .c-card--path .c-card__icon, .c-card--path .c-card__subicon, .c-card--path .c-tag {
     color: #fff; }
+  .c-card--path .c-tag {
+    border-color: #fff; }
 
 .c-card-event {
   background: #fff; }

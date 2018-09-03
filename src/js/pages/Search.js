@@ -20,7 +20,8 @@ class Search extends React.Component {
     return (
       <React.Fragment>
         <Content>
-          <TestGridContent title='Search Results'numPaths={10} numCourses={10}/>
+          <TestGridContent mode='results' numPaths={2} numCourses={7}/>
+
         </Content>
       </React.Fragment>
     );

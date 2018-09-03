@@ -52,8 +52,8 @@ class Overview extends React.Component {
           </div>
         </Hero>
         <Content>
-            <TestGridContent title='Learning Paths in progress'numPaths={3} numCourses={0}/>
-          <TestGridContent title='Courses in progress'numPaths={0} numCourses={3}/>
+            <TestGridContent mode='list' title='Learning Paths in progress'badgeCount={3} numPaths={3} numCourses={0}/>
+            <TestGridContent mode='list' title='Courses in progress' badgeCount={3} numPaths={0} numCourses={3}/>
         </Content>
       </React.Fragment>
     );

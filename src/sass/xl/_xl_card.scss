@@ -59,8 +59,11 @@
   .c-card__cta button {
     @extend .c-button--primary-negative;
   }
-  .c-card__icon, .c-card__subicon {
+  .c-card__icon, .c-card__subicon, .c-tag {
     color: #fff;
+  }
+  .c-tag {
+    border-color: #fff;
   }
 }
 .c-card-event {

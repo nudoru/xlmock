@@ -26050,26 +26050,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Button = require('../components/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _SVGIcon = require('../components/SVGIcon');
-
-var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
-var _ButtonBar = require('../components/ButtonBar');
-
-var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
-
-var _AlertBadge = require('../components/AlertBadge');
-
-var _AlertBadge2 = _interopRequireDefault(_AlertBadge);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26096,78 +26076,10 @@ var CardLayout = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props,
-          title = _props.title,
-          ctaLabel = _props.ctaLabel,
-          children = _props.children;
-
-
-      var cta = ctaLabel ? _react2.default.createElement(
-        _Button2.default,
-        null,
-        ctaLabel
-      ) : null;
-
       return _react2.default.createElement(
         'div',
         { className: 'l-card-grid' },
-        _react2.default.createElement(
-          'div',
-          { className: 'c-card-grid__title' },
-          _react2.default.createElement(
-            'h1',
-            null,
-            title
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'c-card-grid__filters' },
-          _react2.default.createElement(
-            _Button2.default,
-            null,
-            'Recent ',
-            _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down', className: 'u-icon-button--right' })
-          ),
-          _react2.default.createElement(
-            _ButtonBar2.default,
-            null,
-            _react2.default.createElement(
-              _ButtonBar2.default.Icon,
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '#' },
-                _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
-              )
-            ),
-            _react2.default.createElement(
-              _ButtonBar2.default.Icon,
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '#' },
-                _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'c-card-grid__contents' },
-          children.map(function (child, i) {
-            return _react2.default.createElement(
-              'div',
-              { className: 'c-card-grid__cell', key: i },
-              child
-            );
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'l-card-grid__cta' },
-          cta
-        )
+        this.props.children
       );
     }
   }]);
@@ -26175,12 +26087,140 @@ var CardLayout = function (_React$Component) {
   return CardLayout;
 }(_react2.default.Component);
 
-CardLayout.defaultProps = {};
-CardLayout.propTypes = {
-  title: _propTypes2.default.string
+CardLayout.Title = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-card-grid__title' },
+    _react2.default.createElement(
+      'h1',
+      null,
+      children
+    )
+  );
 };
+
+CardLayout.Controls = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-card-grid__filters' },
+    children
+  );
+};
+
+CardLayout.Status = function (_ref3) {
+  var children = _ref3.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'l-card-grid__cta' },
+    children
+  );
+};
+
+CardLayout.Content = function (_ref4) {
+  var children = _ref4.children;
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-card-grid__contents' },
+    children.map(function (child, i) {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-card-grid__cell', key: i },
+        child
+      );
+    })
+  );
+};
+
+CardLayout.defaultProps = {};
+CardLayout.propTypes = {};
 exports.default = CardLayout;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js"}],"../js/components/LearningCard.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../js/components/Tag.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tag = function (_React$Component) {
+  _inherits(Tag, _React$Component);
+
+  function Tag(props) {
+    _classCallCheck(this, Tag);
+
+    var _this = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Tag, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
+
+      var cls = ['c-tag'];
+
+      if (negative) {
+        cls.push('c-tag--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        _react2.default.createElement(_SVGIcon2.default, { name: 'hash', width: '12', height: '12' }),
+        children
+      );
+    }
+  }]);
+
+  return Tag;
+}(_react2.default.Component);
+
+Tag.defaultProps = {};
+Tag.propTypes = {
+  negative: _propTypes2.default.bool
+};
+exports.default = Tag;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/LearningCard.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26208,6 +26248,10 @@ var _Button2 = _interopRequireDefault(_Button);
 var _SVGIcon = require('./SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _Tag = require('./Tag');
+
+var _Tag2 = _interopRequireDefault(_Tag);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26262,12 +26306,24 @@ var LearningCard = function (_React$Component) {
           staticContext = _props.staticContext,
           rest = _objectWithoutProperties(_props, ['type', 'duration', 'mod', 'mobile', 'tag', 'ctaLabel', 'children', 'staticContext']);
 
-      var cls = ['c-card'];
-      var typeLabel = 'Course';
+      var cls = ['c-card'],
+          typeLabel = 'Course',
+          cardIcon = _react2.default.createElement(_SVGIcon2.default, { name: 'book' }),
+          tagEl = tag ? _react2.default.createElement(
+        _Tag2.default,
+        null,
+        tag
+      ) : null,
+          ctaEl = ctaLabel ? _react2.default.createElement(
+        _Button2.default,
+        null,
+        ctaLabel
+      ) : null;
 
       if (type === 'path') {
         cls.push('c-card--path');
         typeLabel = 'Learning Path';
+        cardIcon = _react2.default.createElement(_SVGIcon2.default, { name: 'box' });
       }
 
       return _react2.default.createElement(
@@ -26279,7 +26335,7 @@ var LearningCard = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'c-card__icon' },
-            _react2.default.createElement(_SVGIcon2.default, { name: 'box' })
+            cardIcon
           ),
           _react2.default.createElement(
             'div',
@@ -26299,11 +26355,7 @@ var LearningCard = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'c-card__cta' },
-            _react2.default.createElement(
-              _Button2.default,
-              { primary: true },
-              'Resume'
-            )
+            ctaLabel ? ctaEl : tagEl
           ),
           _react2.default.createElement(
             'div',
@@ -26318,7 +26370,10 @@ var LearningCard = function (_React$Component) {
   return LearningCard;
 }(_react2.default.Component);
 
-LearningCard.defaultProps = {};
+LearningCard.defaultProps = {
+  type: 'course',
+  mobile: false
+};
 LearningCard.propTypes = {
   type: _propTypes2.default.string,
   duration: _propTypes2.default.string,
@@ -26329,7 +26384,7 @@ LearningCard.propTypes = {
   ctaLabel: _propTypes2.default.string
 };
 exports.default = (0, _reactRouterDom.withRouter)(LearningCard);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/BigTabs.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js","./Tag":"../js/components/Tag.js"}],"../js/components/BigTabs.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45611,6 +45666,22 @@ var _Lorem = require('../utils/Lorem');
 
 var Lorem = _interopRequireWildcard(_Lorem);
 
+var _Button = require('../components/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _SVGIcon = require('../components/SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _ButtonBar = require('../components/ButtonBar');
+
+var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
+
+var _AlertBadge = require('../components/AlertBadge');
+
+var _AlertBadge2 = _interopRequireDefault(_AlertBadge);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -45628,7 +45699,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Path = function Path() {
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'path', duration: '42 minutes', mobile: true },
+    { type: 'path', duration: '42 minutes', tag: 'Infrastructure', mobile: true },
     _react2.default.createElement(
       'h1',
       null,
@@ -45645,7 +45716,7 @@ var Path = function Path() {
 var Course = function Course() {
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'course', duration: '42 minutes', mobile: true },
+    { type: 'course', duration: '42 minutes', tag: 'Ansible', mobile: true },
     _react2.default.createElement(
       'h1',
       null,
@@ -45655,6 +45726,75 @@ var Course = function Course() {
       'p',
       null,
       Lorem.sentence(10, 20)
+    )
+  );
+};
+
+var ListFilters = function ListFilters() {
+  return _react2.default.createElement(
+    _react2.default.Fragment,
+    null,
+    _react2.default.createElement(
+      _Button2.default,
+      null,
+      'Recent ',
+      _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down', className: 'u-icon-button--right' })
+    ),
+    _react2.default.createElement(
+      _ButtonBar2.default,
+      null,
+      _react2.default.createElement(
+        _ButtonBar2.default.Icon,
+        null,
+        _react2.default.createElement(
+          'a',
+          { href: '#' },
+          _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
+        )
+      ),
+      _react2.default.createElement(
+        _ButtonBar2.default.Icon,
+        null,
+        _react2.default.createElement(
+          'a',
+          { href: '#' },
+          _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
+        )
+      )
+    )
+  );
+};
+
+var ResultsFilters = function ResultsFilters() {
+  return _react2.default.createElement(
+    _ButtonBar2.default,
+    null,
+    _react2.default.createElement(
+      _ButtonBar2.default.Icon,
+      null,
+      _react2.default.createElement(
+        'a',
+        { href: '#' },
+        _react2.default.createElement(_SVGIcon2.default, { name: 'sliders' })
+      )
+    ),
+    _react2.default.createElement(
+      _ButtonBar2.default.Icon,
+      null,
+      _react2.default.createElement(
+        'a',
+        { href: '#' },
+        _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
+      )
+    ),
+    _react2.default.createElement(
+      _ButtonBar2.default.Icon,
+      null,
+      _react2.default.createElement(
+        'a',
+        { href: '#' },
+        _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
+      )
     )
   );
 };
@@ -45682,12 +45822,46 @@ var TestGridContent = function (_React$Component) {
       }) : [],
           courses = this.props.numCourses ? _lodash2.default.range(this.props.numCourses).map(function (i) {
         return _react2.default.createElement(Course, { key: i });
-      }) : [];
+      }) : [],
+          filters = this.props.mode === 'list' ? _react2.default.createElement(ListFilters, null) : _react2.default.createElement(ResultsFilters, null),
+          cta = this.props.mode === 'list' ? _react2.default.createElement(
+        _Button2.default,
+        null,
+        'View More'
+      ) : _react2.default.createElement(
+        'p',
+        null,
+        '(Infinity scroll)'
+      );
 
       return _react2.default.createElement(
         _CardLayout2.default,
-        { title: this.props.title, ctaLabel: 'View More' },
-        paths.concat(courses)
+        { title: this.props.title },
+        _react2.default.createElement(
+          _CardLayout2.default.Title,
+          null,
+          this.props.title,
+          this.props.badgeCount ? _react2.default.createElement(
+            _AlertBadge2.default,
+            null,
+            this.props.badgeCount
+          ) : null
+        ),
+        _react2.default.createElement(
+          _CardLayout2.default.Controls,
+          null,
+          filters
+        ),
+        _react2.default.createElement(
+          _CardLayout2.default.Content,
+          null,
+          paths.concat(courses)
+        ),
+        _react2.default.createElement(
+          _CardLayout2.default.Status,
+          null,
+          cta
+        )
       );
     }
   }]);
@@ -45696,100 +45870,21 @@ var TestGridContent = function (_React$Component) {
 }(_react2.default.Component);
 
 TestGridContent.defaultProps = {
-  title: 'Test Content',
+  title: '',
   numPaths: 5,
-  numCourses: 5
+  numCourses: 5,
+  badgeCount: 0,
+  mode: 'list' // list or results
 };
 TestGridContent.propTypes = {
   title: _propTypes2.default.string,
   numPaths: _propTypes2.default.number,
-  numCourses: _propTypes2.default.number
+  numCourses: _propTypes2.default.number,
+  badgeCount: _propTypes2.default.number,
+  mode: _propTypes2.default.string
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/components/Tag.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _SVGIcon = require('./SVGIcon');
-
-var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Tag = function (_React$Component) {
-  _inherits(Tag, _React$Component);
-
-  function Tag(props) {
-    _classCallCheck(this, Tag);
-
-    var _this = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Tag, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          _props$className = _props.className,
-          className = _props$className === undefined ? null : _props$className,
-          children = _props.children,
-          negative = _props.negative,
-          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
-
-      var cls = ['c-tag'];
-
-      if (negative) {
-        cls.push('c-tag--negative');
-      }
-
-      cls.push(className);
-
-      return _react2.default.createElement(
-        'div',
-        _extends({ className: cls.join(' ') }, rest),
-        _react2.default.createElement(_SVGIcon2.default, { name: 'hash', width: '12', height: '12' }),
-        children
-      );
-    }
-  }]);
-
-  return Tag;
-}(_react2.default.Component);
-
-Tag.defaultProps = {};
-Tag.propTypes = {
-  negative: _propTypes2.default.bool
-};
-exports.default = Tag;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45942,8 +46037,8 @@ var Overview = function (_React$Component) {
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(_TestGridContent2.default, { title: 'Learning Paths in progress', numPaths: 3, numCourses: 0 }),
-          _react2.default.createElement(_TestGridContent2.default, { title: 'Courses in progress', numPaths: 0, numCourses: 3 })
+          _react2.default.createElement(_TestGridContent2.default, { mode: 'list', title: 'Learning Paths in progress', badgeCount: 3, numPaths: 3, numCourses: 0 }),
+          _react2.default.createElement(_TestGridContent2.default, { mode: 'list', title: 'Courses in progress', badgeCount: 3, numPaths: 0, numCourses: 3 })
         )
       );
     }
@@ -47798,7 +47893,7 @@ var Search = function (_React$Component) {
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(_TestGridContent2.default, { title: "Search Results", numPaths: 10, numCourses: 10 })
+          _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7 })
         )
       );
     }
