@@ -25129,7 +25129,9 @@ var Button = function (_React$Component) {
           primary = _props.primary,
           secondary = _props.secondary,
           negative = _props.negative,
-          rest = _objectWithoutProperties(_props, ['children', 'primary', 'secondary', 'negative']);
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          rest = _objectWithoutProperties(_props, ['children', 'primary', 'secondary', 'negative', 'className']);
 
       var cls = ['c-button'];
 
@@ -25140,6 +25142,8 @@ var Button = function (_React$Component) {
       } else if (!primary && negative) {
         cls.push('c-button--negative');
       }
+
+      cls.push(className);
 
       return _react2.default.createElement(
         'button',
@@ -25347,7 +25351,484 @@ ProgressBar.propTypes = {
   status: _propTypes2.default.string
 };
 exports.default = ProgressBar;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/HeroPathProgress.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/utils/Toolbox.js":[function(require,module,exports) {
+var _this = this;
+
+/*eslint no-undef: "error"*/
+/*eslint-env node*/
+
+/*
+ Collected utility functions
+ */
+
+/*******************************************************************************
+ * Determination
+ *******************************************************************************/
+
+var existy = function existy(x) {
+  return x != null; // eslint-disable-line eqeqeq
+};
+
+var truthy = function truthy(x) {
+  return x !== false && existy(x);
+};
+
+var falsey = function falsey(x) {
+  return !truthy(x);
+};
+
+module.exports.existy = existy;
+module.exports.truthy = truthy;
+module.exports.falsey = falsey;
+
+module.exports.isFunction = function (object) {
+  return typeof object === "function";
+};
+
+module.exports.isObject = function (object) {
+  var type = {}.toString;
+  return type.call(object) === "[object Object]";
+};
+
+module.exports.isString = function (object) {
+  var type = {}.toString;
+  return type.call(object) === "[object String]";
+};
+
+module.exports.isPromise = function (promise) {
+  return promise && typeof promise.then === 'function';
+};
+
+module.exports.isObservable = function (observable) {
+  return observable && typeof observable.subscribe === 'function';
+};
+
+/*******************************************************************************
+ * Number
+ *******************************************************************************/
+
+module.exports.isInteger = function (str) {
+  return (/^-?\d+$/.test(str)
+  );
+};
+
+var rndNumber = function rndNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+module.exports.rndNumber = rndNumber;
+
+module.exports.clamp = function (val, min, max) {
+  return Math.max(min, Math.min(max, val));
+};
+
+module.exports.inRange = function (val, min, max) {
+  return val > min && val < max;
+};
+
+module.exports.distanceTL = function (point1, point2) {
+  var xd = point2.left - point1.left,
+      yd = point2.top - point1.top;
+
+  return Math.sqrt(xd * xd + yd * yd);
+};
+
+/*******************************************************************************
+ * String
+ *******************************************************************************/
+
+module.exports.capitalizeFirstLetterStr = function (str) {
+  return str.charAt(0).toUpperCase() + str.substring(1);
+};
+
+module.exports.toTitleCaseStr = function (str) {
+  return str.replace(/\w\S*/g, function (txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1);
+  });
+};
+
+module.exports.removeTagsStr = function (str) {
+  return str.replace(/(<([^>]+)>)/ig, '');
+};
+
+module.exports.removeEntityStr = function (str) {
+  return str.replace(/(&(#?)(?:[a-z\d]+|#\d+|#x[a-f\d]+);)/ig, '');
+};
+
+module.exports.ellipsesStr = function (str, len) {
+  return str.length > len ? str.substr(0, len) + "..." : str;
+};
+
+// Removes spaces, tabs and new lines
+module.exports.removeWhiteSpace = function (str) {
+  return str.replace(/(\r\n|\n|\r|\t|\s)/gm, '').replace(/>\s+</g, '><');
+};
+
+/*******************************************************************************
+ * Array
+ *******************************************************************************/
+
+module.exports.removeArrDupes = function (list) {
+  // Using a normal object instead of a map
+  var dupes = {};
+  return list.reduce(function (acc, curr) {
+    // Check if the current object is in the `dupes` object
+    if (dupes[curr]) {
+      return acc;
+    }
+    // Add the current object as a field to `dupes`
+    dupes[curr] = true;
+    acc.push(curr);
+    return acc;
+  }, []);
+};
+
+// http://www.shamasis.net/2009/09/fast-algorithm-to-find-unique-items-in-javascript-array/
+module.exports.uniqueArry = function (arry) {
+  var o = {},
+      i,
+      l = arry.length,
+      r = [];
+  for (i = 0; i < l; i += 1) {
+    o[arry[i]] = arry[i];
+  }
+  for (i in o) {
+    r.push(o[i]);
+  }
+  return r;
+};
+
+module.exports.getArryDifferences = function (arr1, arr2) {
+  var dif = [];
+
+  arr1.forEach(function (value) {
+    var present = false,
+        i = 0,
+        len = arr2.length;
+
+    for (; i < len; i++) {
+      if (value === arr2[i]) {
+        present = true;
+        break;
+      }
+    }
+
+    if (!present) {
+      dif.push(value);
+    }
+  });
+
+  return dif;
+};
+
+module.exports.arryArryToArryObj = function (src, keys) {
+  return src.reduce(function (p, c) {
+    var row = {};
+    keys.forEach(function (col, i) {
+      row[col] = c[i];
+    });
+    p.push(row);
+    return p;
+  }, []);
+};
+
+module.exports.rndElement = function (arry) {
+  return arry[rndNumber(0, arry.length - 1)];
+};
+
+module.exports.getRandomSetOfElements = function (srcarry, max) {
+  var arry = [],
+      i = 0,
+      len = rndNumber(1, max);
+
+  for (; i < len; i++) {
+    arry.push(_this.rndElement(srcarry));
+  }
+
+  return arry;
+};
+
+module.exports.fillIntArray = function (start, end) {
+  return Array.apply(null, { length: end + 1 - start }).reduce(function (p, c, i) {
+    p.push(i + start);
+    return p;
+  }, []);
+};
+
+/*******************************************************************************
+ * Objects
+ *******************************************************************************/
+
+/**
+ * Test for
+ * Object {"": undefined}
+ * Object {undefined: undefined}
+ * @param obj
+ * @returns {boolean}
+ */
+module.exports.isNullObj = function (obj) {
+  var isnull = false;
+
+  if (falsey(obj)) {
+    return true;
+  }
+
+  for (var prop in obj) {
+    if (prop === undefined || obj[prop] === undefined) {
+      isnull = true;
+    }
+    break;
+  }
+
+  return isnull;
+};
+
+module.exports.dynamicSortObjArry = function (property) {
+  return function (a, b) {
+    return a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
+  };
+};
+
+/**
+ * Turn an object of {paramname:value[,...]} into paramname=value[&...] for a
+ * URL rest query
+ */
+module.exports.getParameterString = function (objArry) {
+  return Object.keys(objArry).reduce(function (p, c, i) {
+    p += (i > 0 ? '&' : '') + c + '=' + encodeURIComponent(objArry[c]);
+    return p;
+  }, '');
+};
+
+module.exports.decodeParameterString = function (str) {
+  return str.split('&').reduce(function (p, c) {
+    var pair = c.split('=');
+    p[pair[0]] = decodeURIComponent(pair[1]);
+    return p;
+  }, {});
+};
+
+/*******************************************************************************
+ * Determination
+ *******************************************************************************/
+
+module.exports.sleep = function (time) {
+  return new Promise(function (resolve) {
+    window.setTimeout(resolve, time);
+  });
+};
+
+/*******************************************************************************
+ * Time
+ * Created while working with Moodle web services
+ *******************************************************************************/
+
+module.exports.getMatchDates = function (str) {
+  return str.match(/\s*(?:(?:jan|feb)?r?(?:uary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|oct(?:ober)?|(?:sept?|nov|dec)(?:ember)?)\s+\d{1,2}\s*,?\s*\d{4}/ig);
+};
+
+module.exports.getMatchTimes = function (str) {
+  return str.match(/(\d{1,2})\s*:\s*(\d{2})\s*([ap]m?)/ig);
+};
+
+function hrTo24(hr, pm) {
+  hr = parseInt(hr);
+  var fhr = (hr === 12 ? 0 : hr) + (pm ? 12 : 0);
+  if (fhr < 10) {
+    fhr = '0' + fhr;
+  }
+  return fhr;
+}
+
+function formatSecondsToHHMM(seconds) {
+  var d = Number(seconds);
+  var h = Math.floor(d / 3600);
+  var m = Math.floor(d % 3600 / 60);
+  return (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m;
+}
+
+// Convert one of these 9:00 AM, 5:00 PM to 09:00 or 17:00
+module.exports.convertTimeStrToHourStr = function (str, is24) {
+  var parts = str.toLowerCase().split(' '),
+      time = parts[0].split(':'),
+      hr = is24 ? hrTo24(time[0], parts[1] === 'pm') : time[0];
+  return [hr, time[1]].join(':');
+};
+
+module.exports.formatSecondsToDate = function (seconds) {
+  return new Date(parseInt(seconds * 1000)).toLocaleDateString();
+};
+
+module.exports.formatSecondsToDate2 = function (seconds) {
+  return new Date(parseInt(seconds * 1000));
+};
+
+module.exports.formatSecondsToHHMM = formatSecondsToHHMM;
+module.exports.hrTo24 = hrTo24;
+
+module.exports.formatSecDurationToStr = function (seconds) {
+  var hhmm = formatSecondsToHHMM(seconds),
+      split = hhmm.split(':'),
+      tothrs = parseInt(split[0]),
+      days = Math.floor(tothrs / 8),
+      hrs = tothrs % 8,
+      mins = parseInt(split[1]);
+
+  return (days ? days + ' days' : '') + (hrs ? ' ' + hrs + ' hrs' : '') + (mins ? ' ' + mins + ' mins' : '');
+};
+
+/*******************************************************************************
+ * DOM
+ *******************************************************************************/
+},{}],"../js/utils/Lorem.js":[function(require,module,exports) {
+var _currentText = [],
+    _textSets = [],
+    _maleFirstNames = [],
+    _femaleFirstNames = [],
+    _lastNames = [],
+    _punctuation = [],
+    _months,
+    _days,
+    _toolbox = require('./Toolbox');
+
+_textSets = ['Perhaps a re-engineering of your current world view will re-energize your online nomenclature to enable a new holistic interactive enterprise internet communication solution Upscaling the resurgent networking exchange solutions, achieving a breakaway systemic electronic data interchange system synchronization, thereby exploiting technical environments for mission critical broad based capacity constrained systems Fundamentally transforming well designed actionable information whose semantic content is virtually null To more fully clarify the current exchange, a few aggregate issues will require addressing to facilitate this distributed communication venue In integrating non-aligned structures into existing legacy systems, a holistic gateway blueprint is a backward compatible packaging tangible'];
+
+_lastNames = 'Smith Johnson Williams Jones Brown Davis Miller Wilson Moore Taylor Anderson Thomas Jackson White Harris Martin Thompson Garcia Martinez Robinson Clark Rodriguez Lewis Lee Walker Hall Allen Young Hernandez King Wright Lopez Hill Scott Green Adams Baker Gonzalez Nelson Carter Mitchell Perez Roberts Turner Phillips Campbell Parker Evans Edwards Collins Stewart Sanchez Morris Rogers Reed Cook Morgan Bell Murphy'.split(' ');
+
+_maleFirstNames = 'Thomas Arthur Lewis Clarence Leonard Albert Paul Carl Ralph Roy Earl Samuel Howard Richard Francis Laurence Herbert Elmer Ernest Theodore David Alfred Donald Russell Eugene Andrew Kenneth Herman Jesse Lester Floyd Michael Edwin Clifford Benjamin Clyde Glen Oscar Daniel'.split(' ');
+
+_femaleFirstNames = 'Elizabeth Ann Helen Margaret Ellen Catherine Lily Florence Ada Lou Ethel Emily Ruth Rose Frances Alice Bertha Clara Mabel Minnie Grace Jane Evelyn Gertrude Edna Pearl Laura Hazel Edith Esther Harriet Sarah May Matilda Martha Myrtle Josephine Maud Agnes Keri Julia Irene Mildred Cora'.split(' ');
+
+_punctuation = ['.', '.', '.', '.', '?', '!'];
+
+_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+_currentText = _textSets[0].toLowerCase().split(' ');
+
+function rNumber(min, max) {
+  return _toolbox.rndNumber(min, max);
+}
+
+function rItem(arry) {
+  return arry[rNumber(0, arry.length - 1)];
+}
+
+function rItems(num, arry) {
+  if (num >= arry.length) {
+    return arry;
+  }
+  var res = [];
+  for (var i = 0; i < num; i++) {
+    res.push(rItem(arry));
+  }
+  return res;
+}
+
+function sentence(min, max) {
+  return _toolbox.capitalizeFirstLetterStr(text(min, max)) + rItem(_punctuation);
+}
+
+function title(min, max) {
+  return _toolbox.toTitleCaseStr(text(min, max));
+}
+
+function paragraph(min, max) {
+  var str = '',
+      delim = ' ',
+      len = rNumber(min, max),
+      i = 0;
+
+  for (; i < len; i++) {
+    if (i === len - 1) {
+      delim = '';
+    }
+    str += sentence(1, 10) + delim;
+  }
+
+  return str;
+}
+
+function text(min, max) {
+  var str = '',
+      delim = ' ',
+      len = rNumber(min, max),
+      i = 0;
+
+  for (; i < len; i++) {
+    if (i === len - 1) {
+      delim = '';
+    }
+    str += rItem(_currentText) + delim;
+  }
+
+  return str;
+}
+
+function getFirstName() {
+  return rNumber(0, 1) ? rItem(_maleFirstNames) : rItem(_femaleFirstNames);
+}
+
+function getLastName() {
+  return rItem(_lastNames);
+}
+
+function flName() {
+  return getFirstName() + ' ' + getLastName();
+}
+
+function lfName() {
+  return getLastName() + ', ' + getFirstName();
+}
+
+/**
+ * Better implementation http://stackoverflow.com/questions/9035627/elegant-method-to-generate-array-of-random-dates-within-two-dates
+ * @returns {{monthNumber: *, monthName: *, monthDay, weekDayNumber: *, weekDay: *, year}}
+ */
+function date() {
+  var month = rNumber(0, 11),
+      wkday = rNumber(0, 4),
+      date = {
+    monthNumber: month + 1,
+    monthName: _months[month],
+    monthDay: rNumber(1, 28),
+    weekDayNumber: wkday + 1,
+    weekDay: _days[wkday],
+    year: _toolbox.rndElement(['2017'])
+  };
+
+  date.string = date.monthName + ' ' + date.monthDay + ', ' + date.year;
+
+  return date;
+}
+
+/**
+ * http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+ * @returns {string}
+ */
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+  }
+
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+module.exports = {
+  rNumber: rNumber,
+  rItem: rItem,
+  rItems: rItems,
+  text: text,
+  sentence: sentence,
+  title: title,
+  paragraph: paragraph,
+  flName: flName,
+  lfName: lfName,
+  date: date,
+  guid: guid
+};
+},{"./Toolbox":"../js/utils/Toolbox.js"}],"../js/components/HeroPathProgress.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25371,6 +25852,14 @@ var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
 var _SVGIcon = require('./SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _Lorem = require('../utils/Lorem');
+
+var Lorem = _interopRequireWildcard(_Lorem);
+
+var _reactRouterDom = require('react-router-dom');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25401,7 +25890,11 @@ var UpnextItem = function UpnextItem(_ref) {
       _react2.default.createElement(
         'span',
         { className: 'title' },
-        title
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: 'courseplayer' },
+          title
+        )
       ),
       _react2.default.createElement(
         'span',
@@ -25442,12 +25935,12 @@ var HeroPathProgress = function (_React$Component) {
           _react2.default.createElement(
             'h1',
             null,
-            'Be an Ansible Engineer'
+            Lorem.title(5, 10)
           ),
           _react2.default.createElement(
             'p',
             null,
-            'Integer sodales lorem ac lectus efficitur, eu tincidunt dolor auctor. Nulla ut felis vitae mauris lobortis euismod quis sodales enim. Maecenas odio massa, ultricies et porttitor eu, maximus eget purus. In hac habitasse platea dictumst. Etiam hendrerit gravida efficitur.'
+            Lorem.sentence(20, 40)
           ),
           _react2.default.createElement(
             'div',
@@ -25466,9 +25959,9 @@ var HeroPathProgress = function (_React$Component) {
           _react2.default.createElement(
             'ul',
             null,
-            _react2.default.createElement(UpnextItem, { icon: _react2.default.createElement(_SVGIcon2.default, { name: 'package' }), title: 'Control task and play behavior', metadata: 'Reading - 10 min' }),
-            _react2.default.createElement(UpnextItem, { icon: _react2.default.createElement(_SVGIcon2.default, { name: 'package' }), title: 'Code driven deployments and ...', metadata: 'Reading - 10 min' }),
-            _react2.default.createElement(UpnextItem, { icon: _react2.default.createElement(_SVGIcon2.default, { name: 'package' }), title: 'Infrastructure management', metadata: 'Reading - 10 min' })
+            _react2.default.createElement(UpnextItem, { icon: _react2.default.createElement(_SVGIcon2.default, { name: 'package' }), title: Lorem.title(5, 10), metadata: 'Reading - 10 min' }),
+            _react2.default.createElement(UpnextItem, { icon: _react2.default.createElement(_SVGIcon2.default, { name: 'package' }), title: Lorem.title(5, 10), metadata: 'Reading - 10 min' }),
+            _react2.default.createElement(UpnextItem, { icon: _react2.default.createElement(_SVGIcon2.default, { name: 'package' }), title: Lorem.title(5, 10), metadata: 'Reading - 10 min' })
           )
         )
       );
@@ -25481,7 +25974,7 @@ var HeroPathProgress = function (_React$Component) {
 HeroPathProgress.defaultProps = {};
 HeroPathProgress.propTypes = {};
 exports.default = HeroPathProgress;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ProgressBar":"../js/components/ProgressBar.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/layout/CardLayout.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ProgressBar":"../js/components/ProgressBar.js","./SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/layout/CardLayout.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25561,12 +26054,7 @@ var CardLayout = function (_React$Component) {
           _react2.default.createElement(
             'h1',
             null,
-            title,
-            _react2.default.createElement(
-              _AlertBadge2.default,
-              null,
-              '99'
-            )
+            title
           )
         ),
         _react2.default.createElement(
@@ -45056,6 +45544,12 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _Lorem = require('../utils/Lorem');
+
+var Lorem = _interopRequireWildcard(_Lorem);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45075,12 +45569,12 @@ var Path = function Path() {
     _react2.default.createElement(
       'h1',
       null,
-      'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+      Lorem.title(5, 10)
     ),
     _react2.default.createElement(
       'p',
       null,
-      'Aliquam vulputate vestibulum eleifend.'
+      Lorem.sentence(10, 20)
     )
   );
 };
@@ -45092,12 +45586,12 @@ var Course = function Course() {
     _react2.default.createElement(
       'h1',
       null,
-      'Nulla ut felis vitae mauris lobortis euismod quis sodales enim'
+      Lorem.title(5, 10)
     ),
     _react2.default.createElement(
       'p',
       null,
-      'Aliquam vulputate vestibulum eleifend.'
+      Lorem.sentence(10, 20)
     )
   );
 };
@@ -45149,7 +45643,90 @@ TestGridContent.propTypes = {
   numCourses: _propTypes2.default.number
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/components/Tag.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Tag = function (_React$Component) {
+  _inherits(Tag, _React$Component);
+
+  function Tag(props) {
+    _classCallCheck(this, Tag);
+
+    var _this = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Tag, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
+
+      var cls = ['c-tag'];
+
+      if (negative) {
+        cls.push('c-tag--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        _react2.default.createElement(_SVGIcon2.default, { name: 'hash', width: '12', height: '12' }),
+        children
+      );
+    }
+  }]);
+
+  return Tag;
+}(_react2.default.Component);
+
+Tag.defaultProps = {};
+Tag.propTypes = {
+  negative: _propTypes2.default.bool
+};
+exports.default = Tag;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45194,6 +45771,18 @@ var _TestGridContent = require('../test/TestGridContent');
 
 var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
 
+var _Tag = require('../components/Tag');
+
+var _Tag2 = _interopRequireDefault(_Tag);
+
+var _SVGIcon = require('../components/SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _Button = require('../components/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45211,6 +45800,15 @@ var Overview = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Overview.__proto__ || Object.getPrototypeOf(Overview)).call(this, props));
 
     _this.state = {};
+
+    _this.onResumePathClick = function () {
+      _this.props.history.push('/courseplayer');
+    };
+
+    _this.onViewPathClick = function () {
+      _this.props.history.push('/path');
+    };
+
     return _this;
   }
 
@@ -45262,12 +45860,27 @@ var Overview = function (_React$Component) {
               )
             )
           ),
-          _react2.default.createElement(_HeroPathProgress2.default, null)
+          _react2.default.createElement(_HeroPathProgress2.default, null),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-path-metadata' },
+            _react2.default.createElement(
+              _Button2.default,
+              { onClick: this.onResumePathClick, negative: true, primary: true, className: 'u-margin-right' },
+              'Resume Path'
+            ),
+            _react2.default.createElement(
+              _Button2.default,
+              { onClick: this.onViewPathClick, negative: true },
+              'View Path'
+            )
+          )
         ),
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(_TestGridContent2.default, { title: 'Your Stuff', numPaths: 3, numCourses: 4 })
+          _react2.default.createElement(_TestGridContent2.default, { title: 'Learning Paths in progress', numPaths: 3, numCourses: 0 }),
+          _react2.default.createElement(_TestGridContent2.default, { title: 'Courses in progress', numPaths: 0, numCourses: 3 })
         )
       );
     }
@@ -45278,8 +45891,8 @@ var Overview = function (_React$Component) {
 
 Overview.defaultProps = {};
 Overview.propTypes = {};
-exports.default = Overview;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../layout/CardLayout":"../js/layout/CardLayout.js","../components/LearningCard":"../js/components/LearningCard.js","../components/BigTabs":"../js/components/BigTabs.js","../test/TestGridContent":"../js/test/TestGridContent.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
+exports.default = (0, _reactRouterDom.withRouter)(Overview);
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../layout/CardLayout":"../js/layout/CardLayout.js","../components/LearningCard":"../js/components/LearningCard.js","../components/BigTabs":"../js/components/BigTabs.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Tag":"../js/components/Tag.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/Button":"../js/components/Button.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45717,90 +46330,7 @@ var User = function (_React$Component) {
 User.defaultProps = {};
 User.propTypes = {};
 exports.default = User;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/Tag.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _SVGIcon = require('./SVGIcon');
-
-var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Tag = function (_React$Component) {
-  _inherits(Tag, _React$Component);
-
-  function Tag(props) {
-    _classCallCheck(this, Tag);
-
-    var _this = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Tag, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          _props$className = _props.className,
-          className = _props$className === undefined ? null : _props$className,
-          children = _props.children,
-          negative = _props.negative,
-          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
-
-      var cls = ['c-tag'];
-
-      if (negative) {
-        cls.push('c-tag--negative');
-      }
-
-      cls.push(className);
-
-      return _react2.default.createElement(
-        'div',
-        _extends({ className: cls.join(' ') }, rest),
-        _react2.default.createElement(_SVGIcon2.default, { name: 'hash', width: '12', height: '12' }),
-        children
-      );
-    }
-  }]);
-
-  return Tag;
-}(_react2.default.Component);
-
-Tag.defaultProps = {};
-Tag.propTypes = {
-  negative: _propTypes2.default.bool
-};
-exports.default = Tag;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46651,484 +47181,7 @@ PathActivityRow.Completion = function (_ref3) {
 
 PathActivityRow.defaultProps = {};
 PathActivityRow.propTypes = {};
-},{"react":"../../node_modules/react/index.js"}],"../js/utils/Toolbox.js":[function(require,module,exports) {
-var _this = this;
-
-/*eslint no-undef: "error"*/
-/*eslint-env node*/
-
-/*
- Collected utility functions
- */
-
-/*******************************************************************************
- * Determination
- *******************************************************************************/
-
-var existy = function existy(x) {
-  return x != null; // eslint-disable-line eqeqeq
-};
-
-var truthy = function truthy(x) {
-  return x !== false && existy(x);
-};
-
-var falsey = function falsey(x) {
-  return !truthy(x);
-};
-
-module.exports.existy = existy;
-module.exports.truthy = truthy;
-module.exports.falsey = falsey;
-
-module.exports.isFunction = function (object) {
-  return typeof object === "function";
-};
-
-module.exports.isObject = function (object) {
-  var type = {}.toString;
-  return type.call(object) === "[object Object]";
-};
-
-module.exports.isString = function (object) {
-  var type = {}.toString;
-  return type.call(object) === "[object String]";
-};
-
-module.exports.isPromise = function (promise) {
-  return promise && typeof promise.then === 'function';
-};
-
-module.exports.isObservable = function (observable) {
-  return observable && typeof observable.subscribe === 'function';
-};
-
-/*******************************************************************************
- * Number
- *******************************************************************************/
-
-module.exports.isInteger = function (str) {
-  return (/^-?\d+$/.test(str)
-  );
-};
-
-var rndNumber = function rndNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-module.exports.rndNumber = rndNumber;
-
-module.exports.clamp = function (val, min, max) {
-  return Math.max(min, Math.min(max, val));
-};
-
-module.exports.inRange = function (val, min, max) {
-  return val > min && val < max;
-};
-
-module.exports.distanceTL = function (point1, point2) {
-  var xd = point2.left - point1.left,
-      yd = point2.top - point1.top;
-
-  return Math.sqrt(xd * xd + yd * yd);
-};
-
-/*******************************************************************************
- * String
- *******************************************************************************/
-
-module.exports.capitalizeFirstLetterStr = function (str) {
-  return str.charAt(0).toUpperCase() + str.substring(1);
-};
-
-module.exports.toTitleCaseStr = function (str) {
-  return str.replace(/\w\S*/g, function (txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1);
-  });
-};
-
-module.exports.removeTagsStr = function (str) {
-  return str.replace(/(<([^>]+)>)/ig, '');
-};
-
-module.exports.removeEntityStr = function (str) {
-  return str.replace(/(&(#?)(?:[a-z\d]+|#\d+|#x[a-f\d]+);)/ig, '');
-};
-
-module.exports.ellipsesStr = function (str, len) {
-  return str.length > len ? str.substr(0, len) + "..." : str;
-};
-
-// Removes spaces, tabs and new lines
-module.exports.removeWhiteSpace = function (str) {
-  return str.replace(/(\r\n|\n|\r|\t|\s)/gm, '').replace(/>\s+</g, '><');
-};
-
-/*******************************************************************************
- * Array
- *******************************************************************************/
-
-module.exports.removeArrDupes = function (list) {
-  // Using a normal object instead of a map
-  var dupes = {};
-  return list.reduce(function (acc, curr) {
-    // Check if the current object is in the `dupes` object
-    if (dupes[curr]) {
-      return acc;
-    }
-    // Add the current object as a field to `dupes`
-    dupes[curr] = true;
-    acc.push(curr);
-    return acc;
-  }, []);
-};
-
-// http://www.shamasis.net/2009/09/fast-algorithm-to-find-unique-items-in-javascript-array/
-module.exports.uniqueArry = function (arry) {
-  var o = {},
-      i,
-      l = arry.length,
-      r = [];
-  for (i = 0; i < l; i += 1) {
-    o[arry[i]] = arry[i];
-  }
-  for (i in o) {
-    r.push(o[i]);
-  }
-  return r;
-};
-
-module.exports.getArryDifferences = function (arr1, arr2) {
-  var dif = [];
-
-  arr1.forEach(function (value) {
-    var present = false,
-        i = 0,
-        len = arr2.length;
-
-    for (; i < len; i++) {
-      if (value === arr2[i]) {
-        present = true;
-        break;
-      }
-    }
-
-    if (!present) {
-      dif.push(value);
-    }
-  });
-
-  return dif;
-};
-
-module.exports.arryArryToArryObj = function (src, keys) {
-  return src.reduce(function (p, c) {
-    var row = {};
-    keys.forEach(function (col, i) {
-      row[col] = c[i];
-    });
-    p.push(row);
-    return p;
-  }, []);
-};
-
-module.exports.rndElement = function (arry) {
-  return arry[rndNumber(0, arry.length - 1)];
-};
-
-module.exports.getRandomSetOfElements = function (srcarry, max) {
-  var arry = [],
-      i = 0,
-      len = rndNumber(1, max);
-
-  for (; i < len; i++) {
-    arry.push(_this.rndElement(srcarry));
-  }
-
-  return arry;
-};
-
-module.exports.fillIntArray = function (start, end) {
-  return Array.apply(null, { length: end + 1 - start }).reduce(function (p, c, i) {
-    p.push(i + start);
-    return p;
-  }, []);
-};
-
-/*******************************************************************************
- * Objects
- *******************************************************************************/
-
-/**
- * Test for
- * Object {"": undefined}
- * Object {undefined: undefined}
- * @param obj
- * @returns {boolean}
- */
-module.exports.isNullObj = function (obj) {
-  var isnull = false;
-
-  if (falsey(obj)) {
-    return true;
-  }
-
-  for (var prop in obj) {
-    if (prop === undefined || obj[prop] === undefined) {
-      isnull = true;
-    }
-    break;
-  }
-
-  return isnull;
-};
-
-module.exports.dynamicSortObjArry = function (property) {
-  return function (a, b) {
-    return a[property] < b[property] ? -1 : a[property] > b[property] ? 1 : 0;
-  };
-};
-
-/**
- * Turn an object of {paramname:value[,...]} into paramname=value[&...] for a
- * URL rest query
- */
-module.exports.getParameterString = function (objArry) {
-  return Object.keys(objArry).reduce(function (p, c, i) {
-    p += (i > 0 ? '&' : '') + c + '=' + encodeURIComponent(objArry[c]);
-    return p;
-  }, '');
-};
-
-module.exports.decodeParameterString = function (str) {
-  return str.split('&').reduce(function (p, c) {
-    var pair = c.split('=');
-    p[pair[0]] = decodeURIComponent(pair[1]);
-    return p;
-  }, {});
-};
-
-/*******************************************************************************
- * Determination
- *******************************************************************************/
-
-module.exports.sleep = function (time) {
-  return new Promise(function (resolve) {
-    window.setTimeout(resolve, time);
-  });
-};
-
-/*******************************************************************************
- * Time
- * Created while working with Moodle web services
- *******************************************************************************/
-
-module.exports.getMatchDates = function (str) {
-  return str.match(/\s*(?:(?:jan|feb)?r?(?:uary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|oct(?:ober)?|(?:sept?|nov|dec)(?:ember)?)\s+\d{1,2}\s*,?\s*\d{4}/ig);
-};
-
-module.exports.getMatchTimes = function (str) {
-  return str.match(/(\d{1,2})\s*:\s*(\d{2})\s*([ap]m?)/ig);
-};
-
-function hrTo24(hr, pm) {
-  hr = parseInt(hr);
-  var fhr = (hr === 12 ? 0 : hr) + (pm ? 12 : 0);
-  if (fhr < 10) {
-    fhr = '0' + fhr;
-  }
-  return fhr;
-}
-
-function formatSecondsToHHMM(seconds) {
-  var d = Number(seconds);
-  var h = Math.floor(d / 3600);
-  var m = Math.floor(d % 3600 / 60);
-  return (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m;
-}
-
-// Convert one of these 9:00 AM, 5:00 PM to 09:00 or 17:00
-module.exports.convertTimeStrToHourStr = function (str, is24) {
-  var parts = str.toLowerCase().split(' '),
-      time = parts[0].split(':'),
-      hr = is24 ? hrTo24(time[0], parts[1] === 'pm') : time[0];
-  return [hr, time[1]].join(':');
-};
-
-module.exports.formatSecondsToDate = function (seconds) {
-  return new Date(parseInt(seconds * 1000)).toLocaleDateString();
-};
-
-module.exports.formatSecondsToDate2 = function (seconds) {
-  return new Date(parseInt(seconds * 1000));
-};
-
-module.exports.formatSecondsToHHMM = formatSecondsToHHMM;
-module.exports.hrTo24 = hrTo24;
-
-module.exports.formatSecDurationToStr = function (seconds) {
-  var hhmm = formatSecondsToHHMM(seconds),
-      split = hhmm.split(':'),
-      tothrs = parseInt(split[0]),
-      days = Math.floor(tothrs / 8),
-      hrs = tothrs % 8,
-      mins = parseInt(split[1]);
-
-  return (days ? days + ' days' : '') + (hrs ? ' ' + hrs + ' hrs' : '') + (mins ? ' ' + mins + ' mins' : '');
-};
-
-/*******************************************************************************
- * DOM
- *******************************************************************************/
-},{}],"../js/utils/Lorem.js":[function(require,module,exports) {
-var _currentText = [],
-    _textSets = [],
-    _maleFirstNames = [],
-    _femaleFirstNames = [],
-    _lastNames = [],
-    _punctuation = [],
-    _months,
-    _days,
-    _toolbox = require('./Toolbox');
-
-_textSets = ['Perhaps a re-engineering of your current world view will re-energize your online nomenclature to enable a new holistic interactive enterprise internet communication solution Upscaling the resurgent networking exchange solutions, achieving a breakaway systemic electronic data interchange system synchronization, thereby exploiting technical environments for mission critical broad based capacity constrained systems Fundamentally transforming well designed actionable information whose semantic content is virtually null To more fully clarify the current exchange, a few aggregate issues will require addressing to facilitate this distributed communication venue In integrating non-aligned structures into existing legacy systems, a holistic gateway blueprint is a backward compatible packaging tangible'];
-
-_lastNames = 'Smith Johnson Williams Jones Brown Davis Miller Wilson Moore Taylor Anderson Thomas Jackson White Harris Martin Thompson Garcia Martinez Robinson Clark Rodriguez Lewis Lee Walker Hall Allen Young Hernandez King Wright Lopez Hill Scott Green Adams Baker Gonzalez Nelson Carter Mitchell Perez Roberts Turner Phillips Campbell Parker Evans Edwards Collins Stewart Sanchez Morris Rogers Reed Cook Morgan Bell Murphy'.split(' ');
-
-_maleFirstNames = 'Thomas Arthur Lewis Clarence Leonard Albert Paul Carl Ralph Roy Earl Samuel Howard Richard Francis Laurence Herbert Elmer Ernest Theodore David Alfred Donald Russell Eugene Andrew Kenneth Herman Jesse Lester Floyd Michael Edwin Clifford Benjamin Clyde Glen Oscar Daniel'.split(' ');
-
-_femaleFirstNames = 'Elizabeth Ann Helen Margaret Ellen Catherine Lily Florence Ada Lou Ethel Emily Ruth Rose Frances Alice Bertha Clara Mabel Minnie Grace Jane Evelyn Gertrude Edna Pearl Laura Hazel Edith Esther Harriet Sarah May Matilda Martha Myrtle Josephine Maud Agnes Keri Julia Irene Mildred Cora'.split(' ');
-
-_punctuation = ['.', '.', '.', '.', '?', '!'];
-
-_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-_days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-
-_currentText = _textSets[0].toLowerCase().split(' ');
-
-function rNumber(min, max) {
-  return _toolbox.rndNumber(min, max);
-}
-
-function rItem(arry) {
-  return arry[rNumber(0, arry.length - 1)];
-}
-
-function rItems(num, arry) {
-  if (num >= arry.length) {
-    return arry;
-  }
-  var res = [];
-  for (var i = 0; i < num; i++) {
-    res.push(rItem(arry));
-  }
-  return res;
-}
-
-function sentence(min, max) {
-  return _toolbox.capitalizeFirstLetterStr(text(min, max)) + rItem(_punctuation);
-}
-
-function title(min, max) {
-  return _toolbox.toTitleCaseStr(text(min, max));
-}
-
-function paragraph(min, max) {
-  var str = '',
-      delim = ' ',
-      len = rNumber(min, max),
-      i = 0;
-
-  for (; i < len; i++) {
-    if (i === len - 1) {
-      delim = '';
-    }
-    str += sentence(1, 10) + delim;
-  }
-
-  return str;
-}
-
-function text(min, max) {
-  var str = '',
-      delim = ' ',
-      len = rNumber(min, max),
-      i = 0;
-
-  for (; i < len; i++) {
-    if (i === len - 1) {
-      delim = '';
-    }
-    str += rItem(_currentText) + delim;
-  }
-
-  return str;
-}
-
-function getFirstName() {
-  return rNumber(0, 1) ? rItem(_maleFirstNames) : rItem(_femaleFirstNames);
-}
-
-function getLastName() {
-  return rItem(_lastNames);
-}
-
-function flName() {
-  return getFirstName() + ' ' + getLastName();
-}
-
-function lfName() {
-  return getLastName() + ', ' + getFirstName();
-}
-
-/**
- * Better implementation http://stackoverflow.com/questions/9035627/elegant-method-to-generate-array-of-random-dates-within-two-dates
- * @returns {{monthNumber: *, monthName: *, monthDay, weekDayNumber: *, weekDay: *, year}}
- */
-function date() {
-  var month = rNumber(0, 11),
-      wkday = rNumber(0, 4),
-      date = {
-    monthNumber: month + 1,
-    monthName: _months[month],
-    monthDay: rNumber(1, 28),
-    weekDayNumber: wkday + 1,
-    weekDay: _days[wkday],
-    year: _toolbox.rndElement(['2017'])
-  };
-
-  date.string = date.monthName + ' ' + date.monthDay + ', ' + date.year;
-
-  return date;
-}
-
-/**
- * http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
- * @returns {string}
- */
-function guid() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-  }
-
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
-}
-
-module.exports = {
-  rNumber: rNumber,
-  rItem: rItem,
-  rItems: rItems,
-  text: text,
-  sentence: sentence,
-  title: title,
-  paragraph: paragraph,
-  flName: flName,
-  lfName: lfName,
-  date: date,
-  guid: guid
-};
-},{"./Toolbox":"../js/utils/Toolbox.js"}],"../js/components/Label.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../js/components/Label.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47646,6 +47699,10 @@ var _Content = require("../layout/Content");
 
 var _Content2 = _interopRequireDefault(_Content);
 
+var _TestGridContent = require("../test/TestGridContent");
+
+var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -47678,11 +47735,7 @@ var Search = function (_React$Component) {
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(
-            "h1",
-            null,
-            "Search"
-          )
+          _react2.default.createElement(_TestGridContent2.default, { title: "Search Results", numPaths: 10, numCourses: 10 })
         )
       );
     }
@@ -47694,7 +47747,7 @@ var Search = function (_React$Component) {
 Search.defaultProps = {};
 Search.propTypes = {};
 exports.default = Search;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

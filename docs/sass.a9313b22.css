@@ -1033,6 +1033,8 @@ ul.tabs-big {
       line-height: 1rem;
       margin-bottom: none;
       color: #fff !important; }
+      .c-next-steps .c-next-steps__details .title a {
+        color: #fff; }
     .c-next-steps .c-next-steps__details .metadata {
       display: block;
       color: rgba(255, 255, 255, 0.65); }

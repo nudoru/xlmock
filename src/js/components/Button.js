@@ -19,7 +19,7 @@ class Button extends React.Component {
   componentDidMount() {}
 
   render() {
-    let {children, primary, secondary, negative, ...rest} = this.props;
+    let {children, primary, secondary, negative, className=null, ...rest} = this.props;
     let cls = ['c-button'];
 
     if(primary && !negative) {
@@ -29,6 +29,8 @@ class Button extends React.Component {
     } else if(!primary && negative) {
       cls.push('c-button--negative');
     }
+
+    cls.push(className);
 
     return <button className={cls.join(' ')} {...rest}>{children}</button>
   }

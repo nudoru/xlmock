@@ -3,21 +3,20 @@ import PropTypes from 'prop-types';
 import LearningCard from "../components/LearningCard";
 import CardLayout from "../layout/CardLayout";
 import _ from 'lodash';
+import * as Lorem from '../utils/Lorem';
 
 /**
  * For quick mocking of pages
  */
 
 const Path = () => <LearningCard type='path' duration='42 minutes' mobile>
-  <h1>Nulla ut felis vitae mauris lobortis euismod quis sodales
-    enim</h1>
-  <p>Aliquam vulputate vestibulum eleifend.</p>
+  <h1>{Lorem.title(5,10)}</h1>
+  <p>{Lorem.sentence(10,20)}</p>
 </LearningCard>;
 
 const Course = () => <LearningCard type='course' duration='42 minutes' mobile>
-  <h1>Nulla ut felis vitae mauris lobortis euismod quis sodales
-    enim</h1>
-  <p>Aliquam vulputate vestibulum eleifend.</p>
+  <h1>{Lorem.title(5,10)}</h1>
+  <p>{Lorem.sentence(10,20)}</p>
 </LearningCard>;
 
 class TestGridContent extends React.Component {

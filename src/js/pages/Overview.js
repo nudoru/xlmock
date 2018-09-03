@@ -8,6 +8,10 @@ import CardLayout from "../layout/CardLayout";
 import LearningCard from '../components/LearningCard';
 import {BigTabs} from "../components/BigTabs";
 import TestGridContent from "../test/TestGridContent";
+import Tag from "../components/Tag";
+import SVGIcon from "../components/SVGIcon";
+import Button from "../components/Button";
+import {withRouter} from 'react-router-dom';
 
 class Overview extends React.Component {
 
@@ -23,6 +27,14 @@ class Overview extends React.Component {
   componentDidMount() {
   }
 
+  onResumePathClick = () => {
+    this.props.history.push('/courseplayer');
+  }
+
+  onViewPathClick = () => {
+    this.props.history.push('/path');
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -34,13 +46,18 @@ class Overview extends React.Component {
             <BigTabs.Tab><Link to='/team'>Team</Link></BigTabs.Tab>
           </BigTabs>
           <HeroPathProgress/>
+          <div className='c-path-metadata'>
+            <Button onClick={this.onResumePathClick} negative primary className='u-margin-right'>Resume Path</Button>
+            <Button onClick={this.onViewPathClick} negative>View Path</Button>
+          </div>
         </Hero>
         <Content>
-            <TestGridContent title='Your Stuff'numPaths={3} numCourses={4}/>
+            <TestGridContent title='Learning Paths in progress'numPaths={3} numCourses={0}/>
+          <TestGridContent title='Courses in progress'numPaths={0} numCourses={3}/>
         </Content>
       </React.Fragment>
     );
   }
 }
 
-export default Overview;
+export default withRouter(Overview);
