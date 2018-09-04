@@ -3,6 +3,15 @@
 Styles and HTML for Experience Layer styles.
 Design work by AtlanticBT for Red Hat.
 
+# TODO
+
+[ ] filters menu
+[ ] search header needs some layout
+[ ] Pull ABT's mobile icon
+[ ] multiple slide menus? One for notifications one for filters
+[ ] on app, inject click handlers for 2ndary nav options
+[ ] add notification
+
 # Style guide
 
 Use BEMIT

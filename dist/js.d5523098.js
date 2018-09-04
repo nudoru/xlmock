@@ -24266,6 +24266,30 @@ var ChevronDown = function ChevronDown(props) {
   );
 };
 
+var ChevronUp = function ChevronUp(props) {
+  return _react2.default.createElement(
+    SVG,
+    _extends({}, props, { name: 'chevron-up' }),
+    _react2.default.createElement('polyline', { points: '18 15 12 9 6 15' })
+  );
+};
+
+var ChevronLeft = function ChevronLeft(props) {
+  return _react2.default.createElement(
+    SVG,
+    _extends({}, props, { name: 'chevron-left' }),
+    _react2.default.createElement('polyline', { points: '15 18 9 12 15 6' })
+  );
+};
+
+var ChevronRight = function ChevronRight(props) {
+  return _react2.default.createElement(
+    SVG,
+    _extends({}, props, { name: 'chevron-right' }),
+    _react2.default.createElement('polyline', { points: '9 18 15 12 9 6' })
+  );
+};
+
 var Search = function Search(props) {
   return _react2.default.createElement(
     SVG,
@@ -24489,6 +24513,12 @@ var Icon = function Icon(props) {
       return _react2.default.createElement(List, props);
     case "chevron-down":
       return _react2.default.createElement(ChevronDown, props);
+    case "chevron-up":
+      return _react2.default.createElement(ChevronUp, props);
+    case "chevron-left":
+      return _react2.default.createElement(ChevronLeft, props);
+    case "chevron-right":
+      return _react2.default.createElement(ChevronRight, props);
     case "search":
       return _react2.default.createElement(Search, props);
     case "bell":
@@ -47923,7 +47953,7 @@ var ModalBlock = function (_React$Component) {
 
 ModalBlock.defaultProps = {};
 ModalBlock.propTypes = {
-  onClickFn: _propTypes2.default.object
+  onClickFn: _propTypes2.default.func
 };
 exports.default = ModalBlock;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/SlideMenu.js":[function(require,module,exports) {
@@ -47949,6 +47979,14 @@ var _ModalBlock = require('./ModalBlock');
 
 var _ModalBlock2 = _interopRequireDefault(_ModalBlock);
 
+var _ButtonBar = require('./ButtonBar');
+
+var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -47967,7 +48005,8 @@ var SlideMenu = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (SlideMenu.__proto__ || Object.getPrototypeOf(SlideMenu)).call(this, props));
 
-    _this.state = {};
+    _initialiseProps.call(_this);
+
     return _this;
   }
 
@@ -47983,7 +48022,8 @@ var SlideMenu = function (_React$Component) {
           _props$className = _props.className,
           className = _props$className === undefined ? '' : _props$className,
           onBlockClick = _props.onBlockClick,
-          rest = _objectWithoutProperties(_props, ['isOpen', 'children', 'className', 'onBlockClick']);
+          block = _props.block,
+          rest = _objectWithoutProperties(_props, ['isOpen', 'children', 'className', 'onBlockClick', 'block']);
 
       var cls = ['c-slidemenu', 'c-slidemenu--right'];
       var blockCls = 'c-modalblock--visible';
@@ -48000,11 +48040,15 @@ var SlideMenu = function (_React$Component) {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
-        this.props.block ? _react2.default.createElement(_ModalBlock2.default, { className: blockCls, onClickFn: onBlockClick }) : null,
+        block ? _react2.default.createElement(_ModalBlock2.default, { className: blockCls, onClickFn: onBlockClick }) : null,
         _react2.default.createElement(
           'div',
           _extends({ className: cls.join(' ') }, rest),
-          children
+          _react2.default.createElement(
+            'div',
+            { className: 'c-slidemenu__content' },
+            children
+          )
         )
       );
     }
@@ -48013,6 +48057,44 @@ var SlideMenu = function (_React$Component) {
   return SlideMenu;
 }(_react2.default.Component);
 
+SlideMenu.Header = function (props) {
+  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__header' }, props));
+};
+
+SlideMenu.Icon = function (props) {
+  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__header__icon' }, props));
+};
+
+SlideMenu.Title = function (props) {
+  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__header__title' }, props));
+};
+
+SlideMenu.Close = function (_ref) {
+  var onCloseClick = _ref.onCloseClick,
+      children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-slidemenu__header__close' },
+    _react2.default.createElement(
+      _ButtonBar2.default,
+      null,
+      _react2.default.createElement(
+        _ButtonBar2.default.Icon,
+        null,
+        _react2.default.createElement(
+          'a',
+          { onClick: onCloseClick },
+          children
+        )
+      )
+    )
+  );
+};
+
+SlideMenu.Section = function (props) {
+  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__section' }, props));
+};
+
 SlideMenu.defaultProps = {
   isOpen: false,
   block: true
@@ -48020,10 +48102,215 @@ SlideMenu.defaultProps = {
 SlideMenu.propTypes = {
   isOpen: _propTypes2.default.bool,
   block: _propTypes2.default.bool,
-  onBlockClick: _propTypes2.default.object
+  onBlockClick: _propTypes2.default.func
 };
+
+var _initialiseProps = function _initialiseProps() {
+  this.state = {};
+};
+
 exports.default = SlideMenu;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ModalBlock":"../js/components/ModalBlock.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ModalBlock":"../js/components/ModalBlock.js","./ButtonBar":"../js/components/ButtonBar.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/ExpandingMenu.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * TODO
+ * - Animate open / close
+ * - Itterate over children and add change handler
+ */
+
+var ExpandingMenu = function (_React$Component) {
+  _inherits(ExpandingMenu, _React$Component);
+
+  function ExpandingMenu(props) {
+    _classCallCheck(this, ExpandingMenu);
+
+    var _this = _possibleConstructorReturn(this, (ExpandingMenu.__proto__ || Object.getPrototypeOf(ExpandingMenu)).call(this, props));
+
+    _this.state = {
+      isOpen: _this.props.open
+    };
+
+    _this.toggleMenu = function () {
+      console.log('toggle!');
+      _this.setState({ isOpen: !_this.state.isOpen });
+    };
+
+    return _this;
+  }
+
+  _createClass(ExpandingMenu, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          title = _props.title,
+          rest = _objectWithoutProperties(_props, ['children', 'title']);
+
+      var contentsCls = ['c-expandingmenu__contents'];
+
+      if (!this.state.isOpen) {
+        contentsCls.push('c-expandingmenu__contents--closed');
+      }
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: 'c-expandingmenu' }, rest),
+        _react2.default.createElement(
+          'div',
+          { className: 'c-expandingmenu__header', onClick: this.toggleMenu },
+          _react2.default.createElement(
+            'div',
+            { className: 'c-expandingmenu__header__title' },
+            title
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-expandingmenu__header__arrow' },
+            this.state.isOpen ? _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-up' })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: contentsCls.join(' ') },
+          children
+        )
+      );
+    }
+  }]);
+
+  return ExpandingMenu;
+}(_react2.default.Component);
+
+ExpandingMenu.defaultProps = {
+  isOpen: false
+};
+ExpandingMenu.propTypes = {
+  open: _propTypes2.default.bool,
+  title: _propTypes2.default.string
+};
+exports.default = ExpandingMenu;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/CheckBox.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CheckBox = function (_React$Component) {
+  _inherits(CheckBox, _React$Component);
+
+  function CheckBox(props) {
+    _classCallCheck(this, CheckBox);
+
+    var _this = _possibleConstructorReturn(this, (CheckBox.__proto__ || Object.getPrototypeOf(CheckBox)).call(this, props));
+
+    _this.state = {
+      isSelected: _this.props.selected
+    };
+
+    _this.toggleSelect = function () {
+      _this.setState({ isSelected: !_this.state.isSelected });
+    };
+
+    return _this;
+  }
+
+  _createClass(CheckBox, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['children']);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: 'c-checkbox' }, rest, { onClick: this.toggleSelect }),
+        _react2.default.createElement(
+          'div',
+          { className: 'c-checkbox__box' },
+          this.state.isSelected ? _react2.default.createElement(_SVGIcon2.default, { name: 'check-square' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'square' })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'c-checkbox__label' },
+          children
+        )
+      );
+    }
+  }]);
+
+  return CheckBox;
+}(_react2.default.Component);
+
+CheckBox.defaultProps = {};
+CheckBox.propTypes = {
+  selected: _propTypes2.default.bool
+};
+exports.default = CheckBox;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -48059,6 +48346,14 @@ var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
 var _SlideMenu = require("../components/SlideMenu");
 
 var _SlideMenu2 = _interopRequireDefault(_SlideMenu);
+
+var _ExpandingMenu = require("../components/ExpandingMenu");
+
+var _ExpandingMenu2 = _interopRequireDefault(_ExpandingMenu);
+
+var _CheckBox = require("../components/CheckBox");
+
+var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48108,23 +48403,166 @@ var Search = function (_React$Component) {
             _Label2.default,
             null,
             "Ansible",
-            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14", className: "u-padding-left" })
+            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
+              className: "u-padding-left" })
           ),
           _react2.default.createElement(
             _Label2.default,
             null,
             "OpenShift",
-            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14", className: "u-padding-left" })
+            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
+              className: "u-padding-left" })
           ),
           _react2.default.createElement(
             _Label2.default,
             null,
             "Infrastructure",
-            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14", className: "u-padding-left" })
+            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
+              className: "u-padding-left" })
           ),
-          _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7, controls: this.renderControls() })
+          _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7,
+            controls: this.renderControls() })
         ),
-        _react2.default.createElement(_SlideMenu2.default, { onBlockClick: this.toggleFiltersPanel, isOpen: this.state.showFilters })
+        _react2.default.createElement(
+          _SlideMenu2.default,
+          { onBlockClick: this.toggleFiltersPanel,
+            isOpen: this.state.showFilters },
+          _react2.default.createElement(
+            _SlideMenu2.default.Header,
+            null,
+            _react2.default.createElement(
+              _SlideMenu2.default.Icon,
+              null,
+              _react2.default.createElement(_SVGIcon2.default, { name: "sliders" })
+            ),
+            _react2.default.createElement(
+              _SlideMenu2.default.Title,
+              null,
+              "Filters"
+            ),
+            _react2.default.createElement(
+              _SlideMenu2.default.Close,
+              { onCloseClick: this.toggleFiltersPanel },
+              _react2.default.createElement(_SVGIcon2.default, {
+                name: "x" })
+            )
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default.Section,
+            null,
+            _react2.default.createElement(
+              _ExpandingMenu2.default,
+              { title: "Type", open: true },
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "All"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Learning Path"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Course"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default.Section,
+            null,
+            _react2.default.createElement(
+              _ExpandingMenu2.default,
+              { title: "Content Source" },
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "LMS"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Lynda"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Kaltura"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default.Section,
+            null,
+            _react2.default.createElement(
+              _ExpandingMenu2.default,
+              { title: "Delivery Mode" },
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Online Self-paced"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Instructor-Led"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Virtual Instructor-Led"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default.Section,
+            null,
+            _react2.default.createElement(
+              _ExpandingMenu2.default,
+              { title: "Skill Level" },
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Foundational"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Intermediate"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Advanced"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default.Section,
+            null,
+            _react2.default.createElement(
+              _ExpandingMenu2.default,
+              { title: "Language" },
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "English"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Spanish"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Chinese"
+              )
+            )
+          )
+        )
       );
     }
   }, {
@@ -48139,7 +48577,8 @@ var Search = function (_React$Component) {
           _react2.default.createElement(
             "a",
             { onClick: this.toggleFiltersPanel },
-            _react2.default.createElement(_SVGIcon2.default, { name: "sliders" })
+            _react2.default.createElement(_SVGIcon2.default, {
+              name: "sliders" })
           )
         ),
         _react2.default.createElement(
@@ -48170,7 +48609,7 @@ var Search = function (_React$Component) {
 Search.defaultProps = {};
 Search.propTypes = {};
 exports.default = Search;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js","../components/ExpandingMenu":"../js/components/ExpandingMenu.js","../components/CheckBox":"../js/components/CheckBox.js"}],"../js/components/RedHatLogo.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

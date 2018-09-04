@@ -10,7 +10,7 @@ class ModalBlock extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {
-    onClickFn: PropTypes.object
+    onClickFn: PropTypes.func
   };
 
   state = {};

@@ -1,8 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ModalBlock from "./ModalBlock";
+import ButtonBar from "./ButtonBar";
+import SVGIcon from "./SVGIcon";
 
 class SlideMenu extends React.Component {
+
+  static Header = (props) => <div className='c-slidemenu__header' {...props} />;
+  static Icon = (props) => <div className='c-slidemenu__header__icon' {...props} />;
+  static Title = (props) => <div className='c-slidemenu__header__title' {...props} />;
+
+  static Close = ({onCloseClick, children}) => <div className='c-slidemenu__header__close'>
+    <ButtonBar>
+      <ButtonBar.Icon><a onClick={onCloseClick}>{children}</a></ButtonBar.Icon>
+    </ButtonBar>
+  </div>;
+
+  static Section = (props) => <div className='c-slidemenu__section' {...props} />;
 
   static defaultProps = {
     isOpen: false,
@@ -11,7 +25,7 @@ class SlideMenu extends React.Component {
   static propTypes    = {
     isOpen      : PropTypes.bool,
     block       : PropTypes.bool,
-    onBlockClick: PropTypes.object
+    onBlockClick: PropTypes.func
   };
 
   state = {};
@@ -24,7 +38,7 @@ class SlideMenu extends React.Component {
   }
 
   render() {
-    let {isOpen, children, className = '', onBlockClick, ...rest} = this.props;
+    let {isOpen, children, className = '', onBlockClick, block, ...rest} = this.props;
 
     let cls      = ['c-slidemenu', 'c-slidemenu--right'];
     let blockCls = 'c-modalblock--visible';
@@ -39,9 +53,13 @@ class SlideMenu extends React.Component {
     cls.push(className);
 
     return (<React.Fragment>
-      {this.props.block ?
+      {block ?
         <ModalBlock className={blockCls} onClickFn={onBlockClick}/> : null}
-      <div className={cls.join(' ')} {...rest}>{children}</div>
+      <div className={cls.join(' ')} {...rest}>
+        <div className='c-slidemenu__content'>
+          {children}
+        </div>
+      </div>
     </React.Fragment>);
   }
 }

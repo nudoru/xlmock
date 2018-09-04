@@ -1,0 +1,38 @@
+.c-expandingmenu {
+
+}
+
+.c-expandingmenu__header {
+  @include transition-all();
+  display: grid;
+  grid-template: 'title arrow' auto / 1fr auto;
+  align-items: center;
+  grid-column-gap: $scale1;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    background-color: rgba(0,0,0,$color-alpha-faint-line);
+  }
+}
+
+.c-expandingmenu__header__title {
+  @extend h5;
+  margin: 0;
+  grid-area: title;
+}
+
+.c-expandingmenu__header__arrow {
+  grid-area: arrow;
+}
+
+.c-expandingmenu__contents {
+  @include transition-all();
+  border-bottom: 2px solid rgba(0,0,0,$color-alpha-faint-line);
+  padding: $scale1 0;
+  overflow: hidden;
+  height: auto;
+}
+
+.c-expandingmenu__contents--closed {
+  display: none;
+}

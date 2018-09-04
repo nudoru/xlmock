@@ -43,6 +43,18 @@ const ChevronDown = (props) => <SVG {...props} name='chevron-down'>
   <polyline points="6 9 12 15 18 9"/>
 </SVG>;
 
+const ChevronUp = (props) => <SVG {...props} name='chevron-up'>
+  <polyline points="18 15 12 9 6 15"/>
+</SVG>;
+
+const ChevronLeft = (props) => <SVG {...props} name='chevron-left'>
+  <polyline points="15 18 9 12 15 6"/>
+</SVG>;
+
+const ChevronRight = (props) => <SVG {...props} name='chevron-right'>
+  <polyline points="9 18 15 12 9 6"/>
+</SVG>;
+
 const Search = (props) => <SVG {...props} name='search'>
   <circle cx="11" cy="11" r="8"/>
   <line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -168,6 +180,12 @@ const Icon = (props) => {
       return <List {...props}/>;
     case "chevron-down":
       return <ChevronDown {...props}/>;
+    case "chevron-up":
+      return <ChevronUp {...props}/>;
+    case "chevron-left":
+      return <ChevronLeft {...props}/>;
+    case "chevron-right":
+      return <ChevronRight {...props}/>;
     case "search":
       return <Search {...props}/>;
     case "bell":

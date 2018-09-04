@@ -1,8 +1,6 @@
-
-
 .c-slidemenu {
   @include transition-all(.5s);
-  @extend .dropshadow-lg;
+  @extend .dropshadow-xl;
   position: fixed;
   height: 100%;
   width: $c-slidemenu-width;
@@ -11,6 +9,8 @@
   overflow-y: auto;
   z-index: $zindex-slidemenu;
   top: 0px;
+  // the header is z-indexed above, need padding to push content down
+  padding-top: $header-height-large;
 }
 
 .c-slidemenu--right {
@@ -27,3 +27,41 @@
   //transform: translate3d(-100vw, 0, 0);
   visibility: hidden;
 }
+
+.c-slidemenu__content {
+  padding: $scale5;
+}
+
+
+.c-slidemenu__section {
+  padding: $scale1 0;
+}
+
+.c-slidemenu__header {
+  @extend .c-slidemenu__section;
+  padding-top: 0;
+  display: grid;
+  grid-template: 'icon title close' auto
+                        / auto 1fr auto;
+  grid-column-gap: $scale1;
+  align-items: center;
+}
+
+.c-slidemenu__header__icon {
+  grid-area: icon;
+  padding-top: 3px;
+}
+.c-slidemenu__header__title {
+  @extend h3;
+  grid-area: title;
+  margin: 0;
+}
+.c-slidemenu__header__close {
+  grid-area: close;
+  justify-self: end;
+  padding-top: 5px;
+  .c-button-bar__icons a {
+    color: $text-dim-color;
+  }
+}
+

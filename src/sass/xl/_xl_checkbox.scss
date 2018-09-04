@@ -1,0 +1,22 @@
+.c-checkbox {
+  @include transition-all();
+  display: grid;
+  grid-template: 'box label' auto / auto 1fr;
+  align-items: center;
+  grid-column-gap: $scale1;
+  cursor: pointer;
+  user-select: none;
+  //&:hover {
+  //  background-color: rgba(0,0,0,$color-alpha-faint-line);
+  //}
+}
+
+.c-checkbox__label {
+  @extend p;
+  margin: 0;
+  grid-area: label;
+}
+
+.c-checkbox__box {
+  grid-area: box;
+}
