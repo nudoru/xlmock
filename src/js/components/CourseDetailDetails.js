@@ -39,7 +39,7 @@ class CourseDetailDetails extends React.Component {
           <Tag negative>Infrastructure</Tag>
         </div>
         <div className='c-course-detail__details--metadata--mobile'>
-          <SVGIcon large name='mobile'/>
+          <SVGIcon large name='mobile-friendly'/>
         </div>
       </div>
     </div>);

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import SVGIcon from "../components/SVGIcon";
-import {SiteLogo} from "../components/SiteLogo";
+import {SiteLogo} from "../components/MobileReady";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
 

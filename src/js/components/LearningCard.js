@@ -68,7 +68,7 @@ class LearningCard extends React.Component {
           {ctaLabel ? ctaEl : tagEl}
         </div>
         <div className='c-card__subicon'>{mobile ?
-          <SVGIcon name='mobile' className=''/> : null}</div>
+          <SVGIcon name='mobile-friendly' className=''/> : null}</div>
       </div>
     </div>);
   }

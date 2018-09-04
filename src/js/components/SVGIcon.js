@@ -104,69 +104,82 @@ const Help = (props) => <SVG {...props} name='help'>
 
 const Check = (props) => <SVG {...props} name='check'>
   <polyline points="20 6 9 17 4 12"></polyline>
-</SVG>
+</SVG>;
 
 const CheckSquare = (props) => <SVG {...props} name='check-square'>
   <polyline points="9 11 12 14 22 4"></polyline>
   <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-</SVG>
+</SVG>;
 
 const CheckCircle = (props) => <SVG {...props} name='check-circle'>
   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
   <polyline points="22 4 12 14.01 9 11.01"></polyline>
-</SVG>
+</SVG>;
 
 const Circle = (props) => <SVG {...props} name='circle'>
   <circle cx="12" cy="12" r="10"></circle>
-</SVG>
+</SVG>;
 
 const Square = (props) => <SVG {...props} name='square'>
   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-</SVG>
+</SVG>;
 
 const X = (props) => <SVG {...props} name='x'>
   <line x1="18" y1="6" x2="6" y2="18"></line>
   <line x1="6" y1="6" x2="18" y2="18"></line>
-</SVG>
+</SVG>;
 
 const XCircle = (props) => <SVG {...props} name='x-circle'>
   <circle cx="12" cy="12" r="10"></circle>
   <line x1="15" y1="9" x2="9" y2="15"></line>
   <line x1="9" y1="9" x2="15" y2="15"></line>
-</SVG>
+</SVG>;
 
 const XSquare = (props) => <SVG {...props} name='x-square'>
   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
   <line x1="9" y1="9" x2="15" y2="15"></line>
   <line x1="15" y1="9" x2="9" y2="15"></line>
-</SVG>
+</SVG>;
 
 const Hash = (props) => <SVG {...props} name='hash'>
   <line x1="4" y1="9" x2="20" y2="9"></line>
   <line x1="4" y1="15" x2="20" y2="15"></line>
   <line x1="10" y1="3" x2="8" y2="21"></line>
   <line x1="16" y1="3" x2="14" y2="21"></line>
-</SVG>
+</SVG>;
 
 const Book = (props) => <SVG {...props} name='book'>
   <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-</SVG>
+</SVG>;
 
 const BookOpen = (props) => <SVG {...props} name='book-open'>
   <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-</SVG>
+</SVG>;
 
 const Bookmark = (props) => <SVG {...props} name='bookmark'>
   <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-</SVG>
+</SVG>;
 
 const Award = (props) => <SVG {...props} name='award'>
   <circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-</SVG>
+</SVG>;
 
 const Sliders = (props) => <SVG {...props} name='sliders'>
   <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line>
-</SVG>
+</SVG>;
+
+// From AtlanticBT
+const MobileFriendly = (props) => <SVG {...props} name='mobile-friendly'>
+  <g id="Mobile-friendly-/-Large-/-Dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Group-4" transform="translate(4.000000, 0.000000)">
+      <rect id="Rectangle-14" stroke="currentColor" stroke-width="2" x="1" y="1" width="14" height="22" rx="5"></rect>
+      <g id="check" transform="translate(5.000000, 10.000000)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <polyline id="Shape" points="6 0 1.875 4.125 0 2.25"></polyline>
+      </g>
+      <circle id="Oval" fill="currentColor" cx="8" cy="20" r="1"></circle>
+    </g>
+  </g>
+</SVG>;
 
 const Icon = (props) => {
   switch (props.name) {
@@ -230,6 +243,8 @@ const Icon = (props) => {
       return <Award {...props}/>;
     case "sliders":
       return <Sliders {...props}/>;
+    case "mobile-friendly":
+      return <MobileFriendly {...props}/>;
     default:
       return <span>Icon: {props.name}?</span>
   }

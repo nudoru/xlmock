@@ -24501,6 +24501,29 @@ var Sliders = function Sliders(props) {
   );
 };
 
+// From AtlanticBT
+var MobileFriendly = function MobileFriendly(props) {
+  return _react2.default.createElement(
+    SVG,
+    _extends({}, props, { name: 'mobile-friendly' }),
+    _react2.default.createElement(
+      'g',
+      { id: 'Mobile-friendly-/-Large-/-Dark', stroke: 'none', 'stroke-width': '1', fill: 'none', 'fill-rule': 'evenodd' },
+      _react2.default.createElement(
+        'g',
+        { id: 'Group-4', transform: 'translate(4.000000, 0.000000)' },
+        _react2.default.createElement('rect', { id: 'Rectangle-14', stroke: 'currentColor', 'stroke-width': '2', x: '1', y: '1', width: '14', height: '22', rx: '5' }),
+        _react2.default.createElement(
+          'g',
+          { id: 'check', transform: 'translate(5.000000, 10.000000)', stroke: 'currentColor', 'stroke-linecap': 'round', 'stroke-linejoin': 'round', 'stroke-width': '2' },
+          _react2.default.createElement('polyline', { id: 'Shape', points: '6 0 1.875 4.125 0 2.25' })
+        ),
+        _react2.default.createElement('circle', { id: 'Oval', fill: 'currentColor', cx: '8', cy: '20', r: '1' })
+      )
+    )
+  );
+};
+
 var Icon = function Icon(props) {
   switch (props.name) {
     case "flag":
@@ -24563,6 +24586,8 @@ var Icon = function Icon(props) {
       return _react2.default.createElement(Award, props);
     case "sliders":
       return _react2.default.createElement(Sliders, props);
+    case "mobile-friendly":
+      return _react2.default.createElement(MobileFriendly, props);
     default:
       return _react2.default.createElement(
         'span',
@@ -24626,13 +24651,13 @@ SVGIcon.propTypes = {
   square: _propTypes2.default.bool
 };
 exports.default = SVGIcon;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/SiteLogo.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/MobileReady.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SiteLogo = undefined;
+exports.MobileReady = undefined;
 
 var _react = require("react");
 
@@ -24640,45 +24665,29 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SiteLogo = exports.SiteLogo = function SiteLogo() {
+var MobileReady = exports.MobileReady = function MobileReady() {
   return _react2.default.createElement(
     "svg",
-    { width: "218px", height: "35px", viewBox: "0 0 218 35", version: "1.1" },
+    { width: "32px", height: "48px", viewBox: "0 0 32 48", version: "1.1" },
     _react2.default.createElement(
       "g",
-      { id: "Symbols", stroke: "none", strokeWidth: "1", fill: "none", fillRule: "evenodd" },
+      { id: "Mobile-friendly-/-Large-/-Dark", stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd" },
       _react2.default.createElement(
         "g",
-        { id: "Header-/-Laptop", transform: "translate(-32.000000, -15.000000)" },
+        { id: "Group-4" },
+        _react2.default.createElement("rect", { id: "Rectangle-14", stroke: "#3E474F", "stroke-width": "2", fill: "#FFFFFF", x: "1", y: "1", width: "30", height: "46", rx: "5" }),
         _react2.default.createElement(
           "g",
-          { id: "Stacked-Group-2", transform: "translate(32.000000, 7.000000)" },
+          { id: "Icon-/-Check-/-Dark", transform: "translate(10.000000, 20.000000)", stroke: "#3E474F", "stroke-linecap": "round", "stroke-linejoin": "round" },
           _react2.default.createElement(
             "g",
-            { transform: "translate(0.000000, 9.000000)" },
-            _react2.default.createElement(
-              "g",
-              { id: "Logo-/-Light" },
-              _react2.default.createElement("image", { id: "l_redhat-inverted", x: "0", y: "0", width: "109.538462", height: "32", xlinkHref: "data:image/png;base64,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" })
-            ),
-            _react2.default.createElement("path", { d: "M127,-3.55271368e-15 L127,32", id: "Line", stroke: "#FFFFFF", strokeLinecap: "square" }),
-            _react2.default.createElement(
-              "text",
-              { id: "Experience-Layer\u2122", fontFamily: "HelveticaNeue-Bold, Helvetica Neue, Helvetica, Arial", fontSize: "14", fontWeight: "bold", fill: "#FFFFFF" },
-              _react2.default.createElement(
-                "tspan",
-                { x: "144", y: "14" },
-                "Experience"
-              ),
-              _react2.default.createElement(
-                "tspan",
-                { x: "144", y: "31" },
-                "Layer"
-              )
-            )
+            { id: "check" },
+            _react2.default.createElement("polyline", { id: "Shape", "stroke-width": "2", points: "12 0 3.75 8 0 4.36363636" })
           )
-        )
-      )
+        ),
+        _react2.default.createElement("circle", { id: "Oval", fill: "#3E474F", cx: "16", cy: "40", r: "2" })
+      ),
+      _react2.default.createElement("path", { d: "M9,2 L23,2 L23,3 C23,3.55228475 22.5522847,4 22,4 L10,4 C9.44771525,4 9,3.55228475 9,3 L9,2 Z", id: "Rectangle-6", fill: "#3E474F" })
     )
   );
 };
@@ -24851,7 +24860,7 @@ var _SVGIcon = require('../components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
-var _SiteLogo = require('../components/SiteLogo');
+var _MobileReady = require('../components/MobileReady');
 
 var _ButtonBar = require('../components/ButtonBar');
 
@@ -25047,7 +25056,7 @@ var Header = function (_React$Component) {
 Header.defaultProps = {};
 Header.propTypes = {};
 exports.default = Header;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/SiteLogo":"../js/components/SiteLogo.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/Hero.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/MobileReady":"../js/components/MobileReady.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/Hero.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26390,7 +26399,7 @@ var LearningCard = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'c-card__subicon' },
-            mobile ? _react2.default.createElement(_SVGIcon2.default, { name: 'mobile', className: '' }) : null
+            mobile ? _react2.default.createElement(_SVGIcon2.default, { name: 'mobile-friendly', className: '' }) : null
           )
         )
       );
@@ -46634,7 +46643,7 @@ var CourseDetailDetails = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'c-course-detail__details--metadata--mobile' },
-            _react2.default.createElement(_SVGIcon2.default, { large: true, name: 'mobile' })
+            _react2.default.createElement(_SVGIcon2.default, { large: true, name: 'mobile-friendly' })
           )
         )
       );
@@ -47064,7 +47073,7 @@ var HeroPathProgressMetadata = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'c-path-metadata__mobile' },
-          _react2.default.createElement(_SVGIcon2.default, { large: true, name: 'mobile' })
+          _react2.default.createElement(_SVGIcon2.default, { large: true, name: 'mobile-friendly' })
         )
       );
     }
@@ -48695,7 +48704,7 @@ var _reactRouterDom = require('react-router-dom');
 
 var _RedHatLogo = require('../components/RedHatLogo');
 
-var _SiteLogo = require('../components/SiteLogo');
+var _MobileReady = require('../components/MobileReady');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -48795,7 +48804,7 @@ var Footer = function (_React$Component) {
 Footer.defaultProps = {};
 Footer.propTypes = {};
 exports.default = Footer;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/RedHatLogo":"../js/components/RedHatLogo.js","../components/SiteLogo":"../js/components/SiteLogo.js"}],"../js/pages/Feedback.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/RedHatLogo":"../js/components/RedHatLogo.js","../components/MobileReady":"../js/components/MobileReady.js"}],"../js/pages/Feedback.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

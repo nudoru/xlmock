@@ -21,7 +21,7 @@ class HeroPathProgressMetadata extends React.Component {
       <div className='c-path-metadata__tags'><Tag negative>Infrastructure</Tag></div>
       <div className='c-path-metadata__duration'><p><em>Duration</em>3 weeks</p></div>
       <div className='c-path-metadata__activities'><p><em>Activities</em>126 activities</p></div>
-      <div className='c-path-metadata__mobile'><SVGIcon large name='mobile'/></div>
+      <div className='c-path-metadata__mobile'><SVGIcon large name='mobile-friendly'/></div>
     </div>);
   }
 }
