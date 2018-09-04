@@ -170,13 +170,13 @@ const Sliders = (props) => <SVG {...props} name='sliders'>
 
 // From AtlanticBT
 const MobileFriendly = (props) => <SVG {...props} name='mobile-friendly'>
-  <g id="Mobile-friendly-/-Large-/-Dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+  <g id="Mobile-friendly-/-Large-/-Dark" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
     <g id="Group-4" transform="translate(4.000000, 0.000000)">
-      <rect id="Rectangle-14" stroke="currentColor" stroke-width="2" x="1" y="1" width="14" height="22" rx="5"></rect>
-      <g id="check" transform="translate(5.000000, 10.000000)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <polyline id="Shape" points="6 0 1.875 4.125 0 2.25"></polyline>
+      <rect id="Rectangle-14" stroke="currentColor" strokeWidth="2" x="1" y="1" width="14" height="22" rx="5"/>
+      <g id="check" transform="translate(5.000000, 10.000000)" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+        <polyline id="Shape" points="6 0 1.875 4.125 0 2.25"/>
       </g>
-      <circle id="Oval" fill="currentColor" cx="8" cy="20" r="1"></circle>
+      <circle id="Oval" fill="currentColor" cx="8" cy="20" r="1"/>
     </g>
   </g>
 </SVG>;

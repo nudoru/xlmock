@@ -14,7 +14,7 @@ class Search extends React.Component {
   static propTypes    = {};
 
   state = {
-    showFilters: true
+    showFilters: false
   };
 
   constructor(props) {
@@ -46,11 +46,12 @@ class Search extends React.Component {
             <SlideMenu.Close onCloseClick={this.toggleFiltersPanel}><SVGIcon
               name='x'/></SlideMenu.Close>
           </SlideMenu.Header>
-          <SlideMenu.Section><ExpandingMenu title='Type' open>
-            <CheckBox>All</CheckBox>
-            <CheckBox>Learning Path</CheckBox>
-            <CheckBox>Course</CheckBox>
-          </ExpandingMenu></SlideMenu.Section>
+          <SlideMenu.Section>
+            <ExpandingMenu title='Type' open>
+              <CheckBox>All</CheckBox>
+              <CheckBox>Learning Path</CheckBox>
+              <CheckBox>Course</CheckBox>
+            </ExpandingMenu></SlideMenu.Section>
           <SlideMenu.Section>
             <ExpandingMenu title='Content Source'>
               <CheckBox>LMS</CheckBox>

@@ -1,8 +1,5 @@
 import React from 'react';
-import SiteContainer from "./layout/SiteContainer";
-import Header from "./layout/Header";
-import {AppRouter} from "./pages/AppRouter";
-import Footer from "./layout/Footer";
+import AppRouter from "./AppRouter";
 
 class App extends React.Component {
 

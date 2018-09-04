@@ -8,8 +8,12 @@ import AlertBadge from "../components/AlertBadge";
 
 class Header extends React.Component {
 
-  static defaultProps = {};
-  static propTypes = {};
+  static defaultProps = {
+    onAlertsClick: () => {}
+  };
+  static propTypes = {
+    onAlertsClick: PropTypes.func
+  };
 
   state = {};
 
@@ -50,7 +54,7 @@ class Header extends React.Component {
         <ButtonBar negative className='c-site-header__nav--secondary'>
           <ButtonBar.Icon><Link to='/feedback'><SVGIcon name='message'/></Link></ButtonBar.Icon>
           <ButtonBar.Icon><Link to='/help'><SVGIcon name='help'/></Link></ButtonBar.Icon>
-          <ButtonBar.Icon><Link to='/alerts'><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></Link></ButtonBar.Icon>
+          <ButtonBar.Icon><a onClick={this.props.onAlertsClick}><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></a></ButtonBar.Icon>
           <ButtonBar.Icon><Link to='/user'><SVGIcon name='user'/></Link></ButtonBar.Icon>
         </ButtonBar>
       </div>

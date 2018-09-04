@@ -1018,7 +1018,8 @@ ul.tabs-big {
   display: grid;
   grid-template: ". siteherocontent ." auto/1fr minmax(auto, 1140px) 1fr;
   background: -webkit-gradient(linear, left top, left bottom, from(#0f2032), to(rgba(54, 97, 149, 0.5)));
-  background: linear-gradient(#0f2032, rgba(54, 97, 149, 0.5)); }
+  background: linear-gradient(#0f2032, rgba(54, 97, 149, 0.5));
+  z-index: 0; }
 
 .c-site-hero__image {
   grid-row: 1;

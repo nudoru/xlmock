@@ -3,7 +3,7 @@
   display: grid;
   grid-template: ". siteherocontent ." auto / 1fr minmax(auto, $content-width-large) 1fr;
   background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
-  //z-index: 2;
+  z-index: 0;
 }
 
 .c-site-hero__image {
