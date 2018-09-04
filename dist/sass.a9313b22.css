@@ -1197,13 +1197,13 @@ ul.tabs-big {
   transition: all 0.5s ease-out;
   -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
           transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 350px;
   background-color: #fff;
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 1;
+  z-index: 2;
   top: 0px; }
 
 .c-slidemenu--right {
@@ -1214,6 +1214,33 @@ ul.tabs-big {
 
 .c-slidemenu--closed {
   right: -400px;
+  visibility: hidden; }
+
+.c-modalblock {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1; }
+
+.c-modalblock--active {
+  cursor: pointer; }
+
+.c-modalblock--inactive {
+  cursor: not-allowed; }
+
+.c-modalblock--visible {
+  opacity: 1;
+  visibility: visible; }
+
+.c-modalblock--hidden {
+  opacity: 0;
   visibility: hidden; }
 
 .l-course-detail {

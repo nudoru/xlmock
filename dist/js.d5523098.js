@@ -47845,7 +47845,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/SlideMenu.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/ModalBlock.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47863,6 +47863,91 @@ var _react2 = _interopRequireDefault(_react);
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Fade in / out animations controlled by parent component by applying the
+ * visible and hidden classNames to this component
+ */
+
+var ModalBlock = function (_React$Component) {
+  _inherits(ModalBlock, _React$Component);
+
+  function ModalBlock(props) {
+    _classCallCheck(this, ModalBlock);
+
+    var _this = _possibleConstructorReturn(this, (ModalBlock.__proto__ || Object.getPrototypeOf(ModalBlock)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(ModalBlock, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          onClickFn = _props.onClickFn,
+          _props$className = _props.className,
+          className = _props$className === undefined ? '' : _props$className,
+          rest = _objectWithoutProperties(_props, ['onClickFn', 'className']);
+
+      var cls = ['c-modalblock'];
+
+      if (onClickFn) {
+        cls.push('c-modalblock--active');
+      } else {
+        onClickFn = function onClickFn() {};
+        cls.push('c-modalblock--inactive');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement('div', _extends({ onClick: onClickFn, className: cls.join(' ') }, rest));
+    }
+  }]);
+
+  return ModalBlock;
+}(_react2.default.Component);
+
+ModalBlock.defaultProps = {};
+ModalBlock.propTypes = {
+  onClickFn: _propTypes2.default.object
+};
+exports.default = ModalBlock;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/SlideMenu.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _ModalBlock = require('./ModalBlock');
+
+var _ModalBlock2 = _interopRequireDefault(_ModalBlock);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47895,22 +47980,32 @@ var SlideMenu = function (_React$Component) {
       var _props = this.props,
           isOpen = _props.isOpen,
           children = _props.children,
-          rest = _objectWithoutProperties(_props, ['isOpen', 'children']);
+          _props$className = _props.className,
+          className = _props$className === undefined ? '' : _props$className,
+          onBlockClick = _props.onBlockClick,
+          rest = _objectWithoutProperties(_props, ['isOpen', 'children', 'className', 'onBlockClick']);
 
       var cls = ['c-slidemenu', 'c-slidemenu--right'];
+      var blockCls = 'c-modalblock--visible';
 
       if (!isOpen) {
         cls.push('c-slidemenu--closed');
+        blockCls = 'c-modalblock--hidden';
       } else {
         cls.push('c-slidemenu--open');
       }
 
-      console.log('slide menu is', isOpen);
+      cls.push(className);
 
       return _react2.default.createElement(
-        'div',
-        _extends({ className: cls.join(' ') }, rest),
-        children
+        _react2.default.Fragment,
+        null,
+        this.props.block ? _react2.default.createElement(_ModalBlock2.default, { className: blockCls, onClickFn: onBlockClick }) : null,
+        _react2.default.createElement(
+          'div',
+          _extends({ className: cls.join(' ') }, rest),
+          children
+        )
       );
     }
   }]);
@@ -47919,13 +48014,16 @@ var SlideMenu = function (_React$Component) {
 }(_react2.default.Component);
 
 SlideMenu.defaultProps = {
-  isOpen: false
+  isOpen: false,
+  block: true
 };
 SlideMenu.propTypes = {
-  isOpen: _propTypes2.default.bool
+  isOpen: _propTypes2.default.bool,
+  block: _propTypes2.default.bool,
+  onBlockClick: _propTypes2.default.object
 };
 exports.default = SlideMenu;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ModalBlock":"../js/components/ModalBlock.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47982,7 +48080,7 @@ var Search = function (_React$Component) {
       showFilters: true
     };
 
-    _this.onFiltersClick = function () {
+    _this.toggleFiltersPanel = function () {
       _this.setState({ showFilters: !_this.state.showFilters });
     };
 
@@ -48026,7 +48124,7 @@ var Search = function (_React$Component) {
           ),
           _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7, controls: this.renderControls() })
         ),
-        _react2.default.createElement(_SlideMenu2.default, { isOpen: this.state.showFilters })
+        _react2.default.createElement(_SlideMenu2.default, { onBlockClick: this.toggleFiltersPanel, isOpen: this.state.showFilters })
       );
     }
   }, {
@@ -48040,7 +48138,7 @@ var Search = function (_React$Component) {
           null,
           _react2.default.createElement(
             "a",
-            { onClick: this.onFiltersClick },
+            { onClick: this.toggleFiltersPanel },
             _react2.default.createElement(_SVGIcon2.default, { name: "sliders" })
           )
         ),

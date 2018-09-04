@@ -32,18 +32,18 @@ class Search extends React.Component {
           <Label>Infrastructure<SVGIcon name='x' width='14' height='14' className='u-padding-left'/></Label>
           <TestGridContent mode='results' numPaths={2} numCourses={7} controls={this.renderControls()}/>
         </Content>
-        <SlideMenu isOpen={this.state.showFilters}/>
+        <SlideMenu onBlockClick={this.toggleFiltersPanel} isOpen={this.state.showFilters}/>
       </React.Fragment>
     );
   }
 
-  onFiltersClick = () => {
+  toggleFiltersPanel = () => {
     this.setState({showFilters: !this.state.showFilters});
   };
 
   renderControls() {
     return <ButtonBar>
-      <ButtonBar.Icon><a onClick={this.onFiltersClick}><SVGIcon name='sliders'/></a></ButtonBar.Icon>
+      <ButtonBar.Icon><a onClick={this.toggleFiltersPanel}><SVGIcon name='sliders'/></a></ButtonBar.Icon>
       <ButtonBar.Icon><a><SVGIcon name='grid'/></a></ButtonBar.Icon>
       <ButtonBar.Icon><a><SVGIcon name='list'/></a></ButtonBar.Icon>
     </ButtonBar>;

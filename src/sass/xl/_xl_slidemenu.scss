@@ -1,15 +1,15 @@
-$c-slidemenu-width: 350px;
+
 
 .c-slidemenu {
   @include transition-all(.5s);
   @extend .dropshadow-lg;
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: $c-slidemenu-width;
   background-color: #fff;
   overflow-x: hidden;
   overflow-y: auto;
-  z-index: 1;
+  z-index: $zindex-slidemenu;
   top: 0px;
 }
 
