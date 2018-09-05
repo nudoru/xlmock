@@ -31,9 +31,14 @@ class CourseDetailUpcoming extends React.Component {
                 <BigTabs.Tab active><Link to='/courseupcoming'>Upcoming</Link></BigTabs.Tab>
                 <BigTabs.Tab><Link to='/courseresources'>Resources</Link></BigTabs.Tab>
               </BigTabs>
-              <p>
-                Class schedule
-              </p>
+              <div className='l-course-detail__content__container'>
+                <div className='l-course-detail__content__area'>
+                  <p>
+                    Class schedule
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </Content>

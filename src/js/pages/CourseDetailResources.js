@@ -31,9 +31,14 @@ class CourseDetailResources extends React.Component {
                 <BigTabs.Tab><Link to='/courseupcoming'>Upcoming</Link></BigTabs.Tab>
                 <BigTabs.Tab active><Link to='/courseresources'>Resources</Link></BigTabs.Tab>
               </BigTabs>
-              <p>
-                Resources for the course ...
-              </p>
+              <div className='l-course-detail__content__container'>
+                <div className='l-course-detail__content__area'>
+                  <p>
+                    Resources for the course ...
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </Content>

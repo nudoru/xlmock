@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
 import CourseDetailDetails from "../components/CourseDetailDetails";
+import {TestTagCategories} from "../test/TestTagCategories";
 
 class CourseDetailActivities extends React.Component {
 
@@ -31,9 +32,14 @@ class CourseDetailActivities extends React.Component {
                 <BigTabs.Tab><Link to='/courseupcoming'>Upcoming</Link></BigTabs.Tab>
                 <BigTabs.Tab><Link to='/courseresources'>Resources</Link></BigTabs.Tab>
               </BigTabs>
-              <p>
-                Course contents / topics / activities
-              </p>
+              <div className='l-course-detail__content__container'>
+                <div className='l-course-detail__content__area'>
+                  <p>
+                    Course contents / topics / activities
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </Content>

@@ -1390,6 +1390,18 @@ ul.tabs-big {
   grid-area: content;
   padding: 2rem; }
 
+.l-course-detail__content__container {
+  display: grid;
+  grid-template: ". area ." 1fr/minmax(0, 1fr) minmax(auto, 57ch) minmax(0, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 2rem;
+  min-height: 100%; }
+
+.l-course-detail__content__area {
+  grid-area: area; }
+
 .l-path-detail {
   display: grid;
   grid-template-columns: 2fr 1fr;

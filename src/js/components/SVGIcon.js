@@ -172,7 +172,7 @@ const Sliders = (props) => <SVG {...props} name='sliders'>
 const MobileFriendly = (props) => <SVG {...props} name='mobile-friendly'>
   <g id="Mobile-friendly-/-Large-/-Dark" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
     <g id="Group-4" transform="translate(4.000000, 0.000000)">
-      <rect id="Rectangle-14" stroke="currentColor" strokeWidth="2" x="1" y="1" width="14" height="22" rx="5"/>
+      <rect id="Rectangle-14" stroke="currentColor" strokeWidth="1" x="1" y="1" width="14" height="22" rx="2"/>
       <g id="check" transform="translate(5.000000, 10.000000)" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
         <polyline id="Shape" points="6 0 1.875 4.125 0 2.25"/>
       </g>

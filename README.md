@@ -3,11 +3,24 @@
 Styles and HTML for Experience Layer styles.
 Design work by AtlanticBT for Red Hat.
 
-# TODO
+# TODO Mockups
 
+[ ] card layout
+    [ ] sort is a bool prop
+    [ ] card/list show is a bool prop
+    [ ] extra buttons (between the two) is a sub comp
+    [ ] functionality to toggle card/list
 [ ] search header needs some layout
 [ ] dashboard screen
 [ ] catalog screen
+
+# TODO Functionality
+
+[ ] Check box onChange callback
+[ ] ExpandingMenu
+    [ ] animate open / close
+    [ ] map over children to handle onChange
+    [ ] provide onChange callback
 
 # Style guide
 

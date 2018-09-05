@@ -24661,7 +24661,7 @@ var MobileFriendly = function MobileFriendly(props) {
       _react2.default.createElement(
         'g',
         { id: 'Group-4', transform: 'translate(4.000000, 0.000000)' },
-        _react2.default.createElement('rect', { id: 'Rectangle-14', stroke: 'currentColor', strokeWidth: '2', x: '1', y: '1', width: '14', height: '22', rx: '5' }),
+        _react2.default.createElement('rect', { id: 'Rectangle-14', stroke: 'currentColor', strokeWidth: '1', x: '1', y: '1', width: '14', height: '22', rx: '2' }),
         _react2.default.createElement(
           'g',
           { id: 'check', transform: 'translate(5.000000, 10.000000)', stroke: 'currentColor', strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '2' },
@@ -46640,11 +46640,19 @@ var CourseDetail = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'p',
-                null,
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis porta lobortis nisl, non blandit enim. Cras eros tortor, pellentesque ut orci vitae, consectetur dictum erat. Morbi auctor risus vitae neque fringilla congue. Integer ac augue quis mi viverra commodo. Nullam ornare, purus ut sollicitudin dignissim, elit arcu sollicitudin dui, ac dictum enim dolor id diam. Integer et lobortis elit. Maecenas varius feugiat magna, eu bibendum neque blandit eu. Nunc sed faucibus ante. Pellentesque at lectus at ante tempus condimentum. Aliquam ac consequat tortor, at rutrum neque. Nam fermentum nulla eget finibus imperdiet.'
-              ),
-              _react2.default.createElement(_TestTagCategories.TestTagCategories, null)
+                'div',
+                { className: 'l-course-detail__content__container' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'l-course-detail__content__area' },
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae orci mi. Vestibulum tellus sem, tristique sed lacus sit amet, sollicitudin pharetra turpis. Ut sodales scelerisque urna bibendum varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis porta lobortis nisl, non blandit enim. Cras eros tortor, pellentesque ut orci vitae, consectetur dictum erat. Morbi auctor risus vitae neque fringilla congue. Integer ac augue quis mi viverra commodo. Nullam ornare, purus ut sollicitudin dignissim, elit arcu sollicitudin dui, ac dictum enim dolor id diam. Integer et lobortis elit. Maecenas varius feugiat magna, eu bibendum neque blandit eu. Nunc sed faucibus ante. Pellentesque at lectus at ante tempus condimentum. Aliquam ac consequat tortor, at rutrum neque. Nam fermentum nulla eget finibus imperdiet.'
+                  ),
+                  _react2.default.createElement(_TestTagCategories.TestTagCategories, null)
+                )
+              )
             )
           )
         )
@@ -48297,47 +48305,7 @@ var Search = function (_React$Component) {
 Search.defaultProps = {};
 Search.propTypes = {};
 exports.default = Search;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js","../components/ExpandingMenu":"../js/components/ExpandingMenu.js","../components/CheckBox":"../js/components/CheckBox.js"}],"../js/components/MobileReady.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.MobileReady = undefined;
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var MobileReady = exports.MobileReady = function MobileReady() {
-  return _react2.default.createElement(
-    "svg",
-    { width: "32px", height: "48px", viewBox: "0 0 32 48", version: "1.1" },
-    _react2.default.createElement(
-      "g",
-      { id: "Mobile-friendly-/-Large-/-Dark", stroke: "none", "stroke-width": "1", fill: "none", "fill-rule": "evenodd" },
-      _react2.default.createElement(
-        "g",
-        { id: "Group-4" },
-        _react2.default.createElement("rect", { id: "Rectangle-14", stroke: "#3E474F", "stroke-width": "2", fill: "#FFFFFF", x: "1", y: "1", width: "30", height: "46", rx: "5" }),
-        _react2.default.createElement(
-          "g",
-          { id: "Icon-/-Check-/-Dark", transform: "translate(10.000000, 20.000000)", stroke: "#3E474F", "stroke-linecap": "round", "stroke-linejoin": "round" },
-          _react2.default.createElement(
-            "g",
-            { id: "check" },
-            _react2.default.createElement("polyline", { id: "Shape", "stroke-width": "2", points: "12 0 3.75 8 0 4.36363636" })
-          )
-        ),
-        _react2.default.createElement("circle", { id: "Oval", fill: "#3E474F", cx: "16", cy: "40", r: "2" })
-      ),
-      _react2.default.createElement("path", { d: "M9,2 L23,2 L23,3 C23,3.55228475 22.5522847,4 22,4 L10,4 C9.44771525,4 9,3.55228475 9,3 L9,2 Z", id: "Rectangle-6", fill: "#3E474F" })
-    )
-  );
-};
-},{"react":"../../node_modules/react/index.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js","../components/ExpandingMenu":"../js/components/ExpandingMenu.js","../components/CheckBox":"../js/components/CheckBox.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
 module.exports = "/RHLearning_tool_logo.30f020e9.png";
 },{}],"../js/layout/Header.js":[function(require,module,exports) {
 'use strict';
@@ -48361,8 +48329,6 @@ var _reactRouterDom = require('react-router-dom');
 var _SVGIcon = require('../components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
-var _MobileReady = require('../components/MobileReady');
 
 var _ButtonBar = require('../components/ButtonBar');
 
@@ -48562,7 +48528,7 @@ Header.propTypes = {
   onAlertsClick: _propTypes2.default.func
 };
 exports.default = Header;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/MobileReady":"../js/components/MobileReady.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -48708,8 +48674,6 @@ var _reactRouterDom = require('react-router-dom');
 
 var _RedHatLogo = require('../components/RedHatLogo');
 
-var _MobileReady = require('../components/MobileReady');
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48808,7 +48772,7 @@ var Footer = function (_React$Component) {
 Footer.defaultProps = {};
 Footer.propTypes = {};
 exports.default = Footer;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/RedHatLogo":"../js/components/RedHatLogo.js","../components/MobileReady":"../js/components/MobileReady.js"}],"../js/pages/Feedback.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/RedHatLogo":"../js/components/RedHatLogo.js"}],"../js/pages/Feedback.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49114,6 +49078,8 @@ var _CourseDetailDetails = require('../components/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
+var _TestTagCategories = require('../test/TestTagCategories');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49194,9 +49160,17 @@ var CourseDetailActivities = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'p',
-                null,
-                'Course contents / topics / activities'
+                'div',
+                { className: 'l-course-detail__content__container' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'l-course-detail__content__area' },
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'Course contents / topics / activities'
+                  )
+                )
               )
             )
           )
@@ -49211,7 +49185,7 @@ var CourseDetailActivities = function (_React$Component) {
 CourseDetailActivities.defaultProps = {};
 CourseDetailActivities.propTypes = {};
 exports.default = CourseDetailActivities;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CourseDetailUpcoming.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/pages/CourseDetailUpcoming.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49316,9 +49290,17 @@ var CourseDetailUpcoming = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'p',
-                null,
-                'Class schedule'
+                'div',
+                { className: 'l-course-detail__content__container' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'l-course-detail__content__area' },
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'Class schedule'
+                  )
+                )
               )
             )
           )
@@ -49503,9 +49485,17 @@ var CourseDetailResources = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'p',
-                null,
-                'Resources for the course ...'
+                'div',
+                { className: 'l-course-detail__content__container' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'l-course-detail__content__area' },
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'Resources for the course ...'
+                  )
+                )
               )
             )
           )

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {RedHatLogo} from "../components/RedHatLogo";
-import {SiteLogo} from "../components/MobileReady";
 
 class Footer extends React.Component {
 
