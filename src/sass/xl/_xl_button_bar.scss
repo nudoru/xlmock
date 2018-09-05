@@ -5,9 +5,10 @@
     position: relative;
     font-weight: 700;
     text-transform: uppercase;
-    top: -2px; // Bump the icon button up so it's in line with the <button> element
+    top: -1px; // Bump the icon button up so it's in line with the <button> element
     li {
       display: inline-block;
+      margin-right: 5px;
       a {
         @include transition-all;
         display: block;
@@ -18,6 +19,7 @@
         text-align: center;
         margin-right: -5px;
         cursor: pointer;
+        border: 1px solid transparent;
       }
       a:hover {
         background-color: $button-shaded-bg;
@@ -30,6 +32,14 @@
         margin: 0;
         top: -1px;
       }
+    }
+    li.is-active {
+      a {
+        border: 1px solid rgba(0,0,0,.25); //currentColor
+      }
+    }
+    li:last-of-type {
+      margin-right: 0;
     }
   }
 }

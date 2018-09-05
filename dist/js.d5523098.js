@@ -25624,6 +25624,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25711,7 +25715,7 @@ CardLayout.Content = function (_ref4) {
 CardLayout.defaultProps = {};
 CardLayout.propTypes = {};
 exports.default = CardLayout;
-},{"react":"../../node_modules/react/index.js"}],"../js/components/Tag.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/Tag.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -45414,10 +45418,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * For quick mocking of pages
  */
 
-var Path = function Path() {
+var MockPath = function MockPath() {
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'path', duration: '42 minutes', tag: 'Infrastructure', mobile: true },
+    { type: 'path', duration: '42 minutes',
+      tag: 'Infrastructure', mobile: true },
     _react2.default.createElement(
       'h1',
       null,
@@ -45431,10 +45436,11 @@ var Path = function Path() {
   );
 };
 
-var Course = function Course() {
+var MockCourse = function MockCourse() {
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'course', duration: '42 minutes', tag: 'Ansible', mobile: true },
+    { type: 'course', duration: '42 minutes',
+      tag: 'Ansible', mobile: true },
     _react2.default.createElement(
       'h1',
       null,
@@ -45444,75 +45450,6 @@ var Course = function Course() {
       'p',
       null,
       Lorem.sentence(10, 20)
-    )
-  );
-};
-
-var ListFilters = function ListFilters() {
-  return _react2.default.createElement(
-    _react2.default.Fragment,
-    null,
-    _react2.default.createElement(
-      _Button2.default,
-      null,
-      'Recent ',
-      _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down', className: 'u-icon-button--right' })
-    ),
-    _react2.default.createElement(
-      _ButtonBar2.default,
-      null,
-      _react2.default.createElement(
-        _ButtonBar2.default.Icon,
-        null,
-        _react2.default.createElement(
-          'a',
-          null,
-          _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
-        )
-      ),
-      _react2.default.createElement(
-        _ButtonBar2.default.Icon,
-        null,
-        _react2.default.createElement(
-          'a',
-          null,
-          _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
-        )
-      )
-    )
-  );
-};
-
-var ResultsFilters = function ResultsFilters() {
-  return _react2.default.createElement(
-    _ButtonBar2.default,
-    null,
-    _react2.default.createElement(
-      _ButtonBar2.default.Icon,
-      null,
-      _react2.default.createElement(
-        'a',
-        null,
-        _react2.default.createElement(_SVGIcon2.default, { name: 'sliders' })
-      )
-    ),
-    _react2.default.createElement(
-      _ButtonBar2.default.Icon,
-      null,
-      _react2.default.createElement(
-        'a',
-        null,
-        _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
-      )
-    ),
-    _react2.default.createElement(
-      _ButtonBar2.default.Icon,
-      null,
-      _react2.default.createElement(
-        'a',
-        null,
-        _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
-      )
     )
   );
 };
@@ -45525,7 +45462,22 @@ var TestGridContent = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (TestGridContent.__proto__ || Object.getPrototypeOf(TestGridContent)).call(this, props));
 
-    _this.state = {};
+    _this.state = {
+      isGridView: _this.props.grid
+    };
+
+    _this.onGridClick = function () {
+      _this.setState({ isGridView: true });
+    };
+
+    _this.onListClick = function () {
+      _this.setState({ isGridView: false });
+    };
+
+    _this.toggleView = function () {
+      _this.setState({ isGridView: !_this.state.isGridView });
+    };
+
     return _this;
   }
 
@@ -45536,25 +45488,11 @@ var TestGridContent = function (_React$Component) {
     key: 'render',
     value: function render() {
       var paths = this.props.numPaths ? _lodash2.default.range(this.props.numPaths).map(function (i) {
-        return _react2.default.createElement(Path, { key: i });
+        return _react2.default.createElement(MockPath, { key: i });
       }) : [],
           courses = this.props.numCourses ? _lodash2.default.range(this.props.numCourses).map(function (i) {
-        return _react2.default.createElement(Course, { key: i });
-      }) : [],
-          filters = this.props.mode === 'list' ? _react2.default.createElement(ListFilters, null) : _react2.default.createElement(ResultsFilters, null),
-          cta = this.props.mode === 'list' ? _react2.default.createElement(
-        _Button2.default,
-        null,
-        'View More'
-      ) : _react2.default.createElement(
-        'p',
-        null,
-        '(Infinity scroll)'
-      );
-
-      if (this.props.controls) {
-        filters = this.props.controls;
-      }
+        return _react2.default.createElement(MockCourse, { key: i });
+      }) : [];
 
       return _react2.default.createElement(
         _CardLayout2.default,
@@ -45572,7 +45510,7 @@ var TestGridContent = function (_React$Component) {
         _react2.default.createElement(
           _CardLayout2.default.Controls,
           null,
-          filters
+          this.getDefaultListFilters()
         ),
         _react2.default.createElement(
           _CardLayout2.default.Content,
@@ -45582,7 +45520,57 @@ var TestGridContent = function (_React$Component) {
         _react2.default.createElement(
           _CardLayout2.default.Status,
           null,
-          cta
+          this.props.status
+        )
+      );
+    }
+  }, {
+    key: 'getDefaultListFilters',
+    value: function getDefaultListFilters() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        this.props.allowSort ? _react2.default.createElement(
+          _Button2.default,
+          null,
+          'Recent ',
+          _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down',
+            className: 'u-icon-button--right' })
+        ) : null,
+        _react2.default.createElement(
+          _ButtonBar2.default,
+          null,
+          this.props.controls ? this.props.controls : null,
+          this.props.allowViewChange ? this.getSortControls() : null
+        )
+      );
+    }
+  }, {
+    key: 'getSortControls',
+    value: function getSortControls() {
+      var gridBtnCls = this.state.isGridView ? 'is-active' : '',
+          listBtnCls = !this.state.isGridView ? 'is-active' : '';
+
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _ButtonBar2.default.Icon,
+          { className: gridBtnCls },
+          _react2.default.createElement(
+            'a',
+            { onClick: this.onGridClick },
+            _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
+          )
+        ),
+        _react2.default.createElement(
+          _ButtonBar2.default.Icon,
+          { className: listBtnCls },
+          _react2.default.createElement(
+            'a',
+            { onClick: this.onListClick },
+            _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
+          )
         )
       );
     }
@@ -45596,7 +45584,10 @@ TestGridContent.defaultProps = {
   numPaths: 5,
   numCourses: 5,
   badgeCount: 0,
-  mode: 'list' // list or results
+  mode: 'list', // list or results
+  allowSort: false,
+  allowViewChange: false,
+  grid: true
 };
 TestGridContent.propTypes = {
   title: _propTypes2.default.string,
@@ -45604,7 +45595,11 @@ TestGridContent.propTypes = {
   numCourses: _propTypes2.default.number,
   badgeCount: _propTypes2.default.number,
   mode: _propTypes2.default.string,
-  controls: _propTypes2.default.object
+  controls: _propTypes2.default.object,
+  status: _propTypes2.default.object,
+  allowSort: _propTypes2.default.bool,
+  allowViewChange: _propTypes2.default.bool,
+  grid: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
@@ -45760,8 +45755,16 @@ var Overview = function (_React$Component) {
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(_TestGridContent2.default, { mode: 'list', title: 'Learning Paths in progress', badgeCount: 3, numPaths: 3, numCourses: 0 }),
-          _react2.default.createElement(_TestGridContent2.default, { mode: 'list', title: 'Courses in progress', badgeCount: 3, numPaths: 0, numCourses: 3 })
+          _react2.default.createElement(_TestGridContent2.default, { mode: 'list', title: 'Learning Paths in progress', badgeCount: 3, numPaths: 3, numCourses: 0, status: _react2.default.createElement(
+              _Button2.default,
+              null,
+              'View More'
+            ), allowViewChange: true, allowSort: true }),
+          _react2.default.createElement(_TestGridContent2.default, { mode: 'list', title: 'Courses in progress', badgeCount: 3, numPaths: 0, numCourses: 3, status: _react2.default.createElement(
+              _Button2.default,
+              null,
+              'View More'
+            ), allowViewChange: true, allowSort: true })
         )
       );
     }
@@ -47874,7 +47877,8 @@ var ExpandingMenu = function (_React$Component) {
       var _props = this.props,
           children = _props.children,
           title = _props.title,
-          rest = _objectWithoutProperties(_props, ['children', 'title']);
+          open = _props.open,
+          rest = _objectWithoutProperties(_props, ['children', 'title', 'open']);
 
       var contentsCls = ['c-expandingmenu__contents'];
 
@@ -47912,7 +47916,7 @@ var ExpandingMenu = function (_React$Component) {
 }(_react2.default.Component);
 
 ExpandingMenu.defaultProps = {
-  isOpen: false
+  open: false
 };
 ExpandingMenu.propTypes = {
   open: _propTypes2.default.bool,
@@ -48125,7 +48129,11 @@ var Search = function (_React$Component) {
             )
           ),
           _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7,
-            controls: this.renderControls() })
+            controls: this.filterButton(), status: _react2.default.createElement(
+              "p",
+              null,
+              "(Infinity scroll)"
+            ), allowViewChange: true })
         ),
         _react2.default.createElement(
           _SlideMenu2.default,
@@ -48270,38 +48278,16 @@ var Search = function (_React$Component) {
       );
     }
   }, {
-    key: "renderControls",
-    value: function renderControls() {
+    key: "filterButton",
+    value: function filterButton() {
       return _react2.default.createElement(
-        _ButtonBar2.default,
+        _ButtonBar2.default.Icon,
         null,
         _react2.default.createElement(
-          _ButtonBar2.default.Icon,
-          null,
-          _react2.default.createElement(
-            "a",
-            { onClick: this.toggleFiltersPanel },
-            _react2.default.createElement(_SVGIcon2.default, {
-              name: "sliders" })
-          )
-        ),
-        _react2.default.createElement(
-          _ButtonBar2.default.Icon,
-          null,
-          _react2.default.createElement(
-            "a",
-            null,
-            _react2.default.createElement(_SVGIcon2.default, { name: "grid" })
-          )
-        ),
-        _react2.default.createElement(
-          _ButtonBar2.default.Icon,
-          null,
-          _react2.default.createElement(
-            "a",
-            null,
-            _react2.default.createElement(_SVGIcon2.default, { name: "list" })
-          )
+          "a",
+          { onClick: this.toggleFiltersPanel },
+          _react2.default.createElement(_SVGIcon2.default, {
+            name: "sliders" })
         )
       );
     }

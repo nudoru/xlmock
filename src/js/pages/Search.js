@@ -40,7 +40,7 @@ class Search extends React.Component {
             </div>
           </div>
           <TestGridContent mode='results' numPaths={2} numCourses={7}
-                           controls={this.renderControls()}/>
+                           controls={this.filterButton()} status={<p>(Infinity scroll)</p>} allowViewChange/>
         </Content>
         <SlideMenu onBlockClick={this.toggleFiltersPanel}
                    isOpen={this.state.showFilters}>
@@ -93,13 +93,9 @@ class Search extends React.Component {
     this.setState({showFilters: !this.state.showFilters});
   };
 
-  renderControls() {
-    return <ButtonBar>
-      <ButtonBar.Icon><a onClick={this.toggleFiltersPanel}><SVGIcon
-        name='sliders'/></a></ButtonBar.Icon>
-      <ButtonBar.Icon><a><SVGIcon name='grid'/></a></ButtonBar.Icon>
-      <ButtonBar.Icon><a><SVGIcon name='list'/></a></ButtonBar.Icon>
-    </ButtonBar>;
+  filterButton() {
+    return <ButtonBar.Icon><a onClick={this.toggleFiltersPanel}><SVGIcon
+      name='sliders'/></a></ButtonBar.Icon>;
   }
 }
 

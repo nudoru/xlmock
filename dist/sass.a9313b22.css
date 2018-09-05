@@ -416,9 +416,10 @@ ul.tabs {
     position: relative;
     font-weight: 700;
     text-transform: uppercase;
-    top: -2px; }
+    top: -1px; }
     .c-button-bar__icons ul li, .c-item-table__filters ul li {
-      display: inline-block; }
+      display: inline-block;
+      margin-right: 5px; }
       .c-button-bar__icons ul li a, .c-item-table__filters ul li a {
         -webkit-transition: all 0.25s ease-out;
         transition: all 0.25s ease-out;
@@ -431,7 +432,8 @@ ul.tabs {
         border-radius: 0.3125rem;
         text-align: center;
         margin-right: -5px;
-        cursor: pointer; }
+        cursor: pointer;
+        border: 1px solid transparent; }
       .c-button-bar__icons ul li a:hover, .c-item-table__filters ul li a:hover {
         background-color: rgba(0, 0, 0, 0.1); }
       .c-button-bar__icons ul li div.u-svgicon, .c-item-table__filters ul li div.u-svgicon {
@@ -439,6 +441,10 @@ ul.tabs {
       .c-button-bar__icons ul li div.c-label, .c-item-table__filters ul li div.c-label {
         margin: 0;
         top: -1px; }
+    .c-button-bar__icons ul li.is-active a, .c-item-table__filters ul li.is-active a {
+      border: 1px solid rgba(0, 0, 0, 0.25); }
+    .c-button-bar__icons ul li:last-of-type, .c-item-table__filters ul li:last-of-type {
+      margin-right: 0; }
 
 .c-button-bar__icons--negative a {
   color: #fff; }

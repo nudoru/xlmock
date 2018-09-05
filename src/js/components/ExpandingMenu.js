@@ -11,7 +11,7 @@ import SVGIcon from "./SVGIcon";
 class ExpandingMenu extends React.Component {
 
   static defaultProps = {
-    isOpen: false
+    open: false
   };
   static propTypes = {
     open: PropTypes.bool,
@@ -34,7 +34,7 @@ class ExpandingMenu extends React.Component {
   };
 
   render() {
-    let {children, title, ...rest} = this.props;
+    let {children, title, open, ...rest} = this.props;
 
     let contentsCls = ['c-expandingmenu__contents'];
 
