@@ -23,7 +23,7 @@ class MessageBanner extends React.Component {
   componentDidMount() {}
 
   render() {
-    return (<div className='c-banner-message negative'>
+    return (<div className='c-banner-message c-banner-message--negative'>
       <div className='c-banner-message__icon'>
         <SVGIcon name='flag'/>
       </div>

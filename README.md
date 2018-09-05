@@ -6,15 +6,15 @@ Design work by AtlanticBT for Red Hat.
 # TODO Mockups
 
 [ ] card layout
-    [ ] sort is a bool prop
-    [ ] card/list show is a bool prop
-    [ ] extra buttons (between the two) is a sub comp
     [ ] functionality to toggle card/list
 [ ] dashboard screen
 [ ] catalog screen
 
 # TODO Functionality
 
+[ ] search bar should be input
+[ ] more semantic html
+[ ] call setState as function
 [ ] Check box onChange callback
 [ ] ExpandingMenu
     [ ] animate open / close

@@ -24859,7 +24859,7 @@ var MessageBanner = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'c-banner-message negative' },
+        { className: 'c-banner-message c-banner-message--negative' },
         _react2.default.createElement(
           'div',
           { className: 'c-banner-message__icon' },
@@ -25669,7 +25669,7 @@ CardLayout.Title = function (_ref) {
   var children = _ref.children;
   return _react2.default.createElement(
     'div',
-    { className: 'c-card-grid__title' },
+    { className: 'c-lrncard-grid__title' },
     _react2.default.createElement(
       'h1',
       null,
@@ -25682,7 +25682,7 @@ CardLayout.Controls = function (_ref2) {
   var children = _ref2.children;
   return _react2.default.createElement(
     'div',
-    { className: 'c-card-grid__filters' },
+    { className: 'c-lrncard-grid__controls' },
     children
   );
 };
@@ -25696,16 +25696,32 @@ CardLayout.Status = function (_ref3) {
   );
 };
 
-CardLayout.Content = function (_ref4) {
+CardLayout.GridContent = function (_ref4) {
   var children = _ref4.children;
 
   return _react2.default.createElement(
     'div',
-    { className: 'c-card-grid__contents' },
+    { className: 'c-lrncard-grid__gridcontents' },
     children.map(function (child, i) {
       return _react2.default.createElement(
         'div',
-        { className: 'c-card-grid__cell', key: i },
+        { className: 'c-lrncard-grid__cell', key: i },
+        child
+      );
+    })
+  );
+};
+
+CardLayout.ListContent = function (_ref5) {
+  var children = _ref5.children;
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-lrncard-grid__listcontents' },
+    children.map(function (child, i) {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-lrncard-grid__row', key: i },
         child
       );
     })
@@ -25873,6 +25889,7 @@ var LearningCard = function (_React$Component) {
     key: 'render',
     value: function render() {
       // Pulling out staticContext https://github.com/ReactTraining/react-router/issues/4683
+      // because it's a composed component w/ React Router
       var _props = this.props,
           type = _props.type,
           duration = _props.duration,
@@ -25882,9 +25899,11 @@ var LearningCard = function (_React$Component) {
           ctaLabel = _props.ctaLabel,
           children = _props.children,
           staticContext = _props.staticContext,
-          rest = _objectWithoutProperties(_props, ['type', 'duration', 'mod', 'mobile', 'tag', 'ctaLabel', 'children', 'staticContext']);
+          card = _props.card,
+          rest = _objectWithoutProperties(_props, ['type', 'duration', 'mod', 'mobile', 'tag', 'ctaLabel', 'children', 'staticContext', 'card']);
 
-      var cls = ['c-card'],
+      var cls = card ? ['c-lrncard'] : ['c-lrncard--row'],
+          cardFormat = card ? 'c-lrncard__contents' : 'c-lrncard__contents--row',
           typeLabel = 'Course',
           cardIcon = _react2.default.createElement(_SVGIcon2.default, { name: 'book' }),
           tagEl = tag ? _react2.default.createElement(
@@ -25899,9 +25918,11 @@ var LearningCard = function (_React$Component) {
       ) : null;
 
       if (type === 'path') {
-        cls.push('c-card--path');
+        cls.push('c-lrncard--path');
         typeLabel = 'Learning Path';
         cardIcon = _react2.default.createElement(_SVGIcon2.default, { name: 'box' });
+      } else {
+        cls.push('c-lrncard--course');
       }
 
       return _react2.default.createElement(
@@ -25909,20 +25930,24 @@ var LearningCard = function (_React$Component) {
         _extends({ className: cls.join(' '), onClick: this.onCardClick }, rest),
         _react2.default.createElement(
           'div',
-          { className: 'c-card__contents' },
+          { className: cardFormat },
           _react2.default.createElement(
             'div',
-            { className: 'c-card__icon' },
+            { className: 'c-lrncard__icon' },
             cardIcon
           ),
           _react2.default.createElement(
             'div',
-            { className: 'c-card__duration' },
-            duration
+            { className: 'c-lrncard__duration' },
+            _react2.default.createElement(
+              'p',
+              null,
+              duration
+            )
           ),
           _react2.default.createElement(
             'div',
-            { className: 'c-card__content' },
+            { className: 'c-lrncard__content' },
             _react2.default.createElement(
               'h2',
               null,
@@ -25932,12 +25957,12 @@ var LearningCard = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'c-card__cta' },
+            { className: 'c-lrncard__cta' },
             ctaLabel ? ctaEl : tagEl
           ),
           _react2.default.createElement(
             'div',
-            { className: 'c-card__subicon' },
+            { className: 'c-lrncard__subicon' },
             mobile ? _react2.default.createElement(_SVGIcon2.default, { name: 'mobile-friendly', className: '' }) : null
           )
         )
@@ -25950,14 +25975,15 @@ var LearningCard = function (_React$Component) {
 
 LearningCard.defaultProps = {
   type: 'course',
-  mobile: false
+  mobile: false,
+  card: true
 };
 LearningCard.propTypes = {
   type: _propTypes2.default.string,
   duration: _propTypes2.default.string,
   mod: _propTypes2.default.string,
   mobile: _propTypes2.default.bool,
-  asCard: _propTypes2.default.bool,
+  card: _propTypes2.default.bool,
   tag: _propTypes2.default.string,
   ctaLabel: _propTypes2.default.string
 };
@@ -45418,11 +45444,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  * For quick mocking of pages
  */
 
-var MockPath = function MockPath() {
+var MockPath = function MockPath(_ref) {
+  var asCard = _ref.asCard;
   return _react2.default.createElement(
     _LearningCard2.default,
     { type: 'path', duration: '42 minutes',
-      tag: 'Infrastructure', mobile: true },
+      tag: 'Infrastructure', mobile: true, card: asCard },
     _react2.default.createElement(
       'h1',
       null,
@@ -45436,11 +45463,12 @@ var MockPath = function MockPath() {
   );
 };
 
-var MockCourse = function MockCourse() {
+var MockCourse = function MockCourse(_ref2) {
+  var asCard = _ref2.asCard;
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'course', duration: '42 minutes',
-      tag: 'Ansible', mobile: true },
+    { type: 'course', duration: '5 hours 30 minutes',
+      tag: 'Ansible', card: asCard },
     _react2.default.createElement(
       'h1',
       null,
@@ -45487,12 +45515,24 @@ var TestGridContent = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var paths = this.props.numPaths ? _lodash2.default.range(this.props.numPaths).map(function (i) {
-        return _react2.default.createElement(MockPath, { key: i });
+        return _react2.default.createElement(MockPath, { key: i, asCard: _this2.state.isGridView });
       }) : [],
           courses = this.props.numCourses ? _lodash2.default.range(this.props.numCourses).map(function (i) {
-        return _react2.default.createElement(MockCourse, { key: i });
-      }) : [];
+        return _react2.default.createElement(MockCourse, { key: i, asCard: _this2.state.isGridView });
+      }) : [],
+          content = paths.concat(courses),
+          contentView = this.state.isGridView ? _react2.default.createElement(
+        _CardLayout2.default.GridContent,
+        null,
+        content
+      ) : _react2.default.createElement(
+        _CardLayout2.default.ListContent,
+        null,
+        content
+      );
 
       return _react2.default.createElement(
         _CardLayout2.default,
@@ -45512,11 +45552,7 @@ var TestGridContent = function (_React$Component) {
           null,
           this.getDefaultListFilters()
         ),
-        _react2.default.createElement(
-          _CardLayout2.default.Content,
-          null,
-          paths.concat(courses)
-        ),
+        contentView,
         _react2.default.createElement(
           _CardLayout2.default.Status,
           null,
@@ -45559,7 +45595,8 @@ var TestGridContent = function (_React$Component) {
           { className: gridBtnCls },
           _react2.default.createElement(
             'a',
-            { onClick: this.onGridClick },
+            {
+              onClick: this.onGridClick },
             _react2.default.createElement(_SVGIcon2.default, { name: 'grid' })
           )
         ),
@@ -45568,7 +45605,8 @@ var TestGridContent = function (_React$Component) {
           { className: listBtnCls },
           _react2.default.createElement(
             'a',
-            { onClick: this.onListClick },
+            {
+              onClick: this.onListClick },
             _react2.default.createElement(_SVGIcon2.default, { name: 'list' })
           )
         )
@@ -48133,7 +48171,7 @@ var Search = function (_React$Component) {
               "p",
               null,
               "(Infinity scroll)"
-            ), allowViewChange: true })
+            ), allowViewChange: true, grid: false })
         ),
         _react2.default.createElement(
           _SlideMenu2.default,

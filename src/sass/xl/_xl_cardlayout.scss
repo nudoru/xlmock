@@ -7,7 +7,7 @@
   margin-bottom: $scale6;
 }
 
-.c-card-grid__title  {
+.c-lrncard-grid__title  {
   grid-area: itemgridtitle;
   align-self: center;
   h1 {
@@ -20,11 +20,13 @@
   }
 }
 
-.c-card-grid__filters {
+.c-lrncard-grid__controls {
   grid-area: itemgridfilter;
   justify-self: end;
+  button {
+    margin-right: $scale1;
+  }
   ul {
-
     a {
       color: $button-primary-color;
     }
@@ -37,16 +39,23 @@
   justify-self: center;
 }
 
-.c-card-grid__contents {
+.c-lrncard-grid__gridcontents {
   grid-area: itemgridcontents;
   display: grid;
   grid-gap: $scale2;
   grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
 }
 
-.c-card-grid__cell {
+.c-lrncard-grid__cell {
   justify-self: center;
   align-self: center;
+}
+
+.c-lrncard-grid__listcontents {
+  grid-area: itemgridcontents;
+}
+
+.c-lrncard-grid__row {
 }
 
 @include max-width($content-width-large) {
@@ -59,7 +68,7 @@
   .l-card-grid {
     padding: 0 $scale2;
   }
-  .c-card-grid__filters {
+  .c-lrncard-grid__filters {
     display: none;
   }
 }

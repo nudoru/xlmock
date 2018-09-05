@@ -8,8 +8,9 @@ import Tag from './Tag';
 class LearningCard extends React.Component {
 
   static defaultProps = {
-    type: 'course',
-    mobile: false
+    type  : 'course',
+    mobile: false,
+    card  : true
   };
   // types: course (default), path
   static propTypes    = {
@@ -17,7 +18,7 @@ class LearningCard extends React.Component {
     duration: PropTypes.string,
     mod     : PropTypes.string,
     mobile  : PropTypes.bool,
-    asCard  : PropTypes.bool,
+    card    : PropTypes.bool,
     tag     : PropTypes.string,
     ctaLabel: PropTypes.string
   };
@@ -42,35 +43,41 @@ class LearningCard extends React.Component {
 
   render() {
     // Pulling out staticContext https://github.com/ReactTraining/react-router/issues/4683
-    let {type, duration, mod, mobile, tag, ctaLabel, children, staticContext, ...rest} = this.props;
+    // because it's a composed component w/ React Router
+    let {type, duration, mod, mobile, tag, ctaLabel, children, staticContext, card, ...rest} = this.props;
 
-    let cls       = ['c-card'],
-        typeLabel = 'Course',
-        cardIcon  = <SVGIcon name='book'/>,
-        tagEl = tag ? <Tag>{tag}</Tag> : null,
-        ctaEl = ctaLabel ? <Button>{ctaLabel}</Button> : null;
+    let cls        = card ? ['c-lrncard'] : ['c-lrncard--row'],
+        cardFormat = card ? 'c-lrncard__contents' : 'c-lrncard__contents--row',
+        typeLabel  = 'Course',
+        cardIcon   = <SVGIcon name='book'/>,
+        tagEl      = tag ? <Tag>{tag}</Tag> : null,
+        ctaEl      = ctaLabel ? <Button>{ctaLabel}</Button> : null;
 
     if (type === 'path') {
-      cls.push('c-card--path');
+      cls.push('c-lrncard--path');
       typeLabel = 'Learning Path';
       cardIcon  = <SVGIcon name='box'/>;
+    } else {
+      cls.push('c-lrncard--course');
     }
 
-    return (<div className={cls.join(' ')} onClick={this.onCardClick} {...rest}>
-      <div className='c-card__contents'>
-        <div className='c-card__icon'>{cardIcon}</div>
-        <div className='c-card__duration'>{duration}</div>
-        <div className='c-card__content'>
-          <h2>{typeLabel}</h2>
-          {children}
+    return (
+      <div className={cls.join(' ')} onClick={this.onCardClick} {...rest}>
+        <div className={cardFormat}>
+          <div className='c-lrncard__icon'>{cardIcon}</div>
+          <div className='c-lrncard__duration'><p>{duration}</p></div>
+          <div className='c-lrncard__content'>
+            <h2>{typeLabel}</h2>
+            {children}
+          </div>
+          <div className='c-lrncard__cta'>
+            {ctaLabel ? ctaEl : tagEl}
+          </div>
+          <div className='c-lrncard__subicon'>{mobile ?
+            <SVGIcon name='mobile-friendly' className=''/> : null}</div>
         </div>
-        <div className='c-card__cta'>
-          {ctaLabel ? ctaEl : tagEl}
-        </div>
-        <div className='c-card__subicon'>{mobile ?
-          <SVGIcon name='mobile-friendly' className=''/> : null}</div>
       </div>
-    </div>);
+    );
   }
 }
 
