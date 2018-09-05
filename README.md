@@ -10,7 +10,6 @@ Design work by AtlanticBT for Red Hat.
     [ ] card/list show is a bool prop
     [ ] extra buttons (between the two) is a sub comp
     [ ] functionality to toggle card/list
-[ ] search header needs some layout
 [ ] dashboard screen
 [ ] catalog screen
 

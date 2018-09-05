@@ -28,13 +28,17 @@ class Search extends React.Component {
     return (
       <React.Fragment>
         <Content>
-          <h4>123 Results</h4>
-          <Label>Ansible<SVGIcon name='x' width='14' height='14'
-                                 className='u-padding-left'/></Label>
-          <Label>OpenShift<SVGIcon name='x' width='14' height='14'
+          <div className='l-search-results'>
+            <h1>123 Results</h1>
+            <div className='l-search-results__matches'>
+            <Label>Ansible<SVGIcon name='x' width='14' height='14'
                                    className='u-padding-left'/></Label>
-          <Label>Infrastructure<SVGIcon name='x' width='14' height='14'
-                                        className='u-padding-left'/></Label>
+            <Label>OpenShift<SVGIcon name='x' width='14' height='14'
+                                     className='u-padding-left'/></Label>
+            <Label>Infrastructure<SVGIcon name='x' width='14' height='14'
+                                          className='u-padding-left'/></Label>
+            </div>
+          </div>
           <TestGridContent mode='results' numPaths={2} numCourses={7}
                            controls={this.renderControls()}/>
         </Content>

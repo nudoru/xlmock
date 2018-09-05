@@ -1,0 +1,11 @@
+.l-search-results {
+  h1 {
+    @extend h3;
+    margin-bottom: $scale-1;
+  }
+  margin-bottom: -$scale6;
+}
+
+.l-search-results__matches {
+
+}

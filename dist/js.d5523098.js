@@ -48091,30 +48091,38 @@ var Search = function (_React$Component) {
           _Content2.default,
           null,
           _react2.default.createElement(
-            "h4",
-            null,
-            "123 Results"
-          ),
-          _react2.default.createElement(
-            _Label2.default,
-            null,
-            "Ansible",
-            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
-              className: "u-padding-left" })
-          ),
-          _react2.default.createElement(
-            _Label2.default,
-            null,
-            "OpenShift",
-            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
-              className: "u-padding-left" })
-          ),
-          _react2.default.createElement(
-            _Label2.default,
-            null,
-            "Infrastructure",
-            _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
-              className: "u-padding-left" })
+            "div",
+            { className: "l-search-results" },
+            _react2.default.createElement(
+              "h1",
+              null,
+              "123 Results"
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "l-search-results__matches" },
+              _react2.default.createElement(
+                _Label2.default,
+                null,
+                "Ansible",
+                _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
+                  className: "u-padding-left" })
+              ),
+              _react2.default.createElement(
+                _Label2.default,
+                null,
+                "OpenShift",
+                _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
+                  className: "u-padding-left" })
+              ),
+              _react2.default.createElement(
+                _Label2.default,
+                null,
+                "Infrastructure",
+                _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
+                  className: "u-padding-left" })
+              )
+            )
           ),
           _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7,
             controls: this.renderControls() })
