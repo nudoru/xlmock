@@ -5,6 +5,7 @@
 .c-lrncard {
   @include transition-all;
   @extend .c-card-frame;
+  cursor: pointer;
   &:hover {
     @extend .dropshadow-m;
     @include translate(0, -2px);
@@ -70,34 +71,38 @@
 
 .c-lrncard--row {
   @include transition-all;
-  @extend .c-card-frame;
-  padding: $scale1;
-  margin-bottom: .2rem;
+  //@extend .c-card-frame;
+  padding: $scale0 $scale5;
+  margin-bottom: 1px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  z-index: 0;
   &:hover {
     @extend .dropshadow-m;
-    //@include translate(0, -2px);
+    @include translate(2px, 0);
     z-index: 1;
-    border: 1px solid rgba(0,0,0,.25);
   }
+
 }
 
 .c-lrncard__contents--row {
   @extend .c-lrncard__contents;
-  grid-template: "cardicon  cardcontent cardcta" 1fr
-                  "cardicon cardcontent cardcta" 1fr
-                  "cardsubicon cardcontent cardduration" 1fr
+  grid-template: "cardicon  cardcontent cardduration" auto
+                  "cardicon cardcontent ." auto
+                  "cardicon cardcta cardsubicon" auto
                   / auto 1fr auto;
-  grid-gap: $scale0;
+  grid-column-gap: $scale1;
+  grid-row-gap: 1rem;
 
   .c-lrncard__icon {
     grid-area: cardicon;
-    align-self: center;
+    align-self: start;
     justify-self: start;
   }
 
   .c-lrncard__duration {
     grid-area: cardduration;
-    align-self: end;
+    align-self: start;
     justify-self: center;
     color: $text-dim-color;
     font-size: 0.8rem;
@@ -109,14 +114,14 @@
 
     h1 {
       @extend .h6;
-      margin-bottom: $scale-1;
+      margin-bottom: 0.5rem;
       line-height: $scale4;
       font-weight: 600;
     }
     h2 {
       @extend .h6;
       font-size: 0.8rem;
-      margin-bottom: $scale-1 / 3;
+      margin-bottom: 0.25rem;
       line-height: 1rem;
       font-weight: 400;
       color: $text-dim-color;
@@ -129,17 +134,17 @@
 
   .c-lrncard__cta {
     grid-area: cardcta;
-    justify-self: center;
-    align-self: center;
-    .c-tag {
-      margin: 0;
-    }
+    justify-self: start;
+    align-self: top;
+    //.c-tag {
+    //  margin: 0;
+    //}
   }
 
   .c-lrncard__subicon {
     grid-area: cardsubicon;
     align-self: end;
-    justify-self: center;
+    justify-self: end;
   }
 }
 
