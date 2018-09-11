@@ -22,10 +22,12 @@ import CoursePlayer from "./pages/CoursePlayer";
 import CourseDetailResources from "./pages/CourseDetailResources";
 import SlideMenu from "./components/SlideMenu";
 import SVGIcon from "./components/SVGIcon";
+import CatalogCategory from "./pages/CatalogCategory";
 
 const Routes = () => <Switch>
   <Route exact path="/" component={Overview}/>
   <Route path="/catalog" component={Catalog}/>
+  <Route path="/catalogcategory" component={CatalogCategory}/>
   <Route path="/calendar" component={Calendar}/>
   <Route path="/alerts" component={Alerts}/>
   <Route path="/help" component={Help}/>
@@ -86,7 +88,7 @@ class AppRouter extends React.Component {
                 name='x'/></SlideMenu.Close>
             </SlideMenu.Header>
             <SlideMenu.Section>
-              Notifications
+              Notifications wire frame p6
             </SlideMenu.Section>
           </SlideMenu>
           <SlideMenu onBlockClick={this.toggleMobileMenu}
@@ -100,7 +102,7 @@ class AppRouter extends React.Component {
                 name='x'/></SlideMenu.Close>
             </SlideMenu.Header>
             <SlideMenu.Section>
-              Menu Stuff
+              Menu wire frame p72
             </SlideMenu.Section>
           </SlideMenu>
         </SiteContainer>

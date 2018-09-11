@@ -3,8 +3,6 @@ import Content from "../layout/Content";
 import Hero from "../layout/Hero";
 import HeroPathProgress from "../components/HeroPathProgress";
 import HeroPathProgressMetadata from "../components/HeroPathProgressMetadata";
-import Tag from '../components/Tag';
-import TagCategoryGroup from "../components/TagCategoryGroup";
 import PathActivitySection from "../components/PathActivitySection";
 import PathActivitySubsection from "../components/PathActivitySubsection";
 import {
@@ -35,8 +33,10 @@ class PathDetail extends React.Component {
     return (
       <React.Fragment>
         <Hero>
-          <HeroPathProgress/>
-          <HeroPathProgressMetadata/>
+          <Hero.Content>
+            <HeroPathProgress/>
+            <HeroPathProgressMetadata/>
+          </Hero.Content>
         </Hero>
         <Content>
           <div className='l-path-detail'>
@@ -109,14 +109,15 @@ class PathDetail extends React.Component {
                 <PathAchievement.Icon>
                   <SVGIcon name='award' width='32' height='32'/>
                 </PathAchievement.Icon>
-                <PathAchievement.Title>Eternal Glory (and 500 CE credits)</PathAchievement.Title>
+                <PathAchievement.Title>Eternal Glory (and 500 CE
+                  credits)</PathAchievement.Title>
               </PathAchievement>
 
             </div>
             <div className='l-path-detail__metadata'>
               <h1 className='l-path-detail__metadata__title'>About this
                 path</h1>
-              <p>{Lorem.sentence(50,300)}</p>
+              <p>{Lorem.sentence(50, 300)}</p>
               <h1 className='l-path-detail__metadata__title'>Additional
                 Information</h1>
               <TestTagCategories/>

@@ -1,0 +1,51 @@
+// Max about 363px at widest screen
+// Tablet + Phone 310px
+// Let's set the size based on the grid cell
+
+.c-catcard {
+  @include transition-all;
+  @extend .c-card-frame;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  padding: 0;
+  border: 1px solid transparent;
+  &:hover {
+    @extend .dropshadow-m;
+    @include translate(0, -2px);
+    border: 1px solid rgba(0,0,0,.25);
+  }
+}
+
+.c-catcard__background {
+  //background: $blue-dark $light-gradient;
+  color: #fff;
+  //padding: $scale0;
+  height: 100%;
+  background: url('../img/categorycard-bg.png') no-repeat center center;
+  background-size: cover;
+  &::after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
+  }
+}
+
+.c-catcard__content {
+  padding: $scale0;
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+  text-align: center;
+  h1 {
+    @extend .h6;
+    margin: 0;
+    line-height: $scale2;
+    font-weight: 600;
+  }
+}

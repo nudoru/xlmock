@@ -13,6 +13,7 @@
 @import 'xl_card';
 @import 'xl_learning-card';
 @import 'xl_hero-card';
+@import 'xl_category-card';
 @import 'xl_table';
 @import 'xl_bigtabs';
 @import 'xl_expandingmenu';
@@ -26,6 +27,7 @@
 @import 'xl_slidemenu';
 @import 'xl_modalblock';
 @import 'xl_discover';
+@import 'xl_catalog';
 @import 'xl_course_detail';
 @import 'xl_path_detail';
 @import 'xl-search-results';
@@ -46,4 +48,16 @@ body {
                 ". sitecontent ." 1fr
                 ". sitefooter ." auto / 1fr minmax(auto, $content-width-large) 1fr;
 }
+
+.c-section-title-block {
+  h1 {
+    @extend .h5;
+    display: inline;
+    font-weight: 600;
+  }
+  p {
+    color: $text-dim-color;
+  }
+}
+
 
