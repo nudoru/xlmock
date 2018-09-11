@@ -22,11 +22,13 @@ class User extends React.Component {
     return (
       <React.Fragment>
         <Hero>
-          <BigTabs negative>
-            <BigTabs.Tab><Link to='/user'>Profile</Link></BigTabs.Tab>
-            <BigTabs.Tab><Link to='/user'>Learning Record</Link></BigTabs.Tab>
-            <BigTabs.Tab><Link to='/user'>Settings</Link></BigTabs.Tab>
-          </BigTabs>
+          <Hero.Content>
+            <BigTabs negative>
+              <BigTabs.Tab><Link to='/user'>Profile</Link></BigTabs.Tab>
+              <BigTabs.Tab><Link to='/user'>Learning Record</Link></BigTabs.Tab>
+              <BigTabs.Tab><Link to='/user'>Settings</Link></BigTabs.Tab>
+            </BigTabs>
+          </Hero.Content>
         </Hero>
         <Content>
           <h1>User profile</h1>

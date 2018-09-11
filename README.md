@@ -5,13 +5,18 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-[ ] card layout
-    [ ] functionality to toggle card/list
+[ ] hero card path
+[ ] card design for ...
+    [ ] lynda
+    [ ] kaltura
 [ ] dashboard screen
 [ ] catalog screen
 
 # TODO Functionality
 
+[ ] fix hero grid rows so content and outercontet work in any order and number w/ background image
+[ ] make Lorem util a React component w/ subcomponents Loren.Title, etc.
+[ ] Fix card overflow w/ CSS props
 [ ] search bar should be input
 [ ] more semantic html
 [ ] call setState as function

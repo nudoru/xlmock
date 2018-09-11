@@ -1,7 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class Hero extends React.Component {
+
+  static Content = ({children}) => <div
+    className='c-site-hero__content'>{children}</div>;
+
+  static OuterContent = ({children}) => <div
+    className='c-site-hero__outercontent'>{children}</div>;
 
   static defaultProps = {};
   static propTypes    = {};
@@ -19,9 +24,7 @@ class Hero extends React.Component {
     return (
       <div className='l-site-hero'>
         <div className='c-site-hero__image'/>
-        <div className='c-site-hero__content'>
-          {this.props.children}
-        </div>
+        {this.props.children}
       </div>
     );
   }

@@ -22,11 +22,13 @@ class Team extends React.Component {
     return (
       <React.Fragment>
         <Hero>
-          <BigTabs negative>
-            <BigTabs.Tab><Link to='/'>Overview</Link></BigTabs.Tab>
-            <BigTabs.Tab><Link to='/discover'>Discover</Link></BigTabs.Tab>
-            <BigTabs.Tab active><Link to='/team'>Team</Link></BigTabs.Tab>
-          </BigTabs>
+          <Hero.Content>
+            <BigTabs negative>
+              <BigTabs.Tab><Link to='/'>Overview</Link></BigTabs.Tab>
+              <BigTabs.Tab><Link to='/discover'>Discover</Link></BigTabs.Tab>
+              <BigTabs.Tab active><Link to='/team'>Team</Link></BigTabs.Tab>
+            </BigTabs>
+          </Hero.Content>
         </Hero>
         <Content>
           <h1>Team</h1>

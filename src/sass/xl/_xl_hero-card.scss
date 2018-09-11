@@ -1,0 +1,103 @@
+.c-herocard {
+  @include transition-all;
+  @extend .c-card-frame;
+  @extend .dropshadow-m;
+  display: inline-block;
+  text-align: left;
+  width: 75%;
+  margin: 0 auto;
+  cursor: pointer;
+  background: $card-course-color;
+  color: $text-color;
+  white-space: normal;
+  &:hover {
+    @extend .dropshadow-lg;
+  }
+}
+
+.c-herocard__contents {
+  display: grid;
+  grid-template: "cardicon cardduration" 50px
+  "cardcontent cardcontent" minmax(auto, 200px)
+  "cardcta cardsubicon" 50px / 2fr 1fr;
+  grid-gap: $scale1;
+
+  .c-herocard__icon {
+    grid-area: cardicon;
+    align-self: center;
+  }
+
+  .c-herocard__duration {
+    grid-area: cardduration;
+    justify-self: end;
+    align-self: center;
+    p {
+      margin: 0;
+      color: $text-dim-color;
+    }
+  }
+
+  .c-herocard__content {
+    grid-area: cardcontent;
+    align-self: end;
+    h1 {
+      @extend .h2;
+      margin-bottom: $scale4;
+      line-height: $scale5;
+      font-weight: 600;
+    }
+    h2 {
+      @extend .h6;
+      margin-bottom: 0.8rem;
+      line-height: 1rem;
+      font-weight: 600;
+      color: $text-dim-color;
+    }
+    p {
+      margin-bottom: 0;
+      color: $text-dim-color;
+    }
+  }
+
+  .c-herocard__cta {
+    grid-area: cardcta;
+    align-self: end;
+  }
+
+  .c-herocard__subicon {
+    grid-area: cardsubicon;
+    justify-self: end;
+    align-self: end;
+  }
+}
+
+.c-herocard--path {
+  background-color: $card-path-color;
+  border: 1px solid $card-path-color;
+  .c-herocard__duration {
+    p {
+      margin-bottom: 0;
+      color: $text-dim-color-negative;
+    }
+  }
+  .c-herocard__content {
+    h1 {
+      color: #fff;
+    }
+    h2 {
+      color: $text-dim-color-negative;
+    }
+    p {
+      color: #fff;
+    }
+  }
+  .c-herocard__cta button {
+    @extend .c-button--primary-negative;
+  }
+  .c-herocard__icon, .c-herocard__subicon, .c-tag {
+    color: #fff;
+  }
+  .c-tag {
+    border-color: #fff;
+  }
+}

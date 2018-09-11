@@ -1,0 +1,45 @@
+.l-herocarousel {
+  grid-column: 1/4;
+  width: 100%;
+}
+
+.l-herocarousel__content {
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  .c-herocard {
+    margin-left: 5px;
+    margin-right: $scale4;
+  }
+}
+
+.l-herocarousel__indicators {
+  padding-top: $scale5;
+  padding-bottom: $scale-1;
+  text-align: center;
+  ul{
+    @extend .u-list-plain-horizontal;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    li {
+      position: relative;
+      display: inline-block;
+      width: 75px;
+      height: 2px;
+      color: transparent;
+      background: $text-dim-color-negative;
+      margin-right: $scale5;
+      &:last-of-type {
+        margin-right: 0;
+      }
+      &.is-active {
+        background: #fff;
+        box-shadow: 0 0 5px rgb(255,255,255);
+      }
+    }
+  }
+
+
+}

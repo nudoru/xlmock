@@ -1,13 +1,20 @@
+// FIXME Content and OuterContent need to be in any quantity and order
+
 .l-site-hero {
   grid-area: sitehero;
   display: grid;
-  grid-template: ". siteherocontent ." auto / 1fr minmax(auto, $content-width-large) 1fr;
+  grid-gap: 1rem;
+  grid-template: ". siteherocontent ." auto
+  "siteherooutercontent siteherooutercontent siteherooutercontent" auto / 1fr minmax(auto, $content-width-large) 1fr;
   background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
-  z-index: 0;
+  z-index: 0; // keeps it under the modal block
+  color: #fff;
 }
 
 .c-site-hero__image {
-  grid-row: 1;
+  position: relative;
+  z-index: 0;
+  grid-row: 1/-1;
   grid-column: 1/-1;
   background: url('../img/hero3.png') no-repeat center center;
   background-size: cover;
@@ -20,18 +27,16 @@
   }
 }
 
-// Pseudo element of the hero__image now
-//.c-site-hero__image--gradient {
-//  grid-row: 1;
-//  grid-column: 1/-1;
-//  background: linear-gradient($hero-color-background, $hero-color-background-image-bottom-grad);
-//  z-index: 1;
-//}
-
 .c-site-hero__content {
   grid-area: siteherocontent;
   padding-top: $scale5;
-  z-index: 2;
+  z-index: 1;
+}
+
+.c-site-hero__outercontent {
+  grid-area: siteherooutercontent;
+  z-index: 1;
+  grid-column: 1/-1;
 }
 
 .l-site-hero__display {
