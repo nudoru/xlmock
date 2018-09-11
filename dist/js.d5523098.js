@@ -25631,6 +25631,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.BigTabs = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -25642,6 +25644,8 @@ var _propTypes = require('prop-types');
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25674,8 +25678,8 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
       var _props = this.props,
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
-          children = _props.children;
-
+          childre = _props.childre,
+          rest = _objectWithoutProperties(_props, ['className', 'childre']);
 
       var cls = ['c-big-tabs'];
 
@@ -25687,7 +25691,7 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
 
       return _react2.default.createElement(
         'ul',
-        { className: cls.join(' ') },
+        _extends({ className: cls.join(' ') }, rest),
         children
       );
     }
@@ -46274,7 +46278,111 @@ var Help = function (_React$Component) {
 Help.defaultProps = {};
 Help.propTypes = {};
 exports.default = Help;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/components/Tabs.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Tabs = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// TODO
+// light positive? this is negative
+
+var Tabs = exports.Tabs = function (_React$Component) {
+  _inherits(Tabs, _React$Component);
+
+  function Tabs(props) {
+    _classCallCheck(this, Tabs);
+
+    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
+
+    _initialiseProps.call(_this);
+
+    return _this;
+  }
+
+  _createClass(Tabs, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var cls = ['c-tabs'];
+
+      if (this.props.negative) {
+        cls.push('c-tabs--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'ul',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Tabs;
+}(_react2.default.Component);
+
+Tabs.Tab = function (props) {
+  var children = props.children,
+      className = props.className;
+
+  var cls = [];
+
+  if (props.active) {
+    cls.push('is-active');
+  }
+
+  cls.push(className);
+
+  return _react2.default.createElement(
+    'li',
+    { className: cls.join(' ') },
+    children
+  );
+};
+
+Tabs.defaultProps = {};
+Tabs.propTypes = {
+  negative: _propTypes2.default.bool
+};
+
+var _initialiseProps = function _initialiseProps() {
+  this.state = {};
+};
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46293,7 +46401,7 @@ var _Content = require('../layout/Content');
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _BigTabs = require('../components/BigTabs');
+var _Tabs = require('../components/Tabs');
 
 var _Hero = require('../layout/Hero');
 
@@ -46335,33 +46443,46 @@ var UserProfile = function (_React$Component) {
             _Hero2.default.Content,
             null,
             _react2.default.createElement(
-              _BigTabs.BigTabs,
-              { negative: true },
+              'div',
+              { className: 'l-userprofile__grid' },
               _react2.default.createElement(
-                _BigTabs.BigTabs.Tab,
-                null,
+                _Tabs.Tabs,
+                { negative: true, className: 'l-userprofile__nav' },
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  'Profile'
-                )
-              ),
-              _react2.default.createElement(
-                _BigTabs.BigTabs.Tab,
-                null,
+                  _Tabs.Tabs.Tab,
+                  { active: true },
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Profile'
+                  )
+                ),
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  'Learning Record'
-                )
-              ),
-              _react2.default.createElement(
-                _BigTabs.BigTabs.Tab,
-                null,
+                  _Tabs.Tabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Learning Paths'
+                  )
+                ),
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  'Settings'
+                  _Tabs.Tabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Learning Record'
+                  )
+                ),
+                _react2.default.createElement(
+                  _Tabs.Tabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Settings'
+                  )
                 )
               )
             )
@@ -46371,9 +46492,37 @@ var UserProfile = function (_React$Component) {
           _Content2.default,
           null,
           _react2.default.createElement(
-            'h1',
-            null,
-            'User profile'
+            'div',
+            { className: 'l-userprofile__grid' },
+            _react2.default.createElement(
+              'div',
+              { className: 'l-userprofile__sumary' },
+              _react2.default.createElement(
+                'div',
+                null,
+                '[profile image]'
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                '[basic info]'
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                '[managers lockup]'
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                '[audiences list]'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'l-userprofile__content' },
+              'content'
+            )
           )
         )
       );
@@ -46386,7 +46535,7 @@ var UserProfile = function (_React$Component) {
 UserProfile.defaultProps = {};
 UserProfile.propTypes = {};
 exports.default = UserProfile;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

@@ -1,0 +1,11 @@
+.l-userprofile__grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.l-userprofile__nav {
+  grid-column: 2;
+}
+
+.l-userprofile__summary {}
+.l-userprofile__content {}

@@ -48,17 +48,14 @@
 }
 
 @include max-width($content-width-large) {
+  // Warning, l/r padding here affects grid alignment w/ hero and content items
   .c-site-hero__content {
-    padding-left: $scale2;
-    padding-right: $scale2;
+    //padding-left: $scale2;
+    //padding-right: $scale2;
   }
 }
 
 @include max-width($content-width-medium) {
-  .c-site-hero__content {
-    padding-left: $scale2;
-    padding-right: $scale2;
-  }
   .l-site-hero__display {
     grid-template-columns: auto;
     grid-template-rows: auto auto;

@@ -1,75 +1,50 @@
-  ul.tabs {
-    @extend %list-horizontal;
-    height: $scale6;
-    border-bottom: 2px solid $button-primary-color;
-    li {
-      margin: 0;
-      padding: 0;
-      a{
-        @include transition-all;
-        display: block;
-        line-height: $scale6;
-        padding: 0 $scale5;
-        color: $button-primary-color;
-        border-radius: $radius-base $radius-base 0 0;
-      }
-      a:hover {
-        background: $button-shaded-bg;
-        text-decoration: none;
-      }  
-    }
-    .is-active {
-      a {
-        background: $button-primary-color;
-        color: #fff;
-        font-weight: 600;
-      }
-      a:hover {
-        background-color: $button-primary-color-over;
-        text-decoration: none;
-        color: #fff;
-      }
+// a UL tag
+.c-tabs {
+  @extend .u-list-plain-horizontal;
+  color: #000;
+  font-size: $scale0;
+  li {
+    display: inline-block;
+  }
+
+  a {
+    @include transition-all;
+    position: relative;
+    display: block;
+    margin-right: $scale6;
+    border-bottom: 1px solid transparent;
+    color: $text-dim-color;
+    &:hover {
+      @include translate(0,2px);
+      text-decoration: none;
+      color: #000;
     }
   }
 
-  ul.tabs-big {
-    @extend .u-list-plain-horizontal;
-    margin-top: $scale5;
-    font-size: $scale2;
-    border-bottom: 1px solid $text-dim-color;
-    overflow: hidden;
-    li {
-      display: inline-block;
-      a{
-        @include transition-all;
-        position: relative;
-        display: block;
-        margin-right: $scale6;
-        padding: $scale0  $scale2 $scale2 $scale2;
-        border-bottom: 1px solid transparent;
-        border-radius: $radius-base $radius-base 0 0;
-        margin-bottom: -1px;
-        color: $text-dim-color;
-
-      }
-      a:hover {
-        @include translate(0,0.125rem);
-        text-decoration: none;
-        color: $color-primary;
-        background: $button-shaded-bg;
-      }
-    }
-    .is-active {
-      a {
-        color: $color-primary;
-        border-bottom: 1px solid $color-primary;
-        font-weight: 600;
-      }
-      a:hover {
+  .is-active {
+    a {
+      color: #000;
+      &:hover {
         @include translate(0,0);
       }
     }
-    li:last-of-type {
-      margin-right: 0;
+  }
+  li:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.c-tabs--negative {
+  color: #fff;
+  a {
+    color: $text-dim-color-negative;
+    &:hover {
+      color: #fff;
     }
   }
+  .is-active {
+    a {
+      color: #fff;
+    }
+  }
+}
