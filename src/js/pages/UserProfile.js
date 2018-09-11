@@ -4,7 +4,7 @@ import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
 import Hero from "../layout/Hero";
 
-class User extends React.Component {
+class UserProfile extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};
@@ -38,4 +38,4 @@ class User extends React.Component {
   }
 }
 
-export default User;
+export default UserProfile;

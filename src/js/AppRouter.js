@@ -6,7 +6,7 @@ import Catalog from "./pages/Catalog";
 import Calendar from "./pages/Calendar";
 import Alerts from "./pages/Alerts";
 import Help from "./pages/Help";
-import User from "./pages/User";
+import UserProfile from "./pages/UserProfile";
 import CourseDetail from "./pages/CourseDetail";
 import PathDetail from "./pages/PathDetail";
 import Search from "./pages/Search";
@@ -31,7 +31,7 @@ const Routes = () => <Switch>
   <Route path="/calendar" component={Calendar}/>
   <Route path="/alerts" component={Alerts}/>
   <Route path="/help" component={Help}/>
-  <Route path="/user" component={User}/>
+  <Route path="/user" component={UserProfile}/>
   <Route path="/course" component={CourseDetail}/>
   <Route path="/courseactivities" component={CourseDetailActivities}/>
   <Route path="/courseupcoming" component={CourseDetailUpcoming}/>

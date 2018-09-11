@@ -46274,7 +46274,7 @@ var Help = function (_React$Component) {
 Help.defaultProps = {};
 Help.propTypes = {};
 exports.default = Help;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/User.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46307,19 +46307,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var User = function (_React$Component) {
-  _inherits(User, _React$Component);
+var UserProfile = function (_React$Component) {
+  _inherits(UserProfile, _React$Component);
 
-  function User(props) {
-    _classCallCheck(this, User);
+  function UserProfile(props) {
+    _classCallCheck(this, UserProfile);
 
-    var _this = _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
 
     _this.state = {};
     return _this;
   }
 
-  _createClass(User, [{
+  _createClass(UserProfile, [{
     key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
@@ -46380,12 +46380,12 @@ var User = function (_React$Component) {
     }
   }]);
 
-  return User;
+  return UserProfile;
 }(_react2.default.Component);
 
-User.defaultProps = {};
-User.propTypes = {};
-exports.default = User;
+UserProfile.defaultProps = {};
+UserProfile.propTypes = {};
+exports.default = UserProfile;
 },{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
@@ -50234,9 +50234,9 @@ var _Help = require('./pages/Help');
 
 var _Help2 = _interopRequireDefault(_Help);
 
-var _User = require('./pages/User');
+var _UserProfile = require('./pages/UserProfile');
 
-var _User2 = _interopRequireDefault(_User);
+var _UserProfile2 = _interopRequireDefault(_UserProfile);
 
 var _CourseDetail = require('./pages/CourseDetail');
 
@@ -50320,7 +50320,7 @@ var Routes = function Routes() {
     _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/alerts', component: _Alerts2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/help', component: _Help2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _User2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _UserProfile2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/course', component: _CourseDetail2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/courseactivities', component: _CourseDetailActivities2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/courseupcoming', component: _CourseDetailUpcoming2.default }),
@@ -50449,7 +50449,7 @@ var AppRouter = function (_React$Component) {
 AppRouter.defaultProps = {};
 AppRouter.propTypes = {};
 exports.default = AppRouter;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/User":"../js/pages/User.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js","./pages/CatalogCategory":"../js/pages/CatalogCategory.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/UserProfile":"../js/pages/UserProfile.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js","./pages/CatalogCategory":"../js/pages/CatalogCategory.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
