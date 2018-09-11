@@ -119,7 +119,7 @@
   -webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1); }
 
-.dropshadow-xs, .c-card-frame, .c-lrncard, .c-herocard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement {
+.dropshadow-xs, .c-card-frame, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
@@ -127,7 +127,7 @@
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15); }
 
-.dropshadow-m, .c-lrncard:hover, .c-lrncard--row:hover, .c-herocard, .l-path-detail__achievement {
+.dropshadow-m, .c-lrncard:hover, .c-lrncard--row:hover, .c-herocard, .c-catcard:hover, .l-path-detail__achievement {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1); }
 
@@ -180,8 +180,8 @@ body {
   font-size: 1rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1, h2, h3, .c-slidemenu__header__title, .l-path-detail__achievement__title, .l-search-results h1, h4, .l-path-detail__activities__section__title, h5, .c-expandingmenu__header__title, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, h6, .c-tagcategory__title,
-.h1, .h2, .c-herocard__contents .c-herocard__content h1, .h3, .h4, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .h6, .c-banner-message__message h1, .c-lrncard__contents .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h1, .c-herocard__contents .c-herocard__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
+h1, h2, h3, .c-slidemenu__header__title, .l-path-detail__achievement__title, .l-search-results h1, h4, .l-categorieshero h1, .l-path-detail__activities__section__title, h5, .c-expandingmenu__header__title, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, h6, .c-tagcategory__title,
+.h1, .h2, .c-herocard__contents .c-herocard__content h1, .h3, .h4, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1, .h6, .c-banner-message__message h1, .c-lrncard__contents .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h1, .c-herocard__contents .c-herocard__content h2, .c-catcard__content h1, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -198,15 +198,15 @@ h2, .h2, .c-herocard__contents .c-herocard__content h1 {
 h3, .c-slidemenu__header__title, .l-path-detail__achievement__title, .l-search-results h1, .h3 {
   font-size: 1.75rem; }
 
-h4, .l-path-detail__activities__section__title, .h4 {
+h4, .l-categorieshero h1, .l-path-detail__activities__section__title, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .c-expandingmenu__header__title, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1 {
+h5, .c-expandingmenu__header__title, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
-h6, .c-tagcategory__title, .h6, .c-banner-message__message h1, .c-lrncard__contents .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h1, .c-herocard__contents .c-herocard__content h2, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
+h6, .c-tagcategory__title, .h6, .c-banner-message__message h1, .c-lrncard__contents .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h1, .c-herocard__contents .c-herocard__content h2, .c-catcard__content h1, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
   font-size: 1rem;
   margin-bottom: 0.875rem;
   font-weight: 600; }
@@ -645,7 +645,7 @@ ul.tabs-big {
   ul.tabs-big li:last-of-type {
     margin-right: 0; }
 
-.c-card-frame, .c-lrncard, .c-herocard, .c-item-table__contents {
+.c-card-frame, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents {
   display: block;
   position: relative;
   border-radius: 0.3125rem;
@@ -857,6 +857,48 @@ ul.tabs-big {
     color: #fff; }
   .c-herocard--path .c-tag {
     border-color: #fff; }
+
+.c-catcard {
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+          transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  padding: 0;
+  border: 1px solid transparent; }
+  .c-catcard:hover {
+    -webkit-transform: translate(0, -2px);
+            transform: translate(0, -2px);
+    border: 1px solid rgba(0, 0, 0, 0.25); }
+
+.c-catcard__background {
+  color: #fff;
+  height: 100%;
+  background: url("categorycard-bg.0d35a770.png") no-repeat center center;
+  background-size: cover; }
+  .c-catcard__background::after {
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: -webkit-gradient(linear, left top, left bottom, from(#0f2032), to(rgba(54, 97, 149, 0.5)));
+    background: linear-gradient(#0f2032, rgba(54, 97, 149, 0.5)); }
+
+.c-catcard__content {
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+  text-align: center; }
+  .c-catcard__content h1 {
+    margin: 0;
+    line-height: 1.3125rem;
+    font-weight: 600; }
 
 .c-item-table {
   display: grid;
@@ -1456,6 +1498,17 @@ ul.tabs-big {
 .c-slidemenu--right {
   right: 0px; }
 
+.c-slidemenu--closed--right {
+  right: -400px;
+  visibility: hidden; }
+
+.c-slidemenu--left {
+  left: 0px; }
+
+.c-slidemenu--closed--left {
+  left: -400px;
+  visibility: hidden; }
+
 .c-slidemenu--open {
   visibility: visible; }
 
@@ -1519,6 +1572,18 @@ ul.tabs-big {
 .c-modalblock--hidden {
   opacity: 0;
   visibility: hidden; }
+
+.l-categoriesgrid {
+  display: grid;
+  grid-gap: 0.875rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+.l-categorieshero {
+  padding: 0.875rem 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr; }
+  .l-categorieshero h1 {
+    margin: 0; }
 
 .l-course-detail {
   display: grid;
@@ -1665,3 +1730,10 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template: "siteheader siteheader siteheader" auto "sitedashboardnav sitedashboardnav sitedashboardnav" auto "sitehero sitehero sitehero" auto ". sitecontent ." 1fr ". sitefooter ." auto/1fr minmax(auto, 1140px) 1fr; }
+
+.c-section-title-block h1 {
+  display: inline;
+  font-weight: 600; }
+
+.c-section-title-block p, .c-section-title-block .c-checkbox__label {
+  color: rgba(0, 0, 0, 0.5); }

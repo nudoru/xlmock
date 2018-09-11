@@ -45891,7 +45891,99 @@ var FourOhFour = function (_React$Component) {
 FourOhFour.defaultProps = {};
 FourOhFour.propTypes = {};
 exports.default = FourOhFour;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Catalog.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/components/CategoryCard.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CategoryCard = function (_React$Component) {
+  _inherits(CategoryCard, _React$Component);
+
+  function CategoryCard(props) {
+    _classCallCheck(this, CategoryCard);
+
+    var _this = _possibleConstructorReturn(this, (CategoryCard.__proto__ || Object.getPrototypeOf(CategoryCard)).call(this, props));
+
+    _this.state = {};
+
+    _this.onCardClick = function () {
+      _this.props.history.push('/catalogcategory');
+    };
+
+    return _this;
+  }
+
+  _createClass(CategoryCard, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          staticContext = _props.staticContext,
+          rest = _objectWithoutProperties(_props, ['children', 'staticContext']);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: 'c-catcard' }, rest, { onClick: this.onCardClick }),
+        children
+      );
+    }
+  }]);
+
+  return CategoryCard;
+}(_react2.default.Component);
+
+CategoryCard.Background = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'c-catcard__background' },
+    children
+  );
+};
+
+CategoryCard.Title = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-catcard__content' },
+    _react2.default.createElement(
+      'h1',
+      null,
+      children
+    )
+  );
+};
+
+CategoryCard.defaultProps = {};
+CategoryCard.propTypes = {};
+exports.default = (0, _reactRouterDom.withRouter)(CategoryCard);
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/Catalog.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45908,6 +46000,10 @@ var _Content = require("../layout/Content");
 
 var _Content2 = _interopRequireDefault(_Content);
 
+var _CategoryCard = require("../components/CategoryCard");
+
+var _CategoryCard2 = _interopRequireDefault(_CategoryCard);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45915,6 +46011,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CATEGORIES = ['All Associates', 'Account Manager', 'Ansible Sales Specialist', 'Cloud Sales Specialist', 'Consultant', 'Customer Service Representative', 'Customer Success Manager', 'Customer Support', 'Customer Support Specialist', 'Delivery', 'Developer', 'Inside Sales Professional', 'Marketing', 'Middleware Sales Specialist', 'Partner Account Manager (PAM)', 'People Manager', 'Product Manager', 'Project Manager', 'Quality Engineer', 'Sales', 'Sales Engineer', 'Software Engineer', 'Software Maintenance Engineer', 'Solution Architect', 'Storage Sales Specialist', 'Systems Administrator', 'Technical Account Manager', 'Technical Services Manager (TSM)', 'Technical Support Engineer', 'Technical Writer'];
 
 var Catalog = function (_React$Component) {
   _inherits(Catalog, _React$Component);
@@ -45941,9 +46039,34 @@ var Catalog = function (_React$Component) {
           _Content2.default,
           null,
           _react2.default.createElement(
-            "h1",
-            null,
-            "Catalog"
+            "div",
+            { className: "c-section-title-block" },
+            _react2.default.createElement(
+              "h1",
+              null,
+              "Catalog"
+            ),
+            _react2.default.createElement(
+              "p",
+              null,
+              "Explore the catalog by job area."
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "l-categoriesgrid" },
+            CATEGORIES.map(function (name, i) {
+              return _react2.default.createElement(
+                _CategoryCard2.default,
+                { key: i },
+                _react2.default.createElement(_CategoryCard2.default.Background, null),
+                _react2.default.createElement(
+                  _CategoryCard2.default.Title,
+                  null,
+                  name
+                )
+              );
+            })
           )
         )
       );
@@ -45956,7 +46079,7 @@ var Catalog = function (_React$Component) {
 Catalog.defaultProps = {};
 Catalog.propTypes = {};
 exports.default = Catalog;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/Calendar.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../components/CategoryCard":"../js/components/CategoryCard.js"}],"../js/pages/Calendar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -47302,14 +47425,6 @@ var _HeroPathProgressMetadata = require("../components/HeroPathProgressMetadata"
 
 var _HeroPathProgressMetadata2 = _interopRequireDefault(_HeroPathProgressMetadata);
 
-var _Tag = require("../components/Tag");
-
-var _Tag2 = _interopRequireDefault(_Tag);
-
-var _TagCategoryGroup = require("../components/TagCategoryGroup");
-
-var _TagCategoryGroup2 = _interopRequireDefault(_TagCategoryGroup);
-
 var _PathActivitySection = require("../components/PathActivitySection");
 
 var _PathActivitySection2 = _interopRequireDefault(_PathActivitySection);
@@ -47372,8 +47487,12 @@ var PathDetail = function (_React$Component) {
         _react2.default.createElement(
           _Hero2.default,
           null,
-          _react2.default.createElement(_HeroPathProgress2.default, null),
-          _react2.default.createElement(_HeroPathProgressMetadata2.default, null)
+          _react2.default.createElement(
+            _Hero2.default.Content,
+            null,
+            _react2.default.createElement(_HeroPathProgress2.default, null),
+            _react2.default.createElement(_HeroPathProgressMetadata2.default, null)
+          )
         ),
         _react2.default.createElement(
           _Content2.default,
@@ -47623,7 +47742,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/Tag":"../js/components/Tag.js","../components/TagCategoryGroup":"../js/components/TagCategoryGroup.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/ModalBlock.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/ModalBlock.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47731,10 +47850,6 @@ var _ButtonBar = require('./ButtonBar');
 
 var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
 
-var _SVGIcon = require('./SVGIcon');
-
-var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -47766,18 +47881,29 @@ var SlideMenu = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           isOpen = _props.isOpen,
+          position = _props.position,
           children = _props.children,
           _props$className = _props.className,
           className = _props$className === undefined ? '' : _props$className,
           onBlockClick = _props.onBlockClick,
           block = _props.block,
-          rest = _objectWithoutProperties(_props, ['isOpen', 'children', 'className', 'onBlockClick', 'block']);
+          rest = _objectWithoutProperties(_props, ['isOpen', 'position', 'children', 'className', 'onBlockClick', 'block']);
 
-      var cls = ['c-slidemenu', 'c-slidemenu--right'];
+      var cls = ['c-slidemenu'];
       var blockCls = 'c-modalblock--visible';
 
+      if (position === 'left') {
+        cls.push('c-slidemenu--left');
+      } else {
+        cls.push('c-slidemenu--right');
+      }
+
       if (!isOpen) {
-        cls.push('c-slidemenu--closed');
+        if (position === 'left') {
+          cls.push('c-slidemenu--closed--left');
+        } else {
+          cls.push('c-slidemenu--closed--right');
+        }
         blockCls = 'c-modalblock--hidden';
       } else {
         cls.push('c-slidemenu--open');
@@ -47810,11 +47936,13 @@ SlideMenu.Header = function (props) {
 };
 
 SlideMenu.Icon = function (props) {
-  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__header__icon' }, props));
+  return _react2.default.createElement('div', _extends({
+    className: 'c-slidemenu__header__icon' }, props));
 };
 
 SlideMenu.Title = function (props) {
-  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__header__title' }, props));
+  return _react2.default.createElement('div', _extends({
+    className: 'c-slidemenu__header__title' }, props));
 };
 
 SlideMenu.Close = function (_ref) {
@@ -47822,7 +47950,8 @@ SlideMenu.Close = function (_ref) {
       children = _ref.children;
   return _react2.default.createElement(
     'div',
-    { className: 'c-slidemenu__header__close' },
+    {
+      className: 'c-slidemenu__header__close' },
     _react2.default.createElement(
       _ButtonBar2.default,
       null,
@@ -47840,15 +47969,18 @@ SlideMenu.Close = function (_ref) {
 };
 
 SlideMenu.Section = function (props) {
-  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__section' }, props));
+  return _react2.default.createElement('div', _extends({
+    className: 'c-slidemenu__section' }, props));
 };
 
 SlideMenu.defaultProps = {
   isOpen: false,
-  block: true
+  block: true,
+  position: 'right'
 };
 SlideMenu.propTypes = {
   isOpen: _propTypes2.default.bool,
+  position: _propTypes2.default.oneOf(['left', 'right']),
   block: _propTypes2.default.bool,
   onBlockClick: _propTypes2.default.func
 };
@@ -47858,7 +47990,7 @@ var _initialiseProps = function _initialiseProps() {
 };
 
 exports.default = SlideMenu;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ModalBlock":"../js/components/ModalBlock.js","./ButtonBar":"../js/components/ButtonBar.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/ExpandingMenu.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ModalBlock":"../js/components/ModalBlock.js","./ButtonBar":"../js/components/ButtonBar.js"}],"../js/components/ExpandingMenu.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -48421,7 +48553,7 @@ var Header = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'a',
-                { href: '#' },
+                { onClick: this.props.onMobileMenuClick },
                 _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
               )
             )
@@ -48442,8 +48574,8 @@ var Header = function (_React$Component) {
               _ButtonBar2.default.Icon,
               null,
               _react2.default.createElement(
-                _reactRouterDom.Link,
-                { to: '/alerts' },
+                'a',
+                { onClick: this.props.onAlertsClick },
                 _react2.default.createElement(_SVGIcon2.default, { name: 'bell' }),
                 _react2.default.createElement(
                   _AlertBadge2.default,
@@ -48565,10 +48697,12 @@ var Header = function (_React$Component) {
 }(_react2.default.Component);
 
 Header.defaultProps = {
-  onAlertsClick: function onAlertsClick() {}
+  onAlertsClick: function onAlertsClick() {},
+  onMobileMenuClick: function onMobileMenuClick() {}
 };
 Header.propTypes = {
-  onAlertsClick: _propTypes2.default.func
+  onAlertsClick: _propTypes2.default.func,
+  onMobileMenuClick: _propTypes2.default.func
 };
 exports.default = Header;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
@@ -49945,7 +50079,123 @@ var CourseDetailResources = function (_React$Component) {
 CourseDetailResources.defaultProps = {};
 CourseDetailResources.propTypes = {};
 exports.default = CourseDetailResources;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/AppRouter.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CatalogCategory.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Content = require("../layout/Content");
+
+var _Content2 = _interopRequireDefault(_Content);
+
+var _Hero = require("../layout/Hero");
+
+var _Hero2 = _interopRequireDefault(_Hero);
+
+var _Button = require("../components/Button");
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _TestGridContent = require("../test/TestGridContent");
+
+var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
+
+var _Lorem = require("../utils/Lorem");
+
+var Lorem = _interopRequireWildcard(_Lorem);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CatalogCategory = function (_React$Component) {
+  _inherits(CatalogCategory, _React$Component);
+
+  function CatalogCategory(props) {
+    _classCallCheck(this, CatalogCategory);
+
+    var _this = _possibleConstructorReturn(this, (CatalogCategory.__proto__ || Object.getPrototypeOf(CatalogCategory)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(CatalogCategory, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        _react2.default.Fragment,
+        null,
+        _react2.default.createElement(
+          _Hero2.default,
+          null,
+          _react2.default.createElement(
+            _Hero2.default.Content,
+            null,
+            _react2.default.createElement(
+              "div",
+              { className: "l-categorieshero" },
+              _react2.default.createElement(
+                "h1",
+                null,
+                "Catalog Category"
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                Lorem.sentence(10, 20)
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _Content2.default,
+          null,
+          _react2.default.createElement(_TestGridContent2.default, { mode: "list", title: "Learning Paths",
+            badgeCount: 0, numPaths: 15, numCourses: 0,
+            status: _react2.default.createElement(
+              _Button2.default,
+              null,
+              "View All"
+            ), allowViewChange: true,
+            allowSort: true }),
+          _react2.default.createElement(_TestGridContent2.default, { mode: "list", title: "Courses",
+            badgeCount: 0, numPaths: 0, numCourses: 50,
+            status: _react2.default.createElement(
+              _Button2.default,
+              null,
+              "View All"
+            ), allowViewChange: true,
+            allowSort: true })
+        )
+      );
+    }
+  }]);
+
+  return CatalogCategory;
+}(_react2.default.Component);
+
+CatalogCategory.defaultProps = {};
+CatalogCategory.propTypes = {};
+exports.default = CatalogCategory;
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/AppRouter.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50048,6 +50298,10 @@ var _SVGIcon = require('./components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
+var _CatalogCategory = require('./pages/CatalogCategory');
+
+var _CatalogCategory2 = _interopRequireDefault(_CatalogCategory);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -50062,6 +50316,7 @@ var Routes = function Routes() {
     null,
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Overview2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/catalog', component: _Catalog2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/catalogcategory', component: _CatalogCategory2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/alerts', component: _Alerts2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/help', component: _Help2.default }),
@@ -50089,11 +50344,16 @@ var AppRouter = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AppRouter.__proto__ || Object.getPrototypeOf(AppRouter)).call(this, props));
 
     _this.state = {
-      showNotifications: false
+      showNotifications: false,
+      showMobileMenu: false
     };
 
     _this.toggleNotificationsPanel = function () {
       _this.setState({ showNotifications: !_this.state.showNotifications });
+    };
+
+    _this.toggleMobileMenu = function () {
+      _this.setState({ showMobileMenu: !_this.state.showMobileMenu });
     };
 
     return _this;
@@ -50111,7 +50371,8 @@ var AppRouter = function (_React$Component) {
         _react2.default.createElement(
           _SiteContainer2.default,
           null,
-          _react2.default.createElement(_Header2.default, { onAlertsClick: this.toggleNotificationsPanel }),
+          _react2.default.createElement(_Header2.default, { onAlertsClick: this.toggleNotificationsPanel,
+            onMobileMenuClick: this.toggleMobileMenu }),
           _react2.default.createElement(Routes, null),
           _react2.default.createElement(_Footer2.default, null),
           _react2.default.createElement(
@@ -50133,7 +50394,8 @@ var AppRouter = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _SlideMenu2.default.Close,
-                { onCloseClick: this.toggleNotificationsPanel },
+                {
+                  onCloseClick: this.toggleNotificationsPanel },
                 _react2.default.createElement(_SVGIcon2.default, {
                   name: 'x' })
               )
@@ -50141,7 +50403,39 @@ var AppRouter = function (_React$Component) {
             _react2.default.createElement(
               _SlideMenu2.default.Section,
               null,
-              'Notifications'
+              'Notifications wire frame p6'
+            )
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default,
+            { onBlockClick: this.toggleMobileMenu,
+              isOpen: this.state.showMobileMenu,
+              position: 'left' },
+            _react2.default.createElement(
+              _SlideMenu2.default.Header,
+              null,
+              _react2.default.createElement(
+                _SlideMenu2.default.Icon,
+                null,
+                _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
+              ),
+              _react2.default.createElement(
+                _SlideMenu2.default.Title,
+                null,
+                'Menu'
+              ),
+              _react2.default.createElement(
+                _SlideMenu2.default.Close,
+                {
+                  onCloseClick: this.toggleMobileMenu },
+                _react2.default.createElement(_SVGIcon2.default, {
+                  name: 'x' })
+              )
+            ),
+            _react2.default.createElement(
+              _SlideMenu2.default.Section,
+              null,
+              'Menu wire frame p72'
             )
           )
         )
@@ -50155,7 +50449,7 @@ var AppRouter = function (_React$Component) {
 AppRouter.defaultProps = {};
 AppRouter.propTypes = {};
 exports.default = AppRouter;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/User":"../js/pages/User.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/User":"../js/pages/User.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js","./pages/CatalogCategory":"../js/pages/CatalogCategory.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
