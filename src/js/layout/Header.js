@@ -8,10 +8,12 @@ import AlertBadge from "../components/AlertBadge";
 class Header extends React.Component {
 
   static defaultProps = {
-    onAlertsClick: () => {}
+    onAlertsClick: () => {},
+    onMobileMenuClick: () => {}
   };
   static propTypes = {
-    onAlertsClick: PropTypes.func
+    onAlertsClick: PropTypes.func,
+    onMobileMenuClick: PropTypes.func
   };
 
   state = {};
@@ -26,13 +28,13 @@ class Header extends React.Component {
     return (<div className='l-site-header'>
       <div className='l-site-header--mobile'>
         <ButtonBar negative className='c-site-header__nav--mobile'>
-          <ButtonBar.Icon><a href="#"><SVGIcon name='menu'/></a></ButtonBar.Icon>
+          <ButtonBar.Icon><a onClick={this.props.onMobileMenuClick}><SVGIcon name='menu'/></a></ButtonBar.Icon>
         </ButtonBar>
         <div className='c-site-header__logo'>
           <Link to='/'><img width='200px' src={require('../../img/RHLearning_tool_logo.png')}/></Link>
         </div>
         <ButtonBar negative className='c-site-header__nav--secondary'>
-          <ButtonBar.Icon><Link to='/alerts'><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></Link></ButtonBar.Icon>
+          <ButtonBar.Icon><a onClick={this.props.onAlertsClick}><SVGIcon name='bell'/><AlertBadge>3</AlertBadge></a></ButtonBar.Icon>
           <ButtonBar.Icon><Link to='/user'><SVGIcon name='user'/></Link></ButtonBar.Icon>
         </ButtonBar>
 

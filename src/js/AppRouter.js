@@ -46,27 +46,34 @@ const Routes = () => <Switch>
 class AppRouter extends React.Component {
 
   static defaultProps = {};
-  static propTypes = {};
+  static propTypes    = {};
 
   state = {
-    showNotifications: false
+    showNotifications: false,
+    showMobileMenu   : false
   };
 
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+  }
 
   toggleNotificationsPanel = () => {
     this.setState({showNotifications: !this.state.showNotifications});
   };
-  
+
+  toggleMobileMenu = () => {
+    this.setState({showMobileMenu: !this.state.showMobileMenu});
+  };
+
   render() {
     return (
       <Router>
         <SiteContainer>
-          <Header onAlertsClick={this.toggleNotificationsPanel}/>
+          <Header onAlertsClick={this.toggleNotificationsPanel}
+                  onMobileMenuClick={this.toggleMobileMenu}/>
           <Routes/>
           <Footer/>
           <SlideMenu onBlockClick={this.toggleNotificationsPanel}
@@ -74,11 +81,26 @@ class AppRouter extends React.Component {
             <SlideMenu.Header>
               <SlideMenu.Icon><SVGIcon name='bell'/></SlideMenu.Icon>
               <SlideMenu.Title>Notifications</SlideMenu.Title>
-              <SlideMenu.Close onCloseClick={this.toggleNotificationsPanel}><SVGIcon
+              <SlideMenu.Close
+                onCloseClick={this.toggleNotificationsPanel}><SVGIcon
                 name='x'/></SlideMenu.Close>
             </SlideMenu.Header>
             <SlideMenu.Section>
               Notifications
+            </SlideMenu.Section>
+          </SlideMenu>
+          <SlideMenu onBlockClick={this.toggleMobileMenu}
+                     isOpen={this.state.showMobileMenu}
+                     position='left'>
+            <SlideMenu.Header>
+              <SlideMenu.Icon><SVGIcon name='menu'/></SlideMenu.Icon>
+              <SlideMenu.Title>Menu</SlideMenu.Title>
+              <SlideMenu.Close
+                onCloseClick={this.toggleMobileMenu}><SVGIcon
+                name='x'/></SlideMenu.Close>
+            </SlideMenu.Header>
+            <SlideMenu.Section>
+              Menu Stuff
             </SlideMenu.Section>
           </SlideMenu>
         </SiteContainer>

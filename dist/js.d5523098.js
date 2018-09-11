@@ -47731,10 +47731,6 @@ var _ButtonBar = require('./ButtonBar');
 
 var _ButtonBar2 = _interopRequireDefault(_ButtonBar);
 
-var _SVGIcon = require('./SVGIcon');
-
-var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -47766,18 +47762,29 @@ var SlideMenu = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           isOpen = _props.isOpen,
+          position = _props.position,
           children = _props.children,
           _props$className = _props.className,
           className = _props$className === undefined ? '' : _props$className,
           onBlockClick = _props.onBlockClick,
           block = _props.block,
-          rest = _objectWithoutProperties(_props, ['isOpen', 'children', 'className', 'onBlockClick', 'block']);
+          rest = _objectWithoutProperties(_props, ['isOpen', 'position', 'children', 'className', 'onBlockClick', 'block']);
 
-      var cls = ['c-slidemenu', 'c-slidemenu--right'];
+      var cls = ['c-slidemenu'];
       var blockCls = 'c-modalblock--visible';
 
+      if (position === 'left') {
+        cls.push('c-slidemenu--left');
+      } else {
+        cls.push('c-slidemenu--right');
+      }
+
       if (!isOpen) {
-        cls.push('c-slidemenu--closed');
+        if (position === 'left') {
+          cls.push('c-slidemenu--closed--left');
+        } else {
+          cls.push('c-slidemenu--closed--right');
+        }
         blockCls = 'c-modalblock--hidden';
       } else {
         cls.push('c-slidemenu--open');
@@ -47810,11 +47817,13 @@ SlideMenu.Header = function (props) {
 };
 
 SlideMenu.Icon = function (props) {
-  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__header__icon' }, props));
+  return _react2.default.createElement('div', _extends({
+    className: 'c-slidemenu__header__icon' }, props));
 };
 
 SlideMenu.Title = function (props) {
-  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__header__title' }, props));
+  return _react2.default.createElement('div', _extends({
+    className: 'c-slidemenu__header__title' }, props));
 };
 
 SlideMenu.Close = function (_ref) {
@@ -47822,7 +47831,8 @@ SlideMenu.Close = function (_ref) {
       children = _ref.children;
   return _react2.default.createElement(
     'div',
-    { className: 'c-slidemenu__header__close' },
+    {
+      className: 'c-slidemenu__header__close' },
     _react2.default.createElement(
       _ButtonBar2.default,
       null,
@@ -47840,15 +47850,18 @@ SlideMenu.Close = function (_ref) {
 };
 
 SlideMenu.Section = function (props) {
-  return _react2.default.createElement('div', _extends({ className: 'c-slidemenu__section' }, props));
+  return _react2.default.createElement('div', _extends({
+    className: 'c-slidemenu__section' }, props));
 };
 
 SlideMenu.defaultProps = {
   isOpen: false,
-  block: true
+  block: true,
+  position: 'right'
 };
 SlideMenu.propTypes = {
   isOpen: _propTypes2.default.bool,
+  position: _propTypes2.default.oneOf(['left', 'right']),
   block: _propTypes2.default.bool,
   onBlockClick: _propTypes2.default.func
 };
@@ -47858,7 +47871,7 @@ var _initialiseProps = function _initialiseProps() {
 };
 
 exports.default = SlideMenu;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ModalBlock":"../js/components/ModalBlock.js","./ButtonBar":"../js/components/ButtonBar.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/ExpandingMenu.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ModalBlock":"../js/components/ModalBlock.js","./ButtonBar":"../js/components/ButtonBar.js"}],"../js/components/ExpandingMenu.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -48421,7 +48434,7 @@ var Header = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'a',
-                { href: '#' },
+                { onClick: this.props.onMobileMenuClick },
                 _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
               )
             )
@@ -48442,8 +48455,8 @@ var Header = function (_React$Component) {
               _ButtonBar2.default.Icon,
               null,
               _react2.default.createElement(
-                _reactRouterDom.Link,
-                { to: '/alerts' },
+                'a',
+                { onClick: this.props.onAlertsClick },
                 _react2.default.createElement(_SVGIcon2.default, { name: 'bell' }),
                 _react2.default.createElement(
                   _AlertBadge2.default,
@@ -48565,10 +48578,12 @@ var Header = function (_React$Component) {
 }(_react2.default.Component);
 
 Header.defaultProps = {
-  onAlertsClick: function onAlertsClick() {}
+  onAlertsClick: function onAlertsClick() {},
+  onMobileMenuClick: function onMobileMenuClick() {}
 };
 Header.propTypes = {
-  onAlertsClick: _propTypes2.default.func
+  onAlertsClick: _propTypes2.default.func,
+  onMobileMenuClick: _propTypes2.default.func
 };
 exports.default = Header;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
@@ -50089,11 +50104,16 @@ var AppRouter = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AppRouter.__proto__ || Object.getPrototypeOf(AppRouter)).call(this, props));
 
     _this.state = {
-      showNotifications: false
+      showNotifications: false,
+      showMobileMenu: false
     };
 
     _this.toggleNotificationsPanel = function () {
       _this.setState({ showNotifications: !_this.state.showNotifications });
+    };
+
+    _this.toggleMobileMenu = function () {
+      _this.setState({ showMobileMenu: !_this.state.showMobileMenu });
     };
 
     return _this;
@@ -50111,7 +50131,8 @@ var AppRouter = function (_React$Component) {
         _react2.default.createElement(
           _SiteContainer2.default,
           null,
-          _react2.default.createElement(_Header2.default, { onAlertsClick: this.toggleNotificationsPanel }),
+          _react2.default.createElement(_Header2.default, { onAlertsClick: this.toggleNotificationsPanel,
+            onMobileMenuClick: this.toggleMobileMenu }),
           _react2.default.createElement(Routes, null),
           _react2.default.createElement(_Footer2.default, null),
           _react2.default.createElement(
@@ -50133,7 +50154,8 @@ var AppRouter = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _SlideMenu2.default.Close,
-                { onCloseClick: this.toggleNotificationsPanel },
+                {
+                  onCloseClick: this.toggleNotificationsPanel },
                 _react2.default.createElement(_SVGIcon2.default, {
                   name: 'x' })
               )
@@ -50142,6 +50164,38 @@ var AppRouter = function (_React$Component) {
               _SlideMenu2.default.Section,
               null,
               'Notifications'
+            )
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default,
+            { onBlockClick: this.toggleMobileMenu,
+              isOpen: this.state.showMobileMenu,
+              position: 'left' },
+            _react2.default.createElement(
+              _SlideMenu2.default.Header,
+              null,
+              _react2.default.createElement(
+                _SlideMenu2.default.Icon,
+                null,
+                _react2.default.createElement(_SVGIcon2.default, { name: 'menu' })
+              ),
+              _react2.default.createElement(
+                _SlideMenu2.default.Title,
+                null,
+                'Menu'
+              ),
+              _react2.default.createElement(
+                _SlideMenu2.default.Close,
+                {
+                  onCloseClick: this.toggleMobileMenu },
+                _react2.default.createElement(_SVGIcon2.default, {
+                  name: 'x' })
+              )
+            ),
+            _react2.default.createElement(
+              _SlideMenu2.default.Section,
+              null,
+              'Menu Stuff'
             )
           )
         )

@@ -1456,6 +1456,17 @@ ul.tabs-big {
 .c-slidemenu--right {
   right: 0px; }
 
+.c-slidemenu--closed--right {
+  right: -400px;
+  visibility: hidden; }
+
+.c-slidemenu--left {
+  left: 0px; }
+
+.c-slidemenu--closed--left {
+  left: -400px;
+  visibility: hidden; }
+
 .c-slidemenu--open {
   visibility: visible; }
 

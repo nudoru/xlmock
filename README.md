@@ -5,7 +5,7 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-[ ] hero card path
+[ ] Mobile menu - left slider
 [ ] card design for ...
     [ ] lynda
     [ ] kaltura
