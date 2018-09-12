@@ -25678,8 +25678,9 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
       var _props = this.props,
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
-          childre = _props.childre,
-          rest = _objectWithoutProperties(_props, ['className', 'childre']);
+          children = _props.children,
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
 
       var cls = ['c-big-tabs'];
 
@@ -46382,7 +46383,13 @@ Tabs.propTypes = {
 var _initialiseProps = function _initialiseProps() {
   this.state = {};
 };
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/Label.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/profiles/racoon.jpg":[function(require,module,exports) {
+module.exports = "/racoon.b99372cf.jpg";
+},{}],"../img/profiles/bear.jpg":[function(require,module,exports) {
+module.exports = "/bear.ab0ae544.jpg";
+},{}],"../img/profiles/kowala.jpg":[function(require,module,exports) {
+module.exports = "/kowala.db3b0f15.jpg";
+},{}],"../js/components/Label.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46460,13 +46467,202 @@ Label.propTypes = {
   negative: _propTypes2.default.bool
 };
 exports.default = Label;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/profiles/kowala.jpg":[function(require,module,exports) {
-module.exports = "/kowala.db3b0f15.jpg";
-},{}],"../img/profiles/bear.jpg":[function(require,module,exports) {
-module.exports = "/bear.ab0ae544.jpg";
-},{}],"../img/profiles/racoon.jpg":[function(require,module,exports) {
-module.exports = "/racoon.b99372cf.jpg";
-},{}],"../js/pages/UserProfile.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/UserProfileSummary.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _racoon = require('../../img/profiles/racoon.jpg');
+
+var _racoon2 = _interopRequireDefault(_racoon);
+
+var _bear = require('../../img/profiles/bear.jpg');
+
+var _bear2 = _interopRequireDefault(_bear);
+
+var _kowala = require('../../img/profiles/kowala.jpg');
+
+var _kowala2 = _interopRequireDefault(_kowala);
+
+var _Label = require('./Label');
+
+var _Label2 = _interopRequireDefault(_Label);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserProfileSummary = function (_React$Component) {
+  _inherits(UserProfileSummary, _React$Component);
+
+  function UserProfileSummary(props) {
+    _classCallCheck(this, UserProfileSummary);
+
+    var _this = _possibleConstructorReturn(this, (UserProfileSummary.__proto__ || Object.getPrototypeOf(UserProfileSummary)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(UserProfileSummary, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-userprofile__summary' },
+        _react2.default.createElement(
+          'div',
+          { className: 'l-userprofile__photo' },
+          _react2.default.createElement(
+            'div',
+            { className: 'c-usergroup--big' },
+            _react2.default.createElement(
+              'div',
+              { className: 'c-usergroup--big__photo' },
+              _react2.default.createElement('img', { src: _racoon2.default })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'c-usergroup--big__profile' },
+              _react2.default.createElement(
+                'p',
+                null,
+                'John Learner'
+              ),
+              _react2.default.createElement(
+                'em',
+                null,
+                'Raleigh, NC'
+              )
+            )
+          )
+        ),
+        _react2.default.createElement('hr', null),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Email Address'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'joe.user@redhat.com'
+          ),
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Language'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'English'
+          ),
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Managers'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-usergroup' },
+            _react2.default.createElement(
+              'div',
+              { className: 'c-usergroup__photo' },
+              _react2.default.createElement('img', { src: _bear2.default })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'c-usergroup__profile' },
+              _react2.default.createElement(
+                'p',
+                null,
+                'John Smith'
+              ),
+              _react2.default.createElement(
+                'em',
+                null,
+                'Raleigh, NC'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'c-usergroup' },
+            _react2.default.createElement(
+              'div',
+              { className: 'c-usergroup__photo' },
+              _react2.default.createElement('img', { src: _kowala2.default })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'c-usergroup__profile' },
+              _react2.default.createElement(
+                'p',
+                null,
+                'Jane Doe'
+              ),
+              _react2.default.createElement(
+                'em',
+                null,
+                'Westford, MA'
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Audiences'
+          ),
+          _react2.default.createElement(
+            _Label2.default,
+            null,
+            'All associates'
+          ),
+          _react2.default.createElement(
+            _Label2.default,
+            null,
+            'Sales New Hire'
+          ),
+          _react2.default.createElement(
+            _Label2.default,
+            null,
+            'New Hire'
+          )
+        )
+      );
+    }
+  }]);
+
+  return UserProfileSummary;
+}(_react2.default.Component);
+
+UserProfileSummary.defaultProps = {};
+UserProfileSummary.propTypes = {};
+exports.default = UserProfileSummary;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","./Label":"../js/components/Label.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46491,21 +46687,9 @@ var _Hero = require('../layout/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
 
-var _Label = require('../components/Label');
+var _UserProfileSummary = require('../components/UserProfileSummary');
 
-var _Label2 = _interopRequireDefault(_Label);
-
-var _kowala = require('../../img/profiles/kowala.jpg');
-
-var _kowala2 = _interopRequireDefault(_kowala);
-
-var _bear = require('../../img/profiles/bear.jpg');
-
-var _bear2 = _interopRequireDefault(_bear);
-
-var _racoon = require('../../img/profiles/racoon.jpg');
-
-var _racoon2 = _interopRequireDefault(_racoon);
+var _UserProfileSummary2 = _interopRequireDefault(_UserProfileSummary);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46594,133 +46778,7 @@ var UserProfile = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'l-userprofile__grid' },
-            _react2.default.createElement(
-              'div',
-              { className: 'l-userprofile__summary' },
-              _react2.default.createElement(
-                'div',
-                { className: 'l-userprofile__photo' },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'c-usergroup--big' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'c-usergroup--big__photo' },
-                    _react2.default.createElement('img', { src: _racoon2.default })
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'c-usergroup--big__profile' },
-                    _react2.default.createElement(
-                      'p',
-                      null,
-                      'John Learner'
-                    ),
-                    _react2.default.createElement(
-                      'em',
-                      null,
-                      'Raleigh, NC'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement('hr', null),
-              _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                  'h1',
-                  null,
-                  'Email Address'
-                ),
-                _react2.default.createElement(
-                  'p',
-                  null,
-                  'joe.user@redhat.com'
-                ),
-                _react2.default.createElement(
-                  'h1',
-                  null,
-                  'Language'
-                ),
-                _react2.default.createElement(
-                  'p',
-                  null,
-                  'English'
-                ),
-                _react2.default.createElement(
-                  'h1',
-                  null,
-                  'Managers'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'c-usergroup' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'c-usergroup__photo' },
-                    _react2.default.createElement('img', { src: _bear2.default })
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'c-usergroup__profile' },
-                    _react2.default.createElement(
-                      'p',
-                      null,
-                      'John Smith'
-                    ),
-                    _react2.default.createElement(
-                      'em',
-                      null,
-                      'Raleigh, NC'
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'c-usergroup' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'c-usergroup__photo' },
-                    _react2.default.createElement('img', { src: _kowala2.default })
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'c-usergroup__profile' },
-                    _react2.default.createElement(
-                      'p',
-                      null,
-                      'Jane Doe'
-                    ),
-                    _react2.default.createElement(
-                      'em',
-                      null,
-                      'Westford, NC'
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  'h1',
-                  null,
-                  'Audiences'
-                ),
-                _react2.default.createElement(
-                  _Label2.default,
-                  null,
-                  'All associates'
-                ),
-                _react2.default.createElement(
-                  _Label2.default,
-                  null,
-                  'Sales New Hire'
-                ),
-                _react2.default.createElement(
-                  _Label2.default,
-                  null,
-                  'New Hire'
-                )
-              )
-            ),
+            _react2.default.createElement(_UserProfileSummary2.default, null),
             _react2.default.createElement(
               'div',
               { className: 'l-userprofile__content' },
@@ -46738,7 +46796,7 @@ var UserProfile = function (_React$Component) {
 UserProfile.defaultProps = {};
 UserProfile.propTypes = {};
 exports.default = UserProfile;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Label":"../js/components/Label.js","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js","../components/UserProfileSummary":"../js/components/UserProfileSummary.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

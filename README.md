@@ -5,6 +5,8 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
+[ ] break out user profile photo areas as components
+[ ] "label list" as component
 [ ] card design for ...
     [ ] lynda
     [ ] kaltura
