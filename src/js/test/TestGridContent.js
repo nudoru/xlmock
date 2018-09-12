@@ -15,14 +15,14 @@ import AlertBadge from "../components/AlertBadge";
 
 const MockPath = ({asCard}) => <LearningCard type='path' duration='42 minutes'
                                      tag='Infrastructure' mobile card={asCard}>
-  <h1>{Lorem.title(5, 10)}</h1>
-  <p>{Lorem.sentence(10, 20)}</p>
+  <h1>{Lorem.title(2, 10)}</h1>
+  <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
 
 const MockCourse = ({asCard}) => <LearningCard type='course' duration='5 hours 30 minutes'
                                        tag='Ansible' card={asCard}>
-  <h1>{Lorem.title(5, 10)}</h1>
-  <p>{Lorem.sentence(10, 20)}</p>
+  <h1>{Lorem.title(2, 10)}</h1>
+  <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
 
 class TestGridContent extends React.Component {

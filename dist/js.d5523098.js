@@ -45470,12 +45470,12 @@ var MockPath = function MockPath(_ref) {
     _react2.default.createElement(
       'h1',
       null,
-      Lorem.title(5, 10)
+      Lorem.title(2, 10)
     ),
     _react2.default.createElement(
       'p',
       null,
-      Lorem.sentence(10, 20)
+      Lorem.sentence(5, 15)
     )
   );
 };
@@ -45489,12 +45489,12 @@ var MockCourse = function MockCourse(_ref2) {
     _react2.default.createElement(
       'h1',
       null,
-      Lorem.title(5, 10)
+      Lorem.title(2, 10)
     ),
     _react2.default.createElement(
       'p',
       null,
-      Lorem.sentence(10, 20)
+      Lorem.sentence(5, 15)
     )
   );
 };
