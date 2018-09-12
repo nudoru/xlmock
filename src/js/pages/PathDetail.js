@@ -5,6 +5,8 @@ import HeroPathProgress from "../components/HeroPathProgress";
 import HeroPathProgressMetadata from "../components/HeroPathProgressMetadata";
 import PathActivitySection from "../components/PathActivitySection";
 import PathActivitySubsection from "../components/PathActivitySubsection";
+import PathActivityConditional from '../components/PathActivityConditional';
+import PathActivitySubConditional from '../components/PathActivitySubConditional';
 import {
   PathActivityRow,
   PathActivityTable
@@ -54,9 +56,12 @@ class PathDetail extends React.Component {
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
                         <p
-                          className="title">{Lorem.title(5, 15)}<Label>Optional</Label>
+                          className="title"><a href='#'>{Lorem.title(5, 15)}</a><Label>Optional</Label>
                         </p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
+                        <div className="description">
+                          <p>{Lorem.sentence(10, 50)}</p>
+                        </div>
                       </PathActivityRow.Details>
                       <PathActivityRow.Completion><SVGIcon name='check-circle'/></PathActivityRow.Completion>
                     </PathActivityRow>
@@ -64,8 +69,11 @@ class PathDetail extends React.Component {
                       <PathActivityRow.Icon><SVGIcon
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
-                        <p className="title">{Lorem.title(3, 15)}</p>
+                        <p className="title"><a href='#'>{Lorem.title(5, 15)}</a></p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
+                        <div className="description">
+                          <p>{Lorem.sentence(10, 50)}</p>
+                        </div>
                       </PathActivityRow.Details>
                       <PathActivityRow.Completion><SVGIcon
                         name='circle'/></PathActivityRow.Completion>
@@ -73,6 +81,7 @@ class PathDetail extends React.Component {
                   </PathActivityTable>
                 </PathActivitySubsection>
               </PathActivitySection>
+              <PathActivityConditional>And</PathActivityConditional>
               <PathActivitySection>
                 <PathActivitySection.Title>{Lorem.title(5, 10)}</PathActivitySection.Title>
                 <PathActivitySubsection>
@@ -86,9 +95,13 @@ class PathDetail extends React.Component {
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
                         <p
-                          className="title">{Lorem.title(5, 15)}<Label>Optional</Label>
+                          className="title"><a href='#'>{Lorem.title(5, 15)}</a><Label>Optional</Label>
                         </p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
+                        <div className="description">
+                          <p>{Lorem.sentence(10, 50)}</p>
+                          <p>{Lorem.sentence(10, 50)}</p>
+                        </div>
                       </PathActivityRow.Details>
                       <PathActivityRow.Completion><SVGIcon name='check-circle'/></PathActivityRow.Completion>
                     </PathActivityRow>
@@ -96,7 +109,7 @@ class PathDetail extends React.Component {
                       <PathActivityRow.Icon><SVGIcon
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
-                        <p className="title">{Lorem.title(3, 15)}</p>
+                        <p className="title"><a href='#'>{Lorem.title(5, 15)}</a></p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                       </PathActivityRow.Details>
                       <PathActivityRow.Completion><SVGIcon
@@ -104,7 +117,48 @@ class PathDetail extends React.Component {
                     </PathActivityRow>
                   </PathActivityTable>
                 </PathActivitySubsection>
+
+
+                <PathActivitySubConditional>Or</PathActivitySubConditional>
+
+                <PathActivitySubsection>
+                  <PathActivitySubsection.Title>{Lorem.title(5, 10)}</PathActivitySubsection.Title>
+                  <PathActivitySubsection.Description>
+                    <p>{Lorem.sentence(5, 10)}</p>
+                  </PathActivitySubsection.Description>
+                  <PathActivityTable>
+                    <PathActivityRow>
+                      <PathActivityRow.Icon><SVGIcon
+                        name='package'/></PathActivityRow.Icon>
+                      <PathActivityRow.Details>
+                        <p
+                          className="title"><a href='#'>{Lorem.title(5, 15)}</a><Label>Optional</Label>
+                        </p>
+                        <p className="metadata">2 hours 30 minutes | Video</p>
+                        <div className="description">
+                          <p>{Lorem.sentence(10, 50)}</p>
+                          <p>{Lorem.sentence(10, 50)}</p>
+                        </div>
+                      </PathActivityRow.Details>
+                      <PathActivityRow.Completion><SVGIcon name='check-circle'/></PathActivityRow.Completion>
+                    </PathActivityRow>
+                    <PathActivityRow>
+                      <PathActivityRow.Icon><SVGIcon
+                        name='package'/></PathActivityRow.Icon>
+                      <PathActivityRow.Details>
+                        <p className="title"><a href='#'>{Lorem.title(5, 15)}</a></p>
+                        <p className="metadata">2 hours 30 minutes | Video</p>
+                      </PathActivityRow.Details>
+                      <PathActivityRow.Completion><SVGIcon
+                        name='circle'/></PathActivityRow.Completion>
+                    </PathActivityRow>
+                  </PathActivityTable>
+                </PathActivitySubsection>
+
               </PathActivitySection>
+
+
+
               <PathAchievement>
                 <PathAchievement.Icon>
                   <SVGIcon name='award' width='32' height='32'/>

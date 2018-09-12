@@ -119,7 +119,7 @@
   -webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1); }
 
-.dropshadow-xs, .c-card-frame, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement {
+.dropshadow-xs, .c-card-frame, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-checkbox__label {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
@@ -127,7 +127,7 @@
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15); }
 
-.dropshadow-m, .c-lrncard:hover, .c-lrncard--row:hover, .c-herocard, .c-catcard:hover, .l-path-detail__achievement {
+.dropshadow-m, .c-lrncard:hover, .c-lrncard--row:hover, .c-herocard, .c-catcard:hover, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-checkbox__label {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1); }
 
@@ -1677,11 +1677,11 @@ img {
   grid-template-columns: 2fr 1fr;
   grid-gap: 3rem; }
 
-.l-path-detail__activities__section::after {
+.l-path-detail__activities__section::after, .l-path-detail__conditional::after {
   display: block;
   content: '';
-  margin: 1.1875rem 0;
-  padding: 2rem 0;
+  margin: 0.8rem 0;
+  padding: 1.1875rem 0;
   text-align: center;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0.1)));
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
@@ -1689,18 +1689,48 @@ img {
   background-repeat: repeat-y;
   background-size: 1px auto; }
 
-.l-path-detail__activities__section:last-of-type::after {
+.l-path-detail__activities__section:last-of-type::after, .l-path-detail__conditional:last-of-type::after {
   content: none; }
 
-.l-path-detail__activities__subsection, .l-path-detail__achievement {
+.l-path-detail__activities__section__title {
+  line-height: 2rem; }
+
+.l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-checkbox__label {
   padding: 3rem;
   background-color: #fff;
   border-radius: 0.3125rem; }
 
-.l-path-detail__achievement {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.1)));
-  background-image: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
-  background-color: #224063;
+.l-path-detail__activities__subsection__title {
+  line-height: 1.75rem; }
+
+.l-path-detail__activities__subsection__description {
+  color: rgba(0, 0, 0, 0.5); }
+
+.l-path-detail__conditional p, .l-path-detail__conditional .c-checkbox__label {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 1.1875rem;
+  background-color: #0088ce !important;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0; }
+
+.l-path-detail__subconditional {
+  padding: 1rem; }
+  .l-path-detail__subconditional p, .l-path-detail__subconditional .c-checkbox__label {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    color: #0088ce;
+    font-size: 0.9rem;
+    font-weight: 600; }
+
+.l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-checkbox__label {
+  background: #224063 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.1)));
+  background: #224063 linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
   color: #fff;
   text-align: center; }
 
@@ -1710,9 +1740,6 @@ img {
 .l-path-detail__achievement__icon {
   margin-bottom: 2rem; }
 
-.l-path-detail__activities__subsection__description {
-  color: rgba(0, 0, 0, 0.5); }
-
 .l-path-detail__activities__activity__table > div:not(:last-of-type) {
   padding-bottom: 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
@@ -1721,22 +1748,29 @@ img {
   display: grid;
   grid-template-columns: 50px auto 50px;
   grid-column-gap: 1.1875rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
   justify-items: center;
   padding-top: 2rem; }
 
 .l-path-detail__activities__activity__row__details {
   justify-self: start; }
   .l-path-detail__activities__activity__row__details .title {
-    font-weight: 600;
     display: block;
-    margin: 0; }
+    margin-bottom: 0.3rem; }
+    .l-path-detail__activities__activity__row__details .title a {
+      font-weight: 600;
+      margin: 0;
+      color: inherit; }
   .l-path-detail__activities__activity__row__details .metadata {
     color: rgba(0, 0, 0, 0.5);
     display: block;
     margin: 0; }
+  .l-path-detail__activities__activity__row__details .description {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.5); }
 
 .l-search-results {
   margin-bottom: -3rem; }

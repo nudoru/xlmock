@@ -105,7 +105,7 @@
     align-self: start;
     justify-self: center;
     color: $text-dim-color;
-    font-size: 0.8rem;
+    font-size: $font-size-tiny;
   }
 
   .c-lrncard__content {
@@ -120,7 +120,7 @@
     }
     h2 {
       @extend .h6;
-      font-size: 0.8rem;
+      font-size: $font-size-tiny;
       margin-bottom: 0.25rem;
       line-height: 1rem;
       font-weight: 400;

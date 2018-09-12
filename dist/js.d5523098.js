@@ -47740,6 +47740,128 @@ PathActivitySubsection.Description = function (_ref2) {
 PathActivitySubsection.defaultProps = {};
 PathActivitySubsection.propTypes = {};
 exports.default = PathActivitySubsection;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivityConditional.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathActivityConditional = function (_React$Component) {
+  _inherits(PathActivityConditional, _React$Component);
+
+  function PathActivityConditional(props) {
+    _classCallCheck(this, PathActivityConditional);
+
+    var _this = _possibleConstructorReturn(this, (PathActivityConditional.__proto__ || Object.getPrototypeOf(PathActivityConditional)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathActivityConditional, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-path-detail__conditional' },
+        _react2.default.createElement(
+          'p',
+          null,
+          this.props.children
+        )
+      );
+    }
+  }]);
+
+  return PathActivityConditional;
+}(_react2.default.Component);
+
+PathActivityConditional.defaultProps = {};
+PathActivityConditional.propTypes = {};
+exports.default = PathActivityConditional;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivitySubConditional.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathActivityConditional = function (_React$Component) {
+  _inherits(PathActivityConditional, _React$Component);
+
+  function PathActivityConditional(props) {
+    _classCallCheck(this, PathActivityConditional);
+
+    var _this = _possibleConstructorReturn(this, (PathActivityConditional.__proto__ || Object.getPrototypeOf(PathActivityConditional)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathActivityConditional, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-path-detail__subconditional' },
+        _react2.default.createElement(
+          'p',
+          null,
+          this.props.children
+        )
+      );
+    }
+  }]);
+
+  return PathActivityConditional;
+}(_react2.default.Component);
+
+PathActivityConditional.defaultProps = {};
+PathActivityConditional.propTypes = {};
+exports.default = PathActivityConditional;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivityTable.js":[function(require,module,exports) {
 'use strict';
 
@@ -47985,6 +48107,14 @@ var _PathActivitySubsection = require("../components/PathActivitySubsection");
 
 var _PathActivitySubsection2 = _interopRequireDefault(_PathActivitySubsection);
 
+var _PathActivityConditional = require("../components/PathActivityConditional");
+
+var _PathActivityConditional2 = _interopRequireDefault(_PathActivityConditional);
+
+var _PathActivitySubConditional = require("../components/PathActivitySubConditional");
+
+var _PathActivitySubConditional2 = _interopRequireDefault(_PathActivitySubConditional);
+
 var _PathActivityTable = require("../components/PathActivityTable");
 
 var _SVGIcon = require("../components/SVGIcon");
@@ -48099,7 +48229,11 @@ var PathDetail = function (_React$Component) {
                           "p",
                           {
                             className: "title" },
-                          Lorem.title(5, 15),
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          ),
                           _react2.default.createElement(
                             _Label2.default,
                             null,
@@ -48110,6 +48244,15 @@ var PathDetail = function (_React$Component) {
                           "p",
                           { className: "metadata" },
                           "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
                         )
                       ),
                       _react2.default.createElement(
@@ -48133,12 +48276,25 @@ var PathDetail = function (_React$Component) {
                         _react2.default.createElement(
                           "p",
                           { className: "title" },
-                          Lorem.title(3, 15)
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          )
                         ),
                         _react2.default.createElement(
                           "p",
                           { className: "metadata" },
                           "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
                         )
                       ),
                       _react2.default.createElement(
@@ -48150,6 +48306,11 @@ var PathDetail = function (_React$Component) {
                     )
                   )
                 )
+              ),
+              _react2.default.createElement(
+                _PathActivityConditional2.default,
+                null,
+                "And"
               ),
               _react2.default.createElement(
                 _PathActivitySection2.default,
@@ -48195,7 +48356,11 @@ var PathDetail = function (_React$Component) {
                           "p",
                           {
                             className: "title" },
-                          Lorem.title(5, 15),
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          ),
                           _react2.default.createElement(
                             _Label2.default,
                             null,
@@ -48206,6 +48371,20 @@ var PathDetail = function (_React$Component) {
                           "p",
                           { className: "metadata" },
                           "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          ),
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
                         )
                       ),
                       _react2.default.createElement(
@@ -48229,7 +48408,125 @@ var PathDetail = function (_React$Component) {
                         _react2.default.createElement(
                           "p",
                           { className: "title" },
-                          Lorem.title(3, 15)
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          )
+                        ),
+                        _react2.default.createElement(
+                          "p",
+                          { className: "metadata" },
+                          "2 hours 30 minutes | Video"
+                        )
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "circle" })
+                      )
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  _PathActivitySubConditional2.default,
+                  null,
+                  "Or"
+                ),
+                _react2.default.createElement(
+                  _PathActivitySubsection2.default,
+                  null,
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Title,
+                    null,
+                    Lorem.title(5, 10)
+                  ),
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Description,
+                    null,
+                    _react2.default.createElement(
+                      "p",
+                      null,
+                      Lorem.sentence(5, 10)
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _PathActivityTable.PathActivityTable,
+                    null,
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        _react2.default.createElement(
+                          "p",
+                          {
+                            className: "title" },
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          ),
+                          _react2.default.createElement(
+                            _Label2.default,
+                            null,
+                            "Optional"
+                          )
+                        ),
+                        _react2.default.createElement(
+                          "p",
+                          { className: "metadata" },
+                          "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          ),
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
+                        )
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, { name: "check-circle" })
+                      )
+                    ),
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        _react2.default.createElement(
+                          "p",
+                          { className: "title" },
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          )
                         ),
                         _react2.default.createElement(
                           "p",
@@ -48294,7 +48591,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/ModalBlock.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityConditional":"../js/components/PathActivityConditional.js","../components/PathActivitySubConditional":"../js/components/PathActivitySubConditional.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/ModalBlock.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

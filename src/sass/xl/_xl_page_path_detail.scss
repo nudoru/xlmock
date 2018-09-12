@@ -17,13 +17,12 @@
   @extend h5;
 }
 
-.l-path-detail__activities__section {
-  // For the connecting line
+%connectingline {
   &::after {
     display: block;
     content: '';
-    margin: $scale1 0;
-    padding: $scale5 0;
+    margin: 0.8rem 0;
+    padding: $scale1 0;
     text-align: center;
     background: linear-gradient(180deg, rgba(0, 0, 0, $color-alpha-faint-line), rgba(0, 0, 0, $color-alpha-faint-line));
     background-position: 50%;
@@ -33,14 +32,16 @@
   &:last-of-type::after {
     content: none;
   }
-  // Wire frames had this area overlapping bar, but doesn't work with long titles
-  //&:not(:first-child) {
-  //  margin-top: -$scale5;
-  //}
+}
+
+.l-path-detail__activities__section {
+  // For the connecting line
+ @extend %connectingline;
 }
 
 .l-path-detail__activities__section__title {
   @extend h4;
+  line-height: $scale5;
 }
 
 .l-path-detail__activities__subsection {
@@ -50,11 +51,47 @@
   @extend .dropshadow-xs;
 }
 
+.l-path-detail__activities__subsection__title {
+  @extend h5;
+  line-height: $scale4;
+}
+
+.l-path-detail__activities__subsection__description {
+  color: $text-dim-color;
+}
+
+.l-path-detail__conditional {
+  @extend %connectingline;
+  p {
+    @extend .l-path-detail__achievement;
+    box-shadow: none;
+    padding: $scale1;
+    background-color: $color-primary !important;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: $font-size-small;
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+.l-path-detail__subconditional {
+  padding: $scale0;
+  p {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    color: $color-primary;
+    font-size: $font-size-small;
+    font-weight: 600;
+  }
+}
+
 .l-path-detail__achievement {
   @extend .l-path-detail__activities__subsection;
   @extend .dropshadow-m;
-  background-image: $light-gradient;
-  background-color: $pf-blue-600;
+  background: $pf-blue-600 $light-gradient;
   color: #fff;
   text-align: center;
 }
@@ -68,13 +105,7 @@
   margin-bottom: $scale5;
 }
 
-.l-path-detail__activities__subsection__title {
-  @extend h5;
-}
 
-.l-path-detail__activities__subsection__description {
-  color: $text-dim-color;
-}
 
 .l-path-detail__activities__activity__table {
   & > div:not(:last-of-type) {
@@ -87,7 +118,7 @@
   display: grid;
   grid-template-columns: 50px auto 50px;
   grid-column-gap: $scale1;
-  align-items: center;
+  align-items: start;
   justify-items: center;
   padding-top: $scale5;
 }
@@ -97,17 +128,28 @@
 
 .l-path-detail__activities__activity__row__details {
   justify-self: start;
-  .title {
-    font-weight: 600;
+  .title { //p tag
     display: block;
-    margin: 0;
+    margin-bottom: 0.3rem;
+    a {
+      font-weight: 600;
+      margin: 0;
+      color: inherit;
+    }
   }
   .metadata {
     color: $text-dim-color;
     display: block;
     margin: 0;
   }
+  .description {
+    margin-top: $scale3;
+    font-size: $font-size-small;
+    color: $text-dim-color;
+  }
 }
 
 .l-path-detail__activities__activity__row__completion {
 }
+
+
