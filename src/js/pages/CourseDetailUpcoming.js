@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
-import CourseDetailDetails from "../components/CourseDetailDetails";
+import CourseDetailDetails from "../layout/CourseDetailDetails";
 
 class CourseDetailUpcoming extends React.Component {
 

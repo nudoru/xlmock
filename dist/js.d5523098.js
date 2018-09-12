@@ -46335,7 +46335,8 @@ var Tabs = exports.Tabs = function (_React$Component) {
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
           children = _props.children,
-          rest = _objectWithoutProperties(_props, ['className', 'children']);
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
 
       var cls = ['c-tabs'];
 
@@ -46467,7 +46468,7 @@ Label.propTypes = {
   negative: _propTypes2.default.bool
 };
 exports.default = Label;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/UserProfileSummary.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/VerticalLabelList.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46484,21 +46485,236 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _racoon = require('../../img/profiles/racoon.jpg');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VerticalLabelList = function (_React$Component) {
+  _inherits(VerticalLabelList, _React$Component);
+
+  function VerticalLabelList(props) {
+    _classCallCheck(this, VerticalLabelList);
+
+    var _this = _possibleConstructorReturn(this, (VerticalLabelList.__proto__ || Object.getPrototypeOf(VerticalLabelList)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(VerticalLabelList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-label__vlist' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return VerticalLabelList;
+}(_react2.default.Component);
+
+VerticalLabelList.defaultProps = {};
+VerticalLabelList.propTypes = {};
+exports.default = VerticalLabelList;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/UserProfile.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserProfile = function (_React$Component) {
+  _inherits(UserProfile, _React$Component);
+
+  function UserProfile(props) {
+    _classCallCheck(this, UserProfile);
+
+    var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(UserProfile, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-userprofile' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return UserProfile;
+}(_react2.default.Component);
+
+UserProfile.Image = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile__photo' },
+    children
+  );
+};
+
+UserProfile.Details = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile__details' },
+    children
+  );
+};
+
+UserProfile.defaultProps = {};
+UserProfile.propTypes = {};
+exports.default = UserProfile;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/UserProfileBig.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserProfileBig = function (_React$Component) {
+  _inherits(UserProfileBig, _React$Component);
+
+  function UserProfileBig(props) {
+    _classCallCheck(this, UserProfileBig);
+
+    var _this = _possibleConstructorReturn(this, (UserProfileBig.__proto__ || Object.getPrototypeOf(UserProfileBig)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(UserProfileBig, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-userprofile--big' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return UserProfileBig;
+}(_react2.default.Component);
+
+UserProfileBig.Image = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile--big__photo' },
+    children
+  );
+};
+
+UserProfileBig.Details = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile--big__details' },
+    children
+  );
+};
+
+UserProfileBig.defaultProps = {};
+UserProfileBig.propTypes = {};
+exports.default = UserProfileBig;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/layout/UserProfileSummary.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _racoon = require("../../img/profiles/racoon.jpg");
 
 var _racoon2 = _interopRequireDefault(_racoon);
 
-var _bear = require('../../img/profiles/bear.jpg');
+var _bear = require("../../img/profiles/bear.jpg");
 
 var _bear2 = _interopRequireDefault(_bear);
 
-var _kowala = require('../../img/profiles/kowala.jpg');
+var _kowala = require("../../img/profiles/kowala.jpg");
 
 var _kowala2 = _interopRequireDefault(_kowala);
 
-var _Label = require('./Label');
+var _Label = require("../components/Label");
 
 var _Label2 = _interopRequireDefault(_Label);
+
+var _VerticalLabelList = require("../components/VerticalLabelList");
+
+var _VerticalLabelList2 = _interopRequireDefault(_VerticalLabelList);
+
+var _UserProfile = require("../components/UserProfile");
+
+var _UserProfile2 = _interopRequireDefault(_UserProfile);
+
+var _UserProfileBig = require("../components/UserProfileBig");
+
+var _UserProfileBig2 = _interopRequireDefault(_UserProfileBig);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46521,135 +46737,139 @@ var UserProfileSummary = function (_React$Component) {
   }
 
   _createClass(UserProfileSummary, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {}
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'l-userprofile__summary' },
+        "div",
+        { className: "l-userprofile__summary" },
         _react2.default.createElement(
-          'div',
-          { className: 'l-userprofile__photo' },
+          "div",
+          { className: "l-userprofile__photo" },
           _react2.default.createElement(
-            'div',
-            { className: 'c-usergroup--big' },
+            _UserProfileBig2.default,
+            null,
             _react2.default.createElement(
-              'div',
-              { className: 'c-usergroup--big__photo' },
-              _react2.default.createElement('img', { src: _racoon2.default })
+              _UserProfileBig2.default.Image,
+              null,
+              _react2.default.createElement("img", { src: _racoon2.default })
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'c-usergroup--big__profile' },
+              _UserProfileBig2.default.Details,
+              null,
               _react2.default.createElement(
-                'p',
+                "p",
                 null,
-                'John Learner'
+                "John Learner"
               ),
               _react2.default.createElement(
-                'em',
+                "em",
                 null,
-                'Raleigh, NC'
+                "Raleigh, NC"
               )
             )
           )
         ),
-        _react2.default.createElement('hr', null),
+        _react2.default.createElement("hr", null),
         _react2.default.createElement(
-          'div',
+          "div",
           null,
           _react2.default.createElement(
-            'h1',
+            "h1",
             null,
-            'Email Address'
+            "Email Address"
           ),
           _react2.default.createElement(
-            'p',
+            "p",
             null,
-            'joe.user@redhat.com'
+            "joe.user@redhat.com"
           ),
           _react2.default.createElement(
-            'h1',
+            "h1",
             null,
-            'Language'
+            "Language"
           ),
           _react2.default.createElement(
-            'p',
+            "p",
             null,
-            'English'
+            "English"
           ),
           _react2.default.createElement(
-            'h1',
+            "h1",
             null,
-            'Managers'
+            "Managers"
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'c-usergroup' },
+            _UserProfile2.default,
+            null,
             _react2.default.createElement(
-              'div',
-              { className: 'c-usergroup__photo' },
-              _react2.default.createElement('img', { src: _bear2.default })
+              _UserProfile2.default.Image,
+              null,
+              _react2.default.createElement("img", { src: _bear2.default })
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'c-usergroup__profile' },
+              _UserProfile2.default.Details,
+              null,
               _react2.default.createElement(
-                'p',
+                "p",
                 null,
-                'John Smith'
+                "John Smith"
               ),
               _react2.default.createElement(
-                'em',
+                "em",
                 null,
-                'Raleigh, NC'
+                "Raleigh, NC"
               )
             )
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'c-usergroup' },
+            _UserProfile2.default,
+            null,
             _react2.default.createElement(
-              'div',
-              { className: 'c-usergroup__photo' },
-              _react2.default.createElement('img', { src: _kowala2.default })
+              _UserProfile2.default.Image,
+              null,
+              _react2.default.createElement("img", { src: _kowala2.default })
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'c-usergroup__profile' },
+              _UserProfile2.default.Details,
+              null,
               _react2.default.createElement(
-                'p',
+                "p",
                 null,
-                'Jane Doe'
+                "Jane Doe"
               ),
               _react2.default.createElement(
-                'em',
+                "em",
                 null,
-                'Westford, MA'
+                "Westford, MA"
               )
             )
           ),
           _react2.default.createElement(
-            'h1',
+            "h1",
             null,
-            'Audiences'
+            "Audiences"
           ),
           _react2.default.createElement(
-            _Label2.default,
+            _VerticalLabelList2.default,
             null,
-            'All associates'
-          ),
-          _react2.default.createElement(
-            _Label2.default,
-            null,
-            'Sales New Hire'
-          ),
-          _react2.default.createElement(
-            _Label2.default,
-            null,
-            'New Hire'
+            _react2.default.createElement(
+              _Label2.default,
+              null,
+              "All associates"
+            ),
+            _react2.default.createElement(
+              _Label2.default,
+              null,
+              "Sales New Hire"
+            ),
+            _react2.default.createElement(
+              _Label2.default,
+              null,
+              "New Hire"
+            )
           )
         )
       );
@@ -46662,7 +46882,7 @@ var UserProfileSummary = function (_React$Component) {
 UserProfileSummary.defaultProps = {};
 UserProfileSummary.propTypes = {};
 exports.default = UserProfileSummary;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","./Label":"../js/components/Label.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","../components/Label":"../js/components/Label.js","../components/VerticalLabelList":"../js/components/VerticalLabelList.js","../components/UserProfile":"../js/components/UserProfile.js","../components/UserProfileBig":"../js/components/UserProfileBig.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46687,7 +46907,7 @@ var _Hero = require('../layout/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
 
-var _UserProfileSummary = require('../components/UserProfileSummary');
+var _UserProfileSummary = require('../layout/UserProfileSummary');
 
 var _UserProfileSummary2 = _interopRequireDefault(_UserProfileSummary);
 
@@ -46796,7 +47016,7 @@ var UserProfile = function (_React$Component) {
 UserProfile.defaultProps = {};
 UserProfile.propTypes = {};
 exports.default = UserProfile;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js","../components/UserProfileSummary":"../js/components/UserProfileSummary.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js","../layout/UserProfileSummary":"../js/layout/UserProfileSummary.js"}],"../js/layout/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46813,19 +47033,19 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ProgressBar = require('./ProgressBar');
+var _ProgressBar = require('../components/ProgressBar');
 
 var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
 
-var _Button = require('./Button');
+var _Button = require('../components/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Tag = require('./Tag');
+var _Tag = require('../components/Tag');
 
 var _Tag2 = _interopRequireDefault(_Tag);
 
-var _SVGIcon = require('./SVGIcon');
+var _SVGIcon = require('../components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
@@ -46920,7 +47140,7 @@ var CourseDetailDetails = function (_React$Component) {
 CourseDetailDetails.defaultProps = {};
 CourseDetailDetails.propTypes = {};
 exports.default = (0, _reactRouterDom.withRouter)(CourseDetailDetails);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ProgressBar":"../js/components/ProgressBar.js","./Button":"../js/components/Button.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/components/TagCategoryGroup.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/ProgressBar":"../js/components/ProgressBar.js","../components/Button":"../js/components/Button.js","../components/Tag":"../js/components/Tag.js","../components/SVGIcon":"../js/components/SVGIcon.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/components/TagCategoryGroup.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47139,7 +47359,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -47251,7 +47471,7 @@ var CourseDetail = function (_React$Component) {
 CourseDetail.defaultProps = {};
 CourseDetail.propTypes = {};
 exports.default = CourseDetail;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/HeroPathProgressMetadata.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/HeroPathProgressMetadata.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49975,7 +50195,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -50086,7 +50306,7 @@ var CourseDetailActivities = function (_React$Component) {
 CourseDetailActivities.defaultProps = {};
 CourseDetailActivities.propTypes = {};
 exports.default = CourseDetailActivities;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/pages/CourseDetailUpcoming.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/pages/CourseDetailUpcoming.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -50107,7 +50327,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -50216,7 +50436,7 @@ var CourseDetailUpcoming = function (_React$Component) {
 CourseDetailUpcoming.defaultProps = {};
 CourseDetailUpcoming.propTypes = {};
 exports.default = CourseDetailUpcoming;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CoursePlayer.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js"}],"../js/pages/CoursePlayer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50302,7 +50522,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -50411,7 +50631,7 @@ var CourseDetailResources = function (_React$Component) {
 CourseDetailResources.defaultProps = {};
 CourseDetailResources.propTypes = {};
 exports.default = CourseDetailResources;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CatalogCategory.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js"}],"../js/pages/CatalogCategory.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

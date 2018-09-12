@@ -1,0 +1,33 @@
+.c-userprofile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: $scale0;
+  margin-bottom: $scale0;
+}
+
+.c-userprofile__photo {
+  justify-self: left;
+  align-self: center;
+  img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(0, 0, 0, $color-alpha-faint-line);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, $color-alpha-faint-line);
+  }
+}
+
+.c-userprofile__details {
+  justify-self: left;
+  align-self: center;
+  p {
+    font-weight: 600;
+    margin: 0;
+  }
+  em {
+    display: block;
+    color: $text-dim-color;
+    margin: 0;
+    font-style: normal;
+  }
+}

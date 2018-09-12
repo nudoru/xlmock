@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
 import {Tabs} from "../components/Tabs";
 import Hero from "../layout/Hero";
-import UserProfileSummary from "../components/UserProfileSummary";
+import UserProfileSummary from "../layout/UserProfileSummary";
 
 class UserProfile extends React.Component {
 

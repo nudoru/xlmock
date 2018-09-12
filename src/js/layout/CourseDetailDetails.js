@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ProgressBar from "./ProgressBar";
-import Button from "./Button";
-import Tag from "./Tag";
-import SVGIcon from "./SVGIcon";
+import ProgressBar from "../components/ProgressBar";
+import Button from "../components/Button";
+import Tag from "../components/Tag";
+import SVGIcon from "../components/SVGIcon";
 import {withRouter} from 'react-router-dom';
 
 class CourseDetailDetails extends React.Component {

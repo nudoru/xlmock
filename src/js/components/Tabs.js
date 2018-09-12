@@ -33,7 +33,7 @@ export class Tabs extends React.Component {
   componentDidMount() {}
 
   render() {
-    let {className=null, children, ...rest} = this.props;
+    let {className=null, children, negative, ...rest} = this.props;
 
     let cls = ['c-tabs'];
 
