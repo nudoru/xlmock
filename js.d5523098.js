@@ -25631,6 +25631,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.BigTabs = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -25642,6 +25644,8 @@ var _propTypes = require('prop-types');
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25674,8 +25678,9 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
       var _props = this.props,
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
-          children = _props.children;
-
+          children = _props.children,
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
 
       var cls = ['c-big-tabs'];
 
@@ -25687,7 +25692,7 @@ var BigTabs = exports.BigTabs = function (_React$Component) {
 
       return _react2.default.createElement(
         'ul',
-        { className: cls.join(' ') },
+        _extends({ className: cls.join(' ') }, rest),
         children
       );
     }
@@ -45465,12 +45470,12 @@ var MockPath = function MockPath(_ref) {
     _react2.default.createElement(
       'h1',
       null,
-      Lorem.title(5, 10)
+      Lorem.title(2, 10)
     ),
     _react2.default.createElement(
       'p',
       null,
-      Lorem.sentence(10, 20)
+      Lorem.sentence(5, 15)
     )
   );
 };
@@ -45484,12 +45489,12 @@ var MockCourse = function MockCourse(_ref2) {
     _react2.default.createElement(
       'h1',
       null,
-      Lorem.title(5, 10)
+      Lorem.title(2, 10)
     ),
     _react2.default.createElement(
       'p',
       null,
-      Lorem.sentence(10, 20)
+      Lorem.sentence(5, 15)
     )
   );
 };
@@ -46274,7 +46279,610 @@ var Help = function (_React$Component) {
 Help.defaultProps = {};
 Help.propTypes = {};
 exports.default = Help;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/pages/User.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js"}],"../js/components/Tabs.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Tabs = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// TODO
+// light positive? this is negative
+
+var Tabs = exports.Tabs = function (_React$Component) {
+  _inherits(Tabs, _React$Component);
+
+  function Tabs(props) {
+    _classCallCheck(this, Tabs);
+
+    var _this = _possibleConstructorReturn(this, (Tabs.__proto__ || Object.getPrototypeOf(Tabs)).call(this, props));
+
+    _initialiseProps.call(_this);
+
+    return _this;
+  }
+
+  _createClass(Tabs, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative']);
+
+      var cls = ['c-tabs'];
+
+      if (this.props.negative) {
+        cls.push('c-tabs--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'ul',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Tabs;
+}(_react2.default.Component);
+
+Tabs.Tab = function (props) {
+  var children = props.children,
+      className = props.className;
+
+  var cls = [];
+
+  if (props.active) {
+    cls.push('is-active');
+  }
+
+  cls.push(className);
+
+  return _react2.default.createElement(
+    'li',
+    { className: cls.join(' ') },
+    children
+  );
+};
+
+Tabs.defaultProps = {};
+Tabs.propTypes = {
+  negative: _propTypes2.default.bool
+};
+
+var _initialiseProps = function _initialiseProps() {
+  this.state = {};
+};
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/profiles/racoon.jpg":[function(require,module,exports) {
+module.exports = "/racoon.b99372cf.jpg";
+},{}],"../img/profiles/bear.jpg":[function(require,module,exports) {
+module.exports = "/bear.ab0ae544.jpg";
+},{}],"../img/profiles/kowala.jpg":[function(require,module,exports) {
+module.exports = "/kowala.db3b0f15.jpg";
+},{}],"../js/components/Label.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Label = function (_React$Component) {
+  _inherits(Label, _React$Component);
+
+  function Label(props) {
+    _classCallCheck(this, Label);
+
+    var _this = _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Label, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          negative = _props.negative,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'negative', 'children']);
+
+      var cls = ['c-label'];
+
+      if (negative) {
+        cls.push('c-label--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'span',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Label;
+}(_react2.default.Component);
+
+Label.defaultProps = {};
+Label.propTypes = {
+  negative: _propTypes2.default.bool
+};
+exports.default = Label;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/VerticalLabelList.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VerticalLabelList = function (_React$Component) {
+  _inherits(VerticalLabelList, _React$Component);
+
+  function VerticalLabelList(props) {
+    _classCallCheck(this, VerticalLabelList);
+
+    var _this = _possibleConstructorReturn(this, (VerticalLabelList.__proto__ || Object.getPrototypeOf(VerticalLabelList)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(VerticalLabelList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-label__vlist' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return VerticalLabelList;
+}(_react2.default.Component);
+
+VerticalLabelList.defaultProps = {};
+VerticalLabelList.propTypes = {};
+exports.default = VerticalLabelList;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/UserProfile.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserProfile = function (_React$Component) {
+  _inherits(UserProfile, _React$Component);
+
+  function UserProfile(props) {
+    _classCallCheck(this, UserProfile);
+
+    var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(UserProfile, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-userprofile' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return UserProfile;
+}(_react2.default.Component);
+
+UserProfile.Image = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile__photo' },
+    children
+  );
+};
+
+UserProfile.Details = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile__details' },
+    children
+  );
+};
+
+UserProfile.defaultProps = {};
+UserProfile.propTypes = {};
+exports.default = UserProfile;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/UserProfileBig.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserProfileBig = function (_React$Component) {
+  _inherits(UserProfileBig, _React$Component);
+
+  function UserProfileBig(props) {
+    _classCallCheck(this, UserProfileBig);
+
+    var _this = _possibleConstructorReturn(this, (UserProfileBig.__proto__ || Object.getPrototypeOf(UserProfileBig)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(UserProfileBig, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-userprofile--big' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return UserProfileBig;
+}(_react2.default.Component);
+
+UserProfileBig.Image = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile--big__photo' },
+    children
+  );
+};
+
+UserProfileBig.Details = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-userprofile--big__details' },
+    children
+  );
+};
+
+UserProfileBig.defaultProps = {};
+UserProfileBig.propTypes = {};
+exports.default = UserProfileBig;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/layout/UserProfileSummary.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _racoon = require("../../img/profiles/racoon.jpg");
+
+var _racoon2 = _interopRequireDefault(_racoon);
+
+var _bear = require("../../img/profiles/bear.jpg");
+
+var _bear2 = _interopRequireDefault(_bear);
+
+var _kowala = require("../../img/profiles/kowala.jpg");
+
+var _kowala2 = _interopRequireDefault(_kowala);
+
+var _Label = require("../components/Label");
+
+var _Label2 = _interopRequireDefault(_Label);
+
+var _VerticalLabelList = require("../components/VerticalLabelList");
+
+var _VerticalLabelList2 = _interopRequireDefault(_VerticalLabelList);
+
+var _UserProfile = require("../components/UserProfile");
+
+var _UserProfile2 = _interopRequireDefault(_UserProfile);
+
+var _UserProfileBig = require("../components/UserProfileBig");
+
+var _UserProfileBig2 = _interopRequireDefault(_UserProfileBig);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserProfileSummary = function (_React$Component) {
+  _inherits(UserProfileSummary, _React$Component);
+
+  function UserProfileSummary(props) {
+    _classCallCheck(this, UserProfileSummary);
+
+    var _this = _possibleConstructorReturn(this, (UserProfileSummary.__proto__ || Object.getPrototypeOf(UserProfileSummary)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(UserProfileSummary, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "l-userprofile__summary" },
+        _react2.default.createElement(
+          "div",
+          { className: "l-userprofile__photo" },
+          _react2.default.createElement(
+            _UserProfileBig2.default,
+            null,
+            _react2.default.createElement(
+              _UserProfileBig2.default.Image,
+              null,
+              _react2.default.createElement("img", { src: _racoon2.default })
+            ),
+            _react2.default.createElement(
+              _UserProfileBig2.default.Details,
+              null,
+              _react2.default.createElement(
+                "p",
+                null,
+                "John Learner"
+              ),
+              _react2.default.createElement(
+                "em",
+                null,
+                "Raleigh, NC"
+              )
+            )
+          )
+        ),
+        _react2.default.createElement("hr", null),
+        _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Email Address"
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "joe.user@redhat.com"
+          ),
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Language"
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "English"
+          ),
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Managers"
+          ),
+          _react2.default.createElement(
+            _UserProfile2.default,
+            null,
+            _react2.default.createElement(
+              _UserProfile2.default.Image,
+              null,
+              _react2.default.createElement("img", { src: _bear2.default })
+            ),
+            _react2.default.createElement(
+              _UserProfile2.default.Details,
+              null,
+              _react2.default.createElement(
+                "p",
+                null,
+                "John Smith"
+              ),
+              _react2.default.createElement(
+                "em",
+                null,
+                "Raleigh, NC"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _UserProfile2.default,
+            null,
+            _react2.default.createElement(
+              _UserProfile2.default.Image,
+              null,
+              _react2.default.createElement("img", { src: _kowala2.default })
+            ),
+            _react2.default.createElement(
+              _UserProfile2.default.Details,
+              null,
+              _react2.default.createElement(
+                "p",
+                null,
+                "Jane Doe"
+              ),
+              _react2.default.createElement(
+                "em",
+                null,
+                "Westford, MA"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "h1",
+            null,
+            "Audiences"
+          ),
+          _react2.default.createElement(
+            _VerticalLabelList2.default,
+            null,
+            _react2.default.createElement(
+              _Label2.default,
+              null,
+              "All associates"
+            ),
+            _react2.default.createElement(
+              _Label2.default,
+              null,
+              "Sales New Hire"
+            ),
+            _react2.default.createElement(
+              _Label2.default,
+              null,
+              "New Hire"
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return UserProfileSummary;
+}(_react2.default.Component);
+
+UserProfileSummary.defaultProps = {};
+UserProfileSummary.propTypes = {};
+exports.default = UserProfileSummary;
+},{"react":"../../node_modules/react/index.js","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","../components/Label":"../js/components/Label.js","../components/VerticalLabelList":"../js/components/VerticalLabelList.js","../components/UserProfile":"../js/components/UserProfile.js","../components/UserProfileBig":"../js/components/UserProfileBig.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46293,11 +46901,15 @@ var _Content = require('../layout/Content');
 
 var _Content2 = _interopRequireDefault(_Content);
 
-var _BigTabs = require('../components/BigTabs');
+var _Tabs = require('../components/Tabs');
 
 var _Hero = require('../layout/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
+
+var _UserProfileSummary = require('../layout/UserProfileSummary');
+
+var _UserProfileSummary2 = _interopRequireDefault(_UserProfileSummary);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46307,19 +46919,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var User = function (_React$Component) {
-  _inherits(User, _React$Component);
+var UserProfile = function (_React$Component) {
+  _inherits(UserProfile, _React$Component);
 
-  function User(props) {
-    _classCallCheck(this, User);
+  function UserProfile(props) {
+    _classCallCheck(this, UserProfile);
 
-    var _this = _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (UserProfile.__proto__ || Object.getPrototypeOf(UserProfile)).call(this, props));
 
     _this.state = {};
     return _this;
   }
 
-  _createClass(User, [{
+  _createClass(UserProfile, [{
     key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
@@ -46335,33 +46947,46 @@ var User = function (_React$Component) {
             _Hero2.default.Content,
             null,
             _react2.default.createElement(
-              _BigTabs.BigTabs,
-              { negative: true },
+              'div',
+              { className: 'l-userprofile__hero l-userprofile__grid' },
               _react2.default.createElement(
-                _BigTabs.BigTabs.Tab,
-                null,
+                _Tabs.Tabs,
+                { negative: true, className: 'l-userprofile__nav' },
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  'Profile'
-                )
-              ),
-              _react2.default.createElement(
-                _BigTabs.BigTabs.Tab,
-                null,
+                  _Tabs.Tabs.Tab,
+                  { active: true },
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Profile'
+                  )
+                ),
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  'Learning Record'
-                )
-              ),
-              _react2.default.createElement(
-                _BigTabs.BigTabs.Tab,
-                null,
+                  _Tabs.Tabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Learning Paths'
+                  )
+                ),
                 _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/user' },
-                  'Settings'
+                  _Tabs.Tabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Learning Record'
+                  )
+                ),
+                _react2.default.createElement(
+                  _Tabs.Tabs.Tab,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/user' },
+                    'Settings'
+                  )
                 )
               )
             )
@@ -46371,22 +46996,27 @@ var User = function (_React$Component) {
           _Content2.default,
           null,
           _react2.default.createElement(
-            'h1',
-            null,
-            'User profile'
+            'div',
+            { className: 'l-userprofile__grid' },
+            _react2.default.createElement(_UserProfileSummary2.default, null),
+            _react2.default.createElement(
+              'div',
+              { className: 'l-userprofile__content' },
+              'content'
+            )
           )
         )
       );
     }
   }]);
 
-  return User;
+  return UserProfile;
 }(_react2.default.Component);
 
-User.defaultProps = {};
-User.propTypes = {};
-exports.default = User;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+UserProfile.defaultProps = {};
+UserProfile.propTypes = {};
+exports.default = UserProfile;
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js","../layout/UserProfileSummary":"../js/layout/UserProfileSummary.js"}],"../js/layout/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46403,19 +47033,19 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _ProgressBar = require('./ProgressBar');
+var _ProgressBar = require('../components/ProgressBar');
 
 var _ProgressBar2 = _interopRequireDefault(_ProgressBar);
 
-var _Button = require('./Button');
+var _Button = require('../components/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
-var _Tag = require('./Tag');
+var _Tag = require('../components/Tag');
 
 var _Tag2 = _interopRequireDefault(_Tag);
 
-var _SVGIcon = require('./SVGIcon');
+var _SVGIcon = require('../components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
@@ -46510,7 +47140,7 @@ var CourseDetailDetails = function (_React$Component) {
 CourseDetailDetails.defaultProps = {};
 CourseDetailDetails.propTypes = {};
 exports.default = (0, _reactRouterDom.withRouter)(CourseDetailDetails);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./ProgressBar":"../js/components/ProgressBar.js","./Button":"../js/components/Button.js","./Tag":"../js/components/Tag.js","./SVGIcon":"../js/components/SVGIcon.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/components/TagCategoryGroup.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/ProgressBar":"../js/components/ProgressBar.js","../components/Button":"../js/components/Button.js","../components/Tag":"../js/components/Tag.js","../components/SVGIcon":"../js/components/SVGIcon.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/components/TagCategoryGroup.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46729,7 +47359,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -46841,7 +47471,7 @@ var CourseDetail = function (_React$Component) {
 CourseDetail.defaultProps = {};
 CourseDetail.propTypes = {};
 exports.default = CourseDetail;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/HeroPathProgressMetadata.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/HeroPathProgressMetadata.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47110,6 +47740,128 @@ PathActivitySubsection.Description = function (_ref2) {
 PathActivitySubsection.defaultProps = {};
 PathActivitySubsection.propTypes = {};
 exports.default = PathActivitySubsection;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivityConditional.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathActivityConditional = function (_React$Component) {
+  _inherits(PathActivityConditional, _React$Component);
+
+  function PathActivityConditional(props) {
+    _classCallCheck(this, PathActivityConditional);
+
+    var _this = _possibleConstructorReturn(this, (PathActivityConditional.__proto__ || Object.getPrototypeOf(PathActivityConditional)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathActivityConditional, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-path-detail__conditional' },
+        _react2.default.createElement(
+          'p',
+          null,
+          this.props.children
+        )
+      );
+    }
+  }]);
+
+  return PathActivityConditional;
+}(_react2.default.Component);
+
+PathActivityConditional.defaultProps = {};
+PathActivityConditional.propTypes = {};
+exports.default = PathActivityConditional;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivitySubConditional.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PathActivityConditional = function (_React$Component) {
+  _inherits(PathActivityConditional, _React$Component);
+
+  function PathActivityConditional(props) {
+    _classCallCheck(this, PathActivityConditional);
+
+    var _this = _possibleConstructorReturn(this, (PathActivityConditional.__proto__ || Object.getPrototypeOf(PathActivityConditional)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PathActivityConditional, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'l-path-detail__subconditional' },
+        _react2.default.createElement(
+          'p',
+          null,
+          this.props.children
+        )
+      );
+    }
+  }]);
+
+  return PathActivityConditional;
+}(_react2.default.Component);
+
+PathActivityConditional.defaultProps = {};
+PathActivityConditional.propTypes = {};
+exports.default = PathActivityConditional;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathActivityTable.js":[function(require,module,exports) {
 'use strict';
 
@@ -47245,85 +47997,7 @@ PathActivityRow.Completion = function (_ref3) {
 
 PathActivityRow.defaultProps = {};
 PathActivityRow.propTypes = {};
-},{"react":"../../node_modules/react/index.js"}],"../js/components/Label.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Label = function (_React$Component) {
-  _inherits(Label, _React$Component);
-
-  function Label(props) {
-    _classCallCheck(this, Label);
-
-    var _this = _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Label, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          _props$className = _props.className,
-          className = _props$className === undefined ? null : _props$className,
-          negative = _props.negative,
-          children = _props.children,
-          rest = _objectWithoutProperties(_props, ['className', 'negative', 'children']);
-
-      var cls = ['c-label'];
-
-      if (negative) {
-        cls.push('c-label--negative');
-      }
-
-      cls.push(className);
-
-      return _react2.default.createElement(
-        'span',
-        _extends({ className: cls.join(' ') }, rest),
-        children
-      );
-    }
-  }]);
-
-  return Label;
-}(_react2.default.Component);
-
-Label.defaultProps = {};
-Label.propTypes = {
-  negative: _propTypes2.default.bool
-};
-exports.default = Label;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathAchievement.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../js/components/PathAchievement.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47432,6 +48106,14 @@ var _PathActivitySection2 = _interopRequireDefault(_PathActivitySection);
 var _PathActivitySubsection = require("../components/PathActivitySubsection");
 
 var _PathActivitySubsection2 = _interopRequireDefault(_PathActivitySubsection);
+
+var _PathActivityConditional = require("../components/PathActivityConditional");
+
+var _PathActivityConditional2 = _interopRequireDefault(_PathActivityConditional);
+
+var _PathActivitySubConditional = require("../components/PathActivitySubConditional");
+
+var _PathActivitySubConditional2 = _interopRequireDefault(_PathActivitySubConditional);
 
 var _PathActivityTable = require("../components/PathActivityTable");
 
@@ -47547,7 +48229,11 @@ var PathDetail = function (_React$Component) {
                           "p",
                           {
                             className: "title" },
-                          Lorem.title(5, 15),
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          ),
                           _react2.default.createElement(
                             _Label2.default,
                             null,
@@ -47558,6 +48244,15 @@ var PathDetail = function (_React$Component) {
                           "p",
                           { className: "metadata" },
                           "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
                         )
                       ),
                       _react2.default.createElement(
@@ -47581,12 +48276,25 @@ var PathDetail = function (_React$Component) {
                         _react2.default.createElement(
                           "p",
                           { className: "title" },
-                          Lorem.title(3, 15)
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          )
                         ),
                         _react2.default.createElement(
                           "p",
                           { className: "metadata" },
                           "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
                         )
                       ),
                       _react2.default.createElement(
@@ -47598,6 +48306,11 @@ var PathDetail = function (_React$Component) {
                     )
                   )
                 )
+              ),
+              _react2.default.createElement(
+                _PathActivityConditional2.default,
+                null,
+                "And"
               ),
               _react2.default.createElement(
                 _PathActivitySection2.default,
@@ -47643,7 +48356,11 @@ var PathDetail = function (_React$Component) {
                           "p",
                           {
                             className: "title" },
-                          Lorem.title(5, 15),
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          ),
                           _react2.default.createElement(
                             _Label2.default,
                             null,
@@ -47654,6 +48371,20 @@ var PathDetail = function (_React$Component) {
                           "p",
                           { className: "metadata" },
                           "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          ),
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
                         )
                       ),
                       _react2.default.createElement(
@@ -47677,7 +48408,125 @@ var PathDetail = function (_React$Component) {
                         _react2.default.createElement(
                           "p",
                           { className: "title" },
-                          Lorem.title(3, 15)
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          )
+                        ),
+                        _react2.default.createElement(
+                          "p",
+                          { className: "metadata" },
+                          "2 hours 30 minutes | Video"
+                        )
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "circle" })
+                      )
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  _PathActivitySubConditional2.default,
+                  null,
+                  "Or"
+                ),
+                _react2.default.createElement(
+                  _PathActivitySubsection2.default,
+                  null,
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Title,
+                    null,
+                    Lorem.title(5, 10)
+                  ),
+                  _react2.default.createElement(
+                    _PathActivitySubsection2.default.Description,
+                    null,
+                    _react2.default.createElement(
+                      "p",
+                      null,
+                      Lorem.sentence(5, 10)
+                    )
+                  ),
+                  _react2.default.createElement(
+                    _PathActivityTable.PathActivityTable,
+                    null,
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        _react2.default.createElement(
+                          "p",
+                          {
+                            className: "title" },
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          ),
+                          _react2.default.createElement(
+                            _Label2.default,
+                            null,
+                            "Optional"
+                          )
+                        ),
+                        _react2.default.createElement(
+                          "p",
+                          { className: "metadata" },
+                          "2 hours 30 minutes | Video"
+                        ),
+                        _react2.default.createElement(
+                          "div",
+                          { className: "description" },
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          ),
+                          _react2.default.createElement(
+                            "p",
+                            null,
+                            Lorem.sentence(10, 50)
+                          )
+                        )
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Completion,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, { name: "check-circle" })
+                      )
+                    ),
+                    _react2.default.createElement(
+                      _PathActivityTable.PathActivityRow,
+                      null,
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Icon,
+                        null,
+                        _react2.default.createElement(_SVGIcon2.default, {
+                          name: "package" })
+                      ),
+                      _react2.default.createElement(
+                        _PathActivityTable.PathActivityRow.Details,
+                        null,
+                        _react2.default.createElement(
+                          "p",
+                          { className: "title" },
+                          _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            Lorem.title(5, 15)
+                          )
                         ),
                         _react2.default.createElement(
                           "p",
@@ -47742,7 +48591,7 @@ var PathDetail = function (_React$Component) {
 PathDetail.defaultProps = {};
 PathDetail.propTypes = {};
 exports.default = PathDetail;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/ModalBlock.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/HeroPathProgressMetadata":"../js/components/HeroPathProgressMetadata.js","../components/PathActivitySection":"../js/components/PathActivitySection.js","../components/PathActivitySubsection":"../js/components/PathActivitySubsection.js","../components/PathActivityConditional":"../js/components/PathActivityConditional.js","../components/PathActivitySubConditional":"../js/components/PathActivitySubConditional.js","../components/PathActivityTable":"../js/components/PathActivityTable.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Label":"../js/components/Label.js","../components/PathAchievement":"../js/components/PathAchievement.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/components/ModalBlock.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49643,7 +50492,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -49754,7 +50603,7 @@ var CourseDetailActivities = function (_React$Component) {
 CourseDetailActivities.defaultProps = {};
 CourseDetailActivities.propTypes = {};
 exports.default = CourseDetailActivities;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/pages/CourseDetailUpcoming.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js","../test/TestTagCategories":"../js/test/TestTagCategories.js"}],"../js/pages/CourseDetailUpcoming.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49775,7 +50624,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -49884,7 +50733,7 @@ var CourseDetailUpcoming = function (_React$Component) {
 CourseDetailUpcoming.defaultProps = {};
 CourseDetailUpcoming.propTypes = {};
 exports.default = CourseDetailUpcoming;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CoursePlayer.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js"}],"../js/pages/CoursePlayer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49970,7 +50819,7 @@ var _Content2 = _interopRequireDefault(_Content);
 
 var _BigTabs = require('../components/BigTabs');
 
-var _CourseDetailDetails = require('../components/CourseDetailDetails');
+var _CourseDetailDetails = require('../layout/CourseDetailDetails');
 
 var _CourseDetailDetails2 = _interopRequireDefault(_CourseDetailDetails);
 
@@ -50079,7 +50928,7 @@ var CourseDetailResources = function (_React$Component) {
 CourseDetailResources.defaultProps = {};
 CourseDetailResources.propTypes = {};
 exports.default = CourseDetailResources;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../components/CourseDetailDetails":"../js/components/CourseDetailDetails.js"}],"../js/pages/CatalogCategory.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js"}],"../js/pages/CatalogCategory.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -50234,9 +51083,9 @@ var _Help = require('./pages/Help');
 
 var _Help2 = _interopRequireDefault(_Help);
 
-var _User = require('./pages/User');
+var _UserProfile = require('./pages/UserProfile');
 
-var _User2 = _interopRequireDefault(_User);
+var _UserProfile2 = _interopRequireDefault(_UserProfile);
 
 var _CourseDetail = require('./pages/CourseDetail');
 
@@ -50320,7 +51169,7 @@ var Routes = function Routes() {
     _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/alerts', component: _Alerts2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/help', component: _Help2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _User2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/user', component: _UserProfile2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/course', component: _CourseDetail2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/courseactivities', component: _CourseDetailActivities2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/courseupcoming', component: _CourseDetailUpcoming2.default }),
@@ -50449,7 +51298,7 @@ var AppRouter = function (_React$Component) {
 AppRouter.defaultProps = {};
 AppRouter.propTypes = {};
 exports.default = AppRouter;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/User":"../js/pages/User.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js","./pages/CatalogCategory":"../js/pages/CatalogCategory.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/UserProfile":"../js/pages/UserProfile.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js","./pages/CatalogCategory":"../js/pages/CatalogCategory.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
