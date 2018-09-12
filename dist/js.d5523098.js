@@ -46382,7 +46382,91 @@ Tabs.propTypes = {
 var _initialiseProps = function _initialiseProps() {
   this.state = {};
 };
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/UserProfile.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/Label.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Label = function (_React$Component) {
+  _inherits(Label, _React$Component);
+
+  function Label(props) {
+    _classCallCheck(this, Label);
+
+    var _this = _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Label, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          negative = _props.negative,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'negative', 'children']);
+
+      var cls = ['c-label'];
+
+      if (negative) {
+        cls.push('c-label--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'span',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Label;
+}(_react2.default.Component);
+
+Label.defaultProps = {};
+Label.propTypes = {
+  negative: _propTypes2.default.bool
+};
+exports.default = Label;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/profiles/kowala.jpg":[function(require,module,exports) {
+module.exports = "/kowala.db3b0f15.jpg";
+},{}],"../img/profiles/bear.jpg":[function(require,module,exports) {
+module.exports = "/bear.ab0ae544.jpg";
+},{}],"../img/profiles/racoon.jpg":[function(require,module,exports) {
+module.exports = "/racoon.b99372cf.jpg";
+},{}],"../js/pages/UserProfile.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46406,6 +46490,22 @@ var _Tabs = require('../components/Tabs');
 var _Hero = require('../layout/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
+
+var _Label = require('../components/Label');
+
+var _Label2 = _interopRequireDefault(_Label);
+
+var _kowala = require('../../img/profiles/kowala.jpg');
+
+var _kowala2 = _interopRequireDefault(_kowala);
+
+var _bear = require('../../img/profiles/bear.jpg');
+
+var _bear2 = _interopRequireDefault(_bear);
+
+var _racoon = require('../../img/profiles/racoon.jpg');
+
+var _racoon2 = _interopRequireDefault(_racoon);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46444,7 +46544,7 @@ var UserProfile = function (_React$Component) {
             null,
             _react2.default.createElement(
               'div',
-              { className: 'l-userprofile__grid' },
+              { className: 'l-userprofile__hero l-userprofile__grid' },
               _react2.default.createElement(
                 _Tabs.Tabs,
                 { negative: true, className: 'l-userprofile__nav' },
@@ -46496,26 +46596,129 @@ var UserProfile = function (_React$Component) {
             { className: 'l-userprofile__grid' },
             _react2.default.createElement(
               'div',
-              { className: 'l-userprofile__sumary' },
+              { className: 'l-userprofile__summary' },
               _react2.default.createElement(
                 'div',
-                null,
-                '[profile image]'
+                { className: 'l-userprofile__photo' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'c-usergroup--big' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'c-usergroup--big__photo' },
+                    _react2.default.createElement('img', { src: _racoon2.default })
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'c-usergroup--big__profile' },
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'John Learner'
+                    ),
+                    _react2.default.createElement(
+                      'em',
+                      null,
+                      'Raleigh, NC'
+                    )
+                  )
+                )
               ),
+              _react2.default.createElement('hr', null),
               _react2.default.createElement(
                 'div',
                 null,
-                '[basic info]'
-              ),
-              _react2.default.createElement(
-                'div',
-                null,
-                '[managers lockup]'
-              ),
-              _react2.default.createElement(
-                'div',
-                null,
-                '[audiences list]'
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  'Email Address'
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'joe.user@redhat.com'
+                ),
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  'Language'
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  'English'
+                ),
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  'Managers'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'c-usergroup' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'c-usergroup__photo' },
+                    _react2.default.createElement('img', { src: _bear2.default })
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'c-usergroup__profile' },
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'John Smith'
+                    ),
+                    _react2.default.createElement(
+                      'em',
+                      null,
+                      'Raleigh, NC'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'c-usergroup' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'c-usergroup__photo' },
+                    _react2.default.createElement('img', { src: _kowala2.default })
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'c-usergroup__profile' },
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'Jane Doe'
+                    ),
+                    _react2.default.createElement(
+                      'em',
+                      null,
+                      'Westford, NC'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  'Audiences'
+                ),
+                _react2.default.createElement(
+                  _Label2.default,
+                  null,
+                  'All associates'
+                ),
+                _react2.default.createElement(
+                  _Label2.default,
+                  null,
+                  'Sales New Hire'
+                ),
+                _react2.default.createElement(
+                  _Label2.default,
+                  null,
+                  'New Hire'
+                )
               )
             ),
             _react2.default.createElement(
@@ -46535,7 +46738,7 @@ var UserProfile = function (_React$Component) {
 UserProfile.defaultProps = {};
 UserProfile.propTypes = {};
 exports.default = UserProfile;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/Tabs":"../js/components/Tabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Label":"../js/components/Label.js","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg"}],"../js/components/CourseDetailDetails.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -47394,85 +47597,7 @@ PathActivityRow.Completion = function (_ref3) {
 
 PathActivityRow.defaultProps = {};
 PathActivityRow.propTypes = {};
-},{"react":"../../node_modules/react/index.js"}],"../js/components/Label.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Label = function (_React$Component) {
-  _inherits(Label, _React$Component);
-
-  function Label(props) {
-    _classCallCheck(this, Label);
-
-    var _this = _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Label, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          _props$className = _props.className,
-          className = _props$className === undefined ? null : _props$className,
-          negative = _props.negative,
-          children = _props.children,
-          rest = _objectWithoutProperties(_props, ['className', 'negative', 'children']);
-
-      var cls = ['c-label'];
-
-      if (negative) {
-        cls.push('c-label--negative');
-      }
-
-      cls.push(className);
-
-      return _react2.default.createElement(
-        'span',
-        _extends({ className: cls.join(' ') }, rest),
-        children
-      );
-    }
-  }]);
-
-  return Label;
-}(_react2.default.Component);
-
-Label.defaultProps = {};
-Label.propTypes = {
-  negative: _propTypes2.default.bool
-};
-exports.default = Label;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PathAchievement.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../js/components/PathAchievement.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
