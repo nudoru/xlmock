@@ -5,8 +5,6 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-[ ] break out user photo on personal as a sep comp - coin
-    [ ] default coin to "PHOTO"
 [ ] team persona card
 [ ] card design for ...
     [ ] lynda
@@ -33,7 +31,6 @@ Design work by AtlanticBT for Red Hat.
 
 # Later
 
-[ ] React 16.5
 [ ] Babel 7
 
 # Style guide

@@ -7,14 +7,6 @@
 }
 
 .c-persona--big__photo {
-  img {
-    @extend .dropshadow-sm;
-    width: 12.5rem;
-    height: 12.5rem;
-    border: 1px solid rgba(255, 255, 255, 1);
-    border-radius: 50%;
-    background: rgba(0, 0, 0, $color-alpha-faint-line);
-  }
 }
 
 .c-persona--big__details {
