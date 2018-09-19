@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
 import Hero from "../layout/Hero";
+import {GridFit} from "../components/GridFit";
+import {Theme} from "../theme/Theme";
+import TestPersonaCard from "../test/TestPersonaCard";
+
 
 class Team extends React.PureComponent {
 
@@ -31,7 +35,14 @@ class Team extends React.PureComponent {
           </Hero.Content>
         </Hero>
         <Content>
-          <h1>Team</h1>
+          <h1>Team members</h1>
+          <GridFit gap={Theme.scale1} min='250px' max='1fr'>
+            <TestPersonaCard/>
+            <TestPersonaCard/>
+            <TestPersonaCard/>
+            <TestPersonaCard/>
+            <TestPersonaCard/>
+          </GridFit>
         </Content>
       </React.Fragment>
     );

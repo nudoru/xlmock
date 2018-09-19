@@ -49898,6 +49898,15 @@ var Card = function (_React$PureComponent) {
   return Card;
 }(_react2.default.PureComponent);
 
+Card.Section = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-card__section' },
+    children
+  );
+};
+
 Card.defaultProps = {};
 Card.propTypes = {};
 exports.default = Card;
@@ -49969,19 +49978,25 @@ var StatGroup = function (_React$PureComponent) {
 }(_react2.default.PureComponent);
 
 StatGroup.Data = function (_ref) {
-  var children = _ref.children;
+  var children = _ref.children,
+      small = _ref.small;
+
+  var cls = small ? 'c-stat-group__data--small' : 'c-stat-group__data';
   return _react2.default.createElement(
     'p',
-    { className: 'c-stat-group__data' },
+    { className: cls },
     children
   );
 };
 
 StatGroup.Label = function (_ref2) {
-  var children = _ref2.children;
+  var children = _ref2.children,
+      small = _ref2.small;
+
+  var cls = small ? 'c-stat-group__label--small' : 'c-stat-group__label';
   return _react2.default.createElement(
     'h1',
-    { className: 'c-stat-group__label' },
+    { className: cls },
     children
   );
 };
@@ -84741,7 +84756,244 @@ var Discover = function (_React$PureComponent) {
 Discover.defaultProps = {};
 Discover.propTypes = {};
 exports.default = Discover;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/HeroCard":"../js/components/HeroCard.js","../utils/Lorem":"../js/utils/Lorem.js","../components/HeroCarousel":"../js/components/HeroCarousel.js"}],"../js/pages/Team.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/HeroCard":"../js/components/HeroCard.js","../utils/Lorem":"../js/utils/Lorem.js","../components/HeroCarousel":"../js/components/HeroCarousel.js"}],"../js/components/PersonaMed.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Coin = require('./Coin');
+
+var _Coin2 = _interopRequireDefault(_Coin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PersonaMed = function (_React$PureComponent) {
+  _inherits(PersonaMed, _React$PureComponent);
+
+  function PersonaMed(props) {
+    _classCallCheck(this, PersonaMed);
+
+    var _this = _possibleConstructorReturn(this, (PersonaMed.__proto__ || Object.getPrototypeOf(PersonaMed)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(PersonaMed, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-persona--med' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return PersonaMed;
+}(_react2.default.PureComponent);
+
+PersonaMed.Image = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(_Coin2.default, { className: 'c-persona--med__photo', image: children, size: 'lg' });
+};
+
+PersonaMed.Details = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-persona--med__details' },
+    children
+  );
+};
+
+PersonaMed.defaultProps = {};
+PersonaMed.propTypes = {};
+exports.default = PersonaMed;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Coin":"../js/components/Coin.js"}],"../js/test/TestPersonaCard.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Card = require('../components/Card');
+
+var _Card2 = _interopRequireDefault(_Card);
+
+var _StatGroup = require('../components/StatGroup');
+
+var _StatGroup2 = _interopRequireDefault(_StatGroup);
+
+var _PersonaMed = require('../components/PersonaMed');
+
+var _PersonaMed2 = _interopRequireDefault(_PersonaMed);
+
+var _kowala = require('../../img/profiles/kowala.jpg');
+
+var _kowala2 = _interopRequireDefault(_kowala);
+
+var _Lorem = require('../utils/Lorem');
+
+var Lorem = _interopRequireWildcard(_Lorem);
+
+var _Theme = require('../theme/Theme');
+
+var _GridFit = require('../components/GridFit');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TestPersonaCard = function (_React$PureComponent) {
+  _inherits(TestPersonaCard, _React$PureComponent);
+
+  function TestPersonaCard(props) {
+    _classCallCheck(this, TestPersonaCard);
+
+    var _this = _possibleConstructorReturn(this, (TestPersonaCard.__proto__ || Object.getPrototypeOf(TestPersonaCard)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(TestPersonaCard, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var cls = [''];
+      cls.push(className);
+
+      return _react2.default.createElement(
+        _Card2.default,
+        { className: 'u-text-center' },
+        _react2.default.createElement(
+          _PersonaMed2.default,
+          null,
+          _react2.default.createElement(
+            _PersonaMed2.default.Image,
+            null,
+            _react2.default.createElement('img', { src: _kowala2.default })
+          ),
+          _react2.default.createElement(
+            _PersonaMed2.default.Details,
+            null,
+            _react2.default.createElement(
+              'p',
+              null,
+              Lorem.firstLastName()
+            ),
+            _react2.default.createElement(
+              'em',
+              null,
+              'Raleigh, NC'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _Card2.default.Section,
+          null,
+          _react2.default.createElement(
+            _GridFit.GridFit,
+            { gap: _Theme.Theme.scale1, min: '50px', max: '1fr' },
+            _react2.default.createElement(
+              _StatGroup2.default,
+              null,
+              _react2.default.createElement(
+                _StatGroup2.default.Data,
+                { small: true },
+                '2'
+              ),
+              _react2.default.createElement(
+                _StatGroup2.default.Label,
+                { small: true },
+                'Paths'
+              )
+            ),
+            _react2.default.createElement(
+              _StatGroup2.default,
+              null,
+              _react2.default.createElement(
+                _StatGroup2.default.Data,
+                { small: true },
+                '2'
+              ),
+              _react2.default.createElement(
+                _StatGroup2.default.Label,
+                { small: true },
+                'Courses'
+              )
+            ),
+            _react2.default.createElement(
+              _StatGroup2.default,
+              null,
+              _react2.default.createElement(
+                _StatGroup2.default.Data,
+                { small: true },
+                '2'
+              ),
+              _react2.default.createElement(
+                _StatGroup2.default.Label,
+                { small: true },
+                'CE Credits'
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return TestPersonaCard;
+}(_react2.default.PureComponent);
+
+TestPersonaCard.defaultProps = {};
+TestPersonaCard.propTypes = {};
+exports.default = TestPersonaCard;
+},{"react":"../../node_modules/react/index.js","../components/Card":"../js/components/Card.js","../components/StatGroup":"../js/components/StatGroup.js","../components/PersonaMed":"../js/components/PersonaMed.js","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","../utils/Lorem":"../js/utils/Lorem.js","../theme/Theme":"../js/theme/Theme.js","../components/GridFit":"../js/components/GridFit.js"}],"../js/pages/Team.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -84765,6 +85017,14 @@ var _BigTabs = require('../components/BigTabs');
 var _Hero = require('../layout/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
+
+var _GridFit = require('../components/GridFit');
+
+var _Theme = require('../theme/Theme');
+
+var _TestPersonaCard = require('../test/TestPersonaCard');
+
+var _TestPersonaCard2 = _interopRequireDefault(_TestPersonaCard);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -84840,7 +85100,16 @@ var Team = function (_React$PureComponent) {
           _react2.default.createElement(
             'h1',
             null,
-            'Team'
+            'Team members'
+          ),
+          _react2.default.createElement(
+            _GridFit.GridFit,
+            { gap: _Theme.Theme.scale1, min: '250px', max: '1fr' },
+            _react2.default.createElement(_TestPersonaCard2.default, null),
+            _react2.default.createElement(_TestPersonaCard2.default, null),
+            _react2.default.createElement(_TestPersonaCard2.default, null),
+            _react2.default.createElement(_TestPersonaCard2.default, null),
+            _react2.default.createElement(_TestPersonaCard2.default, null)
           )
         )
       );
@@ -84853,7 +85122,7 @@ var Team = function (_React$PureComponent) {
 Team.defaultProps = {};
 Team.propTypes = {};
 exports.default = Team;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js"}],"../js/pages/CourseDetailActivities.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/GridFit":"../js/components/GridFit.js","../theme/Theme":"../js/theme/Theme.js","../test/TestPersonaCard":"../js/test/TestPersonaCard.js"}],"../js/pages/CourseDetailActivities.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

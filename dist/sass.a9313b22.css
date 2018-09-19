@@ -119,7 +119,7 @@
   -webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1); }
 
-.dropshadow-xs, .c-card-frame, .c-card, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-checkbox__label {
+.dropshadow-xs, .c-card-frame, .c-card, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-stat-group__label--small, .l-path-detail__conditional .c-checkbox__label {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
@@ -127,7 +127,7 @@
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 2px 6px 8px -5px rgba(0, 0, 0, 0.15); }
 
-.dropshadow-m, .c-lrncard:hover, .c-lrncard--row:hover, .c-herocard, .c-catcard:hover, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-checkbox__label {
+.dropshadow-m, .c-lrncard:hover, .c-lrncard--row:hover, .c-herocard, .c-catcard:hover, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-stat-group__label--small, .l-path-detail__conditional .c-checkbox__label {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1); }
 
@@ -180,7 +180,7 @@ body {
   font-size: 1rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1, h2, h3, .c-stat-group__data, .c-slidemenu__header__title, .l-path-detail__achievement__title, .l-search-results h1, h4, .l-categorieshero h1, .l-path-detail__activities__section__title, h5, .c-expandingmenu__header__title, .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, h6, .c-tagcategory__title, .l-userprofile__summary h1,
+h1, h2, h3, .c-stat-group__data, .c-slidemenu__header__title, .l-path-detail__achievement__title, .l-search-results h1, h4, .l-categorieshero h1, .l-path-detail__activities__section__title, h5, .c-stat-group__data--small, .c-expandingmenu__header__title, .c-persona--med__details p, .c-persona--med__details .c-stat-group__label, .c-persona--med__details .c-stat-group__label--small, .c-persona--med__details .c-checkbox__label, .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-stat-group__label--small, .c-persona--big__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, h6, .c-tagcategory__title, .l-userprofile__summary h1,
 .h1, .h2, .c-herocard__contents .c-herocard__content h1, .h3, .h4, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1, .h6, .c-banner-message__message h1, .c-lrncard__contents .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h1, .c-herocard__contents .c-herocard__content h2, .c-catcard__content h1, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
@@ -202,7 +202,7 @@ h4, .l-categorieshero h1, .l-path-detail__activities__section__title, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .c-expandingmenu__header__title, .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1 {
+h5, .c-stat-group__data--small, .c-expandingmenu__header__title, .c-persona--med__details p, .c-persona--med__details .c-stat-group__label, .c-persona--med__details .c-stat-group__label--small, .c-persona--med__details .c-checkbox__label, .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-stat-group__label--small, .c-persona--big__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
@@ -211,14 +211,14 @@ h6, .c-tagcategory__title, .l-userprofile__summary h1, .h6, .c-banner-message__m
   margin-bottom: 0.875rem;
   font-weight: 600; }
 
-p, .c-stat-group__label, .c-checkbox__label, a, ul, ol, li, pre, td, th, dl, dd, dt, blockquote {
+p, .c-stat-group__label, .c-stat-group__label--small, .c-checkbox__label, a, ul, ol, li, pre, td, th, dl, dd, dt, blockquote {
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.5rem;
   color: inherit;
   margin: 0; }
 
-p, .c-stat-group__label, .c-checkbox__label, ul, ol, blockquote, pre {
+p, .c-stat-group__label, .c-stat-group__label--small, .c-checkbox__label, ul, ol, blockquote, pre {
   margin-bottom: 1.3125rem; }
 
 blockquote {
@@ -532,7 +532,7 @@ img {
   .c-banner-message__message h1 {
     margin: 0;
     line-height: 1.2rem; }
-  .c-banner-message__message p, .c-banner-message__message .c-stat-group__label, .c-banner-message__message .c-checkbox__label {
+  .c-banner-message__message p, .c-banner-message__message .c-stat-group__label, .c-banner-message__message .c-stat-group__label--small, .c-banner-message__message .c-checkbox__label {
     margin: 0; }
 
 .c-banner-message__cta {
@@ -565,9 +565,9 @@ img {
   height: 5px;
   background: #fff; }
 
-.c-bar__status--negative p, .c-bar__status--negative .c-stat-group__label, .c-bar__status--negative .c-checkbox__label {
+.c-bar__status--negative p, .c-bar__status--negative .c-stat-group__label, .c-bar__status--negative .c-stat-group__label--small, .c-bar__status--negative .c-checkbox__label {
   color: rgba(255, 255, 255, 0.65); }
-  .c-bar__status--negative p em, .c-bar__status--negative .c-stat-group__label em, .c-bar__status--negative .c-checkbox__label em {
+  .c-bar__status--negative p em, .c-bar__status--negative .c-stat-group__label em, .c-bar__status--negative .c-stat-group__label--small em, .c-bar__status--negative .c-checkbox__label em {
     color: #fff;
     font-weight: 600;
     font-style: normal; }
@@ -620,6 +620,15 @@ img {
 .c-card {
   padding: 1.3125rem; }
 
+.c-card__section {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-left: -1.3125rem;
+  margin-right: -1.3125rem;
+  margin-top: 1.3125rem;
+  padding-top: 1.3125rem;
+  padding-left: 1.3125rem;
+  padding-right: 1.3125rem; }
+
 .c-lrncard {
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
@@ -644,7 +653,7 @@ img {
     justify-self: end;
     -ms-flex-item-align: center;
         align-self: center; }
-    .c-lrncard__contents .c-lrncard__duration p, .c-lrncard__contents--row .c-lrncard__duration p, .c-lrncard__contents .c-lrncard__duration .c-stat-group__label, .c-lrncard__contents--row .c-lrncard__duration .c-stat-group__label, .c-lrncard__contents .c-lrncard__duration .c-checkbox__label, .c-lrncard__contents--row .c-lrncard__duration .c-checkbox__label {
+    .c-lrncard__contents .c-lrncard__duration p, .c-lrncard__contents--row .c-lrncard__duration p, .c-lrncard__contents .c-lrncard__duration .c-stat-group__label, .c-lrncard__contents--row .c-lrncard__duration .c-stat-group__label, .c-lrncard__contents .c-lrncard__duration .c-stat-group__label--small, .c-lrncard__contents--row .c-lrncard__duration .c-stat-group__label--small, .c-lrncard__contents .c-lrncard__duration .c-checkbox__label, .c-lrncard__contents--row .c-lrncard__duration .c-checkbox__label {
       margin: 0;
       color: rgba(0, 0, 0, 0.5); }
   .c-lrncard__contents .c-lrncard__content, .c-lrncard__contents--row .c-lrncard__content {
@@ -660,7 +669,7 @@ img {
       line-height: 1rem;
       font-weight: 600;
       color: rgba(0, 0, 0, 0.5); }
-    .c-lrncard__contents .c-lrncard__content p, .c-lrncard__contents--row .c-lrncard__content p, .c-lrncard__contents .c-lrncard__content .c-stat-group__label, .c-lrncard__contents--row .c-lrncard__content .c-stat-group__label, .c-lrncard__contents .c-lrncard__content .c-checkbox__label, .c-lrncard__contents--row .c-lrncard__content .c-checkbox__label {
+    .c-lrncard__contents .c-lrncard__content p, .c-lrncard__contents--row .c-lrncard__content p, .c-lrncard__contents .c-lrncard__content .c-stat-group__label, .c-lrncard__contents--row .c-lrncard__content .c-stat-group__label, .c-lrncard__contents .c-lrncard__content .c-stat-group__label--small, .c-lrncard__contents--row .c-lrncard__content .c-stat-group__label--small, .c-lrncard__contents .c-lrncard__content .c-checkbox__label, .c-lrncard__contents--row .c-lrncard__content .c-checkbox__label {
       margin-bottom: 0; }
   .c-lrncard__contents .c-lrncard__cta, .c-lrncard__contents--row .c-lrncard__cta {
     grid-area: cardcta;
@@ -717,7 +726,7 @@ img {
       line-height: 1rem;
       font-weight: 400;
       color: rgba(0, 0, 0, 0.5); }
-    .c-lrncard__contents--row .c-lrncard__content p, .c-lrncard__contents--row .c-lrncard__content .c-stat-group__label, .c-lrncard__contents--row .c-lrncard__content .c-checkbox__label {
+    .c-lrncard__contents--row .c-lrncard__content p, .c-lrncard__contents--row .c-lrncard__content .c-stat-group__label, .c-lrncard__contents--row .c-lrncard__content .c-stat-group__label--small, .c-lrncard__contents--row .c-lrncard__content .c-checkbox__label {
       margin-bottom: 0; }
   .c-lrncard__contents--row .c-lrncard__cta {
     grid-area: cardcta;
@@ -739,14 +748,14 @@ img {
 .c-lrncard--path {
   background-color: #0088ce;
   border: 1px solid #0088ce; }
-  .c-lrncard--path .c-lrncard__duration p, .c-lrncard--path .c-lrncard__duration .c-stat-group__label, .c-lrncard--path .c-lrncard__duration .c-checkbox__label {
+  .c-lrncard--path .c-lrncard__duration p, .c-lrncard--path .c-lrncard__duration .c-stat-group__label, .c-lrncard--path .c-lrncard__duration .c-stat-group__label--small, .c-lrncard--path .c-lrncard__duration .c-checkbox__label {
     margin-bottom: 0;
     color: rgba(255, 255, 255, 0.65); }
   .c-lrncard--path .c-lrncard__content h1 {
     color: #fff; }
   .c-lrncard--path .c-lrncard__content h2 {
     color: rgba(255, 255, 255, 0.65); }
-  .c-lrncard--path .c-lrncard__content p, .c-lrncard--path .c-lrncard__content .c-stat-group__label, .c-lrncard--path .c-lrncard__content .c-checkbox__label {
+  .c-lrncard--path .c-lrncard__content p, .c-lrncard--path .c-lrncard__content .c-stat-group__label, .c-lrncard--path .c-lrncard__content .c-stat-group__label--small, .c-lrncard--path .c-lrncard__content .c-checkbox__label {
     color: #fff; }
   .c-lrncard--path .c-lrncard__icon, .c-lrncard--path .c-lrncard__subicon, .c-lrncard--path .c-tag {
     color: #fff; }
@@ -780,7 +789,7 @@ img {
     justify-self: end;
     -ms-flex-item-align: center;
         align-self: center; }
-    .c-herocard__contents .c-herocard__duration p, .c-herocard__contents .c-herocard__duration .c-stat-group__label, .c-herocard__contents .c-herocard__duration .c-checkbox__label {
+    .c-herocard__contents .c-herocard__duration p, .c-herocard__contents .c-herocard__duration .c-stat-group__label, .c-herocard__contents .c-herocard__duration .c-stat-group__label--small, .c-herocard__contents .c-herocard__duration .c-checkbox__label {
       margin: 0;
       color: rgba(0, 0, 0, 0.5); }
   .c-herocard__contents .c-herocard__content {
@@ -796,7 +805,7 @@ img {
       line-height: 1rem;
       font-weight: 600;
       color: rgba(0, 0, 0, 0.5); }
-    .c-herocard__contents .c-herocard__content p, .c-herocard__contents .c-herocard__content .c-stat-group__label, .c-herocard__contents .c-herocard__content .c-checkbox__label {
+    .c-herocard__contents .c-herocard__content p, .c-herocard__contents .c-herocard__content .c-stat-group__label, .c-herocard__contents .c-herocard__content .c-stat-group__label--small, .c-herocard__contents .c-herocard__content .c-checkbox__label {
       margin-bottom: 0;
       color: rgba(0, 0, 0, 0.5); }
   .c-herocard__contents .c-herocard__cta {
@@ -812,14 +821,14 @@ img {
 .c-herocard--path {
   background-color: #0088ce;
   border: 1px solid #0088ce; }
-  .c-herocard--path .c-herocard__duration p, .c-herocard--path .c-herocard__duration .c-stat-group__label, .c-herocard--path .c-herocard__duration .c-checkbox__label {
+  .c-herocard--path .c-herocard__duration p, .c-herocard--path .c-herocard__duration .c-stat-group__label, .c-herocard--path .c-herocard__duration .c-stat-group__label--small, .c-herocard--path .c-herocard__duration .c-checkbox__label {
     margin-bottom: 0;
     color: rgba(255, 255, 255, 0.65); }
   .c-herocard--path .c-herocard__content h1 {
     color: #fff; }
   .c-herocard--path .c-herocard__content h2 {
     color: rgba(255, 255, 255, 0.65); }
-  .c-herocard--path .c-herocard__content p, .c-herocard--path .c-herocard__content .c-stat-group__label, .c-herocard--path .c-herocard__content .c-checkbox__label {
+  .c-herocard--path .c-herocard__content p, .c-herocard--path .c-herocard__content .c-stat-group__label, .c-herocard--path .c-herocard__content .c-stat-group__label--small, .c-herocard--path .c-herocard__content .c-checkbox__label {
     color: #fff; }
   .c-herocard--path .c-herocard__icon, .c-herocard--path .c-herocard__subicon, .c-herocard--path .c-tag {
     color: #fff; }
@@ -944,7 +953,7 @@ img {
     line-height: 1rem;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.5); }
-  .c-item-table__row__content p, .c-item-table__row__content .c-stat-group__label, .c-item-table__row__content .c-checkbox__label {
+  .c-item-table__row__content p, .c-item-table__row__content .c-stat-group__label, .c-item-table__row__content .c-stat-group__label--small, .c-item-table__row__content .c-checkbox__label {
     margin-bottom: 0;
     color: rgba(0, 0, 0, 0.5); }
 
@@ -970,9 +979,22 @@ img {
   font-weight: 600;
   margin-bottom: 0; }
 
+.c-stat-group__data--small {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: 1.3125rem; }
+
 .c-stat-group__label {
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.5);
+  margin: 0; }
+
+.c-stat-group__label--small {
+  padding-top: 0.1rem;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
   margin: 0; }
 
 .c-big-tabs {
@@ -1119,7 +1141,7 @@ img {
   justify-self: left;
   -ms-flex-item-align: center;
       align-self: center; }
-  .c-persona__details p, .c-persona__details .c-stat-group__label, .c-persona__details .c-checkbox__label {
+  .c-persona__details p, .c-persona__details .c-stat-group__label, .c-persona__details .c-stat-group__label--small, .c-persona__details .c-checkbox__label {
     font-weight: 600;
     margin: 0; }
   .c-persona__details em {
@@ -1127,6 +1149,30 @@ img {
     color: rgba(0, 0, 0, 0.5);
     margin: 0;
     font-style: normal; }
+
+.c-persona--med {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: 1.1875rem;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.c-persona--med__details {
+  text-align: center;
+  margin-top: 0.5rem; }
+  .c-persona--med__details p, .c-persona--med__details .c-stat-group__label, .c-persona--med__details .c-stat-group__label--small, .c-persona--med__details .c-checkbox__label {
+    font-weight: 600;
+    line-height: 1rem;
+    margin-bottom: 0.5rem; }
+  .c-persona--med__details em {
+    display: block;
+    font-style: normal;
+    padding-top: 0.1rem;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0; }
 
 .c-persona--big {
   display: grid;
@@ -1139,11 +1185,12 @@ img {
 
 .c-persona--big__details {
   text-align: center; }
-  .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-checkbox__label {
+  .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-stat-group__label--small, .c-persona--big__details .c-checkbox__label {
     font-weight: 600;
     line-height: 1rem;
     margin-bottom: 1rem; }
   .c-persona--big__details em {
+    font-size: 1rem;
     display: block;
     color: rgba(0, 0, 0, 0.5);
     margin: 0;
@@ -1294,9 +1341,9 @@ img {
   .c-current-path .c-path-progress {
     margin-top: 3rem;
     margin-bottom: 2rem; }
-  .c-current-path p, .c-current-path .c-stat-group__label, .c-current-path .c-checkbox__label {
+  .c-current-path p, .c-current-path .c-stat-group__label, .c-current-path .c-stat-group__label--small, .c-current-path .c-checkbox__label {
     color: rgba(255, 255, 255, 0.65); }
-    .c-current-path p em, .c-current-path .c-stat-group__label em, .c-current-path .c-checkbox__label em {
+    .c-current-path p em, .c-current-path .c-stat-group__label em, .c-current-path .c-stat-group__label--small em, .c-current-path .c-checkbox__label em {
       color: #fff;
       font-weight: 600;
       font-style: normal; }
@@ -1344,7 +1391,7 @@ img {
       -ms-flex-align: center;
           align-items: center;
   color: #fff; }
-  .c-path-metadata p, .c-path-metadata .c-stat-group__label, .c-path-metadata .c-checkbox__label {
+  .c-path-metadata p, .c-path-metadata .c-stat-group__label, .c-path-metadata .c-stat-group__label--small, .c-path-metadata .c-checkbox__label {
     font-weight: 600;
     margin: 0; }
   .c-path-metadata em {
@@ -1651,10 +1698,10 @@ img {
     line-height: 3rem; }
   .c-course-detail__details--title h2 {
     margin-bottom: 2rem; }
-  .c-course-detail__details--title p, .c-course-detail__details--title .c-stat-group__label, .c-course-detail__details--title .c-checkbox__label {
+  .c-course-detail__details--title p, .c-course-detail__details--title .c-stat-group__label, .c-course-detail__details--title .c-stat-group__label--small, .c-course-detail__details--title .c-checkbox__label {
     color: rgba(255, 255, 255, 0.65);
     margin-bottom: 3.875rem; }
-    .c-course-detail__details--title p em, .c-course-detail__details--title .c-stat-group__label em, .c-course-detail__details--title .c-checkbox__label em {
+    .c-course-detail__details--title p em, .c-course-detail__details--title .c-stat-group__label em, .c-course-detail__details--title .c-stat-group__label--small em, .c-course-detail__details--title .c-checkbox__label em {
       color: #fff;
       font-weight: 600;
       font-style: normal; }
@@ -1713,7 +1760,7 @@ img {
 .l-path-detail__activities__section__title {
   line-height: 2rem; }
 
-.l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-checkbox__label {
+.l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-stat-group__label--small, .l-path-detail__conditional .c-checkbox__label {
   padding: 3rem;
   background-color: #fff;
   border-radius: 0.3125rem; }
@@ -1724,7 +1771,7 @@ img {
 .l-path-detail__activities__subsection__description {
   color: rgba(0, 0, 0, 0.5); }
 
-.l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-checkbox__label {
+.l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-stat-group__label--small, .l-path-detail__conditional .c-checkbox__label {
   -webkit-box-shadow: none;
           box-shadow: none;
   padding: 1.1875rem;
@@ -1738,7 +1785,7 @@ img {
 
 .l-path-detail__subconditional {
   padding: 1rem; }
-  .l-path-detail__subconditional p, .l-path-detail__subconditional .c-stat-group__label, .l-path-detail__subconditional .c-checkbox__label {
+  .l-path-detail__subconditional p, .l-path-detail__subconditional .c-stat-group__label, .l-path-detail__subconditional .c-stat-group__label--small, .l-path-detail__subconditional .c-checkbox__label {
     text-align: center;
     text-transform: uppercase;
     margin: 0;
@@ -1746,7 +1793,7 @@ img {
     font-size: 0.9rem;
     font-weight: 600; }
 
-.l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-checkbox__label {
+.l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-stat-group__label--small, .l-path-detail__conditional .c-checkbox__label {
   background: #224063 -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.1)));
   background: #224063 linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1));
   color: #fff;
@@ -1827,5 +1874,5 @@ body {
   display: inline;
   font-weight: 600; }
 
-.c-section-title-block p, .c-section-title-block .c-stat-group__label, .c-section-title-block .c-checkbox__label {
+.c-section-title-block p, .c-section-title-block .c-stat-group__label, .c-section-title-block .c-stat-group__label--small, .c-section-title-block .c-checkbox__label {
   color: rgba(0, 0, 0, 0.5); }

@@ -12,3 +12,13 @@
   @extend .c-card-frame;
   padding: $scale2;
 }
+
+.c-card__section {
+  border-top: 1px solid rgba(0, 0, 0, $color-alpha-faint-line);
+  margin-left: -$scale2;
+  margin-right: -$scale2;
+  margin-top: $scale2;
+  padding-top: $scale2;
+  padding-left: $scale2;
+  padding-right: $scale2;
+}

@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 
 class StatGroup extends React.PureComponent {
 
-  static Data = ({children}) => <p className='c-stat-group__data'>{children}</p>;
-  static Label= ({children}) => <h1 className='c-stat-group__label'>{children}</h1>;
+  static Data = ({children, small}) => {
+    let cls = small ? 'c-stat-group__data--small' : 'c-stat-group__data';
+    return <p className={cls}>{children}</p>
+  };
+
+  static Label= ({children, small}) => {
+    let cls = small ? 'c-stat-group__label--small' : 'c-stat-group__label';
+    return <h1 className={cls}>{children}</h1>
+  };
 
   static defaultProps = {};
   static propTypes = {};

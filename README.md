@@ -5,6 +5,8 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
+[ ] rename persona big and med to personastacked w/ prop for size
+[ ] persona to persona w/ prop for size
 [ ] team persona card
 [ ] card design for ...
     [ ] lynda

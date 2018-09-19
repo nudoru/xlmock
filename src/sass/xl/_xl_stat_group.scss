@@ -2,15 +2,34 @@
   display: inline-block;
   text-align: center;
 }
+
 .c-stat-group__data {
-  display: block;
   @extend h3;
+  display: block;
   font-weight: 600;
   margin-bottom: 0;
 }
+
+.c-stat-group__data--small {
+  @extend h5;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0;
+  line-height: $scale2;
+}
+
 .c-stat-group__label {
   @extend p;
   font-size: $font-size-base;
   color: $text-dim-color;
+  margin: 0;
+}
+
+.c-stat-group__label--small {
+  @extend p;
+  padding-top: 0.1rem;
+  font-size: $font-size-tiny;
+  color: $text-dim-color;
+  font-weight: 600;
   margin: 0;
 }
