@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends React.PureComponent {
 
   state = {
     error: null

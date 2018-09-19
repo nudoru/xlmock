@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
 
-class CheckBox extends React.Component {
+class CheckBox extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {

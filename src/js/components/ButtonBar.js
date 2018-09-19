@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class ButtonBar extends React.Component {
+class ButtonBar extends React.PureComponent {
 
   static Icon = ({children, ...rest}) => <li {...rest}>{children}</li>
 

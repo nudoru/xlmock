@@ -8,7 +8,7 @@ import Persona from "../components/Persona";
 import PersonaBig from "../components/PersonaBig";
 import * as Lorem from '../utils/Lorem';
 
-class UserProfileSummary extends React.Component {
+class UserProfileSummary extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

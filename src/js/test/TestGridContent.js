@@ -25,7 +25,7 @@ const MockCourse = ({asCard}) => <LearningCard type='course' duration='5 hours 3
   <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
 
-class TestGridContent extends React.Component {
+class TestGridContent extends React.PureComponent {
 
   static defaultProps = {
     title          : '',

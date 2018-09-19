@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ModalBlock from "./ModalBlock";
 import ButtonBar from "./ButtonBar";
 
-class SlideMenu extends React.Component {
+class SlideMenu extends React.PureComponent {
 
   static Header = (props) => <div className='c-slidemenu__header' {...props} />;
   static Icon   = (props) => <div

@@ -5,7 +5,7 @@ import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
 
   static defaultProps = {
     onAlertsClick: () => {},

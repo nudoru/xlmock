@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from "../layout/Content";
 
-class Alerts extends React.Component {
+class Alerts extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

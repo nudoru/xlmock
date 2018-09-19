@@ -5,7 +5,7 @@ import {Tabs} from "../components/Tabs";
 import Hero from "../layout/Hero";
 import UserProfileSummary from "../layout/UserProfileSummary";
 
-class UserPaths extends React.Component {
+class UserPaths extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

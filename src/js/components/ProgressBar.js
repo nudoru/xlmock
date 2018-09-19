@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 // show status?
 // positive variant
 
-class ProgressBar extends React.Component {
+class ProgressBar extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {

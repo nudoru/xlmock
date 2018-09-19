@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class VerticalLabelList extends React.Component {
+class VerticalLabelList extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {};

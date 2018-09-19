@@ -8,7 +8,7 @@ import {BigTabs} from "../components/BigTabs";
 import TestGridContent from "../test/TestGridContent";
 import Button from "../components/Button";
 
-class Overview extends React.Component {
+class Overview extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

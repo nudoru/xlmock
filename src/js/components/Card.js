@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Card extends React.Component {
+class Card extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {};

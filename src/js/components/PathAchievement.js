@@ -1,6 +1,6 @@
 import React from 'react';
 
-class PathAchievement extends React.Component {
+class PathAchievement extends React.PureComponent {
 
   static Title = ({children}) => <h1
     className='l-path-detail__achievement__title'>{children}</h1>

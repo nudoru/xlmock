@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
  * visible and hidden classNames to this component
  */
 
-class ModalBlock extends React.Component {
+class ModalBlock extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {

@@ -4,7 +4,7 @@ import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
 import CourseDetailDetails from "../layout/CourseDetailDetails";
 
-class CourseDetailUpcoming extends React.Component {
+class CourseDetailUpcoming extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

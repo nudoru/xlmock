@@ -5,7 +5,7 @@ import {Tabs} from "../components/Tabs";
 import Hero from "../layout/Hero";
 import UserProfileSummary from "../layout/UserProfileSummary";
 
-class UserSettings extends React.Component {
+class UserSettings extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

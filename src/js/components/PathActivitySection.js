@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class PathActivitySection extends React.Component {
+class PathActivitySection extends React.PureComponent {
 
   static Title = ({children, ...rest}) => <h1 className='l-path-detail__activities__section__title' {...rest}>{children}</h1>;
 

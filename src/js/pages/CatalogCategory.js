@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import TestGridContent from "../test/TestGridContent";
 import * as Lorem from '../utils/Lorem';
 
-class CatalogCategory extends React.Component {
+class CatalogCategory extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

@@ -9,7 +9,7 @@ import {Theme} from "../theme/Theme";
 import Card from '../components/Card';
 import * as Lorem from '../utils/Lorem';
 
-class UserProfile extends React.Component {
+class UserProfile extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Tag from "./Tag";
 import SVGIcon from "./SVGIcon";
 
-class HeroPathProgressMetadata extends React.Component {
+class HeroPathProgressMetadata extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {};

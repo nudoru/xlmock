@@ -1,6 +1,6 @@
 import React from 'react';
 
-class AlertBadge extends React.Component {
+class AlertBadge extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

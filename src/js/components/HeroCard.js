@@ -5,7 +5,7 @@ import Button from "./Button";
 import SVGIcon from "./SVGIcon";
 import Tag from './Tag';
 
-class HeroCard extends React.Component {
+class HeroCard extends React.PureComponent {
 
   static defaultProps = {
     type  : 'course',

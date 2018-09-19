@@ -8,7 +8,7 @@ import SlideMenu from "../components/SlideMenu";
 import ExpandingMenu from "../components/ExpandingMenu";
 import CheckBox from "../components/CheckBox";
 
-class Search extends React.Component {
+class Search extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

@@ -8,7 +8,7 @@ import SVGIcon from "./SVGIcon";
  * - Itterate over children and add change handler
  */
 
-class ExpandingMenu extends React.Component {
+class ExpandingMenu extends React.PureComponent {
 
   static defaultProps = {
     open: false

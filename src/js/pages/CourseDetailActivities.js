@@ -5,7 +5,7 @@ import {BigTabs} from "../components/BigTabs";
 import CourseDetailDetails from "../layout/CourseDetailDetails";
 import {TestTagCategories} from "../test/TestTagCategories";
 
-class CourseDetailActivities extends React.Component {
+class CourseDetailActivities extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

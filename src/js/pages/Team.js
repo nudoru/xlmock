@@ -4,7 +4,7 @@ import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
 import Hero from "../layout/Hero";
 
-class Team extends React.Component {
+class Team extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // TODO
 // light positive? this is negative
 
-export class Tabs extends React.Component {
+export class Tabs extends React.PureComponent {
 
   static Tab = (props) => {
     let {children, className} = props;

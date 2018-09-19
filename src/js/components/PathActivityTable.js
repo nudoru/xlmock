@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class PathActivityTable extends React.Component {
+export class PathActivityTable extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};
@@ -22,7 +22,7 @@ export class PathActivityTable extends React.Component {
   }
 }
 
-export class PathActivityRow extends React.Component {
+export class PathActivityRow extends React.PureComponent {
 
   static Icon       = ({children, ...rest}) => <div
     className='l-path-detail__activities__activity__row__icon' {...rest}>{children}</div>

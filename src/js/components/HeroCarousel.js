@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class HeroCarousel extends React.Component {
+class HeroCarousel extends React.PureComponent {
 
   static Content = ({children}) => <div className='l-herocarousel__content'>{children}</div>;
   static Indicators = ({children}) => <div className='l-herocarousel__indicators'>{children}</div>;

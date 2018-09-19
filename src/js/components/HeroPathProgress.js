@@ -19,7 +19,7 @@ const UpnextItem = ({icon, title, metadata})=> <li>
 // TODO
 // break up in to smaller components
 
-class HeroPathProgress extends React.Component {
+class HeroPathProgress extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {};

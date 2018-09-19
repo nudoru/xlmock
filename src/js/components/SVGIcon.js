@@ -250,7 +250,7 @@ const Icon = (props) => {
   }
 };
 
-class SVGIcon extends React.Component {
+class SVGIcon extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {

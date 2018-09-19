@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
 
-class Tag extends React.Component {
+class Tag extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {

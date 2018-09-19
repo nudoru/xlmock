@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TagCategoryGroup extends React.Component {
+class TagCategoryGroup extends React.PureComponent {
 
   static Title = ({children}) => <h2 className='c-tagcategory__title'>{children}</h2>;
 

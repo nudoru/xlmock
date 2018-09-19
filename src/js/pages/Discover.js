@@ -9,7 +9,7 @@ import HeroCard from "../components/HeroCard";
 import * as Lorem from "../utils/Lorem";
 import HeroCarousel from "../components/HeroCarousel";
 
-class Discover extends React.Component {
+class Discover extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};

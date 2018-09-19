@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Coin from "./Coin";
 
-class PersonaBig extends React.Component {
+class PersonaBig extends React.PureComponent {
 
   static Image = ({children}) => <Coin className='c-persona--big__photo' image={children} size='xl'/>;
   static Details = ({children}) => <div className='c-persona--big__details'>{children}</div>;

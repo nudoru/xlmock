@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
-class CategoryCard extends React.Component {
+class CategoryCard extends React.PureComponent {
 
   static Background = ({children}) => <div
     className='c-catcard__background'>{children}</div>;

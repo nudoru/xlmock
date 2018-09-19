@@ -9,7 +9,7 @@ import SVGIcon from "./SVGIcon";
 // space between buttons
 // light / dark variant
 
-class MessageBanner extends React.Component {
+class MessageBanner extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes = {};

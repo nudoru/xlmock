@@ -18,7 +18,7 @@ import Label from "../components/Label";
 import PathAchievement from "../components/PathAchievement";
 import {TestTagCategories} from "../test/TestTagCategories";
 
-class PathDetail extends React.Component {
+class PathDetail extends React.PureComponent {
 
   static defaultProps = {};
   static propTypes    = {};
