@@ -1,0 +1,16 @@
+.c-stat-group {
+  display: inline-block;
+  text-align: center;
+}
+.c-stat-group__data {
+  display: block;
+  @extend h3;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.c-stat-group__label {
+  @extend p;
+  font-size: $font-size-base;
+  color: $text-dim-color;
+  margin: 0;
+}

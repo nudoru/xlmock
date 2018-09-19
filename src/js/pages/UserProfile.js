@@ -7,7 +7,7 @@ import UserProfileSummary from "../layout/UserProfileSummary";
 import {GridFit} from "../components/GridFit";
 import {Theme} from "../theme/Theme";
 import Card from '../components/Card';
-import * as Lorem from '../utils/Lorem';
+import StatGroup from "../components/StatGroup";
 
 class UserProfile extends React.PureComponent {
 
@@ -32,7 +32,8 @@ class UserProfile extends React.PureComponent {
               <Tabs negative className='l-userprofile__nav'>
                 <Tabs.Tab active><Link to='/user'>Profile</Link></Tabs.Tab>
                 <Tabs.Tab><Link to='/userpaths'>Learning Paths</Link></Tabs.Tab>
-                <Tabs.Tab><Link to='/userrecord'>Learning Record</Link></Tabs.Tab>
+                <Tabs.Tab><Link to='/userrecord'>Learning
+                  Record</Link></Tabs.Tab>
                 <Tabs.Tab><Link to='/usersettings'>Settings</Link></Tabs.Tab>
               </Tabs>
             </div>
@@ -43,10 +44,24 @@ class UserProfile extends React.PureComponent {
             <UserProfileSummary/>
             <div className='l-userprofile__content'>
               <GridFit gap={Theme.scale1} min='150px' max='1fr'>
-                <Card className='u-text-center'><h2 className='u-margin-none'>5</h2><br/><span>Paths</span></Card>
-                <Card className='u-text-center'>Blah2</Card>
-                <Card className='u-text-center'>Blah3</Card>
-                <Card className='u-text-center'>Blah4</Card>
+                <Card className='u-text-center'>
+                  <StatGroup>
+                    <StatGroup.Data>2</StatGroup.Data>
+                    <StatGroup.Label>Paths</StatGroup.Label>
+                  </StatGroup>
+                </Card>
+                <Card className='u-text-center'>
+                  <StatGroup>
+                    <StatGroup.Data>42</StatGroup.Data>
+                    <StatGroup.Label>Courses</StatGroup.Label>
+                  </StatGroup>
+                </Card>
+                <Card className='u-text-center'>
+                  <StatGroup>
+                    <StatGroup.Data>102</StatGroup.Data>
+                    <StatGroup.Label>CE Credits</StatGroup.Label>
+                  </StatGroup>
+                </Card>
               </GridFit>
               <div className='u-padded'></div>
               <Card>Stuff</Card>

@@ -13,12 +13,12 @@ class Coin extends React.PureComponent {
 
   static defaultProps = {
     size: 'sm',
-    image : null
+    image: null
   };
 
   static propTypes    = {
-    size: PropTypes.string,
-    image : PropTypes.func
+    // size: PropTypes.string,
+    // image : PropTypes.func
   };
 
   state = {};

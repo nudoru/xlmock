@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
+import { Collapse } from '../utils/Collapse';
 
 /**
  * TODO
@@ -29,7 +30,6 @@ class ExpandingMenu extends React.PureComponent {
   componentDidMount() {}
 
   toggleMenu = () => {
-    console.log('toggle!');
     this.setState({isOpen: !this.state.isOpen});
   };
 
@@ -49,6 +49,7 @@ class ExpandingMenu extends React.PureComponent {
           {this.state.isOpen ? <SVGIcon name='chevron-down'/> : <SVGIcon name='chevron-up'/>}
         </div>
       </div>
+      {/*<Collapse className={contentsCls.join(' ')} expand={this.state.isOpen}>{children}</Collapse>*/}
       <div className={contentsCls.join(' ')}>{children}</div>
     </div>);
   }
