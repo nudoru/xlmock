@@ -26,6 +26,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "emotion": "^9.2.8",
     "gh-pages": "^1.2.0",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.0",

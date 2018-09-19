@@ -4,8 +4,9 @@ import BearPic from "../../img/profiles/bear.jpg";
 import KoalaPic from "../../img/profiles/kowala.jpg";
 import Label from "../components/Label";
 import VerticalLabelList from "../components/VerticalLabelList";
-import UserProfile from "../components/UserProfile";
-import UserProfileBig from "../components/UserProfileBig";
+import Persona from "../components/Persona";
+import PersonaBig from "../components/PersonaBig";
+import * as Lorem from '../utils/Lorem';
 
 class UserProfileSummary extends React.Component {
 
@@ -25,13 +26,13 @@ class UserProfileSummary extends React.Component {
     return (
       <div className='l-userprofile__summary'>
         <div className='l-userprofile__photo'>
-          <UserProfileBig>
-            <UserProfileBig.Image>
+          <PersonaBig>
+            <PersonaBig.Image>
               <img src={RacoonPic}/>
-            </UserProfileBig.Image>
-            <UserProfileBig.Details><p>John Learner</p>
-              <em>Raleigh, NC</em></UserProfileBig.Details>
-          </UserProfileBig>
+            </PersonaBig.Image>
+            <PersonaBig.Details><p>{Lorem.firstLastName()}</p>
+              <em>Raleigh, NC</em></PersonaBig.Details>
+          </PersonaBig>
         </div>
         <hr/>
         <div>
@@ -40,24 +41,24 @@ class UserProfileSummary extends React.Component {
           <h1>Language</h1>
           <p>English</p>
           <h1>Managers</h1>
-          <UserProfile>
-            <UserProfile.Image>
+          <Persona>
+            <Persona.Image>
               <img src={BearPic}/>
-            </UserProfile.Image>
-            <UserProfile.Details>
-              <p>John Smith</p>
+            </Persona.Image>
+            <Persona.Details>
+              <p>{Lorem.firstLastName()}</p>
               <em>Raleigh, NC</em>
-            </UserProfile.Details>
-          </UserProfile>
-          <UserProfile>
-            <UserProfile.Image>
+            </Persona.Details>
+          </Persona>
+          <Persona>
+            <Persona.Image>
               <img src={KoalaPic}/>
-            </UserProfile.Image>
-            <UserProfile.Details>
-              <p>Jane Doe</p>
+            </Persona.Image>
+            <Persona.Details>
+              <p>{Lorem.firstLastName()}</p>
               <em>Westford, MA</em>
-            </UserProfile.Details>
-          </UserProfile>
+            </Persona.Details>
+          </Persona>
           <h1>Audiences</h1>
           <VerticalLabelList>
             <Label>All associates</Label>

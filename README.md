@@ -5,8 +5,9 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-[ ] break out user profile photo areas as components
-[ ] "label list" as component
+[ ] break out user photo on personal as a sep comp - coin
+    [ ] default coin to "PHOTO"
+[ ] team persona card
 [ ] card design for ...
     [ ] lynda
     [ ] kaltura
@@ -29,6 +30,11 @@ Design work by AtlanticBT for Red Hat.
     [ ] animate open / close
     [ ] map over children to handle onChange
     [ ] provide onChange callback
+
+# Later
+
+[ ] React 16.5
+[ ] Babel 7
 
 # Style guide
 

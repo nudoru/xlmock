@@ -5,4 +5,10 @@
   border-radius: $card-radius;
   padding: $scale4;
   border: 1px solid $card-course-color;
+  background: #fff;
+}
+
+.c-card {
+  @extend .c-card-frame;
+  padding: $scale2;
 }

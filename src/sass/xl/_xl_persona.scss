@@ -1,11 +1,11 @@
-.c-userprofile {
+.c-persona {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-gap: $scale0;
   margin-bottom: $scale0;
 }
 
-.c-userprofile__photo {
+.c-persona__photo {
   justify-self: left;
   align-self: center;
   img {
@@ -17,7 +17,7 @@
   }
 }
 
-.c-userprofile__details {
+.c-persona__details {
   justify-self: left;
   align-self: center;
   p {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
 import Hero from "../layout/Hero";
 import HeroPathProgress from "../components/HeroPathProgress";
@@ -56,7 +57,7 @@ class PathDetail extends React.Component {
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
                         <p
-                          className="title"><a href='#'>{Lorem.title(5, 15)}</a><Label>Optional</Label>
+                          className="title"><Link to='/course'>{Lorem.title(5, 15)}</Link><Label>Optional</Label>
                         </p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                         <div className="description">
@@ -69,7 +70,7 @@ class PathDetail extends React.Component {
                       <PathActivityRow.Icon><SVGIcon
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
-                        <p className="title"><a href='#'>{Lorem.title(5, 15)}</a></p>
+                        <p className="title"><Link to='/course'>{Lorem.title(5, 15)}</Link></p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                         <div className="description">
                           <p>{Lorem.sentence(10, 50)}</p>
@@ -95,7 +96,7 @@ class PathDetail extends React.Component {
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
                         <p
-                          className="title"><a href='#'>{Lorem.title(5, 15)}</a><Label>Optional</Label>
+                          className="title"><Link to='/course'>{Lorem.title(5, 15)}</Link><Label>Optional</Label>
                         </p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                         <div className="description">
@@ -109,7 +110,7 @@ class PathDetail extends React.Component {
                       <PathActivityRow.Icon><SVGIcon
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
-                        <p className="title"><a href='#'>{Lorem.title(5, 15)}</a></p>
+                        <p className="title"><Link to='/course'>{Lorem.title(5, 15)}</Link></p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                       </PathActivityRow.Details>
                       <PathActivityRow.Completion><SVGIcon
@@ -132,7 +133,7 @@ class PathDetail extends React.Component {
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
                         <p
-                          className="title"><a href='#'>{Lorem.title(5, 15)}</a><Label>Optional</Label>
+                          className="title"><Link to='/course'>{Lorem.title(5, 15)}</Link><Label>Optional</Label>
                         </p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                         <div className="description">
@@ -146,7 +147,7 @@ class PathDetail extends React.Component {
                       <PathActivityRow.Icon><SVGIcon
                         name='package'/></PathActivityRow.Icon>
                       <PathActivityRow.Details>
-                        <p className="title"><a href='#'>{Lorem.title(5, 15)}</a></p>
+                        <p className="title"><Link to='/course'>{Lorem.title(5, 15)}</Link></p>
                         <p className="metadata">2 hours 30 minutes | Video</p>
                       </PathActivityRow.Details>
                       <PathActivityRow.Completion><SVGIcon

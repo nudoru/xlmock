@@ -1,5 +1,5 @@
 var _currentText      = [],
-    _textSets         = [],
+    _defaultTextSet,
     _maleFirstNames   = [],
     _femaleFirstNames = [],
     _lastNames        = [],
@@ -8,9 +8,7 @@ var _currentText      = [],
     _days,
     _toolbox          = require('./Toolbox');
 
-_textSets = [
-  'Perhaps a re-engineering of your current world view will re-energize your online nomenclature to enable a new holistic interactive enterprise internet communication solution Upscaling the resurgent networking exchange solutions, achieving a breakaway systemic electronic data interchange system synchronization, thereby exploiting technical environments for mission critical broad based capacity constrained systems Fundamentally transforming well designed actionable information whose semantic content is virtually null To more fully clarify the current exchange, a few aggregate issues will require addressing to facilitate this distributed communication venue In integrating non-aligned structures into existing legacy systems, a holistic gateway blueprint is a backward compatible packaging tangible'
-];
+_defaultTextSet = 'Perhaps a re-engineering of your current world view will re-energize your online nomenclature to enable a new holistic interactive enterprise internet communication solution Upscaling the resurgent networking exchange solutions achieving a breakaway systemic electronic data interchange system synchronization thereby exploiting technical environments for mission critical broad based capacity constrained systems Fundamentally transforming well designed actionable information whose semantic content is virtually null To more fully clarify the current exchange a few aggregate issues will require addressing to facilitate this distributed communication venue In integrating non-aligned structures into existing legacy systems a holistic gateway blueprint is a backward compatible packaging tangible';
 
 _lastNames = 'Smith Johnson Williams Jones Brown Davis Miller Wilson Moore Taylor Anderson Thomas Jackson White Harris Martin Thompson Garcia Martinez Robinson Clark Rodriguez Lewis Lee Walker Hall Allen Young Hernandez King Wright Lopez Hill Scott Green Adams Baker Gonzalez Nelson Carter Mitchell Perez Roberts Turner Phillips Campbell Parker Evans Edwards Collins Stewart Sanchez Morris Rogers Reed Cook Morgan Bell Murphy'.split(' ');
 
@@ -24,36 +22,36 @@ _months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augu
 
 _days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
 
-_currentText = _textSets[0].toLowerCase().split(' ');
+_currentText = _defaultTextSet.toLowerCase().split(' ');
 
-function rNumber (min, max) {
+function rNumber(min, max) {
   return _toolbox.rndNumber(min, max);
 }
 
-function rItem (arry) {
+function oneOf(arry) {
   return arry[rNumber(0, arry.length - 1)];
 }
 
-function rItems (num, arry) {
+function severalOf(num, arry) {
   if (num >= arry.length) {
     return arry;
   }
   let res = [];
   for (let i = 0; i < num; i++) {
-    res.push(rItem(arry));
+    res.push(oneOf(arry));
   }
   return res;
 }
 
-function sentence (min, max) {
-  return _toolbox.capitalizeFirstLetterStr(text(min, max)) + rItem(_punctuation);
+function sentence(min, max) {
+  return _toolbox.capitalizeFirstLetterStr(text(min, max)) + oneOf(_punctuation);
 }
 
-function title (min, max) {
+function title(min, max) {
   return _toolbox.toTitleCaseStr(text(min, max));
 }
 
-function paragraph (min, max) {
+function paragraph(min, max) {
   var str   = '',
       delim = ' ',
       len   = rNumber(min, max),
@@ -69,7 +67,7 @@ function paragraph (min, max) {
   return str;
 }
 
-function text (min, max) {
+function text(min, max) {
   var str   = '',
       delim = ' ',
       len   = rNumber(min, max),
@@ -79,25 +77,25 @@ function text (min, max) {
     if (i === len - 1) {
       delim = '';
     }
-    str += rItem(_currentText) + delim;
+    str += oneOf(_currentText) + delim;
   }
 
   return str;
 }
 
-function getFirstName () {
-  return rNumber(0, 1) ? rItem(_maleFirstNames) : rItem(_femaleFirstNames);
+function getFirstName() {
+  return rNumber(0, 1) ? oneOf(_maleFirstNames) : oneOf(_femaleFirstNames);
 }
 
-function getLastName () {
-  return rItem(_lastNames);
+function getLastName() {
+  return oneOf(_lastNames);
 }
 
-function flName () {
+function firstLastName() {
   return getFirstName() + ' ' + getLastName();
 }
 
-function lfName () {
+function lastFirstName() {
   return getLastName() + ', ' + getFirstName();
 }
 
@@ -105,7 +103,7 @@ function lfName () {
  * Better implementation http://stackoverflow.com/questions/9035627/elegant-method-to-generate-array-of-random-dates-within-two-dates
  * @returns {{monthNumber: *, monthName: *, monthDay, weekDayNumber: *, weekDay: *, year}}
  */
-function date () {
+function date() {
   var month = rNumber(0, 11),
       wkday = rNumber(0, 4),
       date  = {
@@ -126,8 +124,8 @@ function date () {
  * http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
  * @returns {string}
  */
-function guid () {
-  function s4 () {
+function guid() {
+  function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
       .substring(1);
@@ -138,14 +136,14 @@ function guid () {
 
 module.exports = {
   rNumber,
-  rItem,
-  rItems,
+  oneOf,
+  severalOf,
   text,
   sentence,
   title,
   paragraph,
-  flName,
-  lfName,
+  firstLastName,
+  lastFirstName,
   date,
   guid
 };

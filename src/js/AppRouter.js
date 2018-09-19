@@ -23,6 +23,9 @@ import CourseDetailResources from "./pages/CourseDetailResources";
 import SlideMenu from "./components/SlideMenu";
 import SVGIcon from "./components/SVGIcon";
 import CatalogCategory from "./pages/CatalogCategory";
+import UserPaths from "./pages/UserPaths";
+import UserRecord from "./pages/UserRecord";
+import UserSettings from "./pages/UserSettings";
 
 const Routes = () => <Switch>
   <Route exact path="/" component={Overview}/>
@@ -32,6 +35,9 @@ const Routes = () => <Switch>
   <Route path="/alerts" component={Alerts}/>
   <Route path="/help" component={Help}/>
   <Route path="/user" component={UserProfile}/>
+  <Route path="/userpaths" component={UserPaths}/>
+  <Route path="/userrecord" component={UserRecord}/>
+  <Route path="/usersettings" component={UserSettings}/>
   <Route path="/course" component={CourseDetail}/>
   <Route path="/courseactivities" component={CourseDetailActivities}/>
   <Route path="/courseupcoming" component={CourseDetailUpcoming}/>
