@@ -5,7 +5,10 @@ import {BigTabs} from "../components/BigTabs";
 import Hero from "../layout/Hero";
 import {GridFit} from "../components/GridFit";
 import {Theme} from "../theme/Theme";
-import TestPersonaCard from "../test/TestPersonaCard";
+import TeamCard from "../components/TeamCard";
+import Button from "../components/Button";
+import TestGridContent from "../test/TestGridContent";
+import MessageBanner from "../components/MessageBanner";
 
 
 class Team extends React.PureComponent {
@@ -35,14 +38,11 @@ class Team extends React.PureComponent {
           </Hero.Content>
         </Hero>
         <Content>
-          <h1>Team members</h1>
-          <GridFit gap={Theme.scale1} min='250px' max='1fr'>
-            <TestPersonaCard/>
-            <TestPersonaCard/>
-            <TestPersonaCard/>
-            <TestPersonaCard/>
-            <TestPersonaCard/>
-          </GridFit>
+          <MessageBanner>Important message!</MessageBanner>
+          <TestGridContent mode='grid' title="Team Members"
+                           badgeCount={0} numPaths={0} numCourses={0} numPeople={10}
+                           allowViewChange
+                           allowSort={false}/>
         </Content>
       </React.Fragment>
     );

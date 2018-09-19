@@ -8,6 +8,8 @@ import Button from "../components/Button";
 import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
+import KoalaPic from "../../img/profiles/kowala.jpg";
+import TeamCard from "../components/TeamCard";
 
 /**
  * For quick mocking of pages
@@ -25,12 +27,22 @@ const MockCourse = ({asCard}) => <LearningCard type='course' duration='5 hours 3
   <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
 
+const MockTeam = ({asCard}) => <TeamCard
+  name={Lorem.firstLastName()}
+  office='Raleigh, NC'
+  image={<img src={KoalaPic} />}
+  paths={Lorem.rNumber(1, 10)}
+  courses={Lorem.rNumber(3, 40)}
+  credits={Lorem.rNumber(0, 100)}
+/>;
+
 class TestGridContent extends React.PureComponent {
 
   static defaultProps = {
     title          : '',
     numPaths       : 5,
     numCourses     : 5,
+    numPeople     : 0,
     badgeCount     : 0,
     mode           : 'list', // list or results
     allowSort      : false,
@@ -42,6 +54,7 @@ class TestGridContent extends React.PureComponent {
     title          : PropTypes.string,
     numPaths       : PropTypes.number,
     numCourses     : PropTypes.number,
+    numPeople     : PropTypes.number,
     badgeCount     : PropTypes.number,
     mode           : PropTypes.string,
     controls       : PropTypes.object,
@@ -81,7 +94,9 @@ class TestGridContent extends React.PureComponent {
           <MockPath key={i} asCard={this.state.isGridView}/>) : [],
         courses = this.props.numCourses ? _.range(this.props.numCourses).map(i =>
           <MockCourse key={i} asCard={this.state.isGridView}/>) : [],
-        content = paths.concat(courses),
+        people = this.props.numPeople ? _.range(this.props.numPeople).map(i =>
+          <MockTeam key={i} asCard={this.state.isGridView}/>) : [],
+        content = paths.concat(courses.concat(people)),
         contentView = this.state.isGridView ? <CardLayout.GridContent>{content}</CardLayout.GridContent> : <CardLayout.ListContent>{content}</CardLayout.ListContent>;
 
     return (<CardLayout title={this.props.title}>
