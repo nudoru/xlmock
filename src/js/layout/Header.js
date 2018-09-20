@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
@@ -24,6 +24,14 @@ class Header extends React.Component {
 
   componentDidMount() {}
 
+  onCatalogClick = () => {
+    this.props.history.push('/catalog');
+  };
+
+  onCalendarClick = () => {
+    this.props.history.push('/calendar');
+  };
+
   render() {
     return (<div className='l-site-header'>
       <div className='l-site-header--mobile'>
@@ -44,10 +52,8 @@ class Header extends React.Component {
           <Link to='/'><img width='250px' src={require('../../img/RHLearning_tool_logo.png')}/></Link>
         </div>
         <div className='c-site-header__nav'>
-          <ul>
-            <li><Link to='/catalog'>Catalog</Link></li>
-            <li><Link to='/calendar'>Calendar</Link></li>
-          </ul>
+          <button onClick={this.onCatalogClick} className='c-header-button'>Catalog</button>
+          <button onClick={this.onCalendarClick} className='c-header-button'>Calendar</button>
         </div>
         <div className='c-site-header__search'>
           <Link to='/search'><SVGIcon name='search' className='u-icon-button--left'/></Link>What do you want to learn?
@@ -63,4 +69,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

@@ -39,7 +39,7 @@ class LearningCard extends React.PureComponent {
     } else {
       this.props.history.push('/course');
     }
-  }
+  };
 
   render() {
     // Pulling out staticContext https://github.com/ReactTraining/react-router/issues/4683

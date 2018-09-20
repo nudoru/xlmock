@@ -32,33 +32,11 @@
 }
 
 .c-site-header__nav {
-  ul {
-    @extend .u-list-plain-horizontal;
-    font-weight: 700;
-    text-transform: uppercase;
-    li {
-      display: inline-block;
-      margin-right: 5px;
-      a {
-        @include transition-all;
-        display: block;
-        height: $scale6;
-        line-height: $scale6;
-        padding: 0 $scale2;
-        background-color: rgba(0,0,0,.25);
-        border-radius: $radius-base;
-        text-align: center;
-        color: #fff;
-        text-decoration: none;
-      }
-      //a:visited, a:active
-      a:hover {
-        background-color: rgba(0,0,0,.35);
-      }
-    }
-    li:last-of-type {
-      margin-right: 0;
-    }
+  button {
+    margin-right: 5px;
+  }
+  button:last-of-type {
+    margin-right: 0;
   }
 }
 

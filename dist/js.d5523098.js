@@ -84142,6 +84142,15 @@ var Header = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
     _this.state = {};
+
+    _this.onCatalogClick = function () {
+      _this.props.history.push('/catalog');
+    };
+
+    _this.onCalendarClick = function () {
+      _this.props.history.push('/calendar');
+    };
+
     return _this;
   }
 
@@ -84223,26 +84232,14 @@ var Header = function (_React$Component) {
             'div',
             { className: 'c-site-header__nav' },
             _react2.default.createElement(
-              'ul',
-              null,
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/catalog' },
-                  'Catalog'
-                )
-              ),
-              _react2.default.createElement(
-                'li',
-                null,
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/calendar' },
-                  'Calendar'
-                )
-              )
+              'button',
+              { onClick: this.onCatalogClick, className: 'c-header-button' },
+              'Catalog'
+            ),
+            _react2.default.createElement(
+              'button',
+              { onClick: this.onCalendarClick, className: 'c-header-button' },
+              'Calendar'
             )
           ),
           _react2.default.createElement(
@@ -84316,7 +84313,7 @@ Header.propTypes = {
   onAlertsClick: _propTypes2.default.func,
   onMobileMenuClick: _propTypes2.default.func
 };
-exports.default = Header;
+exports.default = (0, _reactRouterDom.withRouter)(Header);
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
 'use strict';
 

@@ -1,0 +1,15 @@
+.c-header-button {
+  @include transition-all;
+  height: $scale6;
+  line-height: $scale6;
+  padding: 0 $scale2;
+  border: none;
+  background-color: rgba(0,0,0,.25);
+  border-radius: $radius-base;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0,0,0,.35);
+  }
+}
