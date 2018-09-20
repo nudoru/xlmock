@@ -13,7 +13,7 @@
   padding: $scale2;
 }
 
-.c-card__section {
+.c-card__vsection {
   border-top: 1px solid rgba(0, 0, 0, $color-alpha-faint-line);
   margin-left: -$scale2;
   margin-right: -$scale2;
@@ -21,4 +21,14 @@
   padding-top: $scale2;
   padding-left: $scale2;
   padding-right: $scale2;
+}
+
+.c-card__hsection {
+  border-left: 1px solid rgba(0, 0, 0, $color-alpha-faint-line);
+  margin-top: -$scale2;
+  margin-bottom: -$scale2;
+  margin-left: $scale2;
+  padding-left: $scale2;
+  padding-top: $scale2;
+  padding-bottom: $scale2;
 }

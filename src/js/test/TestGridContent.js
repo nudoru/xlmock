@@ -8,12 +8,31 @@ import Button from "../components/Button";
 import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
-import KoalaPic from "../../img/profiles/kowala.jpg";
 import TeamCard from "../components/TeamCard";
 
 /**
  * For quick mocking of pages
  */
+
+const profilePicks = [
+  require("../../img/profiles/bear.jpg"),
+  require("../../img/profiles/giraffe.jpg"),
+  require("../../img/profiles/guinnipig.jpg"),
+  require("../../img/profiles/osterage.jpg"),
+  require("../../img/profiles/polar.jpg"),
+  require("../../img/profiles/pug.jpg"),
+  require("../../img/profiles/racoon.jpg"),
+  require("../../img/profiles/squirell.jpg"),
+  require("../../img/profiles/taz.jpg"),
+  require("../../img/rover-default-profile.png"),
+  require("../../img/rover-default-profile.png"),
+  require("../../img/rover-default-profile.png"),
+  require("../../img/rover-default-profile.png"),
+  require("../../img/rover-default-profile.png"),
+  require("../../img/rover-default-profile.png"),
+  require("../../img/rover-default-profile.png"),
+  require("../../img/rover-default-profile.png")
+];
 
 const MockPath = ({asCard}) => <LearningCard type='path' duration='42 minutes'
                                      tag='Infrastructure' mobile card={asCard}>
@@ -28,9 +47,10 @@ const MockCourse = ({asCard}) => <LearningCard type='course' duration='5 hours 3
 </LearningCard>;
 
 const MockTeam = ({asCard}) => <TeamCard
+  card={asCard}
   name={Lorem.firstLastName()}
   office='Raleigh, NC'
-  image={<img src={KoalaPic} />}
+  image={<img src={profilePicks[Lorem.rNumber(0, profilePicks.length-1)]} />}
   paths={Lorem.rNumber(1, 10)}
   courses={Lorem.rNumber(3, 40)}
   credits={Lorem.rNumber(0, 100)}

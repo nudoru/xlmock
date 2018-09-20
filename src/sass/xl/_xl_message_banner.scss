@@ -1,28 +1,33 @@
-.c-banner-message {
+.c-message-banner {
   position: relative;
-  background-color: rgba(255,255,255,.1);
+  background-color: $blue-dark;
   border-radius: $radius-base;
-  margin-bottom: $scale2;
+  margin-bottom: $scale-1;
   padding: $scale4;
   display: grid;
-  // grid-template-columns: auto 1fr auto;
   grid-template: "icon message cta" 1fr / auto 1fr auto;
   align-items: center;
   grid-gap: $scale4;
-}
-
-.c-banner-message--negative {
   color: #fff;
+  overflow: hidden;
 }
 
-.c-banner-message__icon {
+.c-message-banner--negative {
+  background-color: rgba(255,255,255,.1);
+}
+
+.c-message-banner__icon {
+  grid-area: icon;
+}
+
+.c-message-banner__boxicon {
   @extend .c-icon_square--large;
   // TODO this needs to be a global color
   background: rgba(255,255,255,.35);
   grid-area: icon;
 }
 
-.c-banner-message__message {
+.c-message-banner__message {
   grid-area: message;
   h1 {
     @extend .h6;
@@ -34,7 +39,7 @@
   }
 }
 
-.c-banner-message__cta {
+.c-message-banner__cta {
   justify-self: end;
   grid-area: cta;
   button {
@@ -43,7 +48,7 @@
 }
 
 @include max-width($content-width-medium) {
-  .c-banner-message {
+  .c-message-banner {
     padding: $scale2;
     grid-template: "icon message" 1fr
     ". cta" auto / auto 1fr;

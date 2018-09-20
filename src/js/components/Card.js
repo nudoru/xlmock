@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class Card extends React.PureComponent {
 
-  static Section = ({children}) => <div className='c-card__section'>{children}</div>;
+  static HSection = ({children}) => <div className='c-card__hsection'>{children}</div>;
+  static VSection = ({children}) => <div className='c-card__vsection'>{children}</div>;
 
   static defaultProps = {};
   static propTypes = {};

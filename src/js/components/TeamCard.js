@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 import StatGroup from './StatGroup';
 import PersonaMed from "./PersonaMed";
-
+import Persona from './Persona';
 import {Theme} from "../theme/Theme";
 import {GridFit} from "./GridFit";
 
@@ -15,7 +15,8 @@ class TeamCard extends React.PureComponent {
     image: null,
     paths: 0,
     courses: 0,
-    credits: 0
+    credits: 0,
+    card: true
   };
   static propTypes    = {
     name: PropTypes.string,
@@ -23,7 +24,8 @@ class TeamCard extends React.PureComponent {
     image: PropTypes.object,
     paths: PropTypes.number,
     courses: PropTypes.number,
-    credits: PropTypes.number
+    credits: PropTypes.number,
+    card: PropTypes.bool
   };
 
   state = {};
@@ -36,7 +38,13 @@ class TeamCard extends React.PureComponent {
   }
 
   render() {
-    const {className = null, name, office, image, courses, paths, credits, ...rest} = this.props;
+    console.log('render team card', this.props.card);
+
+    return this.props.card ? this.renderCard() : this.renderList();
+  }
+
+  renderCard() {
+    const {className = null, name, office, image, courses, paths, credits, card, ...rest} = this.props;
 
     let cls = [''];
     cls.push(className);
@@ -49,7 +57,7 @@ class TeamCard extends React.PureComponent {
         <PersonaMed.Details><p>{name}</p>
           <em>{office}</em></PersonaMed.Details>
       </PersonaMed>
-      <Card.Section>
+      <Card.VSection>
         <GridFit gap={Theme.scale1} min='50px' max='1fr'>
           <StatGroup>
             <StatGroup.Data small>{paths}</StatGroup.Data>
@@ -64,9 +72,44 @@ class TeamCard extends React.PureComponent {
             <StatGroup.Label small>CE Credits</StatGroup.Label>
           </StatGroup>
         </GridFit>
-      </Card.Section>
+      </Card.VSection>
     </Card>);
   }
+
+  renderList() {
+    const {className = null, name, office, image, courses, paths, credits, card, ...rest} = this.props;
+
+    let cls = [''];
+    cls.push(className);
+
+    return (<Card className='c-team-card c-team-card--list' {...rest}>
+      <Persona>
+        <Persona.Image>
+          {image}
+        </Persona.Image>
+        <Persona.Details><p>{name}</p>
+          <em>{office}</em>
+        </Persona.Details>
+      </Persona>
+      <Card.HSection>
+        <GridFit gap={Theme.scale1} min='50px' max='1fr'>
+          <StatGroup>
+            <StatGroup.Data small>{paths}</StatGroup.Data>
+            <StatGroup.Label small>Paths</StatGroup.Label>
+          </StatGroup>
+          <StatGroup>
+            <StatGroup.Data small>{courses}</StatGroup.Data>
+            <StatGroup.Label small>Courses</StatGroup.Label>
+          </StatGroup>
+          <StatGroup>
+            <StatGroup.Data small>{credits}</StatGroup.Data>
+            <StatGroup.Label small>CE Credits</StatGroup.Label>
+          </StatGroup>
+        </GridFit>
+      </Card.HSection>
+    </Card>);
+  }
+
 }
 
 export default TeamCard;

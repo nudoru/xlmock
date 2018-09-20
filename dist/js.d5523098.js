@@ -25642,7 +25642,7 @@ Content.propTypes = {
   fullscreenElement: _propTypes2.default.bool
 };
 exports.default = Content;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/Button.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/MessageBanner.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -25671,19 +25671,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Button = function (_React$PureComponent) {
-  _inherits(Button, _React$PureComponent);
+var MessageBanner = function (_React$PureComponent) {
+  _inherits(MessageBanner, _React$PureComponent);
 
-  function Button(props) {
-    _classCallCheck(this, Button);
+  function MessageBanner(props) {
+    _classCallCheck(this, MessageBanner);
 
-    var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (MessageBanner.__proto__ || Object.getPrototypeOf(MessageBanner)).call(this, props));
 
     _this.state = {};
     return _this;
   }
 
-  _createClass(Button, [{
+  _createClass(MessageBanner, [{
     key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
@@ -25691,43 +25691,167 @@ var Button = function (_React$PureComponent) {
     value: function render() {
       var _props = this.props,
           children = _props.children,
-          primary = _props.primary,
-          secondary = _props.secondary,
-          negative = _props.negative,
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
-          rest = _objectWithoutProperties(_props, ['children', 'primary', 'secondary', 'negative', 'className']);
+          negative = _props.negative,
+          rest = _objectWithoutProperties(_props, ['children', 'className', 'negative']);
 
-      var cls = ['c-button'];
+      var cls = ['c-message-banner'];
 
-      if (primary && !negative) {
-        cls.push('c-button--primary');
-      } else if (primary && negative) {
-        cls.push('c-button--primary-negative');
-      } else if (!primary && negative) {
-        cls.push('c-button--negative');
+      if (negative) {
+        cls.push('c-message-banner--negative');
       }
 
       cls.push(className);
 
       return _react2.default.createElement(
-        'button',
+        'div',
         _extends({ className: cls.join(' ') }, rest),
         children
       );
     }
   }]);
 
-  return Button;
+  return MessageBanner;
 }(_react2.default.PureComponent);
 
-Button.defaultProps = {};
-Button.propTypes = {
-  primary: _propTypes2.default.bool,
-  secondary: _propTypes2.default.bool,
+MessageBanner.Icon = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'c-message-banner__icon' },
+    children
+  );
+};
+
+MessageBanner.BoxedIcon = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'c-message-banner__boxicon' },
+    children
+  );
+};
+
+MessageBanner.Message = function (_ref3) {
+  var children = _ref3.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'c-message-banner__message' },
+    children
+  );
+};
+
+MessageBanner.CTA = function (_ref4) {
+  var children = _ref4.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'c-message-banner__cta' },
+    children
+  );
+};
+
+MessageBanner.defaultProps = {
+  negative: false
+};
+MessageBanner.propTypes = {
   negative: _propTypes2.default.bool
 };
-exports.default = Button;
+exports.default = MessageBanner;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/ProgressBar.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// TODO
+// set %
+// set status note
+// show status?
+// positive variant
+
+var ProgressBar = function (_React$PureComponent) {
+  _inherits(ProgressBar, _React$PureComponent);
+
+  function ProgressBar(props) {
+    _classCallCheck(this, ProgressBar);
+
+    var _this = _possibleConstructorReturn(this, (ProgressBar.__proto__ || Object.getPrototypeOf(ProgressBar)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(ProgressBar, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          percent = _props.percent,
+          status = _props.status;
+
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'c-bar--negative' },
+          _react2.default.createElement('div', { className: 'c-bar__fill--negative', style: { width: percent + '%' } })
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'c-bar__status--negative' },
+          _react2.default.createElement(
+            'p',
+            null,
+            _react2.default.createElement(
+              'em',
+              null,
+              percent,
+              '% Complete'
+            ),
+            status
+          )
+        )
+      );
+    }
+  }]);
+
+  return ProgressBar;
+}(_react2.default.PureComponent);
+
+ProgressBar.defaultProps = {};
+ProgressBar.propTypes = {
+  percent: _propTypes2.default.string,
+  status: _propTypes2.default.string
+};
+exports.default = ProgressBar;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/SVGIcon.js":[function(require,module,exports) {
 'use strict';
 
@@ -26215,194 +26339,6 @@ SVGIcon.propTypes = {
   square: _propTypes2.default.bool
 };
 exports.default = SVGIcon;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/MessageBanner.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Button = require('./Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _SVGIcon = require('./SVGIcon');
-
-var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// TODO
-// icon as prop
-// buttons children
-// space between buttons
-// light / dark variant
-
-var MessageBanner = function (_React$PureComponent) {
-  _inherits(MessageBanner, _React$PureComponent);
-
-  function MessageBanner(props) {
-    _classCallCheck(this, MessageBanner);
-
-    var _this = _possibleConstructorReturn(this, (MessageBanner.__proto__ || Object.getPrototypeOf(MessageBanner)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(MessageBanner, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'c-banner-message c-banner-message--negative' },
-        _react2.default.createElement(
-          'div',
-          { className: 'c-banner-message__icon' },
-          _react2.default.createElement(_SVGIcon2.default, { name: 'flag' })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'c-banner-message__message' },
-          _react2.default.createElement(
-            'h1',
-            null,
-            this.props.children
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'c-banner-message__cta' },
-          _react2.default.createElement(
-            _Button2.default,
-            { negative: true },
-            'Dismiss'
-          ),
-          _react2.default.createElement(
-            _Button2.default,
-            { primary: true, negative: true },
-            'View class'
-          )
-        )
-      );
-    }
-  }]);
-
-  return MessageBanner;
-}(_react2.default.PureComponent);
-
-MessageBanner.defaultProps = {};
-MessageBanner.propTypes = {};
-exports.default = MessageBanner;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/ProgressBar.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// TODO
-// set %
-// set status note
-// show status?
-// positive variant
-
-var ProgressBar = function (_React$PureComponent) {
-  _inherits(ProgressBar, _React$PureComponent);
-
-  function ProgressBar(props) {
-    _classCallCheck(this, ProgressBar);
-
-    var _this = _possibleConstructorReturn(this, (ProgressBar.__proto__ || Object.getPrototypeOf(ProgressBar)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(ProgressBar, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          percent = _props.percent,
-          status = _props.status;
-
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          { className: 'c-bar--negative' },
-          _react2.default.createElement('div', { className: 'c-bar__fill--negative', style: { width: percent + '%' } })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'c-bar__status--negative' },
-          _react2.default.createElement(
-            'p',
-            null,
-            _react2.default.createElement(
-              'em',
-              null,
-              percent,
-              '% Complete'
-            ),
-            status
-          )
-        )
-      );
-    }
-  }]);
-
-  return ProgressBar;
-}(_react2.default.PureComponent);
-
-ProgressBar.defaultProps = {};
-ProgressBar.propTypes = {
-  percent: _propTypes2.default.string,
-  status: _propTypes2.default.string
-};
-exports.default = ProgressBar;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/utils/Toolbox.js":[function(require,module,exports) {
 var _this = this;
 
@@ -27131,6 +27067,92 @@ BigTabs.propTypes = {
 var _initialiseProps = function _initialiseProps() {
   this.state = {};
 };
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/Button.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Button = function (_React$PureComponent) {
+  _inherits(Button, _React$PureComponent);
+
+  function Button(props) {
+    _classCallCheck(this, Button);
+
+    var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Button, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          children = _props.children,
+          primary = _props.primary,
+          secondary = _props.secondary,
+          negative = _props.negative,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          rest = _objectWithoutProperties(_props, ['children', 'primary', 'secondary', 'negative', 'className']);
+
+      var cls = ['c-button'];
+
+      if (primary && !negative) {
+        cls.push('c-button--primary');
+      } else if (primary && negative) {
+        cls.push('c-button--primary-negative');
+      } else if (!primary && negative) {
+        cls.push('c-button--negative');
+      }
+
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'button',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Button;
+}(_react2.default.PureComponent);
+
+Button.defaultProps = {};
+Button.propTypes = {
+  primary: _propTypes2.default.bool,
+  secondary: _propTypes2.default.bool,
+  negative: _propTypes2.default.bool
+};
+exports.default = Button;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/Tag.js":[function(require,module,exports) {
 'use strict';
 
@@ -46803,9 +46825,7 @@ var AlertBadge = function (_React$PureComponent) {
 AlertBadge.defaultProps = {};
 AlertBadge.propTypes = {};
 exports.default = AlertBadge;
-},{"react":"../../node_modules/react/index.js"}],"../img/profiles/kowala.jpg":[function(require,module,exports) {
-module.exports = "/kowala.db3b0f15.jpg";
-},{}],"../js/components/Card.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../js/components/Card.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46871,11 +46891,20 @@ var Card = function (_React$PureComponent) {
   return Card;
 }(_react2.default.PureComponent);
 
-Card.Section = function (_ref) {
+Card.HSection = function (_ref) {
   var children = _ref.children;
   return _react2.default.createElement(
     'div',
-    { className: 'c-card__section' },
+    { className: 'c-card__hsection' },
+    children
+  );
+};
+
+Card.VSection = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-card__vsection' },
     children
   );
 };
@@ -48530,6 +48559,81 @@ PersonaMed.Details = function (_ref2) {
 PersonaMed.defaultProps = {};
 PersonaMed.propTypes = {};
 exports.default = PersonaMed;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Coin":"../js/components/Coin.js"}],"../js/components/Persona.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Coin = require('./Coin');
+
+var _Coin2 = _interopRequireDefault(_Coin);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Persona = function (_React$PureComponent) {
+  _inherits(Persona, _React$PureComponent);
+
+  function Persona(props) {
+    _classCallCheck(this, Persona);
+
+    var _this = _possibleConstructorReturn(this, (Persona.__proto__ || Object.getPrototypeOf(Persona)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Persona, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-persona' },
+        this.props.children
+      );
+    }
+  }]);
+
+  return Persona;
+}(_react2.default.PureComponent);
+
+Persona.Image = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(_Coin2.default, { className: 'c-persona__photo', image: children, size: 'sm' });
+};
+
+Persona.Details = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-persona__details' },
+    children
+  );
+};
+
+Persona.defaultProps = {};
+Persona.propTypes = {};
+exports.default = Persona;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Coin":"../js/components/Coin.js"}],"../js/theme/Theme.js":[function(require,module,exports) {
 'use strict';
 
@@ -48622,6 +48726,10 @@ var _PersonaMed = require('./PersonaMed');
 
 var _PersonaMed2 = _interopRequireDefault(_PersonaMed);
 
+var _Persona = require('./Persona');
+
+var _Persona2 = _interopRequireDefault(_Persona);
+
 var _Theme = require('../theme/Theme');
 
 var _GridFit = require('./GridFit');
@@ -48654,6 +48762,13 @@ var TeamCard = function (_React$PureComponent) {
   }, {
     key: 'render',
     value: function render() {
+      console.log('render team card', this.props.card);
+
+      return this.props.card ? this.renderCard() : this.renderList();
+    }
+  }, {
+    key: 'renderCard',
+    value: function renderCard() {
       var _props = this.props,
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
@@ -48663,7 +48778,8 @@ var TeamCard = function (_React$PureComponent) {
           courses = _props.courses,
           paths = _props.paths,
           credits = _props.credits,
-          rest = _objectWithoutProperties(_props, ['className', 'name', 'office', 'image', 'courses', 'paths', 'credits']);
+          card = _props.card,
+          rest = _objectWithoutProperties(_props, ['className', 'name', 'office', 'image', 'courses', 'paths', 'credits', 'card']);
 
       var cls = [''];
       cls.push(className);
@@ -48695,7 +48811,103 @@ var TeamCard = function (_React$PureComponent) {
           )
         ),
         _react2.default.createElement(
-          _Card2.default.Section,
+          _Card2.default.VSection,
+          null,
+          _react2.default.createElement(
+            _GridFit.GridFit,
+            { gap: _Theme.Theme.scale1, min: '50px', max: '1fr' },
+            _react2.default.createElement(
+              _StatGroup2.default,
+              null,
+              _react2.default.createElement(
+                _StatGroup2.default.Data,
+                { small: true },
+                paths
+              ),
+              _react2.default.createElement(
+                _StatGroup2.default.Label,
+                { small: true },
+                'Paths'
+              )
+            ),
+            _react2.default.createElement(
+              _StatGroup2.default,
+              null,
+              _react2.default.createElement(
+                _StatGroup2.default.Data,
+                { small: true },
+                courses
+              ),
+              _react2.default.createElement(
+                _StatGroup2.default.Label,
+                { small: true },
+                'Courses'
+              )
+            ),
+            _react2.default.createElement(
+              _StatGroup2.default,
+              null,
+              _react2.default.createElement(
+                _StatGroup2.default.Data,
+                { small: true },
+                credits
+              ),
+              _react2.default.createElement(
+                _StatGroup2.default.Label,
+                { small: true },
+                'CE Credits'
+              )
+            )
+          )
+        )
+      );
+    }
+  }, {
+    key: 'renderList',
+    value: function renderList() {
+      var _props2 = this.props,
+          _props2$className = _props2.className,
+          className = _props2$className === undefined ? null : _props2$className,
+          name = _props2.name,
+          office = _props2.office,
+          image = _props2.image,
+          courses = _props2.courses,
+          paths = _props2.paths,
+          credits = _props2.credits,
+          card = _props2.card,
+          rest = _objectWithoutProperties(_props2, ['className', 'name', 'office', 'image', 'courses', 'paths', 'credits', 'card']);
+
+      var cls = [''];
+      cls.push(className);
+
+      return _react2.default.createElement(
+        _Card2.default,
+        _extends({ className: 'c-team-card c-team-card--list' }, rest),
+        _react2.default.createElement(
+          _Persona2.default,
+          null,
+          _react2.default.createElement(
+            _Persona2.default.Image,
+            null,
+            image
+          ),
+          _react2.default.createElement(
+            _Persona2.default.Details,
+            null,
+            _react2.default.createElement(
+              'p',
+              null,
+              name
+            ),
+            _react2.default.createElement(
+              'em',
+              null,
+              office
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _Card2.default.HSection,
           null,
           _react2.default.createElement(
             _GridFit.GridFit,
@@ -48757,7 +48969,8 @@ TeamCard.defaultProps = {
   image: null,
   paths: 0,
   courses: 0,
-  credits: 0
+  credits: 0,
+  card: true
 };
 TeamCard.propTypes = {
   name: _propTypes2.default.string,
@@ -48765,10 +48978,31 @@ TeamCard.propTypes = {
   image: _propTypes2.default.object,
   paths: _propTypes2.default.number,
   courses: _propTypes2.default.number,
-  credits: _propTypes2.default.number
+  credits: _propTypes2.default.number,
+  card: _propTypes2.default.bool
 };
 exports.default = TeamCard;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Card":"../js/components/Card.js","./StatGroup":"../js/components/StatGroup.js","./PersonaMed":"../js/components/PersonaMed.js","../theme/Theme":"../js/theme/Theme.js","./GridFit":"../js/components/GridFit.js"}],"../js/test/TestGridContent.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Card":"../js/components/Card.js","./StatGroup":"../js/components/StatGroup.js","./PersonaMed":"../js/components/PersonaMed.js","./Persona":"../js/components/Persona.js","../theme/Theme":"../js/theme/Theme.js","./GridFit":"../js/components/GridFit.js"}],"../img/profiles/bear.jpg":[function(require,module,exports) {
+module.exports = "/bear.ab0ae544.jpg";
+},{}],"../img/profiles/giraffe.jpg":[function(require,module,exports) {
+module.exports = "/giraffe.202538e8.jpg";
+},{}],"../img/profiles/guinnipig.jpg":[function(require,module,exports) {
+module.exports = "/guinnipig.a991296f.jpg";
+},{}],"../img/profiles/osterage.jpg":[function(require,module,exports) {
+module.exports = "/osterage.8493606b.jpg";
+},{}],"../img/profiles/polar.jpg":[function(require,module,exports) {
+module.exports = "/polar.41a7258c.jpg";
+},{}],"../img/profiles/pug.jpg":[function(require,module,exports) {
+module.exports = "/pug.7ab40e34.jpg";
+},{}],"../img/profiles/racoon.jpg":[function(require,module,exports) {
+module.exports = "/racoon.b99372cf.jpg";
+},{}],"../img/profiles/squirell.jpg":[function(require,module,exports) {
+module.exports = "/squirell.413d2e45.jpg";
+},{}],"../img/profiles/taz.jpg":[function(require,module,exports) {
+module.exports = "/taz.d8512afe.jpg";
+},{}],"../img/rover-default-profile.png":[function(require,module,exports) {
+module.exports = "/rover-default-profile.a4004bd7.png";
+},{}],"../js/test/TestGridContent.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -48817,10 +49051,6 @@ var _AlertBadge = require('../components/AlertBadge');
 
 var _AlertBadge2 = _interopRequireDefault(_AlertBadge);
 
-var _kowala = require('../../img/profiles/kowala.jpg');
-
-var _kowala2 = _interopRequireDefault(_kowala);
-
 var _TeamCard = require('../components/TeamCard');
 
 var _TeamCard2 = _interopRequireDefault(_TeamCard);
@@ -48838,6 +49068,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /**
  * For quick mocking of pages
  */
+
+var profilePicks = [require("../../img/profiles/bear.jpg"), require("../../img/profiles/giraffe.jpg"), require("../../img/profiles/guinnipig.jpg"), require("../../img/profiles/osterage.jpg"), require("../../img/profiles/polar.jpg"), require("../../img/profiles/pug.jpg"), require("../../img/profiles/racoon.jpg"), require("../../img/profiles/squirell.jpg"), require("../../img/profiles/taz.jpg"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png")];
 
 var MockPath = function MockPath(_ref) {
   var asCard = _ref.asCard;
@@ -48880,9 +49112,10 @@ var MockCourse = function MockCourse(_ref2) {
 var MockTeam = function MockTeam(_ref3) {
   var asCard = _ref3.asCard;
   return _react2.default.createElement(_TeamCard2.default, {
+    card: asCard,
     name: Lorem.firstLastName(),
     office: 'Raleigh, NC',
-    image: _react2.default.createElement('img', { src: _kowala2.default }),
+    image: _react2.default.createElement('img', { src: profilePicks[Lorem.rNumber(0, profilePicks.length - 1)] }),
     paths: Lorem.rNumber(1, 10),
     courses: Lorem.rNumber(3, 40),
     credits: Lorem.rNumber(0, 100)
@@ -49052,7 +49285,7 @@ TestGridContent.propTypes = {
   grid: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","../components/TeamCard":"../js/components/TeamCard.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/pages/Overview.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49092,6 +49325,16 @@ var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
 var _Button = require('../components/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
+
+var _SVGIcon = require('../components/SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _Lorem = require('../utils/Lorem');
+
+var Lorem = _interopRequireWildcard(_Lorem);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49139,8 +49382,40 @@ var Overview = function (_React$PureComponent) {
             null,
             _react2.default.createElement(
               _MessageBanner2.default,
-              null,
-              'Important message!'
+              { negative: true },
+              _react2.default.createElement(
+                _MessageBanner2.default.BoxedIcon,
+                null,
+                _react2.default.createElement(_SVGIcon2.default, { name: 'flag' })
+              ),
+              _react2.default.createElement(
+                _MessageBanner2.default.Message,
+                null,
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  Lorem.sentence(5, 10)
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  Lorem.sentence(10, 30)
+                )
+              ),
+              _react2.default.createElement(
+                _MessageBanner2.default.CTA,
+                null,
+                _react2.default.createElement(
+                  _Button2.default,
+                  { negative: true },
+                  'Dismiss'
+                ),
+                _react2.default.createElement(
+                  _Button2.default,
+                  { primary: true, negative: true },
+                  'View class'
+                )
+              )
             ),
             _react2.default.createElement(
               _BigTabs.BigTabs,
@@ -49221,7 +49496,7 @@ var Overview = function (_React$PureComponent) {
 Overview.defaultProps = {};
 Overview.propTypes = {};
 exports.default = (0, _reactRouterDom.withRouter)(Overview);
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/BigTabs":"../js/components/BigTabs.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Button":"../js/components/Button.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/BigTabs":"../js/components/BigTabs.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49779,10 +50054,8 @@ Tabs.propTypes = {
 var _initialiseProps = function _initialiseProps() {
   this.state = {};
 };
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/profiles/racoon.jpg":[function(require,module,exports) {
-module.exports = "/racoon.b99372cf.jpg";
-},{}],"../img/profiles/bear.jpg":[function(require,module,exports) {
-module.exports = "/bear.ab0ae544.jpg";
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/profiles/kowala.jpg":[function(require,module,exports) {
+module.exports = "/kowala.db3b0f15.jpg";
 },{}],"../js/components/Label.js":[function(require,module,exports) {
 'use strict';
 
@@ -49918,82 +50191,7 @@ var VerticalLabelList = function (_React$PureComponent) {
 VerticalLabelList.defaultProps = {};
 VerticalLabelList.propTypes = {};
 exports.default = VerticalLabelList;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/Persona.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Coin = require('./Coin');
-
-var _Coin2 = _interopRequireDefault(_Coin);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Persona = function (_React$PureComponent) {
-  _inherits(Persona, _React$PureComponent);
-
-  function Persona(props) {
-    _classCallCheck(this, Persona);
-
-    var _this = _possibleConstructorReturn(this, (Persona.__proto__ || Object.getPrototypeOf(Persona)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Persona, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'c-persona' },
-        this.props.children
-      );
-    }
-  }]);
-
-  return Persona;
-}(_react2.default.PureComponent);
-
-Persona.Image = function (_ref) {
-  var children = _ref.children;
-  return _react2.default.createElement(_Coin2.default, { className: 'c-persona__photo', image: children, size: 'sm' });
-};
-
-Persona.Details = function (_ref2) {
-  var children = _ref2.children;
-  return _react2.default.createElement(
-    'div',
-    { className: 'c-persona__details' },
-    children
-  );
-};
-
-Persona.defaultProps = {};
-Persona.propTypes = {};
-exports.default = Persona;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Coin":"../js/components/Coin.js"}],"../js/components/PersonaBig.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/PersonaBig.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -85033,7 +85231,77 @@ var Discover = function (_React$PureComponent) {
 Discover.defaultProps = {};
 Discover.propTypes = {};
 exports.default = Discover;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/HeroCard":"../js/components/HeroCard.js","../utils/Lorem":"../js/utils/Lorem.js","../components/HeroCarousel":"../js/components/HeroCarousel.js"}],"../js/pages/Team.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/HeroCard":"../js/components/HeroCard.js","../utils/Lorem":"../js/utils/Lorem.js","../components/HeroCarousel":"../js/components/HeroCarousel.js"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MessageBannerGroup = function (_React$PureComponent) {
+  _inherits(MessageBannerGroup, _React$PureComponent);
+
+  function MessageBannerGroup(props) {
+    _classCallCheck(this, MessageBannerGroup);
+
+    var _this = _possibleConstructorReturn(this, (MessageBannerGroup.__proto__ || Object.getPrototypeOf(MessageBannerGroup)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(MessageBannerGroup, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var cls = ['c-message-banner__group'];
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return MessageBannerGroup;
+}(_react2.default.PureComponent);
+
+MessageBannerGroup.defaultProps = {};
+MessageBannerGroup.propTypes = {};
+exports.default = MessageBannerGroup;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Team.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -85058,14 +85326,6 @@ var _Hero = require('../layout/Hero');
 
 var _Hero2 = _interopRequireDefault(_Hero);
 
-var _GridFit = require('../components/GridFit');
-
-var _Theme = require('../theme/Theme');
-
-var _TeamCard = require('../components/TeamCard');
-
-var _TeamCard2 = _interopRequireDefault(_TeamCard);
-
 var _Button = require('../components/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
@@ -85077,6 +85337,28 @@ var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
 var _MessageBanner = require('../components/MessageBanner');
 
 var _MessageBanner2 = _interopRequireDefault(_MessageBanner);
+
+var _Lorem = require('../utils/Lorem');
+
+var Lorem = _interopRequireWildcard(_Lorem);
+
+var _racoon = require('../../img/profiles/racoon.jpg');
+
+var _racoon2 = _interopRequireDefault(_racoon);
+
+var _kowala = require('../../img/profiles/kowala.jpg');
+
+var _kowala2 = _interopRequireDefault(_kowala);
+
+var _Coin = require('../components/Coin');
+
+var _Coin2 = _interopRequireDefault(_Coin);
+
+var _MessageBannerGroup = require('../components/MessageBannerGroup');
+
+var _MessageBannerGroup2 = _interopRequireDefault(_MessageBannerGroup);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -85150,14 +85432,98 @@ var Team = function (_React$PureComponent) {
           _Content2.default,
           null,
           _react2.default.createElement(
-            _MessageBanner2.default,
+            _MessageBannerGroup2.default,
             null,
-            'Important message!'
+            _react2.default.createElement(
+              _MessageBanner2.default,
+              null,
+              _react2.default.createElement(
+                _MessageBanner2.default.Icon,
+                null,
+                _react2.default.createElement(_Coin2.default, { image: _react2.default.createElement('img', { src: _racoon2.default }), size: 'lg' })
+              ),
+              _react2.default.createElement(
+                _MessageBanner2.default.Message,
+                null,
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  Lorem.sentence(5, 10)
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  Lorem.sentence(10, 30)
+                )
+              ),
+              _react2.default.createElement(
+                _MessageBanner2.default.CTA,
+                null,
+                _react2.default.createElement(
+                  _Button2.default,
+                  { negative: true },
+                  'Deny'
+                ),
+                _react2.default.createElement(
+                  _Button2.default,
+                  { primary: true, negative: true },
+                  'Approve'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              _MessageBanner2.default,
+              null,
+              _react2.default.createElement(
+                _MessageBanner2.default.Icon,
+                null,
+                _react2.default.createElement(_Coin2.default, { image: _react2.default.createElement('img', { src: _kowala2.default }), size: 'lg' })
+              ),
+              _react2.default.createElement(
+                _MessageBanner2.default.Message,
+                null,
+                _react2.default.createElement(
+                  'h1',
+                  null,
+                  Lorem.sentence(5, 10)
+                ),
+                _react2.default.createElement(
+                  'p',
+                  null,
+                  Lorem.sentence(10, 30)
+                )
+              ),
+              _react2.default.createElement(
+                _MessageBanner2.default.CTA,
+                null,
+                _react2.default.createElement(
+                  _Button2.default,
+                  { negative: true },
+                  'Deny'
+                ),
+                _react2.default.createElement(
+                  _Button2.default,
+                  { primary: true, negative: true },
+                  'Approve'
+                )
+              )
+            )
           ),
           _react2.default.createElement(_TestGridContent2.default, { mode: 'grid', title: 'Team Members',
-            badgeCount: 0, numPaths: 0, numCourses: 0, numPeople: 10,
+            badgeCount: 0, numPaths: 0, numCourses: 0,
+            numPeople: 10,
             allowViewChange: true,
-            allowSort: false })
+            allowSort: false }),
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Team analytics and path progress here ...'
+          ),
+          _react2.default.createElement(
+            'p',
+            null,
+            'Coming soon'
+          )
         )
       );
     }
@@ -85169,7 +85535,7 @@ var Team = function (_React$PureComponent) {
 Team.defaultProps = {};
 Team.propTypes = {};
 exports.default = Team;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/GridFit":"../js/components/GridFit.js","../theme/Theme":"../js/theme/Theme.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/MessageBanner":"../js/components/MessageBanner.js"}],"../js/pages/CourseDetailActivities.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/MessageBanner":"../js/components/MessageBanner.js","../utils/Lorem":"../js/utils/Lorem.js","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/kowala.jpg":"../img/profiles/kowala.jpg","../components/Coin":"../js/components/Coin.js","../components/MessageBannerGroup":"../js/components/MessageBannerGroup.js"}],"../js/pages/CourseDetailActivities.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

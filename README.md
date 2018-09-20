@@ -5,16 +5,19 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
+![ ] drop down catalog menu and flow
+    [ ] catalog screen
+![ ] help / wiki page
+[ ] message banner as negative and normal
+[ ] profile photo on message banner (for team page)
 [ ] rename persona big and med to personastacked w/ prop for size
 [ ] persona to persona w/ prop for size
-[ ] team persona card
 [ ] card design for ...
     [ ] lynda
     [ ] kaltura
 [ ] team / dashboard screen
 [ ] profile layout
 [ ] profile screens
-[ ] catalog screen
 
 # TODO Functionality
 

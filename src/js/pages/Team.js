@@ -3,13 +3,15 @@ import {Link} from 'react-router-dom';
 import Content from "../layout/Content";
 import {BigTabs} from "../components/BigTabs";
 import Hero from "../layout/Hero";
-import {GridFit} from "../components/GridFit";
-import {Theme} from "../theme/Theme";
-import TeamCard from "../components/TeamCard";
 import Button from "../components/Button";
 import TestGridContent from "../test/TestGridContent";
 import MessageBanner from "../components/MessageBanner";
+import * as Lorem from "../utils/Lorem";
 
+import RacoonPic from "../../img/profiles/racoon.jpg";
+import KoalaPic from "../../img/profiles/kowala.jpg";
+import Coin from "../components/Coin";
+import MessageBannerGroup from "../components/MessageBannerGroup";
 
 class Team extends React.PureComponent {
 
@@ -38,11 +40,41 @@ class Team extends React.PureComponent {
           </Hero.Content>
         </Hero>
         <Content>
-          <MessageBanner>Important message!</MessageBanner>
+          <MessageBannerGroup>
+            <MessageBanner>
+              <MessageBanner.Icon>
+                <Coin image={<img src={RacoonPic}/>} size='lg'/>
+              </MessageBanner.Icon>
+              <MessageBanner.Message>
+                <h1>{Lorem.sentence(5, 10)}</h1>
+                <p>{Lorem.sentence(10, 30)}</p>
+              </MessageBanner.Message>
+              <MessageBanner.CTA>
+                <Button negative>Deny</Button>
+                <Button primary negative>Approve</Button>
+              </MessageBanner.CTA>
+            </MessageBanner>
+            <MessageBanner>
+              <MessageBanner.Icon>
+                <Coin image={<img src={KoalaPic}/>} size='lg'/>
+              </MessageBanner.Icon>
+              <MessageBanner.Message>
+                <h1>{Lorem.sentence(5, 10)}</h1>
+                <p>{Lorem.sentence(10, 30)}</p>
+              </MessageBanner.Message>
+              <MessageBanner.CTA>
+                <Button negative>Deny</Button>
+                <Button primary negative>Approve</Button>
+              </MessageBanner.CTA>
+            </MessageBanner>
+          </MessageBannerGroup>
           <TestGridContent mode='grid' title="Team Members"
-                           badgeCount={0} numPaths={0} numCourses={0} numPeople={10}
+                           badgeCount={0} numPaths={0} numCourses={0}
+                           numPeople={10}
                            allowViewChange
                            allowSort={false}/>
+          <h3>Team analytics and path progress here ...</h3>
+          <p>Coming soon</p>
         </Content>
       </React.Fragment>
     );

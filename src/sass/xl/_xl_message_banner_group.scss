@@ -1,0 +1,15 @@
+.c-message-banner__group {
+  margin-bottom: $scale6;
+  .c-message-banner {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+  & > div:first-child {
+    border-radius: $radius-base $radius-base 0 0;
+    border-bottom: 1px solid rgba(255,255,255, $color-alpha-faint-line);
+  }
+  & > div:last-child {
+    border-radius: 0 0 $radius-base $radius-base;
+    border-bottom: none;
+  }
+}

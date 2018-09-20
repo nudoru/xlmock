@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from "./Button";
-import SVGIcon from "./SVGIcon";
-
-// TODO
-// icon as prop
-// buttons children
-// space between buttons
-// light / dark variant
 
 class MessageBanner extends React.PureComponent {
 
-  static defaultProps = {};
-  static propTypes = {};
+  static Icon = ({children}) => <div
+    className='c-message-banner__icon'>{children}</div>;
+  static BoxedIcon = ({children}) => <div
+    className='c-message-banner__boxicon'>{children}</div>;
+  static Message   = ({children}) => <div
+    className='c-message-banner__message'>{children}</div>;
+  static CTA       = ({children}) => <div
+    className='c-message-banner__cta'>{children}</div>;
+
+  static defaultProps = {
+    negative: false
+  };
+  static propTypes    = {
+    negative: PropTypes.bool
+  };
 
   state = {};
 
@@ -20,20 +25,22 @@ class MessageBanner extends React.PureComponent {
     super(props);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+  }
 
   render() {
-    return (<div className='c-banner-message c-banner-message--negative'>
-      <div className='c-banner-message__icon'>
-        <SVGIcon name='flag'/>
-      </div>
-      <div className='c-banner-message__message'>
-        <h1>{this.props.children}</h1>
-      </div>
-      <div className='c-banner-message__cta'>
-        <Button negative>Dismiss</Button>
-        <Button primary negative>View class</Button>
-      </div>
+    const {children, className = null, negative, ...rest} = this.props;
+
+    let cls = ['c-message-banner'];
+
+    if (negative) {
+      cls.push('c-message-banner--negative');
+    }
+
+    cls.push(className);
+
+    return (<div className={cls.join(' ')} {...rest}>
+      {children}
     </div>);
   }
 }
