@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from "../layout/Content";
 
-class CoursePlayer extends React.PureComponent {
+class CoursePlayer extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};

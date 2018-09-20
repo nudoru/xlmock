@@ -56,7 +56,7 @@ const MockTeam = ({asCard}) => <TeamCard
   credits={Lorem.rNumber(0, 100)}
 />;
 
-class TestGridContent extends React.PureComponent {
+class TestGridContent extends React.Component {
 
   static defaultProps = {
     title          : '',

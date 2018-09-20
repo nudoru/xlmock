@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import StatGroup from './StatGroup';
-import PersonaMed from "./PersonaMed";
 import Persona from './Persona';
 import {Theme} from "../theme/Theme";
 import {GridFit} from "./GridFit";
@@ -38,8 +37,6 @@ class TeamCard extends React.PureComponent {
   }
 
   render() {
-    console.log('render team card', this.props.card);
-
     return this.props.card ? this.renderCard() : this.renderList();
   }
 
@@ -50,13 +47,13 @@ class TeamCard extends React.PureComponent {
     cls.push(className);
 
     return (<Card className='c-team-card' {...rest}>
-      <PersonaMed>
-        <PersonaMed.Image>
+      <Persona stacked size='m'>
+        <Persona.Image>
           {image}
-        </PersonaMed.Image>
-        <PersonaMed.Details><p>{name}</p>
-          <em>{office}</em></PersonaMed.Details>
-      </PersonaMed>
+        </Persona.Image>
+        <Persona.Details><p>{name}</p>
+          <em>{office}</em></Persona.Details>
+      </Persona>
       <Card.VSection>
         <GridFit gap={Theme.scale1} min='50px' max='1fr'>
           <StatGroup>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from "../layout/Content";
 
-class Feedback extends React.PureComponent {
+class Feedback extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};

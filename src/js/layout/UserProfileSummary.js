@@ -5,10 +5,9 @@ import KoalaPic from "../../img/profiles/kowala.jpg";
 import Label from "../components/Label";
 import VerticalLabelList from "../components/VerticalLabelList";
 import Persona from "../components/Persona";
-import PersonaBig from "../components/PersonaBig";
 import * as Lorem from '../utils/Lorem';
 
-class UserProfileSummary extends React.PureComponent {
+class UserProfileSummary extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};
@@ -26,13 +25,13 @@ class UserProfileSummary extends React.PureComponent {
     return (
       <div className='l-userprofile__summary'>
         <div className='l-userprofile__photo'>
-          <PersonaBig>
-            <PersonaBig.Image>
+          <Persona stacked size='lg'>
+            <Persona.Image>
               <img src={RacoonPic}/>
-            </PersonaBig.Image>
-            <PersonaBig.Details><p>{Lorem.firstLastName()}</p>
-              <em>Raleigh, NC</em></PersonaBig.Details>
-          </PersonaBig>
+            </Persona.Image>
+            <Persona.Details><p>{Lorem.firstLastName()}</p>
+              <em>Raleigh, NC</em></Persona.Details>
+          </Persona>
         </div>
         <hr/>
         <div>

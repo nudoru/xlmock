@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from "../layout/Content";
 
-class FourOhFour extends React.PureComponent {
+class FourOhFour extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};

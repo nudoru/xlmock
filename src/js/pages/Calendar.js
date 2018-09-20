@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from "../layout/Content";
 
-class Calendar extends React.PureComponent {
+class Calendar extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};

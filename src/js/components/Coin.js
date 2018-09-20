@@ -5,8 +5,8 @@ import {css} from 'emotion';
 const SIZE_MAP = {
   xs: '1.25rem',
   sm: '2.5rem',
-  lg: '5rem',
-  xl: '12.5rem'
+  m: '5rem',
+  lg: '12.5rem'
 };
 
 class Coin extends React.PureComponent {
@@ -17,7 +17,7 @@ class Coin extends React.PureComponent {
   };
 
   static propTypes    = {
-    // size: PropTypes.string,
+    size: PropTypes.string
     // image : PropTypes.func
   };
 

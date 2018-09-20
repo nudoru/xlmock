@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {RedHatLogo} from "../components/RedHatLogo";
 
-class Footer extends React.PureComponent {
+class Footer extends React.Component {
 
   static defaultProps = {};
   static propTypes = {};

@@ -35,7 +35,7 @@ const CATEGORIES = [
   'Technical Writer',
 ];
 
-class Catalog extends React.PureComponent {
+class Catalog extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};

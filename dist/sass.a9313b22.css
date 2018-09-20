@@ -180,7 +180,7 @@ body {
   font-size: 1rem;
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-h1, h2, h3, .c-stat-group__data, .c-slidemenu__header__title, .l-path-detail__achievement__title, .l-search-results h1, h4, .l-categorieshero h1, .l-path-detail__activities__section__title, h5, .c-stat-group__data--small, .c-expandingmenu__header__title, .c-persona--med__details p, .c-persona--med__details .c-stat-group__label, .c-persona--med__details .c-stat-group__label--small, .c-persona--med__details .c-checkbox__label, .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-stat-group__label--small, .c-persona--big__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, h6, .c-tagcategory__title, .l-userprofile__summary h1,
+h1, h2, h3, .c-stat-group__data, .c-slidemenu__header__title, .l-path-detail__achievement__title, .l-search-results h1, h4, .l-categorieshero h1, .l-path-detail__activities__section__title, h5, .c-stat-group__data--small, .c-expandingmenu__header__title, .c-persona__stacked--med .c-persona__details p, .c-persona__stacked--med .c-persona__details .c-stat-group__label, .c-persona__stacked--med .c-persona__details .c-stat-group__label--small, .c-persona__stacked--med .c-persona__details .c-checkbox__label, .c-persona__stacked--lg .c-persona__details p, .c-persona__stacked--lg .c-persona__details .c-stat-group__label, .c-persona__stacked--lg .c-persona__details .c-stat-group__label--small, .c-persona__stacked--lg .c-persona__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, h6, .c-tagcategory__title, .l-userprofile__summary h1,
 .h1, .h2, .c-herocard__contents .c-herocard__content h1, .h3, .h4, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1, .h6, .c-message-banner__message h1, .c-lrncard__contents .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h2, .c-lrncard__contents--row .c-lrncard__content h1, .c-herocard__contents .c-herocard__content h2, .c-catcard__content h1, .c-item-table__row__content h2, .c-current-path h2, .c-next-steps h1, .c-course-detail__details--title h2 {
   margin-top: 0;
   margin-bottom: 1.3125rem;
@@ -202,7 +202,7 @@ h4, .l-categorieshero h1, .l-path-detail__activities__section__title, .h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem; }
 
-h5, .c-stat-group__data--small, .c-expandingmenu__header__title, .c-persona--med__details p, .c-persona--med__details .c-stat-group__label, .c-persona--med__details .c-stat-group__label--small, .c-persona--med__details .c-checkbox__label, .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-stat-group__label--small, .c-persona--big__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1 {
+h5, .c-stat-group__data--small, .c-expandingmenu__header__title, .c-persona__stacked--med .c-persona__details p, .c-persona__stacked--med .c-persona__details .c-stat-group__label, .c-persona__stacked--med .c-persona__details .c-stat-group__label--small, .c-persona__stacked--med .c-persona__details .c-checkbox__label, .c-persona__stacked--lg .c-persona__details p, .c-persona__stacked--lg .c-persona__details .c-stat-group__label, .c-persona__stacked--lg .c-persona__details .c-stat-group__label--small, .c-persona__stacked--lg .c-persona__details .c-checkbox__label, .c-next-steps .c-next-steps__details .title, .l-path-detail__metadata__title, .l-path-detail__activities__subsection__title, .h5, .c-lrncard__contents .c-lrncard__content h1, .c-lrncard__contents--row .c-lrncard__content h1, .c-item-table__title h1, .c-item-table__row__content h1, .c-lrncard-grid__title h1, .c-section-title-block h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem; }
 
@@ -1186,26 +1186,24 @@ img {
   grid-template-columns: auto 1fr;
   grid-gap: 1rem;
   margin-bottom: 1rem; }
+  .c-persona .c-persona__photo {
+    justify-self: left;
+    -ms-flex-item-align: center;
+        align-self: center; }
+  .c-persona .c-persona__details {
+    justify-self: left;
+    -ms-flex-item-align: center;
+        align-self: center; }
+    .c-persona .c-persona__details p, .c-persona .c-persona__details .c-stat-group__label, .c-persona .c-persona__details .c-stat-group__label--small, .c-persona .c-persona__details .c-checkbox__label {
+      font-weight: 600;
+      margin: 0; }
+    .c-persona .c-persona__details em {
+      display: block;
+      color: rgba(0, 0, 0, 0.5);
+      margin: 0;
+      font-style: normal; }
 
-.c-persona__photo {
-  justify-self: left;
-  -ms-flex-item-align: center;
-      align-self: center; }
-
-.c-persona__details {
-  justify-self: left;
-  -ms-flex-item-align: center;
-      align-self: center; }
-  .c-persona__details p, .c-persona__details .c-stat-group__label, .c-persona__details .c-stat-group__label--small, .c-persona__details .c-checkbox__label {
-    font-weight: 600;
-    margin: 0; }
-  .c-persona__details em {
-    display: block;
-    color: rgba(0, 0, 0, 0.5);
-    margin: 0;
-    font-style: normal; }
-
-.c-persona--med {
+.c-persona__stacked--med {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-gap: 1.1875rem;
@@ -1213,22 +1211,21 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  .c-persona__stacked--med .c-persona__details {
+    text-align: center; }
+    .c-persona__stacked--med .c-persona__details p, .c-persona__stacked--med .c-persona__details .c-stat-group__label, .c-persona__stacked--med .c-persona__details .c-stat-group__label--small, .c-persona__stacked--med .c-persona__details .c-checkbox__label {
+      font-weight: 600;
+      line-height: 1rem;
+      margin-bottom: 0.5rem; }
+    .c-persona__stacked--med .c-persona__details em {
+      display: block;
+      font-style: normal;
+      padding-top: 0.1rem;
+      font-size: 0.8rem;
+      color: rgba(0, 0, 0, 0.5);
+      margin: 0; }
 
-.c-persona--med__details {
-  text-align: center; }
-  .c-persona--med__details p, .c-persona--med__details .c-stat-group__label, .c-persona--med__details .c-stat-group__label--small, .c-persona--med__details .c-checkbox__label {
-    font-weight: 600;
-    line-height: 1rem;
-    margin-bottom: 0.5rem; }
-  .c-persona--med__details em {
-    display: block;
-    font-style: normal;
-    padding-top: 0.1rem;
-    font-size: 0.8rem;
-    color: rgba(0, 0, 0, 0.5);
-    margin: 0; }
-
-.c-persona--big {
+.c-persona__stacked--lg {
   display: grid;
   grid-template-rows: auto 1fr;
   grid-gap: 1.1875rem;
@@ -1236,19 +1233,18 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-
-.c-persona--big__details {
-  text-align: center; }
-  .c-persona--big__details p, .c-persona--big__details .c-stat-group__label, .c-persona--big__details .c-stat-group__label--small, .c-persona--big__details .c-checkbox__label {
-    font-weight: 600;
-    line-height: 1rem;
-    margin-bottom: 1rem; }
-  .c-persona--big__details em {
-    font-size: 1rem;
-    display: block;
-    color: rgba(0, 0, 0, 0.5);
-    margin: 0;
-    font-style: normal; }
+  .c-persona__stacked--lg .c-persona__details {
+    text-align: center; }
+    .c-persona__stacked--lg .c-persona__details p, .c-persona__stacked--lg .c-persona__details .c-stat-group__label, .c-persona__stacked--lg .c-persona__details .c-stat-group__label--small, .c-persona__stacked--lg .c-persona__details .c-checkbox__label {
+      font-weight: 600;
+      line-height: 1rem;
+      margin-bottom: 1rem; }
+    .c-persona__stacked--lg .c-persona__details em {
+      font-size: 1rem;
+      display: block;
+      color: rgba(0, 0, 0, 0.5);
+      margin: 0;
+      font-style: normal; }
 
 .l-site-header {
   background-color: #0f2032;

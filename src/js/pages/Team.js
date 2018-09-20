@@ -13,7 +13,7 @@ import KoalaPic from "../../img/profiles/kowala.jpg";
 import Coin from "../components/Coin";
 import MessageBannerGroup from "../components/MessageBannerGroup";
 
-class Team extends React.PureComponent {
+class Team extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};
@@ -43,7 +43,7 @@ class Team extends React.PureComponent {
           <MessageBannerGroup>
             <MessageBanner>
               <MessageBanner.Icon>
-                <Coin image={<img src={RacoonPic}/>} size='lg'/>
+                <Coin image={<img src={RacoonPic}/>} size='m'/>
               </MessageBanner.Icon>
               <MessageBanner.Message>
                 <h1>{Lorem.sentence(5, 10)}</h1>
@@ -56,7 +56,7 @@ class Team extends React.PureComponent {
             </MessageBanner>
             <MessageBanner>
               <MessageBanner.Icon>
-                <Coin image={<img src={KoalaPic}/>} size='lg'/>
+                <Coin image={<img src={KoalaPic}/>} size='m'/>
               </MessageBanner.Icon>
               <MessageBanner.Message>
                 <h1>{Lorem.sentence(5, 10)}</h1>

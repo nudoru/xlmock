@@ -3,24 +3,78 @@
   grid-template-columns: auto 1fr;
   grid-gap: $scale0;
   margin-bottom: $scale0;
-}
 
-.c-persona__photo {
-  justify-self: left;
-  align-self: center;
-}
-
-.c-persona__details {
-  justify-self: left;
-  align-self: center;
-  p {
-    font-weight: 600;
-    margin: 0;
+  .c-persona__photo {
+    justify-self: left;
+    align-self: center;
   }
-  em {
-    display: block;
-    color: $text-dim-color;
-    margin: 0;
-    font-style: normal;
+
+  .c-persona__details {
+    justify-self: left;
+    align-self: center;
+    p {
+      font-weight: 600;
+      margin: 0;
+    }
+    em {
+      display: block;
+      color: $text-dim-color;
+      margin: 0;
+      font-style: normal;
+    }
+  }
+}
+
+.c-persona__stacked--med {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: $scale1;
+  justify-items: center;
+  align-items: center;
+  .c-persona__photo {}
+
+  .c-persona__details {
+    text-align: center;
+    p {
+      @extend h5;
+      font-weight: 600;
+      line-height: $scale0;
+      margin-bottom: 0.5rem;
+    }
+    em {
+      display: block;
+      font-style: normal;
+      padding-top: 0.1rem;
+      font-size: $font-size-tiny;
+      color: $text-dim-color;
+      margin: 0;
+    }
+  }
+}
+
+.c-persona__stacked--lg {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-gap: $scale1;
+  justify-items: center;
+  align-items: center;
+  .c-persona__photo {
+  }
+
+  .c-persona__details {
+    text-align: center;
+    p {
+      @extend h5;
+      font-weight: 600;
+      line-height: $scale0;
+      margin-bottom: $scale0;
+    }
+    em {
+      font-size: $font-size-base;
+      display: block;
+      color: $text-dim-color;
+      margin: 0;
+      font-style: normal;
+    }
   }
 }

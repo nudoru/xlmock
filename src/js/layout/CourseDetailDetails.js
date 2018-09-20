@@ -6,7 +6,7 @@ import Tag from "../components/Tag";
 import SVGIcon from "../components/SVGIcon";
 import {withRouter} from 'react-router-dom';
 
-class CourseDetailDetails extends React.PureComponent {
+class CourseDetailDetails extends React.Component {
 
   static defaultProps = {};
   static propTypes = {};

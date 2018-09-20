@@ -1,7 +1,7 @@
 import React from 'react';
 import Content from "../layout/Content";
 
-class Help extends React.PureComponent {
+class Help extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};

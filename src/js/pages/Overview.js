@@ -10,7 +10,7 @@ import Button from "../components/Button";
 import SVGIcon from "../components/SVGIcon";
 import * as Lorem from '../utils/Lorem';
 
-class Overview extends React.PureComponent {
+class Overview extends React.Component {
 
   static defaultProps = {};
   static propTypes    = {};

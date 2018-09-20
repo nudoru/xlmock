@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class CardLayout extends React.PureComponent {
+class CardLayout extends React.Component {
 
   static Title = ({children}) => <div className='c-lrncard-grid__title'><h1>{children}</h1></div>;
 

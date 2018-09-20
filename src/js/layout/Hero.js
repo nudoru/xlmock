@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Hero extends React.PureComponent {
+class Hero extends React.Component {
 
   static Content = ({children}) => <div
     className='c-site-hero__content'>{children}</div>;
