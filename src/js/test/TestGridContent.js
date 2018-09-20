@@ -132,12 +132,16 @@ class TestGridContent extends React.Component {
   getSortFilters() {
     return (
     <DropDown title='Order'>
-      <DropDown.Entry>Recently added</DropDown.Entry>
-      <DropDown.Entry>Alphabetical (A-Z)</DropDown.Entry>
-      <DropDown.Entry>Reverse alphabetical (Z-A)</DropDown.Entry>
+      <DropDown.Entry onClick={this.onSortFilterClick}>Recently added</DropDown.Entry>
+      <DropDown.Entry onClick={this.onSortFilterClick}>Alphabetical (A-Z)</DropDown.Entry>
+      <DropDown.Entry onClick={this.onSortFilterClick}>Reverse alphabetical (Z-A)</DropDown.Entry>
     </DropDown>
     );
   }
+
+  onSortFilterClick = (e) => {
+    console.log('sort filter menu click',e.target);
+  };
 
   getDefaultListFilters() {
     return <React.Fragment>

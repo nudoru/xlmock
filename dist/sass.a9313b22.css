@@ -119,7 +119,7 @@
   -webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1);
           box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(255, 255, 255, 0.1); }
 
-.dropshadow-xs, .c-dropdown__contents, .c-card-frame, .c-card, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-stat-group__label--small, .l-path-detail__conditional .c-checkbox__label {
+.dropshadow-xs, .c-card-frame, .c-card, .c-lrncard, .c-herocard, .c-catcard, .c-item-table__contents, .l-path-detail__activities__subsection, .l-path-detail__achievement, .l-path-detail__conditional p, .l-path-detail__conditional .c-stat-group__label, .l-path-detail__conditional .c-stat-group__label--small, .l-path-detail__conditional .c-checkbox__label {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075); }
 
@@ -131,7 +131,7 @@
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 4px 8px 15px -7px rgba(0, 0, 0, 0.1), 4px 8px 20px rgba(0, 0, 0, 0.1); }
 
-.dropshadow-lg, .c-herocard:hover {
+.dropshadow-lg, .c-dropdown__contents, .c-herocard:hover {
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.05), 4px 23px 40px -15px rgba(0, 0, 0, 0.15), 8px 30px 64px rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.05), 4px 23px 40px -15px rgba(0, 0, 0, 0.15), 8px 30px 64px rgba(0, 0, 0, 0.1); }
 

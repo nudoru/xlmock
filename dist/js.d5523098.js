@@ -49077,7 +49077,10 @@ var DropDown = function (_React$PureComponent) {
 }(_react2.default.PureComponent);
 
 DropDown.Entry = function (_ref) {
-  var children = _ref.children;
+  var children = _ref.children,
+      _ref$onClick = _ref.onClick,
+      _onClick = _ref$onClick === undefined ? function () {} : _ref$onClick;
+
   return _react2.default.createElement(
     DropDownContext.Consumer,
     null,
@@ -49085,7 +49088,10 @@ DropDown.Entry = function (_ref) {
       return _react2.default.createElement(
         'div',
         { className: 'c-dropdown__entry',
-          onClick: contextValue.select },
+          onClick: function onClick(e) {
+            contextValue.select(e);
+            _onClick(e);
+          } },
         children
       );
     }
@@ -49271,6 +49277,10 @@ var TestGridContent = function (_React$Component) {
       _this.setState({ isGridView: !_this.state.isGridView });
     };
 
+    _this.onSortFilterClick = function (e) {
+      console.log('sort filter menu click', e.target);
+    };
+
     return _this;
   }
 
@@ -49336,17 +49346,17 @@ var TestGridContent = function (_React$Component) {
         { title: 'Order' },
         _react2.default.createElement(
           _Dropdown2.default.Entry,
-          null,
+          { onClick: this.onSortFilterClick },
           'Recently added'
         ),
         _react2.default.createElement(
           _Dropdown2.default.Entry,
-          null,
+          { onClick: this.onSortFilterClick },
           'Alphabetical (A-Z)'
         ),
         _react2.default.createElement(
           _Dropdown2.default.Entry,
-          null,
+          { onClick: this.onSortFilterClick },
           'Reverse alphabetical (Z-A)'
         )
       );

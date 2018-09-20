@@ -5,7 +5,7 @@
 
 .c-dropdown__contents {
   @include transition-all();
-  @extend .dropshadow-xs;
+  @extend .dropshadow-lg;
   position: absolute;
   left: 0;
   top: $button-height;
