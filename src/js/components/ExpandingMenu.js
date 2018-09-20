@@ -46,7 +46,7 @@ class ExpandingMenu extends React.PureComponent {
       <div className='c-expandingmenu__header' onClick={this.toggleMenu}>
         <div className='c-expandingmenu__header__title'>{title}</div>
         <div className='c-expandingmenu__header__arrow'>
-          {this.state.isOpen ? <SVGIcon name='chevron-down'/> : <SVGIcon name='chevron-up'/>}
+          {this.state.isOpen ? <SVGIcon name='chevron-up'/> : <SVGIcon name='chevron-down'/>}
         </div>
       </div>
       {/*<Collapse className={contentsCls.join(' ')} expand={this.state.isOpen}>{children}</Collapse>*/}

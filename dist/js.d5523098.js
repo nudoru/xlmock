@@ -48952,7 +48952,158 @@ TeamCard.propTypes = {
   card: _propTypes2.default.bool
 };
 exports.default = TeamCard;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Card":"../js/components/Card.js","./StatGroup":"../js/components/StatGroup.js","./Persona":"../js/components/Persona.js","../theme/Theme":"../js/theme/Theme.js","./GridFit":"../js/components/GridFit.js"}],"../img/profiles/bear.jpg":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Card":"../js/components/Card.js","./StatGroup":"../js/components/StatGroup.js","./Persona":"../js/components/Persona.js","../theme/Theme":"../js/theme/Theme.js","./GridFit":"../js/components/GridFit.js"}],"../js/components/Dropdown.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Button = require('./Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _SVGIcon = require('./SVGIcon');
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/*
+Todo
+[ ] Support selected on an entry as the currently selected item
+ */
+
+var DropDownContext = _react2.default.createContext({
+  select: function select() {}
+});
+
+var DropDown = function (_React$PureComponent) {
+  _inherits(DropDown, _React$PureComponent);
+
+  function DropDown(props) {
+    _classCallCheck(this, DropDown);
+
+    var _this = _possibleConstructorReturn(this, (DropDown.__proto__ || Object.getPrototypeOf(DropDown)).call(this, props));
+
+    _this.state = {
+      isOpen: _this.props.open,
+      label: _this.props.title
+    };
+
+    _this.toggleMenu = function () {
+      _this.setState({ isOpen: !_this.state.isOpen });
+    };
+
+    _this.onSelectItem = function (e) {
+      if (_this.props.setSelectedAsTitle) {
+        _this.setState({ label: e.target.innerText });
+      }
+      _this.toggleMenu();
+    };
+
+    return _this;
+  }
+
+  _createClass(DropDown, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          negative = _props.negative,
+          open = _props.open,
+          setSelectedAsTitle = _props.setSelectedAsTitle,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative', 'open', 'setSelectedAsTitle']);
+
+      var cls = ['c-dropdown'];
+      cls.push(className);
+
+      var contentsCls = ['c-dropdown__contents'];
+
+      if (!this.state.isOpen) {
+        contentsCls.push('c-dropdown__contents--closed');
+      }
+
+      return _react2.default.createElement(
+        DropDownContext.Provider,
+        { value: { select: this.onSelectItem } },
+        _react2.default.createElement(
+          'div',
+          _extends({ className: cls.join(' ') }, rest),
+          _react2.default.createElement(
+            _Button2.default,
+            { onClick: this.toggleMenu },
+            this.state.label,
+            this.state.isOpen ? _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-up',
+              className: 'u-icon-button--right' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down',
+              className: 'u-icon-button--right' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: contentsCls.join(' ') },
+            children
+          )
+        )
+      );
+    }
+  }]);
+
+  return DropDown;
+}(_react2.default.PureComponent);
+
+DropDown.Entry = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    DropDownContext.Consumer,
+    null,
+    function (contextValue) {
+      return _react2.default.createElement(
+        'div',
+        { className: 'c-dropdown__entry',
+          onClick: contextValue.select },
+        children
+      );
+    }
+  );
+};
+
+DropDown.defaultProps = {
+  open: false,
+  setSelectedAsTitle: true
+};
+DropDown.propTypes = {
+  open: _propTypes2.default.bool,
+  title: _propTypes2.default.string,
+  setSelectedAsTitle: _propTypes2.default.bool,
+  negative: _propTypes2.default.bool
+};
+exports.default = DropDown;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../img/profiles/bear.jpg":[function(require,module,exports) {
 module.exports = "/bear.ab0ae544.jpg";
 },{}],"../img/profiles/giraffe.jpg":[function(require,module,exports) {
 module.exports = "/giraffe.202538e8.jpg";
@@ -49024,6 +49175,10 @@ var _AlertBadge2 = _interopRequireDefault(_AlertBadge);
 var _TeamCard = require('../components/TeamCard');
 
 var _TeamCard2 = _interopRequireDefault(_TeamCard);
+
+var _Dropdown = require('../components/Dropdown');
+
+var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -49174,18 +49329,35 @@ var TestGridContent = function (_React$Component) {
       );
     }
   }, {
+    key: 'getSortFilters',
+    value: function getSortFilters() {
+      return _react2.default.createElement(
+        _Dropdown2.default,
+        { title: 'Order' },
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          null,
+          'Recently added'
+        ),
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          null,
+          'Alphabetical (A-Z)'
+        ),
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          null,
+          'Reverse alphabetical (Z-A)'
+        )
+      );
+    }
+  }, {
     key: 'getDefaultListFilters',
     value: function getDefaultListFilters() {
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
-        this.props.allowSort ? _react2.default.createElement(
-          _Button2.default,
-          null,
-          'Recent ',
-          _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down',
-            className: 'u-icon-button--right' })
-        ) : null,
+        this.props.allowSort ? this.getSortFilters() : null,
         _react2.default.createElement(
           _ButtonBar2.default,
           null,
@@ -49255,7 +49427,7 @@ TestGridContent.propTypes = {
   grid: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/pages/Overview.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/pages/Overview.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -83693,7 +83865,7 @@ var ExpandingMenu = function (_React$PureComponent) {
           _react2.default.createElement(
             'div',
             { className: 'c-expandingmenu__header__arrow' },
-            this.state.isOpen ? _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-up' })
+            this.state.isOpen ? _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-up' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down' })
           )
         ),
         _react2.default.createElement(

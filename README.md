@@ -17,6 +17,8 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Functionality
 
+[ ] DropDown and ExpandingMenu rename title to label?
+[ ] Rename ExpandingMenu?
 [ ] hero message dismissible
 [ ] fix hero grid rows so content and outercontet work in any order and number w/ background image
 [ ] make Lorem util a React component w/ subcomponents Loren.Title, etc.

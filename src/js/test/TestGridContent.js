@@ -9,6 +9,7 @@ import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
 import TeamCard from "../components/TeamCard";
+import DropDown from "../components/Dropdown";
 
 /**
  * For quick mocking of pages
@@ -128,10 +129,19 @@ class TestGridContent extends React.Component {
     </CardLayout>);
   }
 
+  getSortFilters() {
+    return (
+    <DropDown title='Order'>
+      <DropDown.Entry>Recently added</DropDown.Entry>
+      <DropDown.Entry>Alphabetical (A-Z)</DropDown.Entry>
+      <DropDown.Entry>Reverse alphabetical (Z-A)</DropDown.Entry>
+    </DropDown>
+    );
+  }
+
   getDefaultListFilters() {
     return <React.Fragment>
-      {this.props.allowSort ? <Button>Recent <SVGIcon name='chevron-down'
-                                                      className='u-icon-button--right'/></Button> : null}
+      {this.props.allowSort ? this.getSortFilters() : null}
       <ButtonBar>
         {this.props.controls ? this.props.controls : null}
         {this.props.allowViewChange ? this.getSortControls() : null}
