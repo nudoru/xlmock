@@ -84108,7 +84108,7 @@ var Search = function (_React$Component) {
               "p",
               null,
               "(Infinity scroll)"
-            ), allowViewChange: true, grid: false })
+            ), allowViewChange: true, allowSort: true, grid: false })
         ),
         _react2.default.createElement(
           _SlideMenu2.default,
@@ -84307,6 +84307,10 @@ var _AlertBadge = require('../components/AlertBadge');
 
 var _AlertBadge2 = _interopRequireDefault(_AlertBadge);
 
+var _Dropdown = require('../components/Dropdown');
+
+var _Dropdown2 = _interopRequireDefault(_Dropdown);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84333,12 +84337,55 @@ var Header = function (_React$Component) {
       _this.props.history.push('/calendar');
     };
 
+    _this.onCatalogNavClick = function (e) {
+      // console.log('catalog',e.target);
+      _this.props.history.push('/catalog');
+    };
+
     return _this;
   }
 
   _createClass(Header, [{
     key: 'componentDidMount',
     value: function componentDidMount() {}
+  }, {
+    key: 'getCatalogNav',
+    value: function getCatalogNav() {
+      return _react2.default.createElement(
+        _Dropdown2.default,
+        { title: 'Catalog', setSelectedAsTitle: false },
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          { onClick: this.onCatalogNavClick },
+          'Portfolio'
+        ),
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          { onClick: this.onCatalogNavClick },
+          'Job Role'
+        ),
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          { onClick: this.onCatalogNavClick },
+          'Skill Level'
+        ),
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          { onClick: this.onCatalogNavClick },
+          'Language'
+        ),
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          { onClick: this.onCatalogNavClick },
+          'Topic'
+        ),
+        _react2.default.createElement(
+          _Dropdown2.default.Entry,
+          { onClick: this.onCatalogNavClick },
+          'Competency'
+        )
+      );
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -84413,11 +84460,7 @@ var Header = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'c-site-header__nav' },
-            _react2.default.createElement(
-              'button',
-              { onClick: this.onCatalogClick, className: 'c-header-button' },
-              'Catalog'
-            ),
+            this.getCatalogNav(),
             _react2.default.createElement(
               'button',
               { onClick: this.onCalendarClick, className: 'c-header-button' },
@@ -84496,7 +84539,7 @@ Header.propTypes = {
   onMobileMenuClick: _propTypes2.default.func
 };
 exports.default = (0, _reactRouterDom.withRouter)(Header);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

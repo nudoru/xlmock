@@ -38,6 +38,19 @@
   button:last-of-type {
     margin-right: 0;
   }
+  .c-dropdown {
+    margin-right: 5px;
+    button {
+      @extend .c-header-button;
+    }
+    .c-dropdown__contents {
+      padding: $scale1;
+      background: $header-color-background;
+    }
+    .c-dropdown__entry:hover {
+      background: rgba(0,0,0,.5);
+    }
+  }
 }
 
 .c-site-header__search {

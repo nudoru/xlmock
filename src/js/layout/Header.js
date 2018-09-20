@@ -4,6 +4,7 @@ import {Link, withRouter} from "react-router-dom";
 import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
+import DropDown from "../components/Dropdown";
 
 class Header extends React.Component {
 
@@ -32,6 +33,24 @@ class Header extends React.Component {
     this.props.history.push('/calendar');
   };
 
+  getCatalogNav() {
+    return (
+      <DropDown title='Catalog' setSelectedAsTitle={false}>
+        <DropDown.Entry onClick={this.onCatalogNavClick}>Portfolio</DropDown.Entry>
+        <DropDown.Entry onClick={this.onCatalogNavClick}>Job Role</DropDown.Entry>
+        <DropDown.Entry onClick={this.onCatalogNavClick}>Skill Level</DropDown.Entry>
+        <DropDown.Entry onClick={this.onCatalogNavClick}>Language</DropDown.Entry>
+        <DropDown.Entry onClick={this.onCatalogNavClick}>Topic</DropDown.Entry>
+        <DropDown.Entry onClick={this.onCatalogNavClick}>Competency</DropDown.Entry>
+      </DropDown>
+    );
+  }
+
+  onCatalogNavClick = (e) => {
+    // console.log('catalog',e.target);
+    this.props.history.push('/catalog');
+  };
+
   render() {
     return (<div className='l-site-header'>
       <div className='l-site-header--mobile'>
@@ -52,7 +71,8 @@ class Header extends React.Component {
           <Link to='/'><img width='250px' src={require('../../img/RHLearning_tool_logo.png')}/></Link>
         </div>
         <div className='c-site-header__nav'>
-          <button onClick={this.onCatalogClick} className='c-header-button'>Catalog</button>
+          {/*<button onClick={this.onCatalogClick} className='c-header-button'>Catalog</button>*/}
+          {this.getCatalogNav()}
           <button onClick={this.onCalendarClick} className='c-header-button'>Calendar</button>
         </div>
         <div className='c-site-header__search'>

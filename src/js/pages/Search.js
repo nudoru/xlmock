@@ -40,7 +40,7 @@ class Search extends React.Component {
             </div>
           </div>
           <TestGridContent mode='results' numPaths={2} numCourses={7}
-                           controls={this.filterButton()} status={<p>(Infinity scroll)</p>} allowViewChange grid={false}/>
+                           controls={this.filterButton()} status={<p>(Infinity scroll)</p>} allowViewChange allowSort grid={false}/>
         </Content>
         <SlideMenu onBlockClick={this.toggleFiltersPanel}
                    isOpen={this.state.showFilters}>
