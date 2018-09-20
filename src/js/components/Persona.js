@@ -8,7 +8,10 @@ const SIZE_MAP = {
   lg: '--lg',
 };
 
-const PersonaContext = React.createContext();
+const PersonaContext = React.createContext({
+  size: 'sm',
+  stacked: false
+});
 
 class Persona extends React.PureComponent {
 

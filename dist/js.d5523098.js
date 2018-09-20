@@ -48523,7 +48523,10 @@ var SIZE_MAP = {
   lg: '--lg'
 };
 
-var PersonaContext = _react2.default.createContext();
+var PersonaContext = _react2.default.createContext({
+  size: 'sm',
+  stacked: false
+});
 
 var Persona = function (_React$PureComponent) {
   _inherits(Persona, _React$PureComponent);
