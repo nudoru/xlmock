@@ -5,25 +5,46 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-![ ] drop down catalog menu and flow
-    [ ] catalog screen
+[ ] overview hero, put message banner in a group
+[ ] Create new $spacing-2 w/ 5px values and replace all current instances of small px spaces
+![x] drop down catalog menu and flow
+    [ ] dynamic catalog routing
+    [ ] catalog get title from route?
+    [ ] catalog screen as grid
+    [ ] tags as cards? default to list
+[ ] add pencil, icon to user profile persona
+    [ ] round icon
+    [ ] icons in the 4 diagonal corners of the photo
 ![ ] help / wiki page
+    [ ] CSS styles for page formatting elements and general structure
 [ ] card design for ...
     [ ] lynda
     [ ] kaltura
 [ ] team / dashboard screen
+    [ ] team, user select profile fly out
 [ ] profile layout
 [ ] profile screens
+[ ] <dialog> ? modal pop up / feedback
+[ ] search bar should be input
+[ ] responsive - card grid filters
+[ ] responsive - big tabs, tabs
+[ ] responsive - message banner
+
+# TODO Animations
+
+[ ] ExpandingMenu open/close
+[ ] DropDown open/close
+[ ] MessageBanner group add/remove
 
 # TODO Functionality
 
 [ ] DropDown and ExpandingMenu rename title to label?
 [ ] Rename ExpandingMenu?
 [ ] hero message dismissible
+    [ ] remove from message banner group?
 [ ] fix hero grid rows so content and outercontet work in any order and number w/ background image
 [ ] make Lorem util a React component w/ subcomponents Loren.Title, etc.
 [ ] Fix card overflow w/ CSS props
-[ ] search bar should be input
 [ ] more semantic html
 [ ] call setState as function
 [ ] Check box onChange callback
