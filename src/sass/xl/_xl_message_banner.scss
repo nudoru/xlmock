@@ -31,11 +31,12 @@
   grid-area: message;
   h1 {
     @extend .h6;
-    margin: 0;
-    line-height: 1.2rem
+    margin-bottom: 0.5rem;
+    line-height: 1.3rem;
   }
   p {
     margin: 0;
+    line-height: 1.3rem;
   }
 }
 
@@ -47,12 +48,24 @@
     margin-left: $space-small;
   }
 }
+
+
 //$content-width-medium
 @include max-width('720px') {
   .c-message-banner {
     padding: $scale2;
     grid-template: "icon message" 1fr
     ". cta" auto / auto 1fr;
+  }
+  .c-message-banner__boxicon {
+    width: 32px;
+    height: 32px;
+    line-height: 43px; // 😱 centered, TODO fix this magic number
+    font-size: 1rem;
+    align-self: start;
+  }
+  .c-message-banner__icon {
+    align-self: start;
   }
   .c-message-banner__cta {
     button {
@@ -61,12 +74,14 @@
   }
 }
 
+// TODO Need an interactive solution
 @include max-width('500px') {
   .c-message-banner__cta {
     text-align: center;
     button {
       display: block;
       margin-bottom: 5px;
+      width: 100%;
     }
   }
 }

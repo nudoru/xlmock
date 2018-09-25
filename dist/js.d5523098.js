@@ -47021,7 +47021,6 @@ function memoize(fn) {
 }
 
 exports.default = memoize;
-//# sourceMappingURL=memoize.esm.js.map
 },{}],"../../node_modules/@emotion/unitless/dist/unitless.esm.js":[function(require,module,exports) {
 "use strict";
 
@@ -47117,7 +47116,6 @@ function murmurhash2_32_gc(str) {
 }
 
 exports.default = murmurhash2_32_gc;
-//# sourceMappingURL=hash.esm.js.map
 },{}],"../../node_modules/create-emotion/node_modules/@emotion/stylis/dist/stylis.esm.js":[function(require,module,exports) {
 'use strict';
 
@@ -49437,7 +49435,77 @@ TestGridContent.propTypes = {
   grid: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/pages/Overview.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var MessageBannerGroup = function (_React$PureComponent) {
+  _inherits(MessageBannerGroup, _React$PureComponent);
+
+  function MessageBannerGroup(props) {
+    _classCallCheck(this, MessageBannerGroup);
+
+    var _this = _possibleConstructorReturn(this, (MessageBannerGroup.__proto__ || Object.getPrototypeOf(MessageBannerGroup)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(MessageBannerGroup, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var cls = ['c-message-banner__group'];
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return MessageBannerGroup;
+}(_react2.default.PureComponent);
+
+MessageBannerGroup.defaultProps = {};
+MessageBannerGroup.propTypes = {};
+exports.default = MessageBannerGroup;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Overview.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49486,6 +49554,10 @@ var _Lorem = require('../utils/Lorem');
 
 var Lorem = _interopRequireWildcard(_Lorem);
 
+var _MessageBannerGroup = require('../components/MessageBannerGroup');
+
+var _MessageBannerGroup2 = _interopRequireDefault(_MessageBannerGroup);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -49533,39 +49605,43 @@ var Overview = function (_React$Component) {
             _Hero2.default.Content,
             null,
             _react2.default.createElement(
-              _MessageBanner2.default,
-              { negative: true },
+              _MessageBannerGroup2.default,
+              null,
               _react2.default.createElement(
-                _MessageBanner2.default.BoxedIcon,
-                null,
-                _react2.default.createElement(_SVGIcon2.default, { name: 'flag' })
-              ),
-              _react2.default.createElement(
-                _MessageBanner2.default.Message,
-                null,
+                _MessageBanner2.default,
+                { negative: true },
                 _react2.default.createElement(
-                  'h1',
+                  _MessageBanner2.default.BoxedIcon,
                   null,
-                  Lorem.sentence(5, 10)
+                  _react2.default.createElement(_SVGIcon2.default, { name: 'flag' })
                 ),
                 _react2.default.createElement(
-                  'p',
+                  _MessageBanner2.default.Message,
                   null,
-                  Lorem.sentence(10, 30)
-                )
-              ),
-              _react2.default.createElement(
-                _MessageBanner2.default.CTA,
-                null,
-                _react2.default.createElement(
-                  _Button2.default,
-                  { negative: true },
-                  'Dismiss'
+                  _react2.default.createElement(
+                    'h1',
+                    null,
+                    Lorem.sentence(5, 10)
+                  ),
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    Lorem.sentence(10, 30)
+                  )
                 ),
                 _react2.default.createElement(
-                  _Button2.default,
-                  { primary: true, negative: true },
-                  'View class'
+                  _MessageBanner2.default.CTA,
+                  null,
+                  _react2.default.createElement(
+                    _Button2.default,
+                    { negative: true },
+                    'Dismiss'
+                  ),
+                  _react2.default.createElement(
+                    _Button2.default,
+                    { primary: true, negative: true },
+                    'View class'
+                  )
                 )
               )
             ),
@@ -49648,7 +49724,7 @@ var Overview = function (_React$Component) {
 Overview.defaultProps = {};
 Overview.propTypes = {};
 exports.default = (0, _reactRouterDom.withRouter)(Overview);
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/BigTabs":"../js/components/BigTabs.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Hero":"../js/layout/Hero.js","../layout/Content":"../js/layout/Content.js","../components/MessageBanner":"../js/components/MessageBanner.js","../components/HeroPathProgress":"../js/components/HeroPathProgress.js","../components/BigTabs":"../js/components/BigTabs.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../utils/Lorem":"../js/utils/Lorem.js","../components/MessageBannerGroup":"../js/components/MessageBannerGroup.js"}],"../js/pages/FourOhFour.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -85344,77 +85420,7 @@ var Discover = function (_React$Component) {
 Discover.defaultProps = {};
 Discover.propTypes = {};
 exports.default = Discover;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/HeroCard":"../js/components/HeroCard.js","../utils/Lorem":"../js/utils/Lorem.js","../components/HeroCarousel":"../js/components/HeroCarousel.js"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var MessageBannerGroup = function (_React$PureComponent) {
-  _inherits(MessageBannerGroup, _React$PureComponent);
-
-  function MessageBannerGroup(props) {
-    _classCallCheck(this, MessageBannerGroup);
-
-    var _this = _possibleConstructorReturn(this, (MessageBannerGroup.__proto__ || Object.getPrototypeOf(MessageBannerGroup)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(MessageBannerGroup, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          _props$className = _props.className,
-          className = _props$className === undefined ? null : _props$className,
-          children = _props.children,
-          rest = _objectWithoutProperties(_props, ['className', 'children']);
-
-      var cls = ['c-message-banner__group'];
-      cls.push(className);
-
-      return _react2.default.createElement(
-        'div',
-        _extends({ className: cls.join(' ') }, rest),
-        children
-      );
-    }
-  }]);
-
-  return MessageBannerGroup;
-}(_react2.default.PureComponent);
-
-MessageBannerGroup.defaultProps = {};
-MessageBannerGroup.propTypes = {};
-exports.default = MessageBannerGroup;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Team.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/HeroCard":"../js/components/HeroCard.js","../utils/Lorem":"../js/utils/Lorem.js","../components/HeroCarousel":"../js/components/HeroCarousel.js"}],"../js/pages/Team.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

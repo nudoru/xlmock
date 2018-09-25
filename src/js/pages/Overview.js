@@ -9,6 +9,7 @@ import TestGridContent from "../test/TestGridContent";
 import Button from "../components/Button";
 import SVGIcon from "../components/SVGIcon";
 import * as Lorem from '../utils/Lorem';
+import MessageBannerGroup from "../components/MessageBannerGroup";
 
 class Overview extends React.Component {
 
@@ -37,19 +38,21 @@ class Overview extends React.Component {
       <React.Fragment>
         <Hero>
           <Hero.Content>
-            <MessageBanner negative>
-              <MessageBanner.BoxedIcon>
-                <SVGIcon name='flag'/>
-              </MessageBanner.BoxedIcon>
-              <MessageBanner.Message>
-                <h1>{Lorem.sentence(5,10)}</h1>
-                <p>{Lorem.sentence(10,30)}</p>
-              </MessageBanner.Message>
-              <MessageBanner.CTA>
-                <Button negative>Dismiss</Button>
-                <Button primary negative>View class</Button>
-              </MessageBanner.CTA>
-            </MessageBanner>
+            <MessageBannerGroup>
+              <MessageBanner negative>
+                <MessageBanner.BoxedIcon>
+                  <SVGIcon name='flag'/>
+                </MessageBanner.BoxedIcon>
+                <MessageBanner.Message>
+                  <h1>{Lorem.sentence(5, 10)}</h1>
+                  <p>{Lorem.sentence(10, 30)}</p>
+                </MessageBanner.Message>
+                <MessageBanner.CTA>
+                  <Button negative>Dismiss</Button>
+                  <Button primary negative>View class</Button>
+                </MessageBanner.CTA>
+              </MessageBanner>
+            </MessageBannerGroup>
             <BigTabs negative>
               <BigTabs.Tab active><Link to='/'>Overview</Link></BigTabs.Tab>
               <BigTabs.Tab><Link to='/discover'>Discover</Link></BigTabs.Tab>

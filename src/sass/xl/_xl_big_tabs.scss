@@ -55,21 +55,22 @@
   }
 }
 
-@include max-width('500px') {
-  .c-big-tabs {
-    border-bottom: none;
-    width: 100%;
-    li {
-      display: block;
-      width: 100%;
-      text-align: center;
-    }
-    a {
-      margin: $scale-1 0;
-      width: 100%;
-      &:hover {
-        @include translate(0, 0);
-      }
-    }
-  }
-}
+// TODO Need interactive solution, not stacked
+//@include max-width('500px') {
+//  .c-big-tabs {
+//    border-bottom: none;
+//    width: 100%;
+//    li {
+//      display: block;
+//      width: 100%;
+//      text-align: center;
+//    }
+//    a {
+//      margin: $scale-1 0;
+//      width: 100%;
+//      &:hover {
+//        @include translate(0, 0);
+//      }
+//    }
+//  }
+//}

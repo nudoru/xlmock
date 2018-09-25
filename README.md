@@ -20,6 +20,7 @@ Design work by AtlanticBT for Red Hat.
 [ ] card design for ...
     [ ] lynda
     [ ] kaltura
+    [ ] allego
 [ ] team / dashboard screen
     [ ] team, user select profile fly out
 [ ] profile layout
@@ -28,6 +29,8 @@ Design work by AtlanticBT for Red Hat.
 [ ] search bar should be input
 [ ] responsive - card grid filters
 [ ] responsive - big tabs, tabs
+    [ ] buttons on left / right
+    [ ] drag scroll or buttons to scroll?
 [ ] responsive - message banner
 
 # TODO Animations
