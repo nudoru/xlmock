@@ -5,7 +5,7 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-[ ] overview hero, put message banner in a group
+[ ] Chip group
 [ ] Create new $spacing-2 w/ 5px values and replace all current instances of small px spaces
 ![x] drop down catalog menu and flow
     [ ] dynamic catalog routing
@@ -37,7 +37,8 @@ Design work by AtlanticBT for Red Hat.
 
 [ ] ExpandingMenu open/close
 [ ] DropDown open/close
-[ ] MessageBanner group add/remove
+[ ] MessageBannerGroup add/remove
+[ ] ChipGroup add/remove
 
 # TODO Functionality
 

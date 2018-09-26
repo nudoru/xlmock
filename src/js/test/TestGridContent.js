@@ -4,7 +4,6 @@ import LearningCard from "../components/LearningCard";
 import CardLayout from "../layout/CardLayout";
 import _ from 'lodash';
 import * as Lorem from '../utils/Lorem';
-import Button from "../components/Button";
 import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
@@ -35,14 +34,19 @@ const profilePicks = [
   require("../../img/rover-default-profile.png")
 ];
 
-const MockPath = ({asCard}) => <LearningCard type='path' duration='42 minutes'
-                                     tag='Infrastructure' mobile card={asCard}>
+const MockPath = ({asCard, tag}) => <LearningCard type='path'
+                                                  duration='42 minutes'
+                                                  tag={tag || 'Infrastructure'}
+                                                  mobile
+                                                  card={asCard}>
   <h1>{Lorem.title(2, 10)}</h1>
   <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
 
-const MockCourse = ({asCard}) => <LearningCard type='course' duration='5 hours 30 minutes'
-                                       tag='Ansible' card={asCard}>
+const MockCourse = ({asCard, tag}) => <LearningCard type='course'
+                                                    duration='5 hours 30 minutes'
+                                                    tag={tag || 'Ansible'}
+                                                    card={asCard}>
   <h1>{Lorem.title(2, 10)}</h1>
   <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
@@ -51,7 +55,7 @@ const MockTeam = ({asCard}) => <TeamCard
   card={asCard}
   name={Lorem.firstLastName()}
   office='Raleigh, NC'
-  image={<img src={profilePicks[Lorem.rNumber(0, profilePicks.length-1)]} />}
+  image={<img src={profilePicks[Lorem.rNumber(0, profilePicks.length - 1)]}/>}
   paths={Lorem.rNumber(1, 10)}
   courses={Lorem.rNumber(3, 40)}
   credits={Lorem.rNumber(0, 100)}
@@ -63,26 +67,28 @@ class TestGridContent extends React.Component {
     title          : '',
     numPaths       : 5,
     numCourses     : 5,
-    numPeople     : 0,
+    numPeople      : 0,
     badgeCount     : 0,
     mode           : 'list', // list or results
     allowSort      : false,
     allowViewChange: false,
-    grid           : true
+    grid           : true,
+    tag            : null
   };
 
   static propTypes = {
     title          : PropTypes.string,
     numPaths       : PropTypes.number,
     numCourses     : PropTypes.number,
-    numPeople     : PropTypes.number,
+    numPeople      : PropTypes.number,
     badgeCount     : PropTypes.number,
     mode           : PropTypes.string,
     controls       : PropTypes.object,
     status         : PropTypes.object,
     allowSort      : PropTypes.bool,
     allowViewChange: PropTypes.bool,
-    grid           : PropTypes.bool
+    grid           : PropTypes.bool,
+    tag            : PropTypes.string
   };
 
   state = {
@@ -111,14 +117,18 @@ class TestGridContent extends React.Component {
 
 
   render() {
-    let paths   = this.props.numPaths ? _.range(this.props.numPaths).map(i =>
-          <MockPath key={i} asCard={this.state.isGridView}/>) : [],
-        courses = this.props.numCourses ? _.range(this.props.numCourses).map(i =>
-          <MockCourse key={i} asCard={this.state.isGridView}/>) : [],
-        people = this.props.numPeople ? _.range(this.props.numPeople).map(i =>
+    let paths       = this.props.numPaths ? _.range(this.props.numPaths).map(i =>
+          <MockPath key={i} tag={this.props.tag}
+                    asCard={this.state.isGridView}/>) : [],
+        courses     = this.props.numCourses ? _.range(this.props.numCourses).map(i =>
+          <MockCourse key={i} tag={this.props.tag}
+                      asCard={this.state.isGridView}/>) : [],
+        people      = this.props.numPeople ? _.range(this.props.numPeople).map(i =>
           <MockTeam key={i} asCard={this.state.isGridView}/>) : [],
-        content = paths.concat(courses.concat(people)),
-        contentView = this.state.isGridView ? <CardLayout.GridContent>{content}</CardLayout.GridContent> : <CardLayout.ListContent>{content}</CardLayout.ListContent>;
+        content     = paths.concat(courses.concat(people)),
+        contentView = this.state.isGridView ?
+          <CardLayout.GridContent>{content}</CardLayout.GridContent> :
+          <CardLayout.ListContent>{content}</CardLayout.ListContent>;
 
     return (<CardLayout title={this.props.title}>
       <CardLayout.Title>{this.props.title}{this.props.badgeCount ?
@@ -131,11 +141,14 @@ class TestGridContent extends React.Component {
 
   getSortFilters() {
     return (
-    <DropDown title='Order'>
-      <DropDown.Entry onClick={this.onSortFilterClick}>Recently added</DropDown.Entry>
-      <DropDown.Entry onClick={this.onSortFilterClick}>Alphabetical (A-Z)</DropDown.Entry>
-      <DropDown.Entry onClick={this.onSortFilterClick}>Reverse alphabetical (Z-A)</DropDown.Entry>
-    </DropDown>
+      <DropDown title='Order'>
+        <DropDown.Entry onClick={this.onSortFilterClick}>Recently
+          added</DropDown.Entry>
+        <DropDown.Entry onClick={this.onSortFilterClick}>Alphabetical
+          (A-Z)</DropDown.Entry>
+        <DropDown.Entry onClick={this.onSortFilterClick}>Reverse alphabetical
+          (Z-A)</DropDown.Entry>
+      </DropDown>
     );
   }
 

@@ -49173,10 +49173,6 @@ var _Lorem = require('../utils/Lorem');
 
 var Lorem = _interopRequireWildcard(_Lorem);
 
-var _Button = require('../components/Button');
-
-var _Button2 = _interopRequireDefault(_Button);
-
 var _SVGIcon = require('../components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
@@ -49214,11 +49210,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var profilePicks = [require("../../img/profiles/bear.jpg"), require("../../img/profiles/giraffe.jpg"), require("../../img/profiles/guinnipig.jpg"), require("../../img/profiles/osterage.jpg"), require("../../img/profiles/polar.jpg"), require("../../img/profiles/pug.jpg"), require("../../img/profiles/racoon.jpg"), require("../../img/profiles/squirell.jpg"), require("../../img/profiles/taz.jpg"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png"), require("../../img/rover-default-profile.png")];
 
 var MockPath = function MockPath(_ref) {
-  var asCard = _ref.asCard;
+  var asCard = _ref.asCard,
+      tag = _ref.tag;
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'path', duration: '42 minutes',
-      tag: 'Infrastructure', mobile: true, card: asCard },
+    { type: 'path',
+      duration: '42 minutes',
+      tag: tag || 'Infrastructure',
+      mobile: true,
+      card: asCard },
     _react2.default.createElement(
       'h1',
       null,
@@ -49233,11 +49233,14 @@ var MockPath = function MockPath(_ref) {
 };
 
 var MockCourse = function MockCourse(_ref2) {
-  var asCard = _ref2.asCard;
+  var asCard = _ref2.asCard,
+      tag = _ref2.tag;
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'course', duration: '5 hours 30 minutes',
-      tag: 'Ansible', card: asCard },
+    { type: 'course',
+      duration: '5 hours 30 minutes',
+      tag: tag || 'Ansible',
+      card: asCard },
     _react2.default.createElement(
       'h1',
       null,
@@ -49304,10 +49307,12 @@ var TestGridContent = function (_React$Component) {
       var _this2 = this;
 
       var paths = this.props.numPaths ? _lodash2.default.range(this.props.numPaths).map(function (i) {
-        return _react2.default.createElement(MockPath, { key: i, asCard: _this2.state.isGridView });
+        return _react2.default.createElement(MockPath, { key: i, tag: _this2.props.tag,
+          asCard: _this2.state.isGridView });
       }) : [],
           courses = this.props.numCourses ? _lodash2.default.range(this.props.numCourses).map(function (i) {
-        return _react2.default.createElement(MockCourse, { key: i, asCard: _this2.state.isGridView });
+        return _react2.default.createElement(MockCourse, { key: i, tag: _this2.props.tag,
+          asCard: _this2.state.isGridView });
       }) : [],
           people = this.props.numPeople ? _lodash2.default.range(this.props.numPeople).map(function (i) {
         return _react2.default.createElement(MockTeam, { key: i, asCard: _this2.state.isGridView });
@@ -49432,7 +49437,8 @@ TestGridContent.defaultProps = {
   mode: 'list', // list or results
   allowSort: false,
   allowViewChange: false,
-  grid: true
+  grid: true,
+  tag: null
 };
 TestGridContent.propTypes = {
   title: _propTypes2.default.string,
@@ -49445,10 +49451,11 @@ TestGridContent.propTypes = {
   status: _propTypes2.default.object,
   allowSort: _propTypes2.default.bool,
   allowViewChange: _propTypes2.default.bool,
-  grid: _propTypes2.default.bool
+  grid: _propTypes2.default.bool,
+  tag: _propTypes2.default.string
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/Button":"../js/components/Button.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49849,7 +49856,7 @@ var CategoryCard = function (_React$PureComponent) {
     _this.state = {};
 
     _this.onCardClick = function () {
-      _this.props.history.push('/catalogcategory/' + _this.props.id);
+      _this.props.history.push('/search/' + _this.props.id);
     };
 
     return _this;
@@ -84143,7 +84150,85 @@ CheckBox.propTypes = {
   selected: _propTypes2.default.bool
 };
 exports.default = CheckBox;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/Chip.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _SVGIcon = require("./SVGIcon");
+
+var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
+
+var _Label = require("./Label");
+
+var _Label2 = _interopRequireDefault(_Label);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Chip = function (_React$PureComponent) {
+  _inherits(Chip, _React$PureComponent);
+
+  function Chip(props) {
+    _classCallCheck(this, Chip);
+
+    var _this = _possibleConstructorReturn(this, (Chip.__proto__ || Object.getPrototypeOf(Chip)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Chip, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ["className", "children"]);
+
+      var cls = [''];
+      cls.push(className);
+
+      return _react2.default.createElement(
+        _Label2.default,
+        _extends({ className: cls.join(' ') }, rest),
+        children,
+        _react2.default.createElement(_SVGIcon2.default, { name: "x",
+          width: "14",
+          height: "14",
+          className: "u-padding-left" })
+      );
+    }
+  }]);
+
+  return Chip;
+}(_react2.default.PureComponent);
+
+Chip.defaultProps = {};
+Chip.propTypes = {};
+exports.default = Chip;
+},{"react":"../../node_modules/react/index.js","./SVGIcon":"../js/components/SVGIcon.js","./Label":"../js/components/Label.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84188,6 +84273,12 @@ var _CheckBox = require("../components/CheckBox");
 
 var _CheckBox2 = _interopRequireDefault(_CheckBox);
 
+var _Toolbox = require("../utils/Toolbox");
+
+var _Chip = require("../components/Chip");
+
+var _Chip2 = _interopRequireDefault(_Chip);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84221,6 +84312,35 @@ var Search = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var tagValueIDSlug = this.props.match.params.id,
+          tagValue = tagValueIDSlug ? (0, _Toolbox.unslugify)(tagValueIDSlug) : null;
+
+      console.log('Search', tagValue);
+
+      var tags = tagValue ? _react2.default.createElement(
+        _Chip2.default,
+        null,
+        tagValue
+      ) : [_react2.default.createElement(
+        "span",
+        null,
+        _react2.default.createElement(
+          _Chip2.default,
+          null,
+          "Ansible"
+        ),
+        _react2.default.createElement(
+          _Chip2.default,
+          null,
+          "OpenShift"
+        ),
+        _react2.default.createElement(
+          _Chip2.default,
+          null,
+          "Infrastructure"
+        )
+      )];
+
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
@@ -84238,30 +84358,11 @@ var Search = function (_React$Component) {
             _react2.default.createElement(
               "div",
               { className: "l-search-results__matches" },
-              _react2.default.createElement(
-                _Label2.default,
-                null,
-                "Ansible",
-                _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
-                  className: "u-padding-left" })
-              ),
-              _react2.default.createElement(
-                _Label2.default,
-                null,
-                "OpenShift",
-                _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
-                  className: "u-padding-left" })
-              ),
-              _react2.default.createElement(
-                _Label2.default,
-                null,
-                "Infrastructure",
-                _react2.default.createElement(_SVGIcon2.default, { name: "x", width: "14", height: "14",
-                  className: "u-padding-left" })
-              )
+              tags
             )
           ),
           _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7,
+            tag: tagValue,
             controls: this.filterButton(), status: _react2.default.createElement(
               "p",
               null,
@@ -84335,6 +84436,11 @@ var Search = function (_React$Component) {
                 _CheckBox2.default,
                 null,
                 "Kaltura"
+              ),
+              _react2.default.createElement(
+                _CheckBox2.default,
+                null,
+                "Allego"
               )
             )
           ),
@@ -84432,7 +84538,7 @@ var Search = function (_React$Component) {
 Search.defaultProps = {};
 Search.propTypes = {};
 exports.default = Search;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js","../components/ExpandingMenu":"../js/components/ExpandingMenu.js","../components/CheckBox":"../js/components/CheckBox.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js","../components/ExpandingMenu":"../js/components/ExpandingMenu.js","../components/CheckBox":"../js/components/CheckBox.js","../utils/Toolbox":"../js/utils/Toolbox.js","../components/Chip":"../js/components/Chip.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
 module.exports = "/RHLearning_tool_logo.30f020e9.png";
 },{}],"../js/layout/Header.js":[function(require,module,exports) {
 'use strict';
@@ -86232,7 +86338,7 @@ var CatalogCategory = function (_React$Component) {
     key: "render",
     value: function render() {
       var tagValueIDSlug = this.props.match.params.id,
-          tagValue = (0, _Toolbox.unslugify)(tagValueIDSlug);
+          tagValue = tagValueIDSlug ? (0, _Toolbox.unslugify)(tagValueIDSlug) : '';
 
       return _react2.default.createElement(
         _react2.default.Fragment,
@@ -86819,7 +86925,6 @@ var Routes = function Routes() {
     null,
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Overview2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/catalog/:id', component: _Catalog2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/catalogcategory/:id', component: _CatalogCategory2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/alerts', component: _Alerts2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/help', component: _Help2.default }),
@@ -86833,6 +86938,7 @@ var Routes = function Routes() {
     _react2.default.createElement(_reactRouterDom.Route, { path: '/courseresources', component: _CourseDetailResources2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/courseplayer', component: _CoursePlayer2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/path', component: _PathDetail2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/search/:id', component: _Search2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/search', component: _Search2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/feedback', component: _Feedback2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/discover', component: _Discover2.default }),

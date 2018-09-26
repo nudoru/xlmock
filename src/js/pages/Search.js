@@ -7,6 +7,8 @@ import ButtonBar from "../components/ButtonBar";
 import SlideMenu from "../components/SlideMenu";
 import ExpandingMenu from "../components/ExpandingMenu";
 import CheckBox from "../components/CheckBox";
+import {unslugify} from '../utils/Toolbox';
+import Chip from "../components/Chip";
 
 class Search extends React.Component {
 
@@ -25,21 +27,24 @@ class Search extends React.Component {
   }
 
   render() {
+    const tagValueIDSlug = this.props.match.params.id,
+          tagValue       = tagValueIDSlug ? unslugify(tagValueIDSlug) : null;
+
+    console.log('Search',tagValue);
+
+    let tags = tagValue ? <Chip>{tagValue}</Chip> : [ <span><Chip>Ansible</Chip><Chip>OpenShift</Chip><Chip>Infrastructure</Chip></span>];
+
     return (
       <React.Fragment>
         <Content>
           <div className='l-search-results'>
             <h1>123 Results</h1>
             <div className='l-search-results__matches'>
-            <Label>Ansible<SVGIcon name='x' width='14' height='14'
-                                   className='u-padding-left'/></Label>
-            <Label>OpenShift<SVGIcon name='x' width='14' height='14'
-                                     className='u-padding-left'/></Label>
-            <Label>Infrastructure<SVGIcon name='x' width='14' height='14'
-                                          className='u-padding-left'/></Label>
+            {tags}
             </div>
           </div>
           <TestGridContent mode='results' numPaths={2} numCourses={7}
+                           tag={tagValue}
                            controls={this.filterButton()} status={<p>(Infinity scroll)</p>} allowViewChange allowSort grid={false}/>
         </Content>
         <SlideMenu onBlockClick={this.toggleFiltersPanel}
@@ -61,6 +66,7 @@ class Search extends React.Component {
               <CheckBox>LMS</CheckBox>
               <CheckBox>Lynda</CheckBox>
               <CheckBox>Kaltura</CheckBox>
+              <CheckBox>Allego</CheckBox>
             </ExpandingMenu>
           </SlideMenu.Section>
           <SlideMenu.Section>

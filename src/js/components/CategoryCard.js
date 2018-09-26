@@ -27,7 +27,7 @@ class CategoryCard extends React.PureComponent {
   }
 
   onCardClick = () => {
-      this.props.history.push('/catalogcategory/'+this.props.id);
+      this.props.history.push('/search/'+this.props.id);
   };
 
   render() {

@@ -30,7 +30,6 @@ import UserSettings from "./pages/UserSettings";
 const Routes = () => <Switch>
   <Route exact path="/" component={Overview}/>
   <Route path="/catalog/:id" component={Catalog}/>
-  <Route path="/catalogcategory/:id" component={CatalogCategory}/>
   <Route path="/calendar" component={Calendar}/>
   <Route path="/alerts" component={Alerts}/>
   <Route path="/help" component={Help}/>
@@ -44,6 +43,7 @@ const Routes = () => <Switch>
   <Route path="/courseresources" component={CourseDetailResources}/>
   <Route path="/courseplayer" component={CoursePlayer}/>
   <Route path="/path" component={PathDetail}/>
+  <Route path="/search/:id" component={Search}/>
   <Route path="/search" component={Search}/>
   <Route path="/feedback" component={Feedback}/>
   <Route path="/discover" component={Discover}/>

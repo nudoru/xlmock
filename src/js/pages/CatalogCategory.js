@@ -21,7 +21,7 @@ class CatalogCategory extends React.Component {
 
   render() {
     const tagValueIDSlug = this.props.match.params.id,
-          tagValue       = unslugify(tagValueIDSlug);
+          tagValue       = tagValueIDSlug ? unslugify(tagValueIDSlug) : '';
 
     return (
       <React.Fragment>
