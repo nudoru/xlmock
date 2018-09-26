@@ -107,6 +107,9 @@ module.exports.removeWhiteSpace = (str) => {
   return str.replace(/(\r\n|\n|\r|\t|\s)/gm, '').replace(/>\s+</g, '><');
 };
 
+module.exports.slugify = str => str.split(' ').map(s => s.toLowerCase()).join('_');
+module.exports.unslugify = str => str.split('_').map(s => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+
 /*******************************************************************************
  * Array
  *******************************************************************************/

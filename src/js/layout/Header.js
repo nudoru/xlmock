@@ -5,6 +5,7 @@ import SVGIcon from "../components/SVGIcon";
 import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
 import DropDown from "../components/Dropdown";
+import {CatalogStructure} from '../store/model';
 
 class Header extends React.Component {
 
@@ -36,19 +37,16 @@ class Header extends React.Component {
   getCatalogNav() {
     return (
       <DropDown title='Catalog' setSelectedAsTitle={false}>
-        <DropDown.Entry onClick={this.onCatalogNavClick}>Portfolio</DropDown.Entry>
-        <DropDown.Entry onClick={this.onCatalogNavClick}>Job Role</DropDown.Entry>
-        <DropDown.Entry onClick={this.onCatalogNavClick}>Skill Level</DropDown.Entry>
-        <DropDown.Entry onClick={this.onCatalogNavClick}>Language</DropDown.Entry>
-        <DropDown.Entry onClick={this.onCatalogNavClick}>Topic</DropDown.Entry>
-        <DropDown.Entry onClick={this.onCatalogNavClick}>Competency</DropDown.Entry>
+        {Object.keys(CatalogStructure).map((k, i) => {
+          return <DropDown.Entry onClick={this.onCatalogNavClick} id={k} key={i}>{CatalogStructure[k]}</DropDown.Entry>
+        })}
       </DropDown>
     );
   }
 
   onCatalogNavClick = (e) => {
-    // console.log('catalog',e.target);
-    this.props.history.push('/catalog');
+    console.log('catalog',e.target.id);
+    this.props.history.push('/catalog/'+e.target.id);
   };
 
   render() {

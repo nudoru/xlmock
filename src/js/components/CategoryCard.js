@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 
 class CategoryCard extends React.PureComponent {
@@ -9,8 +10,12 @@ class CategoryCard extends React.PureComponent {
   static Title = ({children}) => <div className='c-catcard__content'>
     <h1>{children}</h1></div>;
 
-  static defaultProps = {};
-  static propTypes    = {};
+  static defaultProps = {
+    id: ''
+  };
+  static propTypes    = {
+    id: PropTypes.string
+  };
 
   state = {};
 
@@ -22,7 +27,7 @@ class CategoryCard extends React.PureComponent {
   }
 
   onCardClick = () => {
-      this.props.history.push('/catalogcategory');
+      this.props.history.push('/catalogcategory/'+this.props.id);
   };
 
   render() {

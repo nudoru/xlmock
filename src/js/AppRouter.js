@@ -29,8 +29,8 @@ import UserSettings from "./pages/UserSettings";
 
 const Routes = () => <Switch>
   <Route exact path="/" component={Overview}/>
-  <Route path="/catalog" component={Catalog}/>
-  <Route path="/catalogcategory" component={CatalogCategory}/>
+  <Route path="/catalog/:id" component={Catalog}/>
+  <Route path="/catalogcategory/:id" component={CatalogCategory}/>
   <Route path="/calendar" component={Calendar}/>
   <Route path="/alerts" component={Alerts}/>
   <Route path="/help" component={Help}/>

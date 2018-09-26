@@ -7,7 +7,7 @@
 .l-categorieshero {
   padding: $scale-1 0;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 1fr;
   h1 {
     @extend h4;
     margin: 0;

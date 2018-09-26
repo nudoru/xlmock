@@ -59,6 +59,8 @@ body {
 }
 
 .c-section-title-block {
+  margin-top: $scale6;
+  margin-bottom: $scale2;
   h1 {
     @extend .h5;
     display: inline;

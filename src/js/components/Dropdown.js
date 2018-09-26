@@ -15,14 +15,15 @@ const DropDownContext = React.createContext({
 
 class DropDown extends React.PureComponent {
 
-  static Entry = ({children, onClick= () => {}}) => (
+  static Entry = ({children, onClick= () => {}, ...rest}) => (
     <DropDownContext.Consumer>
       {contextValue => <div className='c-dropdown__entry'
                             onClick={(e) => {
                               contextValue.select(e);
                               onClick(e);
-                            }
-                            }>{children}</div>}
+                            }}
+                            {...rest}
+                            >{children}</div>}
     </DropDownContext.Consumer>
   );
 

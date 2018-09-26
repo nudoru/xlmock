@@ -140,7 +140,7 @@ class TestGridContent extends React.Component {
   }
 
   onSortFilterClick = (e) => {
-    console.log('sort filter menu click',e.target);
+    //console.log('sort filter menu click',e.target);
   };
 
   getDefaultListFilters() {

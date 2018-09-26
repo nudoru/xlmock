@@ -3,7 +3,7 @@ import Content from "../layout/Content";
 import Hero from "../layout/Hero";
 import Button from "../components/Button";
 import TestGridContent from "../test/TestGridContent";
-import * as Lorem from '../utils/Lorem';
+import {unslugify} from '../utils/Toolbox';
 
 class CatalogCategory extends React.Component {
 
@@ -20,22 +20,24 @@ class CatalogCategory extends React.Component {
   }
 
   render() {
+    const tagValueIDSlug = this.props.match.params.id,
+          tagValue       = unslugify(tagValueIDSlug);
+
     return (
       <React.Fragment>
         <Hero>
           <Hero.Content>
             <div className='l-categorieshero'>
-              <h1>Catalog Category</h1>
-              <p>{Lorem.sentence(10,20)}</p>
+              <h1>{tagValue}</h1>
             </div>
           </Hero.Content>
         </Hero>
         <Content>
-          <TestGridContent mode='list' title="Learning Paths"
+          <TestGridContent grid={false} title="Learning Paths"
                            badgeCount={0} numPaths={15} numCourses={0}
                            status={<Button>View All</Button>} allowViewChange
                            allowSort={true}/>
-          <TestGridContent mode='list' title="Courses"
+          <TestGridContent grid={false} title="Courses"
                            badgeCount={0} numPaths={0} numCourses={50}
                            status={<Button>View All</Button>} allowViewChange
                            allowSort={true}/>

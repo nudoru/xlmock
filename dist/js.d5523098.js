@@ -26452,6 +26452,17 @@ module.exports.removeWhiteSpace = function (str) {
   return str.replace(/(\r\n|\n|\r|\t|\s)/gm, '').replace(/>\s+</g, '><');
 };
 
+module.exports.slugify = function (str) {
+  return str.split(' ').map(function (s) {
+    return s.toLowerCase();
+  }).join('_');
+};
+module.exports.unslugify = function (str) {
+  return str.split('_').map(function (s) {
+    return s.charAt(0).toUpperCase() + s.substring(1);
+  }).join(' ');
+};
+
 /*******************************************************************************
  * Array
  *******************************************************************************/
@@ -49077,7 +49088,8 @@ var DropDown = function (_React$PureComponent) {
 DropDown.Entry = function (_ref) {
   var children = _ref.children,
       _ref$onClick = _ref.onClick,
-      _onClick = _ref$onClick === undefined ? function () {} : _ref$onClick;
+      _onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
+      rest = _objectWithoutProperties(_ref, ['children', 'onClick']);
 
   return _react2.default.createElement(
     DropDownContext.Consumer,
@@ -49085,11 +49097,12 @@ DropDown.Entry = function (_ref) {
     function (contextValue) {
       return _react2.default.createElement(
         'div',
-        { className: 'c-dropdown__entry',
+        _extends({ className: 'c-dropdown__entry',
           onClick: function onClick(e) {
             contextValue.select(e);
             _onClick(e);
-          } },
+          }
+        }, rest),
         children
       );
     }
@@ -49276,7 +49289,7 @@ var TestGridContent = function (_React$Component) {
     };
 
     _this.onSortFilterClick = function (e) {
-      console.log('sort filter menu click', e.target);
+      //console.log('sort filter menu click',e.target);
     };
 
     return _this;
@@ -49809,6 +49822,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactRouterDom = require('react-router-dom');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -49832,7 +49849,7 @@ var CategoryCard = function (_React$PureComponent) {
     _this.state = {};
 
     _this.onCardClick = function () {
-      _this.props.history.push('/catalogcategory');
+      _this.props.history.push('/catalogcategory/' + _this.props.id);
     };
 
     return _this;
@@ -49883,10 +49900,44 @@ CategoryCard.Title = function (_ref2) {
   );
 };
 
-CategoryCard.defaultProps = {};
-CategoryCard.propTypes = {};
+CategoryCard.defaultProps = {
+  id: ''
+};
+CategoryCard.propTypes = {
+  id: _propTypes2.default.string
+};
 exports.default = (0, _reactRouterDom.withRouter)(CategoryCard);
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/Catalog.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/store/model.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/*
+Just a simple model
+ */
+
+// For the catalog drop down and pages
+var CatalogStructure = exports.CatalogStructure = {
+  portfolio: 'Portfolio',
+  jobrole: 'Job Role',
+  skilllevel: 'Skill Level',
+  product: 'Product',
+  language: 'Language',
+  topic: 'Topic',
+  competency: 'Competency'
+};
+
+var TagCategories = exports.TagCategories = {
+  portfolio: ['Sales', 'Technical', 'Manager Development and Team Leadership', 'Professional Development and Individual Leadership'],
+  jobrole: ['All Associates', 'Account Manager', 'Ansible Sales Specialist', 'Cloud Sales Specialist', 'Consultant', 'Customer Service Representative', 'Customer Success Manager', 'Customer Support', 'Customer Support Specialist', 'Delivery', 'Developer', 'Inside Sales Professional', 'Marketing', 'Middleware Sales Specialist', 'Partner Account Manager (PAM)', 'People Manager', 'Product Manager', 'Project Manager', 'Quality Engineer', 'Sales', 'Sales Engineer', 'Sales Manager', 'Software Engineer', 'Software Maintenance Engineer', 'Solution Architect', 'Storage Sales Specialist', 'Systems Administrator', 'Technical Account Manager', 'Technical Services Manager (TSM)', 'Technical Support Engineer', 'Technical Writer'],
+  skilllevel: ['Knowledgable', 'Foundational', 'Experienced', 'Advanced', 'Expert'],
+  product: ['3scale API Management', 'AMQ (A-MQ RHAMQ)', 'AMQ Online', 'Ansible Automation (RHAA)', 'Ansible Engine (RHAE)', 'Ansible Tower (RHAT)', 'Ceph Storage (RHCS)', 'CloudForms', 'CoreOS (RHCOS)', 'Data Grid (RHJBDG RHJDG RHDG)', 'Data Virtualization (RHJBDV RHDV)', 'Decision Manager (BRMS RHDM)', 'Developer Studio (RHJBDS JBDS RHJDS RHDS)', 'Development Suite (RHDS)', 'Fuse (RHJBF RHF)', 'Fuse Online', 'Gluster Storage (RHGS)', 'Insights (RHI)', 'JBoss Enterprise Application Platform (EAP)', 'JBoss Frameworks (RHJBF)', 'JBoss Middleware', 'JBoss Operations Network (JON)', 'JBoss Portal (RHJBP)', 'JBoss Web Server (RHJBWS)', 'OpenShift (RHO RHOS RHOO RHOD RHOCL RHOCP OCP)', 'OpenShift Application Services (RHOAS RHASOCP)', 'OpenStack (RHOSP OSP)', 'Process Automation Manager (BPM Suite BPMS BPM RHPAM)', 'Quay (RHCR)', 'Red Hat Certificate System (RHCS)', 'Red Hat Cloud Infrastructure (RHCI)', 'Red Hat Cloud Suite (RHCS)', 'Red Hat Directory Server (RHDS)', 'Red Hat Enterprise Linux (RHEL)', 'Red Hat Enterprise Linux Atomic Host', 'Red Hat Enterprise Linux for IBM System z', 'Red Hat Enterprise Linux for SAP HANA', 'Red Hat Hyperconverged Infrastructure (RHHI)', 'Red Hat Mobile Application Platform (RHMAP FeedHenry)', 'Red Hat OpenShift Application Runtimes (RHOAR)', 'Red Hat OpenShift Container Storage (RHOCS)', 'Red Hat Storage', 'Red Hat Subscription Management (RHSM)', 'Red Hat Update Infrastructure (RHUI)', 'Red Hat Virtualization (RHV RHEV)', 'Satellite', 'Satellite (RHS)'],
+  language: ['Chinese', 'English', 'French', 'German', 'Italian', 'Japanese', 'Korean', 'Portuguese', 'Spanish'],
+  topic: ['Account planning', 'Administration and Operation', 'Agile Integration', 'Business Process Automation', 'Certification', 'Client', 'Cloud', 'Cloud-Native App Dev', 'Communication Skills', 'Configuration', 'Consultative Selling', 'Containers', 'Deployment', 'Dev Ops / DevOps', 'Development', 'Forecast', 'Hybrid Cloud Infrastructure', 'Infrastructure', 'Installation and Implementation', 'Integration Services', 'Interviewing and Hiring', 'IT Automation and Management', 'IT Optimization', 'Leadership Development', 'Middleware', 'Mobile', 'Negotiation', 'Opportunity planning', 'Personal Development', 'Pipeline Management', 'Presentation skills', 'Productivity tools', 'Project or Program Management', 'Red Hat conversation framework', 'Red Hat Learning Subscription (RHLS)', 'Red Hat Online Learning (ROLE)', 'Red Hat Skills Exchange (RHSE)', 'Red Hat Training (RHT)', 'Sales Messaging', 'Sales Onboarding', 'Troubleshooting'],
+  competency: ['Consultative selling', 'Continuous learning', 'Customer focus', 'Execution', 'Influence', 'Operational sales excellence', 'Problem solving', 'Red Hat multiplier', 'Sales manager excellence', 'Sales presence', 'Strategic', 'Team advocate']
+};
+},{}],"../js/pages/Catalog.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -49907,6 +49958,20 @@ var _CategoryCard = require("../components/CategoryCard");
 
 var _CategoryCard2 = _interopRequireDefault(_CategoryCard);
 
+var _Toolbox = require("../utils/Toolbox");
+
+var _model = require("../store/model");
+
+var _Hero = require("../layout/Hero");
+
+var _Hero2 = _interopRequireDefault(_Hero);
+
+var _Lorem = require("../utils/Lorem");
+
+var Lorem = _interopRequireWildcard(_Lorem);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49914,8 +49979,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CATEGORIES = ['All Associates', 'Account Manager', 'Ansible Sales Specialist', 'Cloud Sales Specialist', 'Consultant', 'Customer Service Representative', 'Customer Success Manager', 'Customer Support', 'Customer Support Specialist', 'Delivery', 'Developer', 'Inside Sales Professional', 'Marketing', 'Middleware Sales Specialist', 'Partner Account Manager (PAM)', 'People Manager', 'Product Manager', 'Project Manager', 'Quality Engineer', 'Sales', 'Sales Engineer', 'Software Engineer', 'Software Maintenance Engineer', 'Solution Architect', 'Storage Sales Specialist', 'Systems Administrator', 'Technical Account Manager', 'Technical Services Manager (TSM)', 'Technical Support Engineer', 'Technical Writer'];
 
 var Catalog = function (_React$Component) {
   _inherits(Catalog, _React$Component);
@@ -49935,9 +49998,33 @@ var Catalog = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var catalogID = this.props.match.params.id;
+
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
+        _react2.default.createElement(
+          _Hero2.default,
+          null,
+          _react2.default.createElement(
+            _Hero2.default.Content,
+            null,
+            _react2.default.createElement(
+              "div",
+              { className: "l-categorieshero" },
+              _react2.default.createElement(
+                "h1",
+                null,
+                "Catalog for ",
+                _react2.default.createElement(
+                  "strong",
+                  null,
+                  _model.CatalogStructure[catalogID]
+                )
+              )
+            )
+          )
+        ),
         _react2.default.createElement(
           _Content2.default,
           null,
@@ -49947,21 +50034,16 @@ var Catalog = function (_React$Component) {
             _react2.default.createElement(
               "h1",
               null,
-              "Catalog"
-            ),
-            _react2.default.createElement(
-              "p",
-              null,
-              "Explore the catalog by job area."
+              "Choose one of the categories below to all courses and paths available."
             )
           ),
           _react2.default.createElement(
             "div",
             { className: "l-categoriesgrid" },
-            CATEGORIES.map(function (name, i) {
+            _model.TagCategories[catalogID].map(function (name, i) {
               return _react2.default.createElement(
                 _CategoryCard2.default,
-                { key: i },
+                { id: (0, _Toolbox.slugify)(name), key: i },
                 _react2.default.createElement(_CategoryCard2.default.Background, null),
                 _react2.default.createElement(
                   _CategoryCard2.default.Title,
@@ -49982,7 +50064,7 @@ var Catalog = function (_React$Component) {
 Catalog.defaultProps = {};
 Catalog.propTypes = {};
 exports.default = Catalog;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../components/CategoryCard":"../js/components/CategoryCard.js"}],"../js/pages/Calendar.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../components/CategoryCard":"../js/components/CategoryCard.js","../utils/Toolbox":"../js/utils/Toolbox.js","../store/model":"../js/store/model.js","../layout/Hero":"../js/layout/Hero.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/pages/Calendar.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84387,6 +84469,8 @@ var _Dropdown = require('../components/Dropdown');
 
 var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
+var _model = require('../store/model');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84414,8 +84498,8 @@ var Header = function (_React$Component) {
     };
 
     _this.onCatalogNavClick = function (e) {
-      // console.log('catalog',e.target);
-      _this.props.history.push('/catalog');
+      console.log('catalog', e.target.id);
+      _this.props.history.push('/catalog/' + e.target.id);
     };
 
     return _this;
@@ -84427,39 +84511,18 @@ var Header = function (_React$Component) {
   }, {
     key: 'getCatalogNav',
     value: function getCatalogNav() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         _Dropdown2.default,
         { title: 'Catalog', setSelectedAsTitle: false },
-        _react2.default.createElement(
-          _Dropdown2.default.Entry,
-          { onClick: this.onCatalogNavClick },
-          'Portfolio'
-        ),
-        _react2.default.createElement(
-          _Dropdown2.default.Entry,
-          { onClick: this.onCatalogNavClick },
-          'Job Role'
-        ),
-        _react2.default.createElement(
-          _Dropdown2.default.Entry,
-          { onClick: this.onCatalogNavClick },
-          'Skill Level'
-        ),
-        _react2.default.createElement(
-          _Dropdown2.default.Entry,
-          { onClick: this.onCatalogNavClick },
-          'Language'
-        ),
-        _react2.default.createElement(
-          _Dropdown2.default.Entry,
-          { onClick: this.onCatalogNavClick },
-          'Topic'
-        ),
-        _react2.default.createElement(
-          _Dropdown2.default.Entry,
-          { onClick: this.onCatalogNavClick },
-          'Competency'
-        )
+        Object.keys(_model.CatalogStructure).map(function (k, i) {
+          return _react2.default.createElement(
+            _Dropdown2.default.Entry,
+            { onClick: _this2.onCatalogNavClick, id: k, key: i },
+            _model.CatalogStructure[k]
+          );
+        })
       );
     }
   }, {
@@ -84615,7 +84678,7 @@ Header.propTypes = {
   onMobileMenuClick: _propTypes2.default.func
 };
 exports.default = (0, _reactRouterDom.withRouter)(Header);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/Dropdown":"../js/components/Dropdown.js","../store/model":"../js/store/model.js","../../img/RHLearning_tool_logo.png":"../img/RHLearning_tool_logo.png"}],"../js/layout/SiteContainer.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -86140,11 +86203,7 @@ var _TestGridContent = require("../test/TestGridContent");
 
 var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
 
-var _Lorem = require("../utils/Lorem");
-
-var Lorem = _interopRequireWildcard(_Lorem);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+var _Toolbox = require("../utils/Toolbox");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -86172,6 +86231,9 @@ var CatalogCategory = function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var tagValueIDSlug = this.props.match.params.id,
+          tagValue = (0, _Toolbox.unslugify)(tagValueIDSlug);
+
       return _react2.default.createElement(
         _react2.default.Fragment,
         null,
@@ -86187,12 +86249,7 @@ var CatalogCategory = function (_React$Component) {
               _react2.default.createElement(
                 "h1",
                 null,
-                "Catalog Category"
-              ),
-              _react2.default.createElement(
-                "p",
-                null,
-                Lorem.sentence(10, 20)
+                tagValue
               )
             )
           )
@@ -86200,7 +86257,7 @@ var CatalogCategory = function (_React$Component) {
         _react2.default.createElement(
           _Content2.default,
           null,
-          _react2.default.createElement(_TestGridContent2.default, { mode: "list", title: "Learning Paths",
+          _react2.default.createElement(_TestGridContent2.default, { grid: false, title: "Learning Paths",
             badgeCount: 0, numPaths: 15, numCourses: 0,
             status: _react2.default.createElement(
               _Button2.default,
@@ -86208,7 +86265,7 @@ var CatalogCategory = function (_React$Component) {
               "View All"
             ), allowViewChange: true,
             allowSort: true }),
-          _react2.default.createElement(_TestGridContent2.default, { mode: "list", title: "Courses",
+          _react2.default.createElement(_TestGridContent2.default, { grid: false, title: "Courses",
             badgeCount: 0, numPaths: 0, numCourses: 50,
             status: _react2.default.createElement(
               _Button2.default,
@@ -86227,7 +86284,7 @@ var CatalogCategory = function (_React$Component) {
 CatalogCategory.defaultProps = {};
 CatalogCategory.propTypes = {};
 exports.default = CatalogCategory;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../utils/Lorem":"../js/utils/Lorem.js"}],"../js/pages/UserPaths.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../utils/Toolbox":"../js/utils/Toolbox.js"}],"../js/pages/UserPaths.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -86761,8 +86818,8 @@ var Routes = function Routes() {
     _reactRouterDom.Switch,
     null,
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Overview2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/catalog', component: _Catalog2.default }),
-    _react2.default.createElement(_reactRouterDom.Route, { path: '/catalogcategory', component: _CatalogCategory2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/catalog/:id', component: _Catalog2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { path: '/catalogcategory/:id', component: _CatalogCategory2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/alerts', component: _Alerts2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/help', component: _Help2.default }),
