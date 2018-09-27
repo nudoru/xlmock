@@ -5,61 +5,61 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-[ ] Chip group
-[ ] Create new $spacing-2 w/ 5px values and replace all current instances of small px spaces
-![x] drop down catalog menu and flow
-    [ ] dynamic catalog routing
-    [ ] catalog get title from route?
-    [ ] catalog screen as grid
-    [ ] tags as cards? default to list
-[ ] add pencil, icon to user profile persona
-    [ ] round icon
-    [ ] icons in the 4 diagonal corners of the photo
-![ ] help / wiki page
-    [ ] CSS styles for page formatting elements and general structure
-[ ] card design for ...
-    [ ] lynda
-    [ ] kaltura
-    [ ] allego
-[ ] team / dashboard screen
-    [ ] team, user select profile fly out
-[ ] profile layout
-[ ] profile screens
-[ ] <dialog> ? modal pop up / feedback
-[ ] search bar should be input
-[ ] responsive - card grid filters
-[ ] responsive - big tabs, tabs
-    [ ] buttons on left / right
-    [ ] drag scroll or buttons to scroll?
-[ ] responsive - message banner
+- refactor drop down so that optionally, the button label goes to one loc and the dropdown toggles
+- First time user flow
+- Differentiate Home "All about me" vs Header "About everyone
+- card design for ...
+    - lynda
+    - kaltura
+    - allego
+- Add search filters for Location / Class time
+
+- Chip group
+- Create new $spacing-2 w/ 5px values and replace all current instances of small px spaces
+- add pencil, icon to user profile persona
+    - round icon
+    - icons in the 4 diagonal corners of the photo
+!- help / wiki page
+    - CSS styles for page formatting elements and general structure
+- team / dashboard screen
+    - team, user select profile fly out
+- profile layout
+- profile screens
+- <dialog> ? modal pop up / feedback
+- search bar should be input
+- responsive - card grid filters
+- responsive - big tabs, tabs
+    - buttons on left / right
+    - drag scroll or buttons to scroll?
+- responsive - message banner
 
 # TODO Animations
 
-[ ] ExpandingMenu open/close
-[ ] DropDown open/close
-[ ] MessageBannerGroup add/remove
-[ ] ChipGroup add/remove
+- ExpandingMenu open/close
+- DropDown open/close
+- MessageBannerGroup add/remove
+- ChipGroup add/remove
 
 # TODO Functionality
 
-[ ] DropDown and ExpandingMenu rename title to label?
-[ ] Rename ExpandingMenu?
-[ ] hero message dismissible
-    [ ] remove from message banner group?
-[ ] fix hero grid rows so content and outercontet work in any order and number w/ background image
-[ ] make Lorem util a React component w/ subcomponents Loren.Title, etc.
-[ ] Fix card overflow w/ CSS props
-[ ] more semantic html
-[ ] call setState as function
-[ ] Check box onChange callback
-[ ] ExpandingMenu
-    [ ] animate open / close
-    [ ] map over children to handle onChange
-    [ ] provide onChange callback
+- DropDown and ExpandingMenu rename title to label?
+- Rename ExpandingMenu?
+- hero message dismissible
+    - remove from message banner group?
+- fix hero grid rows so content and outercontet work in any order and number w/ background image
+- make Lorem util a React component w/ subcomponents Loren.Title, etc.
+- Fix card overflow w/ CSS props
+- more semantic html
+- call setState as function
+- Check box onChange callback
+- ExpandingMenu
+    - animate open / close
+    - map over children to handle onChange
+    - provide onChange callback
 
 # Later
 
-[ ] Babel 7
+- Babel 7
 
 # Style guide
 

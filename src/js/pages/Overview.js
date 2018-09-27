@@ -44,12 +44,12 @@ class Overview extends React.Component {
                   <SVGIcon name='flag'/>
                 </MessageBanner.BoxedIcon>
                 <MessageBanner.Message>
-                  <h1>{Lorem.sentence(5, 10)}</h1>
-                  <p>{Lorem.sentence(10, 30)}</p>
+                  <h1>Welcome to Red Hat Learning!</h1>
+                  <p>First time here? Let us help you understand what you can do on this site.</p>
                 </MessageBanner.Message>
                 <MessageBanner.CTA>
-                  <Button negative>Dismiss</Button>
-                  <Button primary negative>View class</Button>
+                  <Button negative>No thanks</Button>
+                  <Button primary negative>View Getting Started</Button>
                 </MessageBanner.CTA>
               </MessageBanner>
             </MessageBannerGroup>

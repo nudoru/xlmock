@@ -26,8 +26,16 @@ class Header extends React.Component {
 
   componentDidMount() {}
 
-  onCatalogClick = () => {
-    this.props.history.push('/catalog');
+  onHomeClick = () => {
+    this.props.history.push('/');
+  };
+
+  onDiscoverClick = () => {
+    this.props.history.push('/discover');
+  };
+
+  onTeamClick = () => {
+    this.props.history.push('/team');
   };
 
   onCalendarClick = () => {
@@ -35,6 +43,8 @@ class Header extends React.Component {
   };
 
   getCatalogNav() {
+    // style={{width: '200px'}}
+    // <DropDown.Heading>Start exploring our learning offerings by choosing a category below. </DropDown.Heading>
     return (
       <DropDown title='Catalog' setSelectedAsTitle={false}>
         {Object.keys(CatalogStructure).map((k, i) => {
@@ -69,7 +79,11 @@ class Header extends React.Component {
           <Link to='/'><img width='250px' src={require('../../img/RHLearning_tool_logo.png')}/></Link>
         </div>
         <div className='c-site-header__nav'>
-          {/*<button onClick={this.onCatalogClick} className='c-header-button'>Catalog</button>*/}
+          <DropDown title='Dashboard' setSelectedAsTitle={false}>
+              <DropDown.Entry onClick={this.onHomeClick}>Overview</DropDown.Entry>
+              <DropDown.Entry onClick={this.onDiscoverClick}>Discover</DropDown.Entry>
+              <DropDown.Entry onClick={this.onTeamClick}>Team</DropDown.Entry>
+          </DropDown>
           {this.getCatalogNav()}
           <button onClick={this.onCalendarClick} className='c-header-button'>Calendar</button>
         </div>

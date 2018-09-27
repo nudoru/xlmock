@@ -9,6 +9,7 @@ import ExpandingMenu from "../components/ExpandingMenu";
 import CheckBox from "../components/CheckBox";
 import {unslugify} from '../utils/Toolbox';
 import Chip from "../components/Chip";
+import ChipGroup from "../components/ChipGroup";
 
 class Search extends React.Component {
 
@@ -40,7 +41,7 @@ class Search extends React.Component {
           <div className='l-search-results'>
             <h1>123 Results</h1>
             <div className='l-search-results__matches'>
-            {tags}
+              <ChipGroup>{tags}</ChipGroup>
             </div>
           </div>
           <TestGridContent mode='results' numPaths={2} numCourses={7}
@@ -74,6 +75,14 @@ class Search extends React.Component {
               <CheckBox>Online Self-paced</CheckBox>
               <CheckBox>Instructor-Led</CheckBox>
               <CheckBox>Virtual Instructor-Led</CheckBox>
+            </ExpandingMenu>
+          </SlideMenu.Section>
+          <SlideMenu.Section>
+            <ExpandingMenu title='Class Location (ILT)'>
+            </ExpandingMenu>
+          </SlideMenu.Section>
+          <SlideMenu.Section>
+            <ExpandingMenu title='Class Time (ILT)'>
             </ExpandingMenu>
           </SlideMenu.Section>
           <SlideMenu.Section>

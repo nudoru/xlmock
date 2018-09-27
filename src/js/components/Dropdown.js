@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import PropTypes from 'prop-types';
 import Button from './Button';
 import SVGIcon from "./SVGIcon";
@@ -15,7 +16,13 @@ const DropDownContext = React.createContext({
 
 class DropDown extends React.PureComponent {
 
-  static Entry = ({children, onClick= () => {}, ...rest}) => (
+  static Heading = ({children}) => <div
+    className='c-dropdown__heading'>{children}</div>;
+
+  static Entry = ({
+                    children, onClick = () => {
+    }, ...rest
+                  }) => (
     <DropDownContext.Consumer>
       {contextValue => <div className='c-dropdown__entry'
                             onClick={(e) => {
@@ -23,7 +30,7 @@ class DropDown extends React.PureComponent {
                               onClick(e);
                             }}
                             {...rest}
-                            >{children}</div>}
+      >{children}</div>}
     </DropDownContext.Consumer>
   );
 
@@ -45,13 +52,23 @@ class DropDown extends React.PureComponent {
 
   constructor(props) {
     super(props);
+    this.buttonEl = React.createRef();
   }
 
   componentDidMount() {
   }
 
-  toggleMenu = () => {
+  toggleMenu = _ => {
     this.setState({isOpen: !this.state.isOpen});
+  };
+
+  onButtonClick = (e) => {
+    if(e.target === ReactDom.findDOMNode(this.buttonEl.current)) {
+      console.log('click on de buttton')
+    } else {
+      console.log('not on de button')
+    }
+    this.toggleMenu();
   };
 
   onSelectItem = (e) => {
@@ -59,6 +76,10 @@ class DropDown extends React.PureComponent {
       this.setState({label: e.target.innerText});
     }
     this.toggleMenu();
+  };
+
+  onChevronClick = (e) => {
+    console.log('chevron click')
   };
 
   render() {
@@ -77,11 +98,13 @@ class DropDown extends React.PureComponent {
     return (
       <DropDownContext.Provider value={{select: this.onSelectItem}}>
         <div className={cls.join(' ')} {...rest}>
-          <Button onClick={this.toggleMenu}>{this.state.label}
-            {this.state.isOpen ? <SVGIcon name='chevron-up'
-                                          className='u-icon-button--right'/> :
-              <SVGIcon name='chevron-down'
-                       className='u-icon-button--right'/>}</Button>
+          <Button onClick={this.onButtonClick} ref = {this.buttonEl}>{this.state.label}
+            <span className='c-dropdown__chevron' onClick={this.onChevronClick}>
+            {this.state.isOpen ? <SVGIcon name='chevron-up'/> :
+              <SVGIcon name='chevron-down'/>}
+           </span>
+          </Button>
+
           <div className={contentsCls.join(' ')}>{children}</div>
         </div>
       </DropDownContext.Provider>);

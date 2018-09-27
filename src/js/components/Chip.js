@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SVGIcon from "./SVGIcon";
 import Label from "./Label";
 
 class Chip extends React.PureComponent {
 
-  static defaultProps = {};
-  static propTypes    = {};
+  static defaultProps = {
+    onRemove: () => {}
+  };
+  static propTypes    = {
+    onRemove: PropTypes.func
+  };
 
   state = {};
 
@@ -16,17 +21,23 @@ class Chip extends React.PureComponent {
   componentDidMount() {
   }
 
-  render() {
-    const {className = null, children, ...rest} = this.props;
+  onRemoveClick = (e) => {
+    console.log('remove a chip');
+    this.props.onRemove(e);
+  };
 
-    let cls = [''];
+  render() {
+    const {className = null, children, onRemove, ...rest} = this.props;
+
+    let cls = ['c-chip'];
     cls.push(className);
 
     return (
-      <Label className={cls.join(' ')} {...rest}>{children}<SVGIcon name='x'
+      <span className={cls.join(' ')} {...rest}>{children}<SVGIcon name='x'
                                                                     width='14'
                                                                     height='14'
-                                                                    className='u-padding-left'/></Label>);
+                                                                    onClick = {this.onRemoveClick}
+                                                                    className='u-padding-left'/></span>);
   }
 }
 

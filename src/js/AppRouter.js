@@ -22,7 +22,6 @@ import CoursePlayer from "./pages/CoursePlayer";
 import CourseDetailResources from "./pages/CourseDetailResources";
 import SlideMenu from "./components/SlideMenu";
 import SVGIcon from "./components/SVGIcon";
-import CatalogCategory from "./pages/CatalogCategory";
 import UserPaths from "./pages/UserPaths";
 import UserRecord from "./pages/UserRecord";
 import UserSettings from "./pages/UserSettings";

@@ -43,8 +43,11 @@
     button {
       @extend .c-header-button;
     }
+    .c-dropdown__chevron {
+      background-color: rgba(255,255,255,$color-alpha-faint-line);
+      margin-right: -$scale2;
+    }
     .c-dropdown__contents {
-      //padding: $scale1;
       background: $header-color-background;
     }
     .c-dropdown__entry:hover {

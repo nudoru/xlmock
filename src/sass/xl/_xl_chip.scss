@@ -1,0 +1,27 @@
+// copy of label
+
+.c-chip {
+  @extend .dropshadow-xs;
+  position: relative;
+  top: -3px;
+  display: inline-block;
+  margin-left: $scale-1 / 2;
+  background-color: $label-color;
+  color: #fff;
+  padding: 0 $label-size / 3;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  height: $label-size;
+  line-height: $label-size;
+  min-width: $label-size;
+  border-radius: $label-size;
+  .u-svgicon {
+    top: 3px;
+  }
+}
+
+.c-chip--negative {
+  background-color: #fff;
+  color: $label-color;
+}
