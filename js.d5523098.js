@@ -26554,6 +26554,18 @@ module.exports.fillIntArray = function (start, end) {
   }, []);
 };
 
+//https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+module.exports.shuffleArray = function (array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    // eslint-disable-line no-param-reassign
+    var _ref = [array[j], array[i]];
+    array[i] = _ref[0];
+    array[j] = _ref[1];
+  }
+  return array;
+};
+
 /*******************************************************************************
  * Objects
  *******************************************************************************/
@@ -27247,7 +27259,100 @@ Tag.propTypes = {
   negative: _propTypes2.default.bool
 };
 exports.default = Tag;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/LearningCard.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/Card.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Card = function (_React$PureComponent) {
+  _inherits(Card, _React$PureComponent);
+
+  function Card(props) {
+    _classCallCheck(this, Card);
+
+    var _this = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Card, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? '' : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var cls = ['c-card', className];
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return Card;
+}(_react2.default.PureComponent);
+
+Card.HSection = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-card__hsection' },
+    children
+  );
+};
+
+Card.VSection = function (_ref2) {
+  var children = _ref2.children;
+  return _react2.default.createElement(
+    'div',
+    { className: 'c-card__vsection' },
+    children
+  );
+};
+
+Card.defaultProps = {};
+Card.propTypes = {};
+exports.default = Card;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../img/logo-allego.png":[function(require,module,exports) {
+module.exports = "/logo-allego.1d45edac.png";
+},{}],"../img/logo-kaltura.png":[function(require,module,exports) {
+module.exports = "/logo-kaltura.3bffc702.png";
+},{}],"../img/logo-lynda.png":[function(require,module,exports) {
+module.exports = "/logo-lynda.51927609.png";
+},{}],"../js/components/LearningCard.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27280,6 +27385,10 @@ var _Tag = require('./Tag');
 
 var _Tag2 = _interopRequireDefault(_Tag);
 
+var _Card = require('./Card');
+
+var _Card2 = _interopRequireDefault(_Card);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -27289,6 +27398,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AllegoLogo = require('../../img/logo-allego.png');
+var KalturaLogo = require('../../img/logo-kaltura.png');
+var LyndaLogo = require('../../img/logo-lynda.png');
 
 var LearningCard = function (_React$PureComponent) {
   _inherits(LearningCard, _React$PureComponent);
@@ -27332,8 +27445,9 @@ var LearningCard = function (_React$PureComponent) {
           ctaLabel = _props.ctaLabel,
           children = _props.children,
           staticContext = _props.staticContext,
+          provider = _props.provider,
           card = _props.card,
-          rest = _objectWithoutProperties(_props, ['type', 'duration', 'mod', 'mobile', 'tag', 'ctaLabel', 'children', 'staticContext', 'card']);
+          rest = _objectWithoutProperties(_props, ['type', 'duration', 'mod', 'mobile', 'tag', 'ctaLabel', 'children', 'staticContext', 'provider', 'card']);
 
       var cls = card ? ['c-lrncard'] : ['c-lrncard--row'],
           cardFormat = card ? 'c-lrncard__contents' : 'c-lrncard__contents--row',
@@ -27356,10 +27470,26 @@ var LearningCard = function (_React$PureComponent) {
         cardIcon = _react2.default.createElement(_SVGIcon2.default, { name: 'box' });
       } else {
         cls.push('c-lrncard--course');
+        if (provider === 'allego') {
+          typeLabel = 'Allego';
+          cardIcon = _react2.default.createElement('img', { className: 'c-lrncard--imgicon', src: AllegoLogo,
+            alt: 'Allego Logo' });
+          cls.push('c-lrncard--course--allego');
+        } else if (provider === 'kaltura') {
+          typeLabel = 'Kaltura';
+          cardIcon = _react2.default.createElement('img', { className: 'c-lrncard--imgicon', src: KalturaLogo,
+            alt: 'Kaltura Logo' });
+          cls.push('c-lrncard--course--kaltura');
+        } else if (provider === 'lynda') {
+          typeLabel = 'Lynda.com';
+          cardIcon = _react2.default.createElement('img', { className: 'c-lrncard--imgicon', src: LyndaLogo,
+            alt: 'Lynda.com Logo' });
+          cls.push('c-lrncard--course--lynda');
+        }
       }
 
       return _react2.default.createElement(
-        'div',
+        _Card2.default,
         _extends({ className: cls.join(' '), onClick: this.onCardClick }, rest),
         _react2.default.createElement(
           'div',
@@ -27409,7 +27539,8 @@ var LearningCard = function (_React$PureComponent) {
 LearningCard.defaultProps = {
   type: 'course',
   mobile: false,
-  card: true
+  card: true,
+  provider: 'lms'
 };
 LearningCard.propTypes = {
   type: _propTypes2.default.string,
@@ -27418,10 +27549,11 @@ LearningCard.propTypes = {
   mobile: _propTypes2.default.bool,
   card: _propTypes2.default.bool,
   tag: _propTypes2.default.string,
-  ctaLabel: _propTypes2.default.string
+  ctaLabel: _propTypes2.default.string,
+  provider: _propTypes2.default.string
 };
 exports.default = (0, _reactRouterDom.withRouter)(LearningCard);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js","./Tag":"../js/components/Tag.js"}],"../js/layout/CardLayout.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js","./Tag":"../js/components/Tag.js","./Card":"../js/components/Card.js","../../img/logo-allego.png":"../img/logo-allego.png","../../img/logo-kaltura.png":"../img/logo-kaltura.png","../../img/logo-lynda.png":"../img/logo-lynda.png"}],"../js/layout/CardLayout.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -46836,94 +46968,7 @@ var AlertBadge = function (_React$PureComponent) {
 AlertBadge.defaultProps = {};
 AlertBadge.propTypes = {};
 exports.default = AlertBadge;
-},{"react":"../../node_modules/react/index.js"}],"../js/components/Card.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Card = function (_React$PureComponent) {
-  _inherits(Card, _React$PureComponent);
-
-  function Card(props) {
-    _classCallCheck(this, Card);
-
-    var _this = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(Card, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {}
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          _props$className = _props.className,
-          className = _props$className === undefined ? '' : _props$className,
-          children = _props.children,
-          rest = _objectWithoutProperties(_props, ['className', 'children']);
-
-      var cls = ['c-card', className];
-
-      return _react2.default.createElement(
-        'div',
-        _extends({ className: cls.join(' ') }, rest),
-        children
-      );
-    }
-  }]);
-
-  return Card;
-}(_react2.default.PureComponent);
-
-Card.HSection = function (_ref) {
-  var children = _ref.children;
-  return _react2.default.createElement(
-    'div',
-    { className: 'c-card__hsection' },
-    children
-  );
-};
-
-Card.VSection = function (_ref2) {
-  var children = _ref2.children;
-  return _react2.default.createElement(
-    'div',
-    { className: 'c-card__vsection' },
-    children
-  );
-};
-
-Card.defaultProps = {};
-Card.propTypes = {};
-exports.default = Card;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/components/StatGroup.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js"}],"../js/components/StatGroup.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49277,6 +49322,8 @@ var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
 var _model = require('../store/model');
 
+var _Toolbox = require('../utils/Toolbox');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -49318,11 +49365,15 @@ var MockPath = function MockPath(_ref) {
 
 var MockCourse = function MockCourse(_ref2) {
   var asCard = _ref2.asCard,
-      tag = _ref2.tag;
+      tag = _ref2.tag,
+      _ref2$provider = _ref2.provider,
+      provider = _ref2$provider === undefined ? 'lms' : _ref2$provider;
   return _react2.default.createElement(
     _LearningCard2.default,
-    { type: 'course',
+    {
+      type: 'course',
       duration: '5 hours 30 minutes',
+      provider: provider,
       tag: tag || Lorem.oneOf(_model.TagCategories.topic),
       card: asCard },
     _react2.default.createElement(
@@ -49388,7 +49439,8 @@ var TestGridContent = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this2 = this,
+          _Array$prototype;
 
       var paths = this.props.numPaths ? _lodash2.default.range(this.props.numPaths).map(function (i) {
         return _react2.default.createElement(MockPath, { key: i, tag: _this2.props.tag,
@@ -49398,10 +49450,24 @@ var TestGridContent = function (_React$Component) {
         return _react2.default.createElement(MockCourse, { key: i, tag: _this2.props.tag,
           asCard: _this2.state.isGridView });
       }) : [],
+          coursesAllego = this.props.numCoursesAllego ? _lodash2.default.range(this.props.numCoursesAllego).map(function (i) {
+        return _react2.default.createElement(MockCourse, { key: i, tag: _this2.props.tag, provider: 'allego',
+          asCard: _this2.state.isGridView });
+      }) : [],
+          coursesKaltura = this.props.numCoursesKaltura ? _lodash2.default.range(this.props.numCoursesKaltura).map(function (i) {
+        return _react2.default.createElement(MockCourse, { key: i, tag: _this2.props.tag, provider: 'kaltura',
+          asCard: _this2.state.isGridView });
+      }) : [],
+          coursesLynda = this.props.numCoursesLynda ? _lodash2.default.range(this.props.numCoursesLynda).map(function (i) {
+        return _react2.default.createElement(MockCourse, { key: i, tag: _this2.props.tag, provider: 'lynda',
+          asCard: _this2.state.isGridView });
+      }) : [],
           people = this.props.numPeople ? _lodash2.default.range(this.props.numPeople).map(function (i) {
         return _react2.default.createElement(MockTeam, { key: i, asCard: _this2.state.isGridView });
       }) : [],
-          content = paths.concat(courses.concat(people)),
+
+      // content        = paths.concat(courses.concat(people)),
+      content = (_Array$prototype = Array.prototype).concat.apply(_Array$prototype, [courses, paths, coursesAllego, coursesKaltura, coursesLynda]),
           contentView = this.state.isGridView ? _react2.default.createElement(
         _CardLayout2.default.GridContent,
         null,
@@ -49411,6 +49477,10 @@ var TestGridContent = function (_React$Component) {
         null,
         content
       );
+
+      if (this.props.shuffle) {
+        content = (0, _Toolbox.shuffleArray)(content);
+      }
 
       return _react2.default.createElement(
         _CardLayout2.default,
@@ -49517,6 +49587,9 @@ TestGridContent.defaultProps = {
   title: '',
   numPaths: 5,
   numCourses: 5,
+  numCoursesAllego: 0,
+  numCoursesKaltura: 0,
+  numCoursesLynda: 0,
   numPeople: 0,
   badgeCount: 0,
   mode: 'list', // list or results
@@ -49524,12 +49597,16 @@ TestGridContent.defaultProps = {
   allowViewChange: false,
   grid: true,
   tag: null,
-  byDate: false
+  byDate: false,
+  shuffle: false
 };
 TestGridContent.propTypes = {
   title: _propTypes2.default.string,
   numPaths: _propTypes2.default.number,
   numCourses: _propTypes2.default.number,
+  numCoursesAllego: _propTypes2.default.number,
+  numCoursesKaltura: _propTypes2.default.number,
+  numCoursesLynda: _propTypes2.default.number,
   numPeople: _propTypes2.default.number,
   badgeCount: _propTypes2.default.number,
   mode: _propTypes2.default.string,
@@ -49539,10 +49616,11 @@ TestGridContent.propTypes = {
   allowViewChange: _propTypes2.default.bool,
   grid: _propTypes2.default.bool,
   tag: _propTypes2.default.string,
-  byDate: _propTypes2.default.bool
+  byDate: _propTypes2.default.bool,
+  shuffle: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../store/model":"../js/store/model.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../store/model":"../js/store/model.js","../utils/Toolbox":"../js/utils/Toolbox.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49782,6 +49860,11 @@ var Overview = function (_React$Component) {
                   'Team'
                 )
               )
+            ),
+            _react2.default.createElement(
+              'h4',
+              { className: 'u-padding-top' },
+              'Resume your last learning path'
             ),
             _react2.default.createElement(_HeroPathProgress2.default, null),
             _react2.default.createElement(
@@ -84495,7 +84578,11 @@ var Search = function (_React$Component) {
               )
             )
           ),
-          _react2.default.createElement(_TestGridContent2.default, { numPaths: 2, numCourses: 7,
+          _react2.default.createElement(_TestGridContent2.default, { numPaths: 5, numCourses: 7,
+            numCoursesAllego: tags ? 0 : 2,
+            numCoursesKaltura: tags ? 0 : 2,
+            numCoursesLynda: tags ? 0 : 2,
+            shuffle: true,
             tag: tagValue,
             controls: this.filterButton(),
             status: _react2.default.createElement(
