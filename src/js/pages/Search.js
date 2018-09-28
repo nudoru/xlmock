@@ -33,20 +33,24 @@ class Search extends React.Component {
 
     console.log('Search',tagValue);
 
-    let tags = tagValue ? <Chip>{tagValue}</Chip> : [ <span><Chip>Ansible</Chip><Chip>OpenShift</Chip><Chip>Infrastructure</Chip></span>];
+    let tags = tagValue ? <Chip>{tagValue}</Chip> : null,
+        header = tagValue ? '123 Results' : 'All Content';
 
     return (
       <React.Fragment>
         <Content>
           <div className='l-search-results'>
-            <h1>123 Results</h1>
+            <h1>{header}</h1>
             <div className='l-search-results__matches'>
               <ChipGroup>{tags}</ChipGroup>
             </div>
           </div>
-          <TestGridContent mode='results' numPaths={2} numCourses={7}
+          <TestGridContent numPaths={2} numCourses={7}
                            tag={tagValue}
-                           controls={this.filterButton()} status={<p>(Infinity scroll)</p>} allowViewChange allowSort grid={false}/>
+                           controls={this.filterButton()}
+                           status={<p>(Infinity scroll)</p>}
+                           byDate = {tags === null}
+                           allowViewChange allowSort grid={false}/>
         </Content>
         <SlideMenu onBlockClick={this.toggleFiltersPanel}
                    isOpen={this.state.showFilters}>

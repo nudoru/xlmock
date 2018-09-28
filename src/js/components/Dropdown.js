@@ -6,7 +6,9 @@ import SVGIcon from "./SVGIcon";
 
 /*
 Todo
-[ ] Support selected on an entry as the currently selected item
+- manage internal state - selected index
+- allow control of selected
+- layout may need to be refactored away from a button to 2 divs, one for label and one for chevron?
  */
 
 const DropDownContext = React.createContext({
@@ -20,11 +22,14 @@ class DropDown extends React.PureComponent {
     className='c-dropdown__heading'>{children}</div>;
 
   static Entry = ({
-                    children, onClick = () => {
-    }, ...rest
+                    children, selected = false,
+                    onClick = () => {
+                    },
+                    ...rest
                   }) => (
     <DropDownContext.Consumer>
       {contextValue => <div className='c-dropdown__entry'
+                            data-selected={selected}
                             onClick={(e) => {
                               contextValue.select(e);
                               onClick(e);
@@ -38,24 +43,25 @@ class DropDown extends React.PureComponent {
     open              : false,
     setSelectedAsTitle: true
   };
-  static propTypes    = {
+
+  static propTypes = {
     open              : PropTypes.bool,
     title             : PropTypes.string,
     setSelectedAsTitle: PropTypes.bool,
-    negative          : PropTypes.bool
+    // TODO negative          : PropTypes.bool,
+    onLabelClick      : PropTypes.func
   };
 
   state = {
-    isOpen: this.props.open,
-    label : this.props.title
+    isOpen        : this.props.open,
+    label         : this.props.title,
+    hasAltFunction: this.props.onLabelClick != null
   };
 
   constructor(props) {
     super(props);
-    this.buttonEl = React.createRef();
-  }
-
-  componentDidMount() {
+    this.buttonEl   = React.createRef();
+    this.contentsEl = React.createRef();
   }
 
   toggleMenu = _ => {
@@ -63,27 +69,38 @@ class DropDown extends React.PureComponent {
   };
 
   onButtonClick = (e) => {
-    if(e.target === ReactDom.findDOMNode(this.buttonEl.current)) {
-      console.log('click on de buttton')
-    } else {
-      console.log('not on de button')
+    if (e.target === ReactDom.findDOMNode(this.buttonEl.current)) {
+      if (this.state.hasAltFunction) {
+        this.props.onLabelClick(e);
+        return false;
+      }
     }
     this.toggleMenu();
   };
 
-  onSelectItem = (e) => {
+  onEntryClick = (e) => {
+    this.selectItem(e.target);
+    this.toggleMenu();
+  };
+
+  selectItem = (elNode) => {
     if (this.props.setSelectedAsTitle) {
-      this.setState({label: e.target.innerText});
+      this.setState({label: elNode.innerText});
     }
-    this.toggleMenu();
+    // TODO Update some other state w/ the index of this item here
+    // TODO an onChange callback
   };
 
-  onChevronClick = (e) => {
-    console.log('chevron click')
-  };
+  componentDidMount() {
+    ReactDom.findDOMNode(this.contentsEl.current).childNodes.forEach(node => {
+      if (node.getAttribute('data-selected') === 'true') {
+        this.selectItem(node);
+      }
+    });
+  }
 
   render() {
-    const {className = null, children, negative, open, setSelectedAsTitle, ...rest} = this.props;
+    const {className = null, children, negative, open, setSelectedAsTitle, onLabelClick, ...rest} = this.props;
 
     let cls = ['c-dropdown'];
     cls.push(className);
@@ -96,16 +113,18 @@ class DropDown extends React.PureComponent {
 
 
     return (
-      <DropDownContext.Provider value={{select: this.onSelectItem}}>
+      <DropDownContext.Provider value={{select: this.onEntryClick}}>
         <div className={cls.join(' ')} {...rest}>
-          <Button onClick={this.onButtonClick} ref = {this.buttonEl}>{this.state.label}
-            <span className='c-dropdown__chevron' onClick={this.onChevronClick}>
+          <Button onClick={this.onButtonClick}
+                  ref={this.buttonEl}>{this.state.label}
+            <span className='c-dropdown__chevron'>
             {this.state.isOpen ? <SVGIcon name='chevron-up'/> :
               <SVGIcon name='chevron-down'/>}
            </span>
           </Button>
 
-          <div className={contentsCls.join(' ')}>{children}</div>
+          <div ref={this.contentsEl}
+               className={contentsCls.join(' ')}>{children}</div>
         </div>
       </DropDownContext.Provider>);
   }

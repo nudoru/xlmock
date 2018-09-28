@@ -49004,7 +49004,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 /*
 Todo
-[ ] Support selected on an entry as the currently selected item
+- manage internal state - selected index
+- allow control of selected
+- layout may need to be refactored away from a button to 2 divs, one for label and one for chevron?
  */
 
 var DropDownContext = _react2.default.createContext({
@@ -49021,7 +49023,8 @@ var DropDown = function (_React$PureComponent) {
 
     _this.state = {
       isOpen: _this.props.open,
-      label: _this.props.title
+      label: _this.props.title,
+      hasAltFunction: _this.props.onLabelClick != null
     };
 
     _this.toggleMenu = function (_) {
@@ -49030,31 +49033,43 @@ var DropDown = function (_React$PureComponent) {
 
     _this.onButtonClick = function (e) {
       if (e.target === _reactDom2.default.findDOMNode(_this.buttonEl.current)) {
-        console.log('click on de buttton');
-      } else {
-        console.log('not on de button');
+        if (_this.state.hasAltFunction) {
+          _this.props.onLabelClick(e);
+          return false;
+        }
       }
       _this.toggleMenu();
     };
 
-    _this.onSelectItem = function (e) {
+    _this.onEntryClick = function (e) {
+      _this.selectItem(e.target);
+      _this.toggleMenu();
+    };
+
+    _this.selectItem = function (elNode) {
       if (_this.props.setSelectedAsTitle) {
-        _this.setState({ label: e.target.innerText });
+        _this.setState({ label: elNode.innerText });
       }
-      _this.toggleMenu();
-    };
-
-    _this.onChevronClick = function (e) {
-      console.log('chevron click');
+      // TODO Update some other state w/ the index of this item here
+      // TODO an onChange callback
     };
 
     _this.buttonEl = _react2.default.createRef();
+    _this.contentsEl = _react2.default.createRef();
     return _this;
   }
 
   _createClass(DropDown, [{
     key: 'componentDidMount',
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _reactDom2.default.findDOMNode(this.contentsEl.current).childNodes.forEach(function (node) {
+        if (node.getAttribute('data-selected') === 'true') {
+          _this2.selectItem(node);
+        }
+      });
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -49065,7 +49080,8 @@ var DropDown = function (_React$PureComponent) {
           negative = _props.negative,
           open = _props.open,
           setSelectedAsTitle = _props.setSelectedAsTitle,
-          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative', 'open', 'setSelectedAsTitle']);
+          onLabelClick = _props.onLabelClick,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative', 'open', 'setSelectedAsTitle', 'onLabelClick']);
 
       var cls = ['c-dropdown'];
       cls.push(className);
@@ -49078,23 +49094,25 @@ var DropDown = function (_React$PureComponent) {
 
       return _react2.default.createElement(
         DropDownContext.Provider,
-        { value: { select: this.onSelectItem } },
+        { value: { select: this.onEntryClick } },
         _react2.default.createElement(
           'div',
           _extends({ className: cls.join(' ') }, rest),
           _react2.default.createElement(
             _Button2.default,
-            { onClick: this.onButtonClick, ref: this.buttonEl },
+            { onClick: this.onButtonClick,
+              ref: this.buttonEl },
             this.state.label,
             _react2.default.createElement(
               'span',
-              { className: 'c-dropdown__chevron', onClick: this.onChevronClick },
+              { className: 'c-dropdown__chevron' },
               this.state.isOpen ? _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-up' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down' })
             )
           ),
           _react2.default.createElement(
             'div',
-            { className: contentsCls.join(' ') },
+            { ref: this.contentsEl,
+              className: contentsCls.join(' ') },
             children
           )
         )
@@ -49117,9 +49135,11 @@ DropDown.Heading = function (_ref) {
 
 DropDown.Entry = function (_ref2) {
   var children = _ref2.children,
+      _ref2$selected = _ref2.selected,
+      selected = _ref2$selected === undefined ? false : _ref2$selected,
       _ref2$onClick = _ref2.onClick,
       _onClick = _ref2$onClick === undefined ? function () {} : _ref2$onClick,
-      rest = _objectWithoutProperties(_ref2, ['children', 'onClick']);
+      rest = _objectWithoutProperties(_ref2, ['children', 'selected', 'onClick']);
 
   return _react2.default.createElement(
     DropDownContext.Consumer,
@@ -49128,6 +49148,7 @@ DropDown.Entry = function (_ref2) {
       return _react2.default.createElement(
         'div',
         _extends({ className: 'c-dropdown__entry',
+          'data-selected': selected,
           onClick: function onClick(e) {
             contextValue.select(e);
             _onClick(e);
@@ -49147,7 +49168,8 @@ DropDown.propTypes = {
   open: _propTypes2.default.bool,
   title: _propTypes2.default.string,
   setSelectedAsTitle: _propTypes2.default.bool,
-  negative: _propTypes2.default.bool
+  // TODO negative          : PropTypes.bool,
+  onLabelClick: _propTypes2.default.func
 };
 exports.default = DropDown;
 },{"react":"../../node_modules/react/index.js","react-dom":"../../node_modules/react-dom/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../img/profiles/bear.jpg":[function(require,module,exports) {
@@ -49392,7 +49414,8 @@ var TestGridContent = function (_React$Component) {
         { title: 'Order' },
         _react2.default.createElement(
           _Dropdown2.default.Entry,
-          { onClick: this.onSortFilterClick },
+          { selected: this.props.byDate,
+            onClick: this.onSortFilterClick },
           'Recently added'
         ),
         _react2.default.createElement(
@@ -49468,7 +49491,8 @@ TestGridContent.defaultProps = {
   allowSort: false,
   allowViewChange: false,
   grid: true,
-  tag: null
+  tag: null,
+  byDate: false
 };
 TestGridContent.propTypes = {
   title: _propTypes2.default.string,
@@ -49482,7 +49506,8 @@ TestGridContent.propTypes = {
   allowSort: _propTypes2.default.bool,
   allowViewChange: _propTypes2.default.bool,
   grid: _propTypes2.default.bool,
-  tag: _propTypes2.default.string
+  tag: _propTypes2.default.string,
+  byDate: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
@@ -84441,25 +84466,8 @@ var Search = function (_React$Component) {
         _Chip2.default,
         null,
         tagValue
-      ) : [_react2.default.createElement(
-        "span",
-        null,
-        _react2.default.createElement(
-          _Chip2.default,
-          null,
-          "Ansible"
-        ),
-        _react2.default.createElement(
-          _Chip2.default,
-          null,
-          "OpenShift"
-        ),
-        _react2.default.createElement(
-          _Chip2.default,
-          null,
-          "Infrastructure"
-        )
-      )];
+      ) : null,
+          header = tagValue ? '123 Results' : 'All Content';
 
       return _react2.default.createElement(
         _react2.default.Fragment,
@@ -84473,7 +84481,7 @@ var Search = function (_React$Component) {
             _react2.default.createElement(
               "h1",
               null,
-              "123 Results"
+              header
             ),
             _react2.default.createElement(
               "div",
@@ -84485,13 +84493,16 @@ var Search = function (_React$Component) {
               )
             )
           ),
-          _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7,
+          _react2.default.createElement(_TestGridContent2.default, { numPaths: 2, numCourses: 7,
             tag: tagValue,
-            controls: this.filterButton(), status: _react2.default.createElement(
+            controls: this.filterButton(),
+            status: _react2.default.createElement(
               "p",
               null,
               "(Infinity scroll)"
-            ), allowViewChange: true, allowSort: true, grid: false })
+            ),
+            byDate: tags === null,
+            allowViewChange: true, allowSort: true, grid: false })
         ),
         _react2.default.createElement(
           _SlideMenu2.default,
@@ -84745,6 +84756,10 @@ var Header = function (_React$Component) {
       _this.props.history.push('/calendar');
     };
 
+    _this.onCatalogClick = function () {
+      _this.props.history.push('/search');
+    };
+
     _this.onCatalogNavClick = function (e) {
       console.log('catalog', e.target.id);
       _this.props.history.push('/catalog/' + e.target.id);
@@ -84765,7 +84780,7 @@ var Header = function (_React$Component) {
       // <DropDown.Heading>Start exploring our learning offerings by choosing a category below. </DropDown.Heading>
       return _react2.default.createElement(
         _Dropdown2.default,
-        { title: 'Catalog', setSelectedAsTitle: false },
+        { title: 'Catalog', setSelectedAsTitle: false, onLabelClick: this.onCatalogClick },
         Object.keys(_model.CatalogStructure).map(function (k, i) {
           return _react2.default.createElement(
             _Dropdown2.default.Entry,

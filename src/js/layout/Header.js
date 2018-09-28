@@ -42,11 +42,15 @@ class Header extends React.Component {
     this.props.history.push('/calendar');
   };
 
+  onCatalogClick = () => {
+    this.props.history.push('/search');
+  };
+
   getCatalogNav() {
     // style={{width: '200px'}}
     // <DropDown.Heading>Start exploring our learning offerings by choosing a category below. </DropDown.Heading>
     return (
-      <DropDown title='Catalog' setSelectedAsTitle={false}>
+      <DropDown title='Catalog' setSelectedAsTitle={false} onLabelClick={this.onCatalogClick}>
         {Object.keys(CatalogStructure).map((k, i) => {
           return <DropDown.Entry onClick={this.onCatalogNavClick} id={k} key={i}>{CatalogStructure[k]}</DropDown.Entry>
         })}

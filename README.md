@@ -5,7 +5,9 @@ Design work by AtlanticBT for Red Hat.
 
 # TODO Mockups
 
-- refactor drop down so that optionally, the button label goes to one loc and the dropdown toggles
+x refactor drop down so that optionally, the button label goes to one loc and the dropdown toggles
+- show marker or flag on card for "really required" content
+- unify cards to use Card base comp class
 - First time user flow
 - Differentiate Home "All about me" vs Header "About everyone
 - card design for ...

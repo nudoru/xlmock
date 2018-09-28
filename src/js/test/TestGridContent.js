@@ -73,7 +73,8 @@ class TestGridContent extends React.Component {
     allowSort      : false,
     allowViewChange: false,
     grid           : true,
-    tag            : null
+    tag            : null,
+    byDate         : false,
   };
 
   static propTypes = {
@@ -88,7 +89,8 @@ class TestGridContent extends React.Component {
     allowSort      : PropTypes.bool,
     allowViewChange: PropTypes.bool,
     grid           : PropTypes.bool,
-    tag            : PropTypes.string
+    tag            : PropTypes.string,
+    byDate         : PropTypes.bool,
   };
 
   state = {
@@ -142,7 +144,8 @@ class TestGridContent extends React.Component {
   getSortFilters() {
     return (
       <DropDown title='Order'>
-        <DropDown.Entry onClick={this.onSortFilterClick}>Recently
+        <DropDown.Entry selected={this.props.byDate}
+                        onClick={this.onSortFilterClick}>Recently
           added</DropDown.Entry>
         <DropDown.Entry onClick={this.onSortFilterClick}>Alphabetical
           (A-Z)</DropDown.Entry>
