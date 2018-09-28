@@ -144,13 +144,13 @@ class TestGridContent extends React.Component {
   getSortFilters() {
     return (
       <DropDown title='Order'>
-        <DropDown.Entry selected={this.props.byDate}
-                        onClick={this.onSortFilterClick}>Recently
-          added</DropDown.Entry>
-        <DropDown.Entry onClick={this.onSortFilterClick}>Alphabetical
-          (A-Z)</DropDown.Entry>
-        <DropDown.Entry onClick={this.onSortFilterClick}>Reverse alphabetical
-          (Z-A)</DropDown.Entry>
+        <DropDown.Option selected={this.props.byDate}
+                         onClick={this.onSortFilterClick}>Recently
+          added</DropDown.Option>
+        <DropDown.Option onClick={this.onSortFilterClick}>Alphabetical
+          (A-Z)</DropDown.Option>
+        <DropDown.Option onClick={this.onSortFilterClick}>Reverse alphabetical
+          (Z-A)</DropDown.Option>
       </DropDown>
     );
   }

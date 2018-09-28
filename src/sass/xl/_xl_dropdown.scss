@@ -54,7 +54,7 @@
   padding: $scale2 $scale2;
 }
 
-.c-dropdown__entry {
+.c-dropdown__option {
   @include transition-all();
   padding: $scale-1 $scale2;
   cursor: pointer;

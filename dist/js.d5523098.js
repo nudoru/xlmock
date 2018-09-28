@@ -49133,7 +49133,7 @@ DropDown.Heading = function (_ref) {
   );
 };
 
-DropDown.Entry = function (_ref2) {
+DropDown.Option = function (_ref2) {
   var children = _ref2.children,
       _ref2$selected = _ref2.selected,
       selected = _ref2$selected === undefined ? false : _ref2$selected,
@@ -49147,7 +49147,7 @@ DropDown.Entry = function (_ref2) {
     function (contextValue) {
       return _react2.default.createElement(
         'div',
-        _extends({ className: 'c-dropdown__entry',
+        _extends({ className: 'c-dropdown__option',
           'data-selected': selected,
           onClick: function onClick(e) {
             contextValue.select(e);
@@ -49413,18 +49413,18 @@ var TestGridContent = function (_React$Component) {
         _Dropdown2.default,
         { title: 'Order' },
         _react2.default.createElement(
-          _Dropdown2.default.Entry,
+          _Dropdown2.default.Option,
           { selected: this.props.byDate,
             onClick: this.onSortFilterClick },
           'Recently added'
         ),
         _react2.default.createElement(
-          _Dropdown2.default.Entry,
+          _Dropdown2.default.Option,
           { onClick: this.onSortFilterClick },
           'Alphabetical (A-Z)'
         ),
         _react2.default.createElement(
-          _Dropdown2.default.Entry,
+          _Dropdown2.default.Option,
           { onClick: this.onSortFilterClick },
           'Reverse alphabetical (Z-A)'
         )
@@ -84783,7 +84783,7 @@ var Header = function (_React$Component) {
         { title: 'Catalog', setSelectedAsTitle: false, onLabelClick: this.onCatalogClick },
         Object.keys(_model.CatalogStructure).map(function (k, i) {
           return _react2.default.createElement(
-            _Dropdown2.default.Entry,
+            _Dropdown2.default.Option,
             { onClick: _this2.onCatalogNavClick, id: k, key: i },
             _model.CatalogStructure[k]
           );
@@ -84868,17 +84868,17 @@ var Header = function (_React$Component) {
               _Dropdown2.default,
               { title: 'Dashboard', setSelectedAsTitle: false },
               _react2.default.createElement(
-                _Dropdown2.default.Entry,
+                _Dropdown2.default.Option,
                 { onClick: this.onHomeClick },
                 'Overview'
               ),
               _react2.default.createElement(
-                _Dropdown2.default.Entry,
+                _Dropdown2.default.Option,
                 { onClick: this.onDiscoverClick },
                 'Discover'
               ),
               _react2.default.createElement(
-                _Dropdown2.default.Entry,
+                _Dropdown2.default.Option,
                 { onClick: this.onTeamClick },
                 'Team'
               )

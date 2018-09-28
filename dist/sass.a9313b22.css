@@ -460,7 +460,7 @@ img {
   font-size: 0.9rem;
   padding: 1.3125rem 1.3125rem; }
 
-.c-dropdown__entry {
+.c-dropdown__option {
   -webkit-transition: all 0.25s ease-out;
   transition: all 0.25s ease-out;
   -webkit-transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -468,7 +468,7 @@ img {
   padding: 0.875rem 1.3125rem;
   cursor: pointer;
   border-radius: 0.3125rem; }
-  .c-dropdown__entry:hover {
+  .c-dropdown__option:hover {
     background-color: rgba(0, 0, 0, 0.1); }
 
 .c-button-bar__icons, .c-item-table__filters {

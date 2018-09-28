@@ -21,14 +21,14 @@ class DropDown extends React.PureComponent {
   static Heading = ({children}) => <div
     className='c-dropdown__heading'>{children}</div>;
 
-  static Entry = ({
+  static Option = ({
                     children, selected = false,
                     onClick = () => {
                     },
                     ...rest
                   }) => (
     <DropDownContext.Consumer>
-      {contextValue => <div className='c-dropdown__entry'
+      {contextValue => <div className='c-dropdown__option'
                             data-selected={selected}
                             onClick={(e) => {
                               contextValue.select(e);

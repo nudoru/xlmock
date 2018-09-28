@@ -52,7 +52,7 @@ class Header extends React.Component {
     return (
       <DropDown title='Catalog' setSelectedAsTitle={false} onLabelClick={this.onCatalogClick}>
         {Object.keys(CatalogStructure).map((k, i) => {
-          return <DropDown.Entry onClick={this.onCatalogNavClick} id={k} key={i}>{CatalogStructure[k]}</DropDown.Entry>
+          return <DropDown.Option onClick={this.onCatalogNavClick} id={k} key={i}>{CatalogStructure[k]}</DropDown.Option>
         })}
       </DropDown>
     );
@@ -84,9 +84,9 @@ class Header extends React.Component {
         </div>
         <div className='c-site-header__nav'>
           <DropDown title='Dashboard' setSelectedAsTitle={false}>
-              <DropDown.Entry onClick={this.onHomeClick}>Overview</DropDown.Entry>
-              <DropDown.Entry onClick={this.onDiscoverClick}>Discover</DropDown.Entry>
-              <DropDown.Entry onClick={this.onTeamClick}>Team</DropDown.Entry>
+              <DropDown.Option onClick={this.onHomeClick}>Overview</DropDown.Option>
+              <DropDown.Option onClick={this.onDiscoverClick}>Discover</DropDown.Option>
+              <DropDown.Option onClick={this.onTeamClick}>Team</DropDown.Option>
           </DropDown>
           {this.getCatalogNav()}
           <button onClick={this.onCalendarClick} className='c-header-button'>Calendar</button>
