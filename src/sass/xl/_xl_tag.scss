@@ -12,6 +12,8 @@
   min-width: $tag-size;
   border: 1px solid $tag-color;
   border-radius: $tag-size;
+  overflow: hidden;
+  text-overflow: ellipsis;
   .u-svgicon {
     top: 1px;
     margin-right: 0.2rem;

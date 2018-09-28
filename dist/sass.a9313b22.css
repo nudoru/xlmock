@@ -523,7 +523,9 @@ img {
   line-height: 2rem;
   min-width: 2rem;
   border: 1px solid #464646;
-  border-radius: 2rem; }
+  border-radius: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis; }
   .c-tag .u-svgicon {
     top: 1px;
     margin-right: 0.2rem; }

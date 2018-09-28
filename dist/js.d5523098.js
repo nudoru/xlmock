@@ -49172,7 +49172,37 @@ DropDown.propTypes = {
   onLabelClick: _propTypes2.default.func
 };
 exports.default = DropDown;
-},{"react":"../../node_modules/react/index.js","react-dom":"../../node_modules/react-dom/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../img/profiles/bear.jpg":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-dom":"../../node_modules/react-dom/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/store/model.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/*
+Just a simple model
+ */
+
+// For the catalog drop down and pages
+var CatalogStructure = exports.CatalogStructure = {
+  portfolio: 'Portfolio',
+  jobrole: 'Job Role',
+  skilllevel: 'Skill Level',
+  product: 'Product',
+  language: 'Language',
+  topic: 'Topic',
+  competency: 'Competency'
+};
+
+var TagCategories = exports.TagCategories = {
+  portfolio: ['Sales', 'Technical', 'Manager Development and Team Leadership', 'Professional Development and Individual Leadership'],
+  jobrole: ['All Associates', 'Account Manager', 'Ansible Sales Specialist', 'Cloud Sales Specialist', 'Consultant', 'Customer Service Representative', 'Customer Success Manager', 'Customer Support', 'Customer Support Specialist', 'Delivery', 'Developer', 'Inside Sales Professional', 'Marketing', 'Middleware Sales Specialist', 'Partner Account Manager (PAM)', 'People Manager', 'Product Manager', 'Project Manager', 'Quality Engineer', 'Sales', 'Sales Engineer', 'Sales Manager', 'Software Engineer', 'Software Maintenance Engineer', 'Solution Architect', 'Storage Sales Specialist', 'Systems Administrator', 'Technical Account Manager', 'Technical Services Manager (TSM)', 'Technical Support Engineer', 'Technical Writer'],
+  skilllevel: ['Knowledgable', 'Foundational', 'Experienced', 'Advanced', 'Expert'],
+  product: ['3scale API Management', 'AMQ (A-MQ RHAMQ)', 'AMQ Online', 'Ansible Automation (RHAA)', 'Ansible Engine (RHAE)', 'Ansible Tower (RHAT)', 'Ceph Storage (RHCS)', 'CloudForms', 'CoreOS (RHCOS)', 'Data Grid (RHJBDG RHJDG RHDG)', 'Data Virtualization (RHJBDV RHDV)', 'Decision Manager (BRMS RHDM)', 'Developer Studio (RHJBDS JBDS RHJDS RHDS)', 'Development Suite (RHDS)', 'Fuse (RHJBF RHF)', 'Fuse Online', 'Gluster Storage (RHGS)', 'Insights (RHI)', 'JBoss Enterprise Application Platform (EAP)', 'JBoss Frameworks (RHJBF)', 'JBoss Middleware', 'JBoss Operations Network (JON)', 'JBoss Portal (RHJBP)', 'JBoss Web Server (RHJBWS)', 'OpenShift (RHO RHOS RHOO RHOD RHOCL RHOCP OCP)', 'OpenShift Application Services (RHOAS RHASOCP)', 'OpenStack (RHOSP OSP)', 'Process Automation Manager (BPM Suite BPMS BPM RHPAM)', 'Quay (RHCR)', 'Red Hat Certificate System (RHCS)', 'Red Hat Cloud Infrastructure (RHCI)', 'Red Hat Cloud Suite (RHCS)', 'Red Hat Directory Server (RHDS)', 'Red Hat Enterprise Linux (RHEL)', 'Red Hat Enterprise Linux Atomic Host', 'Red Hat Enterprise Linux for IBM System z', 'Red Hat Enterprise Linux for SAP HANA', 'Red Hat Hyperconverged Infrastructure (RHHI)', 'Red Hat Mobile Application Platform (RHMAP FeedHenry)', 'Red Hat OpenShift Application Runtimes (RHOAR)', 'Red Hat OpenShift Container Storage (RHOCS)', 'Red Hat Storage', 'Red Hat Subscription Management (RHSM)', 'Red Hat Update Infrastructure (RHUI)', 'Red Hat Virtualization (RHV RHEV)', 'Satellite', 'Satellite (RHS)'],
+  language: ['Chinese', 'English', 'French', 'German', 'Italian', 'Japanese', 'Korean', 'Portuguese', 'Spanish'],
+  topic: ['Account planning', 'Administration and Operation', 'Agile Integration', 'Business Process Automation', 'Certification', 'Client', 'Cloud', 'Cloud-Native App Dev', 'Communication Skills', 'Configuration', 'Consultative Selling', 'Containers', 'Deployment', 'Dev Ops / DevOps', 'Development', 'Forecast', 'Hybrid Cloud Infrastructure', 'Infrastructure', 'Installation and Implementation', 'Integration Services', 'Interviewing and Hiring', 'IT Automation and Management', 'IT Optimization', 'Leadership Development', 'Middleware', 'Mobile', 'Negotiation', 'Opportunity planning', 'Personal Development', 'Pipeline Management', 'Presentation skills', 'Productivity tools', 'Project or Program Management', 'Red Hat conversation framework', 'Red Hat Learning Subscription (RHLS)', 'Red Hat Online Learning (ROLE)', 'Red Hat Skills Exchange (RHSE)', 'Red Hat Training (RHT)', 'Sales Messaging', 'Sales Onboarding', 'Troubleshooting'],
+  competency: ['Consultative selling', 'Continuous learning', 'Customer focus', 'Execution', 'Influence', 'Operational sales excellence', 'Problem solving', 'Red Hat multiplier', 'Sales manager excellence', 'Sales presence', 'Strategic', 'Team advocate']
+};
+},{}],"../img/profiles/bear.jpg":[function(require,module,exports) {
 module.exports = "/bear.ab0ae544.jpg";
 },{}],"../img/profiles/giraffe.jpg":[function(require,module,exports) {
 module.exports = "/giraffe.202538e8.jpg";
@@ -49245,6 +49275,8 @@ var _Dropdown = require('../components/Dropdown');
 
 var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
+var _model = require('../store/model');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -49268,7 +49300,7 @@ var MockPath = function MockPath(_ref) {
     _LearningCard2.default,
     { type: 'path',
       duration: '42 minutes',
-      tag: tag || 'Infrastructure',
+      tag: tag || Lorem.oneOf(_model.TagCategories.topic),
       mobile: true,
       card: asCard },
     _react2.default.createElement(
@@ -49291,7 +49323,7 @@ var MockCourse = function MockCourse(_ref2) {
     _LearningCard2.default,
     { type: 'course',
       duration: '5 hours 30 minutes',
-      tag: tag || 'Ansible',
+      tag: tag || Lorem.oneOf(_model.TagCategories.topic),
       card: asCard },
     _react2.default.createElement(
       'h1',
@@ -49510,7 +49542,7 @@ TestGridContent.propTypes = {
   byDate: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../store/model":"../js/store/model.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49969,37 +50001,7 @@ CategoryCard.propTypes = {
   id: _propTypes2.default.string
 };
 exports.default = (0, _reactRouterDom.withRouter)(CategoryCard);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/store/model.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/*
-Just a simple model
- */
-
-// For the catalog drop down and pages
-var CatalogStructure = exports.CatalogStructure = {
-  portfolio: 'Portfolio',
-  jobrole: 'Job Role',
-  skilllevel: 'Skill Level',
-  product: 'Product',
-  language: 'Language',
-  topic: 'Topic',
-  competency: 'Competency'
-};
-
-var TagCategories = exports.TagCategories = {
-  portfolio: ['Sales', 'Technical', 'Manager Development and Team Leadership', 'Professional Development and Individual Leadership'],
-  jobrole: ['All Associates', 'Account Manager', 'Ansible Sales Specialist', 'Cloud Sales Specialist', 'Consultant', 'Customer Service Representative', 'Customer Success Manager', 'Customer Support', 'Customer Support Specialist', 'Delivery', 'Developer', 'Inside Sales Professional', 'Marketing', 'Middleware Sales Specialist', 'Partner Account Manager (PAM)', 'People Manager', 'Product Manager', 'Project Manager', 'Quality Engineer', 'Sales', 'Sales Engineer', 'Sales Manager', 'Software Engineer', 'Software Maintenance Engineer', 'Solution Architect', 'Storage Sales Specialist', 'Systems Administrator', 'Technical Account Manager', 'Technical Services Manager (TSM)', 'Technical Support Engineer', 'Technical Writer'],
-  skilllevel: ['Knowledgable', 'Foundational', 'Experienced', 'Advanced', 'Expert'],
-  product: ['3scale API Management', 'AMQ (A-MQ RHAMQ)', 'AMQ Online', 'Ansible Automation (RHAA)', 'Ansible Engine (RHAE)', 'Ansible Tower (RHAT)', 'Ceph Storage (RHCS)', 'CloudForms', 'CoreOS (RHCOS)', 'Data Grid (RHJBDG RHJDG RHDG)', 'Data Virtualization (RHJBDV RHDV)', 'Decision Manager (BRMS RHDM)', 'Developer Studio (RHJBDS JBDS RHJDS RHDS)', 'Development Suite (RHDS)', 'Fuse (RHJBF RHF)', 'Fuse Online', 'Gluster Storage (RHGS)', 'Insights (RHI)', 'JBoss Enterprise Application Platform (EAP)', 'JBoss Frameworks (RHJBF)', 'JBoss Middleware', 'JBoss Operations Network (JON)', 'JBoss Portal (RHJBP)', 'JBoss Web Server (RHJBWS)', 'OpenShift (RHO RHOS RHOO RHOD RHOCL RHOCP OCP)', 'OpenShift Application Services (RHOAS RHASOCP)', 'OpenStack (RHOSP OSP)', 'Process Automation Manager (BPM Suite BPMS BPM RHPAM)', 'Quay (RHCR)', 'Red Hat Certificate System (RHCS)', 'Red Hat Cloud Infrastructure (RHCI)', 'Red Hat Cloud Suite (RHCS)', 'Red Hat Directory Server (RHDS)', 'Red Hat Enterprise Linux (RHEL)', 'Red Hat Enterprise Linux Atomic Host', 'Red Hat Enterprise Linux for IBM System z', 'Red Hat Enterprise Linux for SAP HANA', 'Red Hat Hyperconverged Infrastructure (RHHI)', 'Red Hat Mobile Application Platform (RHMAP FeedHenry)', 'Red Hat OpenShift Application Runtimes (RHOAR)', 'Red Hat OpenShift Container Storage (RHOCS)', 'Red Hat Storage', 'Red Hat Subscription Management (RHSM)', 'Red Hat Update Infrastructure (RHUI)', 'Red Hat Virtualization (RHV RHEV)', 'Satellite', 'Satellite (RHS)'],
-  language: ['Chinese', 'English', 'French', 'German', 'Italian', 'Japanese', 'Korean', 'Portuguese', 'Spanish'],
-  topic: ['Account planning', 'Administration and Operation', 'Agile Integration', 'Business Process Automation', 'Certification', 'Client', 'Cloud', 'Cloud-Native App Dev', 'Communication Skills', 'Configuration', 'Consultative Selling', 'Containers', 'Deployment', 'Dev Ops / DevOps', 'Development', 'Forecast', 'Hybrid Cloud Infrastructure', 'Infrastructure', 'Installation and Implementation', 'Integration Services', 'Interviewing and Hiring', 'IT Automation and Management', 'IT Optimization', 'Leadership Development', 'Middleware', 'Mobile', 'Negotiation', 'Opportunity planning', 'Personal Development', 'Pipeline Management', 'Presentation skills', 'Productivity tools', 'Project or Program Management', 'Red Hat conversation framework', 'Red Hat Learning Subscription (RHLS)', 'Red Hat Online Learning (ROLE)', 'Red Hat Skills Exchange (RHSE)', 'Red Hat Training (RHT)', 'Sales Messaging', 'Sales Onboarding', 'Troubleshooting'],
-  competency: ['Consultative selling', 'Continuous learning', 'Customer focus', 'Execution', 'Influence', 'Operational sales excellence', 'Problem solving', 'Red Hat multiplier', 'Sales manager excellence', 'Sales presence', 'Strategic', 'Team advocate']
-};
-},{}],"../js/pages/Catalog.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/Catalog.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

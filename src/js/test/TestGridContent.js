@@ -9,6 +9,7 @@ import ButtonBar from "../components/ButtonBar";
 import AlertBadge from "../components/AlertBadge";
 import TeamCard from "../components/TeamCard";
 import DropDown from "../components/Dropdown";
+import {TagCategories} from "../store/model";
 
 /**
  * For quick mocking of pages
@@ -36,7 +37,7 @@ const profilePicks = [
 
 const MockPath = ({asCard, tag}) => <LearningCard type='path'
                                                   duration='42 minutes'
-                                                  tag={tag || 'Infrastructure'}
+                                                  tag={tag || Lorem.oneOf(TagCategories.topic)}
                                                   mobile
                                                   card={asCard}>
   <h1>{Lorem.title(2, 10)}</h1>
@@ -45,7 +46,7 @@ const MockPath = ({asCard, tag}) => <LearningCard type='path'
 
 const MockCourse = ({asCard, tag}) => <LearningCard type='course'
                                                     duration='5 hours 30 minutes'
-                                                    tag={tag || 'Ansible'}
+                                                    tag={tag || Lorem.oneOf(TagCategories.topic)}
                                                     card={asCard}>
   <h1>{Lorem.title(2, 10)}</h1>
   <p>{Lorem.sentence(5, 15)}</p>
