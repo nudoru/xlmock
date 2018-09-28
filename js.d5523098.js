@@ -48976,6 +48976,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -49000,7 +49004,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 /*
 Todo
-[ ] Support selected on an entry as the currently selected item
+- manage internal state - selected index
+- allow control of selected
+- layout may need to be refactored away from a button to 2 divs, one for label and one for chevron?
  */
 
 var DropDownContext = _react2.default.createContext({
@@ -49017,26 +49023,53 @@ var DropDown = function (_React$PureComponent) {
 
     _this.state = {
       isOpen: _this.props.open,
-      label: _this.props.title
+      label: _this.props.title,
+      hasAltFunction: _this.props.onLabelClick != null
     };
 
-    _this.toggleMenu = function () {
+    _this.toggleMenu = function (_) {
       _this.setState({ isOpen: !_this.state.isOpen });
     };
 
-    _this.onSelectItem = function (e) {
-      if (_this.props.setSelectedAsTitle) {
-        _this.setState({ label: e.target.innerText });
+    _this.onButtonClick = function (e) {
+      if (e.target === _reactDom2.default.findDOMNode(_this.buttonEl.current)) {
+        if (_this.state.hasAltFunction) {
+          _this.props.onLabelClick(e);
+          return false;
+        }
       }
       _this.toggleMenu();
     };
 
+    _this.onEntryClick = function (e) {
+      _this.selectItem(e.target);
+      _this.toggleMenu();
+    };
+
+    _this.selectItem = function (elNode) {
+      if (_this.props.setSelectedAsTitle) {
+        _this.setState({ label: elNode.innerText });
+      }
+      // TODO Update some other state w/ the index of this item here
+      // TODO an onChange callback
+    };
+
+    _this.buttonEl = _react2.default.createRef();
+    _this.contentsEl = _react2.default.createRef();
     return _this;
   }
 
   _createClass(DropDown, [{
     key: 'componentDidMount',
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _reactDom2.default.findDOMNode(this.contentsEl.current).childNodes.forEach(function (node) {
+        if (node.getAttribute('data-selected') === 'true') {
+          _this2.selectItem(node);
+        }
+      });
+    }
   }, {
     key: 'render',
     value: function render() {
@@ -49047,7 +49080,8 @@ var DropDown = function (_React$PureComponent) {
           negative = _props.negative,
           open = _props.open,
           setSelectedAsTitle = _props.setSelectedAsTitle,
-          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative', 'open', 'setSelectedAsTitle']);
+          onLabelClick = _props.onLabelClick,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'negative', 'open', 'setSelectedAsTitle', 'onLabelClick']);
 
       var cls = ['c-dropdown'];
       cls.push(className);
@@ -49060,21 +49094,25 @@ var DropDown = function (_React$PureComponent) {
 
       return _react2.default.createElement(
         DropDownContext.Provider,
-        { value: { select: this.onSelectItem } },
+        { value: { select: this.onEntryClick } },
         _react2.default.createElement(
           'div',
           _extends({ className: cls.join(' ') }, rest),
           _react2.default.createElement(
             _Button2.default,
-            { onClick: this.toggleMenu },
+            { onClick: this.onButtonClick,
+              ref: this.buttonEl },
             this.state.label,
-            this.state.isOpen ? _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-up',
-              className: 'u-icon-button--right' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down',
-              className: 'u-icon-button--right' })
+            _react2.default.createElement(
+              'span',
+              { className: 'c-dropdown__chevron' },
+              this.state.isOpen ? _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-up' }) : _react2.default.createElement(_SVGIcon2.default, { name: 'chevron-down' })
+            )
           ),
           _react2.default.createElement(
             'div',
-            { className: contentsCls.join(' ') },
+            { ref: this.contentsEl,
+              className: contentsCls.join(' ') },
             children
           )
         )
@@ -49085,11 +49123,23 @@ var DropDown = function (_React$PureComponent) {
   return DropDown;
 }(_react2.default.PureComponent);
 
-DropDown.Entry = function (_ref) {
-  var children = _ref.children,
-      _ref$onClick = _ref.onClick,
-      _onClick = _ref$onClick === undefined ? function () {} : _ref$onClick,
-      rest = _objectWithoutProperties(_ref, ['children', 'onClick']);
+DropDown.Heading = function (_ref) {
+  var children = _ref.children;
+  return _react2.default.createElement(
+    'div',
+    {
+      className: 'c-dropdown__heading' },
+    children
+  );
+};
+
+DropDown.Option = function (_ref2) {
+  var children = _ref2.children,
+      _ref2$selected = _ref2.selected,
+      selected = _ref2$selected === undefined ? false : _ref2$selected,
+      _ref2$onClick = _ref2.onClick,
+      _onClick = _ref2$onClick === undefined ? function () {} : _ref2$onClick,
+      rest = _objectWithoutProperties(_ref2, ['children', 'selected', 'onClick']);
 
   return _react2.default.createElement(
     DropDownContext.Consumer,
@@ -49097,7 +49147,8 @@ DropDown.Entry = function (_ref) {
     function (contextValue) {
       return _react2.default.createElement(
         'div',
-        _extends({ className: 'c-dropdown__entry',
+        _extends({ className: 'c-dropdown__option',
+          'data-selected': selected,
           onClick: function onClick(e) {
             contextValue.select(e);
             _onClick(e);
@@ -49117,10 +49168,41 @@ DropDown.propTypes = {
   open: _propTypes2.default.bool,
   title: _propTypes2.default.string,
   setSelectedAsTitle: _propTypes2.default.bool,
-  negative: _propTypes2.default.bool
+  // TODO negative          : PropTypes.bool,
+  onLabelClick: _propTypes2.default.func
 };
 exports.default = DropDown;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../img/profiles/bear.jpg":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-dom":"../../node_modules/react-dom/index.js","prop-types":"../../node_modules/prop-types/index.js","./Button":"../js/components/Button.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/store/model.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/*
+Just a simple model
+ */
+
+// For the catalog drop down and pages
+var CatalogStructure = exports.CatalogStructure = {
+  portfolio: 'Portfolio',
+  jobrole: 'Job Role',
+  skilllevel: 'Skill Level',
+  product: 'Product',
+  language: 'Language',
+  topic: 'Topic',
+  competency: 'Competency'
+};
+
+var TagCategories = exports.TagCategories = {
+  portfolio: ['Sales', 'Technical', 'Manager Development and Team Leadership', 'Professional Development and Individual Leadership'],
+  jobrole: ['All Associates', 'Account Manager', 'Ansible Sales Specialist', 'Cloud Sales Specialist', 'Consultant', 'Customer Service Representative', 'Customer Success Manager', 'Customer Support', 'Customer Support Specialist', 'Delivery', 'Developer', 'Inside Sales Professional', 'Marketing', 'Middleware Sales Specialist', 'Partner Account Manager (PAM)', 'People Manager', 'Product Manager', 'Project Manager', 'Quality Engineer', 'Sales', 'Sales Engineer', 'Sales Manager', 'Software Engineer', 'Software Maintenance Engineer', 'Solution Architect', 'Storage Sales Specialist', 'Systems Administrator', 'Technical Account Manager', 'Technical Services Manager (TSM)', 'Technical Support Engineer', 'Technical Writer'],
+  skilllevel: ['Knowledgable', 'Foundational', 'Experienced', 'Advanced', 'Expert'],
+  product: ['3scale API Management', 'AMQ (A-MQ RHAMQ)', 'AMQ Online', 'Ansible Automation (RHAA)', 'Ansible Engine (RHAE)', 'Ansible Tower (RHAT)', 'Ceph Storage (RHCS)', 'CloudForms', 'CoreOS (RHCOS)', 'Data Grid (RHJBDG RHJDG RHDG)', 'Data Virtualization (RHJBDV RHDV)', 'Decision Manager (BRMS RHDM)', 'Developer Studio (RHJBDS JBDS RHJDS RHDS)', 'Development Suite (RHDS)', 'Fuse (RHJBF RHF)', 'Fuse Online', 'Gluster Storage (RHGS)', 'Insights (RHI)', 'JBoss Enterprise Application Platform (EAP)', 'JBoss Frameworks (RHJBF)', 'JBoss Middleware', 'JBoss Operations Network (JON)', 'JBoss Portal (RHJBP)', 'JBoss Web Server (RHJBWS)', 'OpenShift (RHO RHOS RHOO RHOD RHOCL RHOCP OCP)', 'OpenShift Application Services (RHOAS RHASOCP)', 'OpenStack (RHOSP OSP)', 'Process Automation Manager (BPM Suite BPMS BPM RHPAM)', 'Quay (RHCR)', 'Red Hat Certificate System (RHCS)', 'Red Hat Cloud Infrastructure (RHCI)', 'Red Hat Cloud Suite (RHCS)', 'Red Hat Directory Server (RHDS)', 'Red Hat Enterprise Linux (RHEL)', 'Red Hat Enterprise Linux Atomic Host', 'Red Hat Enterprise Linux for IBM System z', 'Red Hat Enterprise Linux for SAP HANA', 'Red Hat Hyperconverged Infrastructure (RHHI)', 'Red Hat Mobile Application Platform (RHMAP FeedHenry)', 'Red Hat OpenShift Application Runtimes (RHOAR)', 'Red Hat OpenShift Container Storage (RHOCS)', 'Red Hat Storage', 'Red Hat Subscription Management (RHSM)', 'Red Hat Update Infrastructure (RHUI)', 'Red Hat Virtualization (RHV RHEV)', 'Satellite', 'Satellite (RHS)'],
+  language: ['Chinese', 'English', 'French', 'German', 'Italian', 'Japanese', 'Korean', 'Portuguese', 'Spanish'],
+  topic: ['Account planning', 'Administration and Operation', 'Agile Integration', 'Business Process Automation', 'Certification', 'Client', 'Cloud', 'Cloud-Native App Dev', 'Communication Skills', 'Configuration', 'Consultative Selling', 'Containers', 'Deployment', 'Dev Ops / DevOps', 'Development', 'Forecast', 'Hybrid Cloud Infrastructure', 'Infrastructure', 'Installation and Implementation', 'Integration Services', 'Interviewing and Hiring', 'IT Automation and Management', 'IT Optimization', 'Leadership Development', 'Middleware', 'Mobile', 'Negotiation', 'Opportunity planning', 'Personal Development', 'Pipeline Management', 'Presentation skills', 'Productivity tools', 'Project or Program Management', 'Red Hat conversation framework', 'Red Hat Learning Subscription (RHLS)', 'Red Hat Online Learning (ROLE)', 'Red Hat Skills Exchange (RHSE)', 'Red Hat Training (RHT)', 'Sales Messaging', 'Sales Onboarding', 'Troubleshooting'],
+  competency: ['Consultative selling', 'Continuous learning', 'Customer focus', 'Execution', 'Influence', 'Operational sales excellence', 'Problem solving', 'Red Hat multiplier', 'Sales manager excellence', 'Sales presence', 'Strategic', 'Team advocate']
+};
+},{}],"../img/profiles/bear.jpg":[function(require,module,exports) {
 module.exports = "/bear.ab0ae544.jpg";
 },{}],"../img/profiles/giraffe.jpg":[function(require,module,exports) {
 module.exports = "/giraffe.202538e8.jpg";
@@ -49193,6 +49275,8 @@ var _Dropdown = require('../components/Dropdown');
 
 var _Dropdown2 = _interopRequireDefault(_Dropdown);
 
+var _model = require('../store/model');
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -49216,7 +49300,7 @@ var MockPath = function MockPath(_ref) {
     _LearningCard2.default,
     { type: 'path',
       duration: '42 minutes',
-      tag: tag || 'Infrastructure',
+      tag: tag || Lorem.oneOf(_model.TagCategories.topic),
       mobile: true,
       card: asCard },
     _react2.default.createElement(
@@ -49239,7 +49323,7 @@ var MockCourse = function MockCourse(_ref2) {
     _LearningCard2.default,
     { type: 'course',
       duration: '5 hours 30 minutes',
-      tag: tag || 'Ansible',
+      tag: tag || Lorem.oneOf(_model.TagCategories.topic),
       card: asCard },
     _react2.default.createElement(
       'h1',
@@ -49361,17 +49445,18 @@ var TestGridContent = function (_React$Component) {
         _Dropdown2.default,
         { title: 'Order' },
         _react2.default.createElement(
-          _Dropdown2.default.Entry,
-          { onClick: this.onSortFilterClick },
+          _Dropdown2.default.Option,
+          { selected: this.props.byDate,
+            onClick: this.onSortFilterClick },
           'Recently added'
         ),
         _react2.default.createElement(
-          _Dropdown2.default.Entry,
+          _Dropdown2.default.Option,
           { onClick: this.onSortFilterClick },
           'Alphabetical (A-Z)'
         ),
         _react2.default.createElement(
-          _Dropdown2.default.Entry,
+          _Dropdown2.default.Option,
           { onClick: this.onSortFilterClick },
           'Reverse alphabetical (Z-A)'
         )
@@ -49438,7 +49523,8 @@ TestGridContent.defaultProps = {
   allowSort: false,
   allowViewChange: false,
   grid: true,
-  tag: null
+  tag: null,
+  byDate: false
 };
 TestGridContent.propTypes = {
   title: _propTypes2.default.string,
@@ -49452,10 +49538,11 @@ TestGridContent.propTypes = {
   allowSort: _propTypes2.default.bool,
   allowViewChange: _propTypes2.default.bool,
   grid: _propTypes2.default.bool,
-  tag: _propTypes2.default.string
+  tag: _propTypes2.default.string,
+  byDate: _propTypes2.default.bool
 };
 exports.default = TestGridContent;
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","../components/LearningCard":"../js/components/LearningCard.js","../layout/CardLayout":"../js/layout/CardLayout.js","lodash":"../../node_modules/lodash/lodash.js","../utils/Lorem":"../js/utils/Lorem.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/AlertBadge":"../js/components/AlertBadge.js","../components/TeamCard":"../js/components/TeamCard.js","../components/Dropdown":"../js/components/Dropdown.js","../store/model":"../js/store/model.js","../../img/profiles/bear.jpg":"../img/profiles/bear.jpg","../../img/profiles/giraffe.jpg":"../img/profiles/giraffe.jpg","../../img/profiles/guinnipig.jpg":"../img/profiles/guinnipig.jpg","../../img/profiles/osterage.jpg":"../img/profiles/osterage.jpg","../../img/profiles/polar.jpg":"../img/profiles/polar.jpg","../../img/profiles/pug.jpg":"../img/profiles/pug.jpg","../../img/profiles/racoon.jpg":"../img/profiles/racoon.jpg","../../img/profiles/squirell.jpg":"../img/profiles/squirell.jpg","../../img/profiles/taz.jpg":"../img/profiles/taz.jpg","../../img/rover-default-profile.png":"../img/rover-default-profile.png"}],"../js/components/MessageBannerGroup.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -49641,12 +49728,12 @@ var Overview = function (_React$Component) {
                   _react2.default.createElement(
                     'h1',
                     null,
-                    Lorem.sentence(5, 10)
+                    'Welcome to Red Hat Learning!'
                   ),
                   _react2.default.createElement(
                     'p',
                     null,
-                    Lorem.sentence(10, 30)
+                    'First time here? Let us help you understand what you can do on this site.'
                   )
                 ),
                 _react2.default.createElement(
@@ -49655,12 +49742,12 @@ var Overview = function (_React$Component) {
                   _react2.default.createElement(
                     _Button2.default,
                     { negative: true },
-                    'Dismiss'
+                    'No thanks'
                   ),
                   _react2.default.createElement(
                     _Button2.default,
                     { primary: true, negative: true },
-                    'View class'
+                    'View Getting Started'
                   )
                 )
               )
@@ -49914,37 +50001,7 @@ CategoryCard.propTypes = {
   id: _propTypes2.default.string
 };
 exports.default = (0, _reactRouterDom.withRouter)(CategoryCard);
-},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/store/model.js":[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/*
-Just a simple model
- */
-
-// For the catalog drop down and pages
-var CatalogStructure = exports.CatalogStructure = {
-  portfolio: 'Portfolio',
-  jobrole: 'Job Role',
-  skilllevel: 'Skill Level',
-  product: 'Product',
-  language: 'Language',
-  topic: 'Topic',
-  competency: 'Competency'
-};
-
-var TagCategories = exports.TagCategories = {
-  portfolio: ['Sales', 'Technical', 'Manager Development and Team Leadership', 'Professional Development and Individual Leadership'],
-  jobrole: ['All Associates', 'Account Manager', 'Ansible Sales Specialist', 'Cloud Sales Specialist', 'Consultant', 'Customer Service Representative', 'Customer Success Manager', 'Customer Support', 'Customer Support Specialist', 'Delivery', 'Developer', 'Inside Sales Professional', 'Marketing', 'Middleware Sales Specialist', 'Partner Account Manager (PAM)', 'People Manager', 'Product Manager', 'Project Manager', 'Quality Engineer', 'Sales', 'Sales Engineer', 'Sales Manager', 'Software Engineer', 'Software Maintenance Engineer', 'Solution Architect', 'Storage Sales Specialist', 'Systems Administrator', 'Technical Account Manager', 'Technical Services Manager (TSM)', 'Technical Support Engineer', 'Technical Writer'],
-  skilllevel: ['Knowledgable', 'Foundational', 'Experienced', 'Advanced', 'Expert'],
-  product: ['3scale API Management', 'AMQ (A-MQ RHAMQ)', 'AMQ Online', 'Ansible Automation (RHAA)', 'Ansible Engine (RHAE)', 'Ansible Tower (RHAT)', 'Ceph Storage (RHCS)', 'CloudForms', 'CoreOS (RHCOS)', 'Data Grid (RHJBDG RHJDG RHDG)', 'Data Virtualization (RHJBDV RHDV)', 'Decision Manager (BRMS RHDM)', 'Developer Studio (RHJBDS JBDS RHJDS RHDS)', 'Development Suite (RHDS)', 'Fuse (RHJBF RHF)', 'Fuse Online', 'Gluster Storage (RHGS)', 'Insights (RHI)', 'JBoss Enterprise Application Platform (EAP)', 'JBoss Frameworks (RHJBF)', 'JBoss Middleware', 'JBoss Operations Network (JON)', 'JBoss Portal (RHJBP)', 'JBoss Web Server (RHJBWS)', 'OpenShift (RHO RHOS RHOO RHOD RHOCL RHOCP OCP)', 'OpenShift Application Services (RHOAS RHASOCP)', 'OpenStack (RHOSP OSP)', 'Process Automation Manager (BPM Suite BPMS BPM RHPAM)', 'Quay (RHCR)', 'Red Hat Certificate System (RHCS)', 'Red Hat Cloud Infrastructure (RHCI)', 'Red Hat Cloud Suite (RHCS)', 'Red Hat Directory Server (RHDS)', 'Red Hat Enterprise Linux (RHEL)', 'Red Hat Enterprise Linux Atomic Host', 'Red Hat Enterprise Linux for IBM System z', 'Red Hat Enterprise Linux for SAP HANA', 'Red Hat Hyperconverged Infrastructure (RHHI)', 'Red Hat Mobile Application Platform (RHMAP FeedHenry)', 'Red Hat OpenShift Application Runtimes (RHOAR)', 'Red Hat OpenShift Container Storage (RHOCS)', 'Red Hat Storage', 'Red Hat Subscription Management (RHSM)', 'Red Hat Update Infrastructure (RHUI)', 'Red Hat Virtualization (RHV RHEV)', 'Satellite', 'Satellite (RHS)'],
-  language: ['Chinese', 'English', 'French', 'German', 'Italian', 'Japanese', 'Korean', 'Portuguese', 'Spanish'],
-  topic: ['Account planning', 'Administration and Operation', 'Agile Integration', 'Business Process Automation', 'Certification', 'Client', 'Cloud', 'Cloud-Native App Dev', 'Communication Skills', 'Configuration', 'Consultative Selling', 'Containers', 'Deployment', 'Dev Ops / DevOps', 'Development', 'Forecast', 'Hybrid Cloud Infrastructure', 'Infrastructure', 'Installation and Implementation', 'Integration Services', 'Interviewing and Hiring', 'IT Automation and Management', 'IT Optimization', 'Leadership Development', 'Middleware', 'Mobile', 'Negotiation', 'Opportunity planning', 'Personal Development', 'Pipeline Management', 'Presentation skills', 'Productivity tools', 'Project or Program Management', 'Red Hat conversation framework', 'Red Hat Learning Subscription (RHLS)', 'Red Hat Online Learning (ROLE)', 'Red Hat Skills Exchange (RHSE)', 'Red Hat Training (RHT)', 'Sales Messaging', 'Sales Onboarding', 'Troubleshooting'],
-  competency: ['Consultative selling', 'Continuous learning', 'Customer focus', 'Execution', 'Influence', 'Operational sales excellence', 'Problem solving', 'Red Hat multiplier', 'Sales manager excellence', 'Sales presence', 'Strategic', 'Team advocate']
-};
-},{}],"../js/pages/Catalog.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js"}],"../js/pages/Catalog.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84151,7 +84208,7 @@ CheckBox.propTypes = {
 };
 exports.default = CheckBox;
 },{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js"}],"../js/components/Chip.js":[function(require,module,exports) {
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -84161,15 +84218,19 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SVGIcon = require("./SVGIcon");
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _SVGIcon = require('./SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
-var _Label = require("./Label");
+var _Label = require('./Label');
 
 var _Label2 = _interopRequireDefault(_Label);
 
@@ -84192,32 +84253,40 @@ var Chip = function (_React$PureComponent) {
     var _this = _possibleConstructorReturn(this, (Chip.__proto__ || Object.getPrototypeOf(Chip)).call(this, props));
 
     _this.state = {};
+
+    _this.onRemoveClick = function (e) {
+      console.log('remove a chip');
+      _this.props.onRemove(e);
+    };
+
     return _this;
   }
 
   _createClass(Chip, [{
-    key: "componentDidMount",
+    key: 'componentDidMount',
     value: function componentDidMount() {}
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       var _props = this.props,
           _props$className = _props.className,
           className = _props$className === undefined ? null : _props$className,
           children = _props.children,
-          rest = _objectWithoutProperties(_props, ["className", "children"]);
+          onRemove = _props.onRemove,
+          rest = _objectWithoutProperties(_props, ['className', 'children', 'onRemove']);
 
-      var cls = [''];
+      var cls = ['c-chip'];
       cls.push(className);
 
       return _react2.default.createElement(
-        _Label2.default,
+        'span',
         _extends({ className: cls.join(' ') }, rest),
         children,
-        _react2.default.createElement(_SVGIcon2.default, { name: "x",
-          width: "14",
-          height: "14",
-          className: "u-padding-left" })
+        _react2.default.createElement(_SVGIcon2.default, { name: 'x',
+          width: '14',
+          height: '14',
+          onClick: this.onRemoveClick,
+          className: 'u-padding-left' })
       );
     }
   }]);
@@ -84225,10 +84294,84 @@ var Chip = function (_React$PureComponent) {
   return Chip;
 }(_react2.default.PureComponent);
 
-Chip.defaultProps = {};
-Chip.propTypes = {};
+Chip.defaultProps = {
+  onRemove: function onRemove() {}
+};
+Chip.propTypes = {
+  onRemove: _propTypes2.default.func
+};
 exports.default = Chip;
-},{"react":"../../node_modules/react/index.js","./SVGIcon":"../js/components/SVGIcon.js","./Label":"../js/components/Label.js"}],"../js/pages/Search.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js","./SVGIcon":"../js/components/SVGIcon.js","./Label":"../js/components/Label.js"}],"../js/components/ChipGroup.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ChipGroup = function (_React$PureComponent) {
+  _inherits(ChipGroup, _React$PureComponent);
+
+  function ChipGroup(props) {
+    _classCallCheck(this, ChipGroup);
+
+    var _this = _possibleConstructorReturn(this, (ChipGroup.__proto__ || Object.getPrototypeOf(ChipGroup)).call(this, props));
+
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(ChipGroup, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {}
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          _props$className = _props.className,
+          className = _props$className === undefined ? null : _props$className,
+          children = _props.children,
+          rest = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var cls = ['c-chip-group'];
+      cls.push(className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({ className: cls.join(' ') }, rest),
+        children
+      );
+    }
+  }]);
+
+  return ChipGroup;
+}(_react2.default.PureComponent);
+
+ChipGroup.defaultProps = {};
+ChipGroup.propTypes = {};
+exports.default = ChipGroup;
+},{"react":"../../node_modules/react/index.js","prop-types":"../../node_modules/prop-types/index.js"}],"../js/pages/Search.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -84279,6 +84422,10 @@ var _Chip = require("../components/Chip");
 
 var _Chip2 = _interopRequireDefault(_Chip);
 
+var _ChipGroup = require("../components/ChipGroup");
+
+var _ChipGroup2 = _interopRequireDefault(_ChipGroup);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84321,25 +84468,8 @@ var Search = function (_React$Component) {
         _Chip2.default,
         null,
         tagValue
-      ) : [_react2.default.createElement(
-        "span",
-        null,
-        _react2.default.createElement(
-          _Chip2.default,
-          null,
-          "Ansible"
-        ),
-        _react2.default.createElement(
-          _Chip2.default,
-          null,
-          "OpenShift"
-        ),
-        _react2.default.createElement(
-          _Chip2.default,
-          null,
-          "Infrastructure"
-        )
-      )];
+      ) : null,
+          header = tagValue ? '123 Results' : 'All Content';
 
       return _react2.default.createElement(
         _react2.default.Fragment,
@@ -84353,21 +84483,28 @@ var Search = function (_React$Component) {
             _react2.default.createElement(
               "h1",
               null,
-              "123 Results"
+              header
             ),
             _react2.default.createElement(
               "div",
               { className: "l-search-results__matches" },
-              tags
+              _react2.default.createElement(
+                _ChipGroup2.default,
+                null,
+                tags
+              )
             )
           ),
-          _react2.default.createElement(_TestGridContent2.default, { mode: "results", numPaths: 2, numCourses: 7,
+          _react2.default.createElement(_TestGridContent2.default, { numPaths: 2, numCourses: 7,
             tag: tagValue,
-            controls: this.filterButton(), status: _react2.default.createElement(
+            controls: this.filterButton(),
+            status: _react2.default.createElement(
               "p",
               null,
               "(Infinity scroll)"
-            ), allowViewChange: true, allowSort: true, grid: false })
+            ),
+            byDate: tags === null,
+            allowViewChange: true, allowSort: true, grid: false })
         ),
         _react2.default.createElement(
           _SlideMenu2.default,
@@ -84470,6 +84607,16 @@ var Search = function (_React$Component) {
           _react2.default.createElement(
             _SlideMenu2.default.Section,
             null,
+            _react2.default.createElement(_ExpandingMenu2.default, { title: "Class Location (ILT)" })
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default.Section,
+            null,
+            _react2.default.createElement(_ExpandingMenu2.default, { title: "Class Time (ILT)" })
+          ),
+          _react2.default.createElement(
+            _SlideMenu2.default.Section,
+            null,
             _react2.default.createElement(
               _ExpandingMenu2.default,
               { title: "Skill Level" },
@@ -84538,7 +84685,7 @@ var Search = function (_React$Component) {
 Search.defaultProps = {};
 Search.propTypes = {};
 exports.default = Search;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js","../components/ExpandingMenu":"../js/components/ExpandingMenu.js","../components/CheckBox":"../js/components/CheckBox.js","../utils/Toolbox":"../js/utils/Toolbox.js","../components/Chip":"../js/components/Chip.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../test/TestGridContent":"../js/test/TestGridContent.js","../components/Label":"../js/components/Label.js","../components/SVGIcon":"../js/components/SVGIcon.js","../components/ButtonBar":"../js/components/ButtonBar.js","../components/SlideMenu":"../js/components/SlideMenu.js","../components/ExpandingMenu":"../js/components/ExpandingMenu.js","../components/CheckBox":"../js/components/CheckBox.js","../utils/Toolbox":"../js/utils/Toolbox.js","../components/Chip":"../js/components/Chip.js","../components/ChipGroup":"../js/components/ChipGroup.js"}],"../img/RHLearning_tool_logo.png":[function(require,module,exports) {
 module.exports = "/RHLearning_tool_logo.30f020e9.png";
 },{}],"../js/layout/Header.js":[function(require,module,exports) {
 'use strict';
@@ -84595,12 +84742,24 @@ var Header = function (_React$Component) {
 
     _this.state = {};
 
-    _this.onCatalogClick = function () {
-      _this.props.history.push('/catalog');
+    _this.onHomeClick = function () {
+      _this.props.history.push('/');
+    };
+
+    _this.onDiscoverClick = function () {
+      _this.props.history.push('/discover');
+    };
+
+    _this.onTeamClick = function () {
+      _this.props.history.push('/team');
     };
 
     _this.onCalendarClick = function () {
       _this.props.history.push('/calendar');
+    };
+
+    _this.onCatalogClick = function () {
+      _this.props.history.push('/search');
     };
 
     _this.onCatalogNavClick = function (e) {
@@ -84619,12 +84778,14 @@ var Header = function (_React$Component) {
     value: function getCatalogNav() {
       var _this2 = this;
 
+      // style={{width: '200px'}}
+      // <DropDown.Heading>Start exploring our learning offerings by choosing a category below. </DropDown.Heading>
       return _react2.default.createElement(
         _Dropdown2.default,
-        { title: 'Catalog', setSelectedAsTitle: false },
+        { title: 'Catalog', setSelectedAsTitle: false, onLabelClick: this.onCatalogClick },
         Object.keys(_model.CatalogStructure).map(function (k, i) {
           return _react2.default.createElement(
-            _Dropdown2.default.Entry,
+            _Dropdown2.default.Option,
             { onClick: _this2.onCatalogNavClick, id: k, key: i },
             _model.CatalogStructure[k]
           );
@@ -84705,6 +84866,25 @@ var Header = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'c-site-header__nav' },
+            _react2.default.createElement(
+              _Dropdown2.default,
+              { title: 'Dashboard', setSelectedAsTitle: false },
+              _react2.default.createElement(
+                _Dropdown2.default.Option,
+                { onClick: this.onHomeClick },
+                'Overview'
+              ),
+              _react2.default.createElement(
+                _Dropdown2.default.Option,
+                { onClick: this.onDiscoverClick },
+                'Discover'
+              ),
+              _react2.default.createElement(
+                _Dropdown2.default.Option,
+                { onClick: this.onTeamClick },
+                'Team'
+              )
+            ),
             this.getCatalogNav(),
             _react2.default.createElement(
               'button',
@@ -86280,117 +86460,7 @@ var CourseDetailResources = function (_React$Component) {
 CourseDetailResources.defaultProps = {};
 CourseDetailResources.propTypes = {};
 exports.default = CourseDetailResources;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js"}],"../js/pages/CatalogCategory.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Content = require("../layout/Content");
-
-var _Content2 = _interopRequireDefault(_Content);
-
-var _Hero = require("../layout/Hero");
-
-var _Hero2 = _interopRequireDefault(_Hero);
-
-var _Button = require("../components/Button");
-
-var _Button2 = _interopRequireDefault(_Button);
-
-var _TestGridContent = require("../test/TestGridContent");
-
-var _TestGridContent2 = _interopRequireDefault(_TestGridContent);
-
-var _Toolbox = require("../utils/Toolbox");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CatalogCategory = function (_React$Component) {
-  _inherits(CatalogCategory, _React$Component);
-
-  function CatalogCategory(props) {
-    _classCallCheck(this, CatalogCategory);
-
-    var _this = _possibleConstructorReturn(this, (CatalogCategory.__proto__ || Object.getPrototypeOf(CatalogCategory)).call(this, props));
-
-    _this.state = {};
-    return _this;
-  }
-
-  _createClass(CatalogCategory, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {}
-  }, {
-    key: "render",
-    value: function render() {
-      var tagValueIDSlug = this.props.match.params.id,
-          tagValue = tagValueIDSlug ? (0, _Toolbox.unslugify)(tagValueIDSlug) : '';
-
-      return _react2.default.createElement(
-        _react2.default.Fragment,
-        null,
-        _react2.default.createElement(
-          _Hero2.default,
-          null,
-          _react2.default.createElement(
-            _Hero2.default.Content,
-            null,
-            _react2.default.createElement(
-              "div",
-              { className: "l-categorieshero" },
-              _react2.default.createElement(
-                "h1",
-                null,
-                tagValue
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          _Content2.default,
-          null,
-          _react2.default.createElement(_TestGridContent2.default, { grid: false, title: "Learning Paths",
-            badgeCount: 0, numPaths: 15, numCourses: 0,
-            status: _react2.default.createElement(
-              _Button2.default,
-              null,
-              "View All"
-            ), allowViewChange: true,
-            allowSort: true }),
-          _react2.default.createElement(_TestGridContent2.default, { grid: false, title: "Courses",
-            badgeCount: 0, numPaths: 0, numCourses: 50,
-            status: _react2.default.createElement(
-              _Button2.default,
-              null,
-              "View All"
-            ), allowViewChange: true,
-            allowSort: true })
-        )
-      );
-    }
-  }]);
-
-  return CatalogCategory;
-}(_react2.default.Component);
-
-CatalogCategory.defaultProps = {};
-CatalogCategory.propTypes = {};
-exports.default = CatalogCategory;
-},{"react":"../../node_modules/react/index.js","../layout/Content":"../js/layout/Content.js","../layout/Hero":"../js/layout/Hero.js","../components/Button":"../js/components/Button.js","../test/TestGridContent":"../js/test/TestGridContent.js","../utils/Toolbox":"../js/utils/Toolbox.js"}],"../js/pages/UserPaths.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","../layout/Content":"../js/layout/Content.js","../components/BigTabs":"../js/components/BigTabs.js","../layout/CourseDetailDetails":"../js/layout/CourseDetailDetails.js"}],"../js/pages/UserPaths.js":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -86895,10 +86965,6 @@ var _SVGIcon = require('./components/SVGIcon');
 
 var _SVGIcon2 = _interopRequireDefault(_SVGIcon);
 
-var _CatalogCategory = require('./pages/CatalogCategory');
-
-var _CatalogCategory2 = _interopRequireDefault(_CatalogCategory);
-
 var _UserPaths = require('./pages/UserPaths');
 
 var _UserPaths2 = _interopRequireDefault(_UserPaths);
@@ -87061,7 +87127,7 @@ var AppRouter = function (_React$Component) {
 AppRouter.defaultProps = {};
 AppRouter.propTypes = {};
 exports.default = AppRouter;
-},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/UserProfile":"../js/pages/UserProfile.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js","./pages/CatalogCategory":"../js/pages/CatalogCategory.js","./pages/UserPaths":"../js/pages/UserPaths.js","./pages/UserRecord":"../js/pages/UserRecord.js","./pages/UserSettings":"../js/pages/UserSettings.js"}],"../js/App.js":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","react-router-dom":"../../node_modules/react-router-dom/es/index.js","./pages/Overview":"../js/pages/Overview.js","./pages/FourOhFour":"../js/pages/FourOhFour.js","./pages/Catalog":"../js/pages/Catalog.js","./pages/Calendar":"../js/pages/Calendar.js","./pages/Alerts":"../js/pages/Alerts.js","./pages/Help":"../js/pages/Help.js","./pages/UserProfile":"../js/pages/UserProfile.js","./pages/CourseDetail":"../js/pages/CourseDetail.js","./pages/PathDetail":"../js/pages/PathDetail.js","./pages/Search":"../js/pages/Search.js","./layout/Header":"../js/layout/Header.js","./layout/SiteContainer":"../js/layout/SiteContainer.js","./layout/Footer":"../js/layout/Footer.js","./pages/Feedback":"../js/pages/Feedback.js","./pages/Discover":"../js/pages/Discover.js","./pages/Team":"../js/pages/Team.js","./pages/CourseDetailActivities":"../js/pages/CourseDetailActivities.js","./pages/CourseDetailUpcoming":"../js/pages/CourseDetailUpcoming.js","./pages/CoursePlayer":"../js/pages/CoursePlayer.js","./pages/CourseDetailResources":"../js/pages/CourseDetailResources.js","./components/SlideMenu":"../js/components/SlideMenu.js","./components/SVGIcon":"../js/components/SVGIcon.js","./pages/UserPaths":"../js/pages/UserPaths.js","./pages/UserRecord":"../js/pages/UserRecord.js","./pages/UserSettings":"../js/pages/UserSettings.js"}],"../js/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
