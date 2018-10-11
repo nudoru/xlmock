@@ -10,6 +10,7 @@ import AlertBadge from "../components/AlertBadge";
 import TeamCard from "../components/TeamCard";
 import DropDown from "../components/Dropdown";
 import {TagCategories} from "../store/model";
+import {shuffleArray} from '../utils/Toolbox';
 
 /**
  * For quick mocking of pages
@@ -44,10 +45,12 @@ const MockPath = ({asCard, tag}) => <LearningCard type='path'
   <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
 
-const MockCourse = ({asCard, tag}) => <LearningCard type='course'
-                                                    duration='5 hours 30 minutes'
-                                                    tag={tag || Lorem.oneOf(TagCategories.topic)}
-                                                    card={asCard}>
+const MockCourse = ({asCard, tag, provider = 'lms'}) => <LearningCard
+  type='course'
+  duration='5 hours 30 minutes'
+  provider={provider}
+  tag={tag || Lorem.oneOf(TagCategories.topic)}
+  card={asCard}>
   <h1>{Lorem.title(2, 10)}</h1>
   <p>{Lorem.sentence(5, 15)}</p>
 </LearningCard>;
@@ -65,33 +68,41 @@ const MockTeam = ({asCard}) => <TeamCard
 class TestGridContent extends React.Component {
 
   static defaultProps = {
-    title          : '',
-    numPaths       : 5,
-    numCourses     : 5,
-    numPeople      : 0,
-    badgeCount     : 0,
-    mode           : 'list', // list or results
-    allowSort      : false,
-    allowViewChange: false,
-    grid           : true,
-    tag            : null,
-    byDate         : false,
+    title            : '',
+    numPaths         : 5,
+    numCourses       : 5,
+    numCoursesAllego : 0,
+    numCoursesKaltura: 0,
+    numCoursesLynda  : 0,
+    numPeople        : 0,
+    badgeCount       : 0,
+    mode             : 'list', // list or results
+    allowSort        : false,
+    allowViewChange  : false,
+    grid             : true,
+    tag              : null,
+    byDate           : false,
+    shuffle          : false,
   };
 
   static propTypes = {
-    title          : PropTypes.string,
-    numPaths       : PropTypes.number,
-    numCourses     : PropTypes.number,
-    numPeople      : PropTypes.number,
-    badgeCount     : PropTypes.number,
-    mode           : PropTypes.string,
-    controls       : PropTypes.object,
-    status         : PropTypes.object,
-    allowSort      : PropTypes.bool,
-    allowViewChange: PropTypes.bool,
-    grid           : PropTypes.bool,
-    tag            : PropTypes.string,
-    byDate         : PropTypes.bool,
+    title            : PropTypes.string,
+    numPaths         : PropTypes.number,
+    numCourses       : PropTypes.number,
+    numCoursesAllego : PropTypes.number,
+    numCoursesKaltura: PropTypes.number,
+    numCoursesLynda  : PropTypes.number,
+    numPeople        : PropTypes.number,
+    badgeCount       : PropTypes.number,
+    mode             : PropTypes.string,
+    controls         : PropTypes.object,
+    status           : PropTypes.object,
+    allowSort        : PropTypes.bool,
+    allowViewChange  : PropTypes.bool,
+    grid             : PropTypes.bool,
+    tag              : PropTypes.string,
+    byDate           : PropTypes.bool,
+    shuffle          : PropTypes.bool
   };
 
   state = {
@@ -120,18 +131,37 @@ class TestGridContent extends React.Component {
 
 
   render() {
-    let paths       = this.props.numPaths ? _.range(this.props.numPaths).map(i =>
+    let paths          = this.props.numPaths ? _.range(this.props.numPaths).map(i =>
           <MockPath key={i} tag={this.props.tag}
                     asCard={this.state.isGridView}/>) : [],
-        courses     = this.props.numCourses ? _.range(this.props.numCourses).map(i =>
+        courses        = this.props.numCourses ? _.range(this.props.numCourses).map(i =>
           <MockCourse key={i} tag={this.props.tag}
                       asCard={this.state.isGridView}/>) : [],
-        people      = this.props.numPeople ? _.range(this.props.numPeople).map(i =>
+
+        coursesAllego  = this.props.numCoursesAllego ? _.range(this.props.numCoursesAllego).map(i =>
+          <MockCourse key={i} tag={this.props.tag} provider='allego'
+                      asCard={this.state.isGridView}/>) : [],
+
+        coursesKaltura = this.props.numCoursesKaltura ? _.range(this.props.numCoursesKaltura).map(i =>
+          <MockCourse key={i} tag={this.props.tag} provider='kaltura'
+                      asCard={this.state.isGridView}/>) : [],
+
+        coursesLynda   = this.props.numCoursesLynda ? _.range(this.props.numCoursesLynda).map(i =>
+          <MockCourse key={i} tag={this.props.tag} provider='lynda'
+                      asCard={this.state.isGridView}/>) : [],
+
+
+        people         = this.props.numPeople ? _.range(this.props.numPeople).map(i =>
           <MockTeam key={i} asCard={this.state.isGridView}/>) : [],
-        content     = paths.concat(courses.concat(people)),
-        contentView = this.state.isGridView ?
+        // content        = paths.concat(courses.concat(people)),
+        content        = Array.prototype.concat(...[courses, paths, coursesAllego, coursesKaltura, coursesLynda]),
+        contentView    = this.state.isGridView ?
           <CardLayout.GridContent>{content}</CardLayout.GridContent> :
           <CardLayout.ListContent>{content}</CardLayout.ListContent>;
+
+          if(this.props.shuffle) {
+            content = shuffleArray(content);
+          }
 
     return (<CardLayout title={this.props.title}>
       <CardLayout.Title>{this.props.title}{this.props.badgeCount ?

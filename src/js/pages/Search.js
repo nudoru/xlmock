@@ -45,7 +45,11 @@ class Search extends React.Component {
               <ChipGroup>{tags}</ChipGroup>
             </div>
           </div>
-          <TestGridContent numPaths={2} numCourses={7}
+          <TestGridContent numPaths={5} numCourses={7}
+                           numCoursesAllego={tags ? 0 : 2}
+                           numCoursesKaltura={tags ? 0 : 2}
+                           numCoursesLynda={tags ? 0 : 2}
+                           shuffle
                            tag={tagValue}
                            controls={this.filterButton()}
                            status={<p>(Infinity scroll)</p>}

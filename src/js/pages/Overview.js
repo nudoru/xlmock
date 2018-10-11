@@ -58,6 +58,7 @@ class Overview extends React.Component {
               <BigTabs.Tab><Link to='/discover'>Discover</Link></BigTabs.Tab>
               <BigTabs.Tab><Link to='/team'>Team</Link></BigTabs.Tab>
             </BigTabs>
+            <h4 className='u-padding-top'>Resume your last learning path</h4>
             <HeroPathProgress/>
             <div className='c-path-metadata'>
               <Button onClick={this.onResumePathClick} negative primary

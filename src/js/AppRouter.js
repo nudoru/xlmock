@@ -25,6 +25,8 @@ import SVGIcon from "./components/SVGIcon";
 import UserPaths from "./pages/UserPaths";
 import UserRecord from "./pages/UserRecord";
 import UserSettings from "./pages/UserSettings";
+import OverviewBlank from "./pages/OverviewBlank";
+import DiscoverBlank from "./pages/DiscoverBlank";
 
 const Routes = () => <Switch>
   <Route exact path="/" component={Overview}/>
@@ -47,6 +49,8 @@ const Routes = () => <Switch>
   <Route path="/feedback" component={Feedback}/>
   <Route path="/discover" component={Discover}/>
   <Route path="/team" component={Team}/>
+  <Route path="/overviewblank" component={OverviewBlank}/>
+  <Route path="/discoverblank" component={DiscoverBlank}/>
   <Route component={FourOhFour}/>
 </Switch>;
 

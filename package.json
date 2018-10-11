@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prestart": "rm -rf ./docs",
+    "prestart": "rm -rf ./dist",
     "start": "parcel ./src/pug/react.pug --hmr-port 40827",
-    "prebuild": "rm -rf ./docs",
+    "prebuild": "rm -rf ./dist",
     "build": "parcel build ./src/pug/react.pug --out-dir ./dist --public-url ./",
     "deploy": "gh-pages -d dist"
   },

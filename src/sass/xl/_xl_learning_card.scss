@@ -4,7 +4,6 @@
 
 .c-lrncard {
   @include transition-all;
-  @extend .c-card-frame;
   cursor: pointer;
   &:hover {
     @extend .dropshadow-m;
@@ -186,3 +185,17 @@
   }
 }
 
+.c-lrncard--imgicon {
+  width: 32px;
+  height: 32px;
+}
+
+.c-lrncard--course--lynda {
+  border: 1px solid $lynda-color;
+}
+.c-lrncard--course--allego {
+  border: 1px solid $allego-color;
+}
+.c-lrncard--course--kaltura {
+  border: 1px solid $kaltura-color;
+}
